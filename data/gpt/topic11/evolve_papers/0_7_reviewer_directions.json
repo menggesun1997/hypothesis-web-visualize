@@ -1,0 +1,56 @@
+{
+  "original_idea": {
+    "title": "Psychological Trait-Driven Dynamic Prompt Engineering for Bias Reduction",
+    "Problem_Statement": "Static prompt designs for healthcare LLMs do not account for psychological and political bias factors affecting responses, limiting bias mitigation effectiveness during inference time.",
+    "Motivation": "Responds to the critical external gap by embedding real-time psychological trait signals into prompt engineering, enabling dynamic bias-aware context adjustments and more equitable LLM outputs in medical domains.",
+    "Proposed_Method": "Design a dynamic prompt engineering system that first assesses the input’s psychological and political trait context via lightweight classifiers, then automatically constructs tailor-made prompts incorporating disclaimers, neutralization instructions, or bias calibration hints. The system learns policy mappings between detected traits and prompt templates, optimizing for minimal hallucination and bias propagation.",
+    "Step_by_Step_Experiment_Plan": "1. Build classifiers for input psychological and political traits. 2. Create prompt template libraries with bias mitigation instructions. 3. Train a policy model mapping traits to prompt templates via reinforcement learning optimizing clinical correctness and fairness. 4. Evaluate on healthcare dialogue and clinical QA datasets. Metrics: hallucination reduction, bias score decrease, clinical accuracy.",
+    "Test_Case_Examples": "Input: Patient query with politically charged language; system applies prompt template suppressing political bias, resulting in unbiased clinical answer.",
+    "Fallback_Plan": "If classifiers are inaccurate, fallback to semi-static prompt blending multiple bias mitigation templates or employ manual override filters during deployment."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Psychological Traits",
+      "Dynamic Prompt Engineering",
+      "Bias Reduction",
+      "Healthcare LLMs",
+      "Medical Domain",
+      "Equitable Outputs"
+    ],
+    "direct_cooccurrence_count": 2494,
+    "min_pmi_score_value": 3.005533898691678,
+    "avg_pmi_score_value": 4.609129238190781,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "wearable sensor data",
+      "human activity recognition",
+      "sensor data",
+      "activity recognition",
+      "wearable sensor-based human activity recognition",
+      "learning techniques",
+      "sensor-based human activity recognition",
+      "Centers for Disease Control and Prevention",
+      "public health guidance",
+      "artificial general intelligence",
+      "intelligent decision-making",
+      "International Union of Nutritional Sciences"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method lacks clarity on how the psychological and political trait classifiers will be designed and validated as reliable predictors of bias-relevant signals in healthcare queries. Furthermore, the dynamic prompt construction mechanism—how disclaimers, neutralization instructions, and calibration hints are integrated and adapted per input—is underspecified. Articulating more detailed algorithmic steps, examples of prompt adaptation per detected trait, and how the policy model balances clinical accuracy with bias mitigation is critical for soundness and reproducibility of the approach. Consider explicitly defining the prompt template representations and learning process to ensure the method's reasoning is transparent and scientifically grounded, addressing potential challenges such as conflicting signals or ambiguous trait detection outcomes in the input text, which could otherwise undermine bias mitigation efficacy and hallucination prevention."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is conceptually sound but lacks important practical details that affect feasibility. For example, it assumes availability of labeled data for psychological and political traits relevant to healthcare queries, but does not specify data sources, labeling protocols, or how realistic such annotations are. Also, the plan to optimize the policy model via reinforcement learning requires defining reward signals for hallucination reduction, bias scoring, and clinical correctness, none of which are described. Providing explicit definitions of these metrics, the experimental setup for policy training (e.g., simulators or real LLM inference), and fallback evaluation methods will strengthen confidence in feasibility. Moreover, the plan should anticipate challenges in classifier accuracy impacting downstream prompt selection and propose robust strategies or stress tests to validate system behavior in these conditions."
+        }
+      ]
+    }
+  }
+}

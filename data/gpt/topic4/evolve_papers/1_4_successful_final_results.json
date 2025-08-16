@@ -1,0 +1,67 @@
+{
+  "before_idea": {
+    "title": "Cross-Domain Typological Adaptation in Healthcare NLP Systems",
+    "Problem_Statement": "Healthcare NLP tools predominantly developed for English or related languages struggle to generalize to typologically diverse, low-resource languages, limiting equitable access and care.",
+    "Motivation": "Fills the external gap by linking typology-aware NLP model development with healthcare application demands, addressing socio-cultural needs via specialized datasets and benchmarks.",
+    "Proposed_Method": "Develop adaptation techniques embedding typological features of target languages into domain-adaptive transfer learning frameworks. Construct typology-informed synthetic healthcare dialogues and clinical note datasets in underrepresented languages using controlled data augmentation respecting morphological and syntactic features.",
+    "Step_by_Step_Experiment_Plan": "1) Gather healthcare NLP datasets in English; 2) Identify key typological challenges in target languages; 3) Generate synthetic data augmenting English datasets with typologically-preserving transformations; 4) Fine-tune multilingual models with synthetic plus limited real data; 5) Evaluate on clinical concept recognition, sentiment, and summarization benchmarks; 6) Compare against non-typology-informed baselines.",
+    "Test_Case_Examples": "Input: Clinical note summarization in Amharic augmented with morphological variation preserving medical term meaning. Expected output: Higher accuracy and factual consistency compared to baseline models ignoring typology.",
+    "Fallback_Plan": "If synthetic augmentation is insufficient, collaborate with native speakers for small high-quality annotations or incorporate unsupervised pretraining on raw typologically rich corpora."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Typology-Integrated Functional Linguistic Adaptation for Low-Resource Healthcare NLP",
+        "Problem_Statement": "Healthcare NLP systems primarily trained on English and typologically related languages face significant challenges when generalized to typologically diverse, low-resource languages—especially those with complex morphological and syntactic structures characteristic of many indigenous and Indic languages. This discrepancy impedes equitable access to quality clinical NLP tools globally. Prior approaches insufficiently justify how embedding typological information operationally captures complex linguistic nuances in clinical contexts rich with domain-specific jargon. An explicit, theory-driven framework is needed to integrate linguistic typology with clinical language modeling to systematically adapt NLP models without overwhelming them or introducing noise, particularly under severe data scarcity.",
+        "Motivation": "This research bridges external research gaps by leveraging Systemic Functional Linguistics (SFL)—a well-established linguistic theory focusing on meaning-making functions in language—to ground typological adaptation in healthcare NLP. By integrating SFL-informed functional typological features alongside lexical resources tailored to underrepresented languages, the project advances beyond general typological embeddings. It addresses the urgent socio-technical imperative of language equality in healthcare by providing principled, interpretable model adaptation techniques. This approach uniquely situates linguistic theory at the core of domain-specific NLP model enhancement, a novel contribution relative to existing competitive multilingual healthcare NLP efforts.",
+        "Proposed_Method": "We propose a novel framework that integrates Systemic Functional Linguistics (SFL) theory to extract and encode functional typological features—including process types, participant roles, and coherence relations—into domain-adaptive transfer learning for healthcare NLP in low-resource languages. This entails: (1) collaborating with linguistic experts to construct a formal ontology of key syntactic and semantic features pertinent to clinical text, anchored in SFL; (2) developing typology-informed feature encoders that abstract morphological and syntactic patterns alongside lexical resources for low-resource target languages, including those from the Indic language family; (3) implementing controlled data augmentation pipelines that generate synthetic healthcare dialogues and clinical notes by systematically applying these functional linguistic transformations to English source texts, preserving clinical jargon and semantic fidelity; (4) refining pretraining and fine-tuning procedures in multilingual transformer architectures by injecting these typologically grounded embeddings, with regularization to prevent noise amplification; (5) establishing model interpretability checkpoints via feature attribution analyses to confirm meaningful typological contributions to predictions. This method advances prior work by grounding typological adaptation in SFL theory and incorporating lexical resource curation and functional linguistics for robust clinical language understanding.",
+        "Step_by_Step_Experiment_Plan": "1) Collect and curate existing English healthcare NLP datasets (clinical notes, dialogues) with rich annotations; 2) Collaborate with systemic functional linguists and native speakers to define functional typological feature sets for target low-resource languages, focusing on morphosyntactic and pragmatic categories essential for clinical language; 3) Build lexical resource inventories for target languages leveraging existing dictionaries and domain glossaries; 4) Develop and iteratively validate a controlled synthetic data generation pipeline that applies SFL-informed transformations (e.g., participant role shifts, clause type adaptations) to produce typologically concordant clinical texts; 5) Recruit and train annotators from native speaker communities and linguists to review and correct synthetic data ensuring linguistic and clinical accuracy; 6) Integrate typological embeddings into multilingual transformers and conduct pretraining and fine-tuning experiments combining synthetic and limited real target language data; 7) Evaluate model performance on clinical concept recognition, sentiment analysis, and summarization tasks using newly constructed benchmarks in target languages; 8) Perform detailed error analyses and feature attribution to isolate benefits from typology-aware adaptation versus baselines; 9) Document resource use, annotator timelines, and scalability aspects to demonstrate feasibility within typical research constraints.",
+        "Test_Case_Examples": "Input example: Summarization of an Amharic clinical note containing complex morphological inflections and domain-specific terminology. The synthetic augmentation uses SFL-based participant role shifts and morphosyntactic adaptations preserving semantic coherence. Expected output: Summaries showing significant improvements in factual consistency, morphological accuracy, and clinical term fidelity compared to baseline models without typological integration. Additional cases include clinical dialogue sentiment analysis in an Indic language such as Hindi, demonstrating robust handling of modality and evaluator comments encoded via functional linguistic features.",
+        "Fallback_Plan": "Should synthetic data augmentation not yield expected improvements, the fallback involves expanding collaboration with native speakers for targeted collection of small but high-quality annotated corpora. This will be complemented by unsupervised pretraining on sizable raw corpora rich in typological features, combined with continued lexical resource enrichment. Annotation strategies will be refined to optimize cost and quality, including active learning to prioritize linguistically challenging examples. Additionally, alternative integration approaches such as multi-task learning that jointly model related clinical tasks informed by SFL features will be explored to enhance robustness."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Healthcare NLP",
+      "Typological Adaptation",
+      "Cross-Domain",
+      "Low-Resource Languages",
+      "Socio-Cultural Needs",
+      "Specialized Datasets"
+    ],
+    "direct_cooccurrence_count": 868,
+    "min_pmi_score_value": 3.113003949416201,
+    "avg_pmi_score_value": 4.452343263167235,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "47 Language, Communication and Culture",
+      "4704 Linguistics",
+      "4703 Language Studies"
+    ],
+    "future_suggestions_concepts": [
+      "Indic languages",
+      "natural language understanding",
+      "lexical resources",
+      "computer science",
+      "language equality",
+      "Systemic Functional Linguistics",
+      "Functional Linguistics",
+      "theory of Systemic Functional Linguistics",
+      "field of Systemic Functional Linguistics",
+      "systemic functional linguistic research"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The proposal assumes that embedding typological features directly into domain-adaptive transfer learning frameworks will significantly improve performance on healthcare NLP tasks in low-resource, typologically diverse languages. However, the proposal does not sufficiently justify or cite evidence that such typology-informed embeddings can meaningfully capture complex morphological and syntactic variations in clinical contexts, which often contain domain-specific language and jargon. More clarity is needed on how typological features will be operationalized and integrated without overwhelming the model or introducing noise, especially given the scarcity of real data in these languages. This fundamental assumption is critical to the method's soundness and should be strengthened with preliminary theoretical or empirical support before proceeding further, to ensure the approach stands on solid grounds rather than hopeful intuition or general typological principles alone. This critique targets the Problem_Statement and Proposed_Method sections, where these assumptions are central and insufficiently substantiated in their current form, potentially impairing the research quality and outcomes if unaddressed."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the Step_by_Step_Experiment_Plan outlines a logical progression—from dataset gathering, typological challenge identification, synthetic data generation, fine-tuning to evaluation—it lacks detailed feasibility considerations. In particular, generating synthetic healthcare dialogues and clinical notes that preserve nuanced morphological and syntactic typological features is a highly nontrivial task, requiring expert linguistic knowledge and careful validation. The plan also glosses over the capacity to source or create high-quality target language datasets for evaluation, which may be scarce or unavailable. The fallback plan involving native speakers is a sensible backup, but the proposal should explicitly elaborate on resource requirements, annotator recruitment strategy, and timeline implications. Furthermore, the evaluation step should specify metrics and error analyses that directly reflect the benefits of typology-aware adaptation versus standard multilingual baselines. Without more detailed experimental design and risk mitigation, the feasibility of successfully implementing and empirically validating the approach within typical research budgets and timeframes remains questionable. Address these concerns by enriching the Experiment_Plan section with practical resource planning and clear, measurable success criteria."
+        }
+      ]
+    }
+  }
+}

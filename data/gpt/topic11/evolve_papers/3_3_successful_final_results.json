@@ -1,0 +1,70 @@
+{
+  "before_idea": {
+    "title": "Energy-Efficient Adaptive Curriculum Learning for LLMs",
+    "Problem_Statement": "Training LLMs with fixed data schedules leads to inefficient resource usage and energy wastage when models are trained on data portions that contribute marginally to learning at certain stages.",
+    "Motivation": "Fills the internal gap by integrating green AI principles with adaptive curriculum learning strategies to dynamically optimize training sequences aiming to reduce redundant computations and energy consumption.",
+    "Proposed_Method": "Develop an adaptive curriculum scheduler that ranks and sequences training samples based on an energy-efficiency impact score calculated via gradient-based measures and energy profiling. The scheduler deprioritizes high-cost but low-impact samples in real time, combined with reinforcement learning to optimize total energy expenditure vs. model performance trade-offs during training.",
+    "Step_by_Step_Experiment_Plan": "1) Dataset: Use large-scale corpora such as BooksCorpus and CC-News. 2) Baselines: Uniform curriculum training, existing curriculum learning strategies. 3) Measure energy consumption, model accuracy, training convergence speed. 4) Analyze correlations between curricular sample order and energy impact. 5) Validate on multiple model scales to test scalability.",
+    "Test_Case_Examples": "Input: Training corpus with diverse difficulty samples. Output: Adaptive curriculum logs showing staged sample selection with energy profiles; final model matches baseline accuracy with 25% reduced energy use.",
+    "Fallback_Plan": "If energy profiling per sample is noisy or expensive, approximate with complexity heuristics or proxy metrics (e.g., token rarity, perplexity). If reinforcement learning fails to converge, test simpler heuristic-based scheduling."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Graph-Enhanced Intelligent Curriculum Learning for Energy-Efficient LLM Training",
+        "Problem_Statement": "Traditional LLM training with static or heuristically ordered data often leads to inefficient energy use and redundant computations, as such strategies do not consider complex inter-sample dependencies or adaptive energy impact in real time. This results in overuse of costly data samples that contribute minimally to learning progress during various training phases.",
+        "Motivation": "Addressing the highly competitive domain of energy-efficient LLM training requires integrating advanced representation learning and intelligent decision-making to transcend simple per-sample scoring. By modeling training data as a graph to capture nuanced relationships and latent dependencies among samples, we can adaptively optimize curriculum sequencing. This cross-disciplinary approach leverages educational theory and interactive learning experience concepts, enabling more context-aware, energy-conscious training that improves generalization while reducing carbon footprint. Our method advances beyond existing curriculum learning by embedding graph representation learning and reinforcement learning within a robust, scalable framework with explicit energy instrumentation, which enhances novelty and impact.",
+        "Proposed_Method": "We propose a novel adaptive curriculum learning framework built on graph representation learning that models training samples and their latent semantic and difficulty relationships as a curriculum graph. Node embeddings encode sample complexity, energy cost proxies, and learned dependencies capturing pedagogical sequencing principles inspired by educational theory. An intelligent decision-making module formulates curriculum adaptation as a Markov Decision Process, where states represent current model proficiency and graph context embeddings, and actions select sequences of samples to train on. The reward is designed to balance improvements in validation accuracy and measurable energy savings, as validated by fine-grained instrumentation metrics. Reinforcement learning with carefully defined convergence criteria optimizes policies for curriculum scheduling. Energy consumption per batch and per sample is measured using hardware-level tools (e.g., NVIDIA’s NVML, RAPL for CPUs) coupled with software-level profiling for reproducible and reliable granularity. We validate and calibrate energy impact estimations against these instrumentation baselines and employ complexity heuristics as fallback proxies. This integration of graph-based sample representations, educational insights, and precise energy-aware RL-driven curriculum scheduling leads to a scalable, interpretable, and efficient training paradigm.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset & Models: Use large-scale datasets such as BooksCorpus, CC-News, and WikiText-103; experiment on LLM scales ranging from 125M to 1.5B parameters. 2) Energy Measurement Setup: Employ hardware energy counters (e.g., NVIDIA NVML, Intel RAPL) with synchronized software profiling to measure per-batch and, where feasible, per-sample energy usage. 3) Baselines: Uniform curriculum, state-of-the-art adaptive curricula without graph integration, and heuristic energy proxies (e.g., token rarity, perplexity). 4) RL Specification: Define state as combined model training state and graph embedding of current curriculum context; define action space as selecting next curriculum sample subset; reward balances energy consumption and validation accuracy delta; set convergence criteria via stabilized reward and accuracy plateau. 5) Evaluation Metrics: Energy consumption (kWh), model accuracy (perplexity, downstream tasks), convergence speed, curriculum interpretability scores assessing pedagogical soundness. 6) Ablation Study: Evaluate benefits of graph modeling, RL optimization, and energy instrumentation separately. 7) Scalability & Robustness: Test method across model sizes and validate reproducibility of energy measurements. 8) Statistical Validation: Use multiple seeds and statistical tests for results robustness.",
+        "Test_Case_Examples": "Input: Large, heterogeneous training corpus modeled as a curriculum graph with nodes embedding sample difficulty, semantic similarity, and energy cost proxies; initial model checkpoint. Output: Curriculum scheduling logs showing graph-informed adaptive sample sequences with associated energy consumption and accuracy over time; final trained model achieving equivalent or improved validation accuracy with ≥25% reduction in total energy usage compared to uniform baseline; RL policy converging to stable, interpretable curriculum choices; ablation results verifying the benefits of integrated components.",
+        "Fallback_Plan": "If hardware-level energy profiling at fine granularity is noisy or impractical, rely on validated proxy metrics such as token rarity distribution, perplexity, and computational complexity estimates as approximations. Should reinforcement learning policies present convergence issues, switch to supervised or heuristic graph-based curriculum ranking schemes incorporating educational sequencing heuristics. Additionally, simplify the RL problem space by reducing action dimensionality or utilize off-policy RL algorithms with experience replay to stabilize training. If graph construction proves costly at scale, employ approximate neighborhood sampling or hierarchical clustering to maintain scalability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Energy-Efficient",
+      "Adaptive Curriculum Learning",
+      "LLMs",
+      "Green AI",
+      "Training Optimization",
+      "Energy Consumption Reduction"
+    ],
+    "direct_cooccurrence_count": 2938,
+    "min_pmi_score_value": 1.8787686817290006,
+    "avg_pmi_score_value": 3.55469640184736,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4206 Public Health",
+      "42 Health Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "intelligent decision-making",
+      "enhanced educational experience",
+      "interactive learning experience",
+      "educational theory",
+      "educational experience",
+      "learning experience",
+      "graph representation learning",
+      "representation learning",
+      "International Union of Nutritional Sciences",
+      "evidence gap map",
+      "road traffic injuries",
+      "high-income countries",
+      "pre-hospital care"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan outlines important evaluation metrics (energy, accuracy, convergence) and datasets, but lacks clarity on how energy consumption will be reliably and reproducibly measured at the granularity of individual curriculum samples. Given the risk of noisy or costly per-sample energy profiling, the plan should explicitly detail instrumentation methods, baselines for energy measurement, and validation protocols for energy-efficiency scores used in scheduling. Additionally, the reinforcement learning component for curriculum optimization requires a clear definition of state/action spaces, reward functions, and convergence criteria to ensure feasibility within large-scale LLM training contexts. Incorporating these specifications will strengthen the scientific soundness and implementation feasibility of the experiments, avoiding ambiguous or intractable evaluation steps at scale. This clarity is essential before proceeding to extensive empirical validation, which is compute-intensive and costly for LLMs at scale, especially when targeting energy-efficiency gains.  (Target: Experiment_Plan)  [FEA-EXPERIMENT]"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty assessment indicating a highly competitive space, the idea would benefit from concrete integration or inspiration from globally-linked concepts like 'interactive learning experience', 'intelligent decision-making', or 'representation learning' to boost both novelty and broader impact. For instance, incorporating graph representation learning to model inter-sample or curriculum item relationships could enable more intelligent and context-aware sample sequencing, beyond per-sample energy-impact scoring. This could yield a more nuanced adaptive curriculum that better captures latent learning dependencies, improving generalization and energy trade-offs. Similarly, framing the curriculum adaptation as an intelligent decision-making task grounded in educational theory or interactive learning principles could align the approach better with established learning experience paradigms and facilitate transfer beyond LLM training to educational AI systems. Such cross-disciplinary grounding and extension could differentiate the work from competitive baselines and increase its relevance and impact scope. (Target: Proposed_Method) [SUG-GLOBAL_INTEGRATION]"
+        }
+      ]
+    }
+  }
+}

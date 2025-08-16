@@ -1,0 +1,67 @@
+{
+  "before_idea": {
+    "title": "Dynamic Ontology-Driven Prompt Engineering for Domain-Shift Robust Legal LLMs",
+    "Problem_Statement": "Static fine-tuning strategies fail to dynamically adjust to evolving legal domains and heterogeneous document types, resulting in persistent domain-shift vulnerabilities in large language models.",
+    "Motivation": "Addresses internal gaps in model adaptability and lack of dynamic domain calibration by introducing ontology-driven prompt engineering that allows on-the-fly domain shifts handling based on formal symbolic legal knowledge representations.",
+    "Proposed_Method": "Create a system that dynamically generates fine-tuning prompts embedding up-to-date ontology fragments representing relevant legal concepts for target documents. These prompts calibrate LLM outputs contextually, improving robustness and performance without exhaustive retraining.",
+    "Step_by_Step_Experiment_Plan": "1) Construct modular legal ontologies that can be selectively incorporated. 2) Develop a prompt generator that encodes ontology fragments into few-shot learning contexts. 3) Evaluate on diverse legal tasks with varying domain shifts and compare with fixed fine-tuning.",
+    "Test_Case_Examples": "Input: A prompt for contract clause classification dynamically augmented with specific commercial contract ontology elements. Output: Enhanced classification accuracy and domain-aware explanations reflecting ontology integration.",
+    "Fallback_Plan": "If dynamic prompt engineering yields limited gains, fallback to adapter-based fine-tuning methods incorporating similar ontology knowledge or hierarchical multi-task learning frameworks."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Ontology-Guided Dynamic Prompt Engineering with Entity-Aware Robustness for Domain-Shift Adaptation in Legal Language Models",
+        "Problem_Statement": "Existing fine-tuning approaches for large language models (LLMs) in the legal domain are static and fail to adapt to evolving legal vocabularies, heterogeneous document types, and domain shifts, which leads to degraded performance and brittle generalization in real-world applications.",
+        "Motivation": "While prior works employ static fine-tuning or prompt engineering, they often overlook the dynamic integration of structured symbolic legal knowledge and entity-centric context essential for handling subtle domain shifts. Our approach harnesses modular legal ontologies combined with Named Entity Recognition (NER) techniques to dynamically generate entity-aware, ontology-guided prompts that calibrate LLM behavior in real time. This novel coupling of symbolic knowledge representation with entity-centric natural language processing ensures more interpretable, robust, and adaptive models, addressing critical gaps in domain-shift resilience and knowledge grounding for legal LLMs.",
+        "Proposed_Method": "We propose a three-tiered system: (1) Modular Legal Ontology Repository — Expert-curated legal ontologies decomposed into granular, updatable fragments representing domain-specific concepts, relationships, and constraints, versioned and maintained through continuous expert feedback and automated quality metrics (e.g., concept coverage, logical consistency). (2) Entity-Aware Dynamic Prompt Generator — Leveraging state-of-the-art NER methods tailored for legal text, we identify key legal entities and concepts within input documents, then select and embed corresponding ontology fragments into prompts. Ontology fragments are encoded using a hybrid symbolic-to-text representation emphasizing clarity and compactness to respect prompt length constraints. Conflict and ambiguity resolutions employ ontology consistency checks and priority heuristics to handle overlapping concepts and approximations. (3) Adaptive Prompt Integration During Inference — The system detects potential domain shifts by monitoring entity distributions and semantic drift indicators in real time. It dynamically updates prompts by inserting contextually relevant ontology fragments and fine-tuned exemplar cases, allowing the LLM to generate outputs grounded in current domain knowledge without retraining. The entire pipeline includes explicit failure mode mitigations such as fallback to default prompts, explicit uncertainty signaling in model outputs, and alert mechanisms for ontology update needs. Detailed illustrative examples demonstrate stepwise prompt construction from raw legal text to ontology-augmented context, emphasizing how symbolic knowledge and entity recognition synergize to guide LLM generation and classification robustly.",
+        "Step_by_Step_Experiment_Plan": "Step 1: Construct and validate modular legal ontologies by collaborating with domain experts; perform logical consistency checks, coverage evaluation, and set up ontological version control protocols. Step 2: Develop and fine-tune a domain-specific Named Entity Recognition (NER) model for key legal entity extraction, incorporating recent advances in entity recognition from NLP and medical text processing. Step 3: Implement the dynamic prompt generator that maps extracted entities to ontology fragments using a compact hybrid representation, incorporating conflict resolution strategies. Step 4: Develop detection mechanisms for domain shifts leveraging statistical monitoring of entity distribution shifts and semantic features. Step 5: Evaluate the system on multiple publicly available and proprietary legal NLP datasets covering tasks such as contract clause classification, legal entity extraction, and case law topic adaptation, ensuring significant domain shifts between training and testing sets. Step 6: Compare performance with static fine-tuning baselines and adapter-based approaches using rigorous metrics including classification accuracy, F1-score, robustness measures (e.g., degradation under domain shift), explanation faithfulness, and prompt efficiency (length and latency). Step 7: Perform statistical significance testing and conduct ablation studies to isolate the impact of entity-aware and ontology-guided components.",
+        "Test_Case_Examples": "Example 1: Input - Contract clause classification prompt enhanced with ontology fragments specific to 'commercial lease contracts' and entities detected such as 'lessee,' 'lessor,' and 'payable rent.' Output - Improved classification accuracy; the LLM provides ontology-grounded explanations citing relations like 'lease term' and 'payment obligations.' Example 2: Input - Legal document from a new jurisdiction with unknown term usages; entity recognition detects novel terms, triggers domain shift detection, and dynamically updates prompts with relevant jurisdiction-specific ontology fragments. Output - Maintained or improved task performance compared to static baselines and flagged areas needing ontology extension. Example 3: Input - Case law topic classification with ambiguous entities and overlapping ontology concepts. Output - Conflict detection module resolves ambiguity through ontology priority heuristics, leading to stable, consistent predictions with interpretability via the used ontology elements.",
+        "Fallback_Plan": "If dynamic prompt engineering yields limited improvement or is constrained by prompt length or ambiguity resolution challenges, fallback strategies include: (1) Adapter-based fine-tuning methods where ontology knowledge is integrated into lightweight domain-specific adapters, enabling modular updates without full retraining; (2) Hierarchical multi-task learning frameworks that jointly learn entity recognition, ontology alignment, and target tasks to implicitly embed legal knowledge; (3) Use of external retrieval-augmented generation approaches that combine LLM outputs with ontology-based knowledge retrieval to supplement reasoning. Each fallback preserves the core objective of leveraging structured legal knowledge to boost domain-shift robustness."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Ontology-Driven Prompt Engineering",
+      "Domain-Shift Robustness",
+      "Legal Large Language Models",
+      "Model Adaptability",
+      "Formal Symbolic Legal Knowledge",
+      "Domain Calibration"
+    ],
+    "direct_cooccurrence_count": 11517,
+    "min_pmi_score_value": 3.518399001193115,
+    "avg_pmi_score_value": 5.403487796225691,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "autonomous driving systems",
+      "knowledge representation",
+      "International Union of Nutritional Sciences",
+      "Named Entity Recognition",
+      "medical text processing",
+      "entity recognition",
+      "natural language processing",
+      "text processing",
+      "artificial intelligence",
+      "Named Entity Recognition method"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section outlines a system that dynamically generates fine-tuning prompts embedding ontology fragments for calibrating LLM outputs. However, the mechanism by which these ontology fragments are selected, encoded, integrated into prompts, and how they concretely influence the model's generation or classification is not sufficiently detailed. Clarify and provide a well-reasoned explanation of how the ontology-driven prompt engineering operates end-to-end, including handling potential inconsistencies or ambiguities in legal ontologies, prompt length constraints, and how dynamic shifts are detected and incorporated during inference. This clarity is critical for evaluating the soundness of the approach and ensuring that the underlying assumptions are valid and actionable in practice, rather than hypothetical or underspecified assumptions of seamless integration between symbolic ontology fragments and LLM prompt tuning capabilities.\n\nEnhancements could include examples illustrating the prompt generation process step-by-step, and discussing potential failure modes and their mitigation strategies within the prompt engineering framework."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan is briefly outlined but lacks sufficient detail to confirm feasibility and scientific soundness. For instance, constructing modular legal ontologies is a non-trivial task often requiring expert domain knowledge and extensive validation — how will ontology fragments be maintained and updated over time, and how will their quality be assessed? The plan to develop a prompt generator encoding ontology fragments needs clarification about the representation formats and integration with LLM prompt contexts, as well as quantitative metrics beyond classification accuracy (e.g., robustness measures against domain shifts, explanation faithfulness). Additionally, evaluating on diverse legal tasks requires specifying datasets, baseline models, metrics, and statistical testing protocols to robustly compare with fixed fine-tuning methods.\n\nProviding a more comprehensive and practical experimental roadmap that addresses these aspects will strengthen confidence in the feasibility of the approach and its rigorous validation."
+        }
+      ]
+    }
+  }
+}

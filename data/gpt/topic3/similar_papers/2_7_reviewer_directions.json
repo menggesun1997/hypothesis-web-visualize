@@ -1,0 +1,60 @@
+{
+  "original_idea": {
+    "title": "Dynamic Knowledge Graph Driven Prompt Augmentation in Medical RAG Systems",
+    "Problem_Statement": "Existing RAG and prompting pipelines often treat knowledge graphs as static or secondary artifacts, failing to dynamically leverage graph structures during prompt construction to improve LLM accuracy.",
+    "Motivation": "Leverages the internal gap relating to incomplete prompt-RAG integration by innovating a method that dynamically queries and embeds relevant knowledge graph substructures into prompts, thereby enriching context and grounding generation in verified clinical knowledge.",
+    "Proposed_Method": "Develop a system that parses input queries to extract key entities and relations, dynamically traverses clinical knowledge graphs to fetch pertinent subgraphs, encodes these subgraphs into contextual prompt augmentations, and feeds these enriched prompts into LLMs coupled with retrieval modules.",
+    "Step_by_Step_Experiment_Plan": "1. Use medical domain KGs and clinical question datasets. 2. Implement entity/relation extraction pipeline. 3. Design subgraph encoder compatible with prompt tokens. 4. Train and evaluate against standard prompt and RAG baselines. 5. Metrics: domain accuracy, hallucination reduction, knowledge grounding consistency.",
+    "Test_Case_Examples": "Input: \"What are contraindications for CBT in depression?\" Output: Generation referencing dynamically retrieved graph nodes about depression and therapy contraindications, improving precision.",
+    "Fallback_Plan": "If subgraph encoding increases prompt length excessively, employ selective attention or summarization to compress the graph context."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Knowledge Graph",
+      "Prompt Augmentation",
+      "Medical RAG Systems",
+      "LLM Accuracy",
+      "Context Enrichment",
+      "Clinical Knowledge"
+    ],
+    "direct_cooccurrence_count": 400,
+    "min_pmi_score_value": 2.4931249167262037,
+    "avg_pmi_score_value": 4.3148576801516025,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "knowledge graph",
+      "patient safety",
+      "word-overlap metrics",
+      "medical image analysis",
+      "transformer architecture",
+      "report generation",
+      "medical images",
+      "image transformation",
+      "Vision Transformer (ViT",
+      "dementia care",
+      "semantic interoperability",
+      "Named Entity Recognition",
+      "knowledge representation",
+      "KG construction",
+      "human-in-the-loop approach",
+      "natural language processing"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method would benefit from clearer articulation of the mechanisms underlying dynamic subgraph extraction and encoding. Currently, it's unclear how the system ensures timely and relevant subgraph retrieval without significant latency, and how these subgraphs are encoded in a form that LLMs can effectively consume given token limitations. More explicit detail on the interaction between entity/relation extraction, subgraph traversal, and prompt augmentation is needed to verify conceptual soundness and operational coherence, especially in clinical settings where precision is critical. Consider incorporating preliminary designs or algorithmic sketches to bolster clarity and confidence in the approach's feasibility at runtime in real RAG pipelines with large KGs and complex queries, to ensure the integration is practical and scalable without degradation of response time or accuracy at inference time. This will also help demarcate the novelty and operational boundaries of the proposed mechanism within existing tightly coupled KG-LLM frameworks in medical NLP contexts, beyond just an additive subgraph retrieval step embedded in prompt construction. Detailed conceptual grounding of these interactions will strengthen submission soundness substantially and better align claims with established assumptions about dynamic KG use in prompting pipelines for LLMs in high-stakes domains like medicine where misinterpretations have real consequences.  \n\nAdditionally, consider potential limitations related to knowledge updates or inconsistencies within KGs which may propagate into generated outputs, and whether supporting verification or feedback loops might be required beyond simple augmentation to ensure bio-clinical validity and trustworthiness of output especially when dynamically incorporating graph substructures into prompts."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the pre-screening Novelty assessment as NOV-COMPETITIVE and the rich opportunities for enhancing the proposal’s novelty and impact, I strongly suggest integrating advanced concepts such as 'human-in-the-loop approaches' and 'semantic interoperability'. For instance, incorporating a human verification or curation step for dynamically retrieved subgraphs before prompt augmentation could enhance patient safety and clinical trustworthiness, a critical factor in medical NLP. Further, leveraging semantic interoperability standards within knowledge representation and KG construction would position the system uniquely within healthcare AI pipeline infrastructures, promoting better cross-system integration and reuse of clinical knowledge graphs. These directions could substantially differentiate the work from competing approaches by emphasizing practical clinical deployment readiness, safety, and broader ecosystem integration beyond isolated RAG retrieval enhancement. Additionally, exploring the interaction between transformer architectures and graph encoding modules—potentially via adaptations inspired by Vision Transformers or other transformer variants specialized for graph data—could also boost novelty and performance, providing a compelling technical contribution complementing the medical domain application. This combined extension aligns with the globally linked concepts and the strategic challenge of advancing both fundamental AI methodology and clinical applicability simultaneously, elevating acceptance potential at premier venues."
+        }
+      ]
+    }
+  }
+}

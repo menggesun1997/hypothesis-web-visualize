@@ -1,0 +1,57 @@
+{
+  "before_idea": {
+    "title": "Abductive Commonsense Prompting with Legal Reasoning Frameworks",
+    "Problem_Statement": "LLMs struggle with implicit commonsense reasoning and managing incomplete or evolving knowledge bases, limiting robustness in open-domain QA and explainability.",
+    "Motivation": "Inspired by hidden bridges linking legal abductive logic frameworks with prompt engineering, this project injects abductive inference mechanisms into LLM prompting strategies to enhance reasoning on incomplete knowledge, targeting the internal gap in semantic encoding and abductive reasoning.",
+    "Proposed_Method": "Develop a prompt engineering paradigm that integrates abductive inference templates drawn from legal reasoning (case-based and logic-based argumentation) to guide LLMs to generate plausible hypotheses and fill knowledge gaps during QA. The approach incorporates logical constraint prompts to steer abductive commonsense reasoning and produce justifiable answers with inferred assumptions.",
+    "Step_by_Step_Experiment_Plan": "Use datasets requiring abductive reasoning (e.g., abductive NLI). Compare basic LLM prompt approaches vs abductive legal-style prompting. Metrics include correctness, abductive justification quality, and explanation relevance. Conduct human evaluation of reasoning plausibility and robustness under incomplete info. Experiment with dynamic prompt updating based on feedback.",
+    "Test_Case_Examples": "Input: 'The floor is wet. Why?' The model outputs: 'Because someone spilled water or it rained recently,' providing abductive reasoning filling incomplete info and explicit justifications.",
+    "Fallback_Plan": "If pure prompt engineering is insufficient, augment with a lightweight abductive reasoning module external to the LLM that proposes hypothesis candidates post-hoc. Alternatively, blend symbolic abductive solvers with LLM outputs to cross-validate answers."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Multimodal Abductive Commonsense Prompting with Legal Reasoning Frameworks",
+        "Problem_Statement": "Large Language Models (LLMs) face significant challenges in performing implicit commonsense reasoning and managing incomplete or evolving knowledge bases, which limits their robustness and explainability in open-domain question answering. Moreover, current approaches predominantly focus on textual inputs, neglecting the integration of multimodal evidence that could enrich abductive inference, particularly under incomplete information scenarios.",
+        "Motivation": "Inspired by the parallels between legal abductive logic frameworks and prompt engineering, this project aims to inject abductive inference mechanisms into LLM prompting strategies. To substantially enhance novelty and impact in the competitive landscape, we extend this paradigm by integrating vision-language models into abductive commonsense prompting. This multimodal fusion grounds legal abductive reasoning in both textual and visual contexts, enabling richer, more plausible hypothesis generation and explanations under incomplete knowledge. This approach addresses the internal semantic inference gap in current models, offering a differentiated contribution beyond existing textual abductive reasoning methods.",
+        "Proposed_Method": "We propose a novel prompt engineering paradigm that integrates abductive inference templates inspired by legal reasoning—both case-based and logic-based argumentation—with vision-language embedding mechanisms. This method guides multimodal LLMs to generate plausible hypotheses and fill knowledge gaps during QA by jointly leveraging textual and visual evidences. The approach includes: (1) multimodal abductive prompting schemas that incorporate situational imagery as contextual input; (2) logical constraint prompts that steer abductive commonsense reasoning exercises; and (3) a modular architecture enabling synergy between symbolic abductive inference, legal abductive logic templates, and vision-language model outputs. This fusion facilitates justifiable answers with explicit abductive assumptions supported by complementary visual information, differentiating it from prior purely textual frameworks.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Selection: Curate and utilize multimodal datasets requiring abductive reasoning under incomplete information, e.g., extensions of Abductive NLI with associated images or visual question answering benchmarks with abductive demands. 2. System Implementation: Develop baseline LLM prompt models (text-only abductive prompting) and the proposed multimodal abductive legal-style prompting framework. 3. Quantitative Evaluation Metrics: Define and operationalize key metrics including — (a) Correctness: accuracy of final answers, (b) Abductive Justification Quality: measured via automated metrics such as abductive hypothesis relevance score computed through similarity to human-written abductive explanations and logical coherence indices derived from symbolic checks, (c) Explanation Relevance: quantified by overlap and entailment with expert-validated reasoning chains leveraging natural language inference and visual grounding matching scores. 4. Qualitative Evaluation: Conduct rigorous human evaluations involving domain experts in legal reasoning and multimodal AI. Define evaluation protocol specifying evaluator expertise, standardized annotation guidelines, and inter-rater agreement measurement (e.g., Cohen’s Kappa > 0.7) to assess reasoning plausibility, coherence, visual-textual grounding, and robustness under incomplete or noisy data conditions. 5. Robustness Testing: Systematically ablate and corrupt parts of the textual and visual inputs to test resilience and error-handling capacity of abductive reasoning modules. 6. Statistical Analysis: Apply appropriate statistical significance testing and confidence interval reporting to substantiate empirical claims. 7. Iterative Feedback: Incorporate dynamic prompt updating strategies using human and model feedback to optimize abductive hypothesis quality over training epochs.",
+        "Test_Case_Examples": "Input: A visual scene depicting a wet floor with ambiguous contextual cues plus the text prompt: 'Why is the floor wet?'\nOutput: The model articulates abductive hypotheses such as 'Someone spilled water' or 'It recently rained,' supported by both visual evidence (e.g., visible water puddles, opened umbrella) and textual logic, accompanied by explicit justifications linking visual cues to abductive assumptions.",
+        "Fallback_Plan": "If purely prompt-based multimodal abductive reasoning proves insufficient, augment the system with a lightweight external abductive reasoning module capable of hypothesis generation and validation over fused vision-language embeddings post-hoc. Alternatively, incorporate symbolic abductive solvers interfaced with the multimodal LLM outputs to cross-validate abductive inferences, thereby enhancing robustness and explanation rigor."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Abductive Commonsense Prompting",
+      "Legal Reasoning Frameworks",
+      "Abductive Inference",
+      "Large Language Models",
+      "Incomplete Knowledge",
+      "Semantic Encoding"
+    ],
+    "direct_cooccurrence_count": 1315,
+    "min_pmi_score_value": 3.358031914670371,
+    "avg_pmi_score_value": 5.798536217269604,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "vision-language models"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan should more concretely address how the abductive legal-style prompting will be quantitatively and qualitatively evaluated beyond comparative correctness metrics. For example, precise operationalization criteria for \"abductive justification quality\" and \"explanation relevance\" need definition to ensure replicable and rigorous assessment. Furthermore, the plan should clarify dataset selection breadth and scale, robustness testing protocols under incomplete info, and detail the human evaluation methodology, including evaluator expertise and inter-rater agreement measures. Without these clarifications, assessing feasibility and scientific rigor is difficult, risking inconclusive or noisy experimental results that undermine the proposed approach’s validation and acceptance in competitive peer review environments. Strengthening the experimental design will therefore improve the feasibility and credibility of empirical claims substantially. This refinement is essential before proceeding to full implementation and submission stages, especially given the competitive novelty assessment context where empirical validation quality often distinguishes impactful work from incremental contributions.  This is a MUST-ADDRESS issue for project success and paper acceptance potential at top venues. Target_Section: Step_by_Step_Experiment_Plan"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "To substantially boost both novelty and impact, integrate vision-language models into the abductive commonsense prompting paradigm. For example, incorporating visual context or situational imagery as additional input modalities can enrich abductive inference by grounding legal abductive logic in multi-modal evidence, extending applicability to tasks like visual question answering or multimodal reasoning under incomplete info. This could create novel hybrid abductive prompting schemas that synergize language and vision encoding capacities, thereby differentiating the work from existing prompting or abductive reasoning-only approaches. This enhancement leverages the globally linked concept of vision-language models to progress beyond current limitations of purely textual reasoning architectures, potentially unlocking new benchmarks and richer explanations that combine textual and visual abductive justifications. Developing a clear architectural pathway or integration strategy for multi-modal abductive reasoning is recommended here. This strategic recommendation aims to elevate the project’s competitive positioning and real-world relevance in the hot area of multi-modal AI reasoning. Target_Section: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

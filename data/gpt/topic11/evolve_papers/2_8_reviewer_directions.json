@@ -1,0 +1,58 @@
+{
+  "original_idea": {
+    "title": "Active Learning for Minimal Supervision in Legal Explanation Annotation",
+    "Problem_Statement": "Expert supervision for legal explanation annotation is costly and scarce, limiting high-quality data availability for training explainability models.",
+    "Motivation": "Targets gaps in minimal supervision strategies by implementing active learning systems that intelligently query domain experts to optimize annotation efficiency in legal explanation datasets, enabling scalable, cost-effective supervision.",
+    "Proposed_Method": "Develop an active learning pipeline that selects legal text samples with most informative or uncertain explanation annotations using uncertainty sampling and ontology-driven heuristics. Expert annotators provide minimal annotations which iteratively improve the explainability model's performance, reducing total expert input needed for high-fidelity explanations.",
+    "Step_by_Step_Experiment_Plan": "1. Initialize with small annotated legal explanation dataset. 2. Implement active learning query strategies combining model uncertainty and legal ontology coverage metrics. 3. Conduct annotation rounds with legal experts. 4. Measure annotation efficiency, explanation accuracy, and user trust improvements against random sampling.",
+    "Test_Case_Examples": "Input: Contract clauses with uncertain explanation predictions identified by model. Output: Expert-provided minimal annotations for these clauses that improve model explanation accuracy disproportionately.",
+    "Fallback_Plan": "If active learning queries are too complex for experts, simplify heuristics or employ crowdsourced annotation with expert validation to reduce costs."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Active Learning",
+      "Minimal Supervision",
+      "Legal Explanation Annotation",
+      "Expert Supervision",
+      "Annotation Efficiency",
+      "Explainability Models"
+    ],
+    "direct_cooccurrence_count": 3369,
+    "min_pmi_score_value": 3.5132410162689305,
+    "avg_pmi_score_value": 4.829967035766575,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "32 Biomedical and Clinical Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "Explainable Artificial Intelligence",
+      "Transformer-based methods",
+      "human-AI team performance",
+      "AI predictions",
+      "Explainable AI",
+      "user trust",
+      "computer-aided diagnosis",
+      "few-shot learning paradigm",
+      "deep active learning",
+      "research challenges",
+      "neuro-robotics",
+      "application of deep learning technology",
+      "deep learning technology",
+      "ensemble learning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section describes an active learning pipeline combining uncertainty sampling with ontology-driven heuristics for selecting legal text samples. However, the mechanism lacks sufficient clarity on how ontology-driven heuristics are integrated with uncertainty measures and how exactly minimal annotations from experts iteratively feed back to improve the explainability model. It is critical to explicitly present the algorithmic or methodological steps linking these components, including how candidate samples are scored and selected, how expert input modifies the model, and what form of 'minimal annotations' are accepted. This will help validate the soundness of the approach and ensure it can be realistically implemented and evaluated as described in the experiment plan. Consider providing a pseudocode or model architecture diagram for transparency and reproducibility in the next iteration of the proposal.  This clarity is essential to convince reviewers that the proposed method is well-founded and actionable rather than conceptual or underspecified.  (Target section: Proposed_Method)  \n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the Step_by_Step_Experiment_Plan lays out a reasonable high-level roadmap, it misses details on practical feasibility and risks. For instance, the plan relies on legal experts for annotation rounds without clarifying approximate annotation time, budget, or strategies to recruit and calibrate experts. It also lacks concrete metrics for 'user trust improvements' and how these would be quantified or tested. The contingency/fallback plan briefly mentions crowdsourcing but does not detail its integration into the active learning pipeline or quality control mechanisms. To bolster feasibility, the plan should elaborate on expected annotation workload, expert availability, criteria for convergence or stopping active learning rounds, and evaluation protocols comparing against relevant baselines beyond simple random sampling (e.g., uncertainty-only or ontology-only strategies). Including a clear timeline and resource assumptions, plus risk mitigations, will strengthen the claim that the plan can be scientifically executed as proposed. (Target section: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

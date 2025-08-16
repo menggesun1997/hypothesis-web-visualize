@@ -1,0 +1,25 @@
+{
+  "original_idea": {
+    "title": "Psychologically-Grounded Bias-Aware Retrieval Filters for LLM Knowledge Updating",
+    "Problem_Statement": "Retrieval-augmented models risk amplifying embedded psychological and social biases, yet current augmentation modules lack mechanisms to actively monitor and mitigate bias during retrieval and generation stages.",
+    "Motivation": "Addresses the internal critical gap on psychological and social biases under-addressed in RAG and exploits the innovation opportunity to integrate personality and political bias constructs into retrieval controls to reduce bias propagation.",
+    "Proposed_Method": "Introduce a bias-aware retrieval filter pipeline incorporating psychometric trait estimators trained on labeled datasets mapping retrieval sources to bias indicators. This module dynamically weights retrieval results by estimated bias profiles aligning with dark trait and political bias metrics, promoting balanced source selection. The framework also adapts retrieval weights based on personality profiles extracted from conversational context, facilitating personalized bias mitigation.",
+    "Step_by_Step_Experiment_Plan": "1) Gather a multi-source corpus annotated for political bias, personality traits, and social biases. 2) Train classifiers/predictors to estimate bias profiles at document and query levels. 3) Integrate these predictors into a retrieval engine to re-rank results. 4) Deploy the system with an LLM pipeline and compare output bias metrics to baseline RAG without filters using standard bias benchmarks (e.g., StereoSet, BBQ). 5) Conduct ablation studies evaluating impact of each psychological trait on model output quality.",
+    "Test_Case_Examples": "Input: \"Summarize recent news on climate policy.\" Expected: Output synthesized from retrieval sources re-ranked to balance liberal and conservative perspectives, with minimized extreme or polarized statements, showing reduced overall political bias in generated text.",
+    "Fallback_Plan": "If trait-based re-ranking does not sufficiently reduce bias, explore adversarial training of retrieval rankers with bias-discriminators or implement interactive, user-in-the-loop bias feedback mechanisms."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "psychological bias",
+      "social bias",
+      "retrieval-augmented models",
+      "bias mitigation",
+      "personality constructs",
+      "political bias"
+    ],
+    "direct_cooccurrence_count": 32969,
+    "min_pmi_score_value": 4.375483895025754,
+    "avg_pmi_score_value": 5.105811074634265,
+    "novelty": "NOV-REJECT"
+  }
+}

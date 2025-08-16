@@ -1,0 +1,75 @@
+{
+  "before_idea": {
+    "title": "Integrating Domain Semantic Frameworks Into LLMs for Clinical Language Disorders",
+    "Problem_Statement": "LLMs lack explicit integration of domain-specific semantic frameworks critical for interpreting clinical linguistic disorders such as aphasia, leading to limited explanatory power.",
+    "Motivation": "Targets the external/novel gap related to embedding cognitive and domain-specific semantic frameworks into AI systems beyond data-driven models to improve clinical interpretability and diagnosis.",
+    "Proposed_Method": "Augment LLM architectures with dedicated semantic frame modules pretrained on clinical ontologies and cognitive linguistic theories. Employ a two-stream architecture where one stream models language generatively while another enforces compliance with semantic constraints, combined via a gated fusion mechanism enhancing interpretability and diagnostic reasoning.",
+    "Step_by_Step_Experiment_Plan": "1) Curate clinical linguistic semantic frameworks and associated textual data. 2) Pretrain semantic modules separately. 3) Integrate with decoder-only or encoder-decoder LLMs. 4) Evaluate on aphasia detection and explanation tasks, comparing with standard LLM baselines.",
+    "Test_Case_Examples": "Input: Patient narrative with syntactic anomalies. Output: LLM-generated diagnosis rationale citing specific semantic frame violations and cognitive stage markers.",
+    "Fallback_Plan": "If integration degrades generation quality, test partial semantic fine-tuning or post-hoc semantic explanation extraction methods."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Integrating Domain Semantic Frameworks Into LLMs for Clinical Language Disorders: A Dual-Stream Architectured Approach with Rigorous Experimental Protocols",
+        "Problem_Statement": "Large Language Models (LLMs) remain limited in clinical interpretability for linguistic disorders such as aphasia due to the absence of explicit embedding of domain-specific semantic frameworks — particularly those capturing cognitive linguistic characteristics and semantic constraints essential for nuanced clinical diagnosis and explanation.",
+        "Motivation": "While there is prior work on domain adaptation of LLMs, our approach targets a novel intersection by architecting a dual-stream LLM system that explicitly integrates clinically validated semantic frames derived from linguistic theories and cognitive stages, going beyond fine-tuning or data augmentation. This mechanism aims to enhance clinical explainability and diagnostic accuracy by aligning generative language capabilities with structured semantic constraint modeling—addressing the NOV-COMPETITIVE verdict through a detailed design that ensures fluency and compliance simultaneously. Embedding such detailed domain knowledge into the model architecture is underexplored yet critical for reliable AI clinical language applications.",
+        "Proposed_Method": "We propose a dual-stream architecture combining:\n\n1. A generative LLM stream (e.g., decoder-only or encoder-decoder models pretrained on large corpora) responsible for fluent language generation and patient narrative interpretation.\n\n2. A dedicated semantic frame module pretrained separately on curated clinical linguistic semantic frameworks including frame semantics linked to aphasia-related deficits, cognitive linguistic markers (e.g., referencing primary progressive aphasia features such as syntactic complexity, pronoun usage, noun proportion), and clinical ontologies (e.g., AphasiaBank linguistic features, Mini-Mental State Examination annotations).\n\nIntegration Mechanism:\n- The semantic module encodes patient input and proposed outputs into semantic frame representations.\n- A gated fusion layer combines embeddings from both streams at each generation step. The gating computes a context-dependent weight balancing language fluency (LLM stream) and semantic compliance (semantic module).\n- During training, we use a multi-task loss combining cross-entropy with semantic frame violation penalties computed from frame alignment scores.\n- Conflicts between streams are resolved dynamically via the gating weights learned to optimize both generation quality and semantic compliance.\n\nPseudo-Algorithm Outline:\n- For each input utterance:\n  - Generate candidate tokens from LLM stream.\n  - Compute semantic frame encodings for candidate tokens.\n  - Calculate semantic compliance scores.\n  - Gate outputs by blending both streams weighted by compliance scores.\n  - Update parameters via backpropagation on combined loss.\n\nThis architecture allows fine-grained control to prevent semantic violations without compromising fluency, crucial for clinical interpretability. We also incorporate recurrent neural components within semantic modules to capture temporal dependencies of language network disruptions observed in aphasia.",
+        "Step_by_Step_Experiment_Plan": "1) Data Curation:\n   - Collect and curate multiple clinical linguistic datasets including AphasiaBank, electronic health records (EHRs) with transcribed patient descriptions (e.g., picture description tasks), and clinical trial speech corpora (e.g., randomized controlled trials involving aphasia patients).\n   - Annotate data with semantic frames emphasizing cognitive stage markers, linguistic features such as syntactic complexity, proportion of nouns, pronoun usage, connected speech markers, and clinical scores (Mini-Mental State Examination).\n   - Ensure high-quality annotation through expert linguists and clinicians to mitigate dataset biases.\n\n2) Semantic Module Pretraining:\n   - Pretrain semantic frame modules on annotated clinical corpora with recurrent convolutional neural networks capturing temporal linguistic patterns.\n   - Validate frame detection accuracy and alignment with clinical markers.\n\n3) Dual-Stream Integration:\n   - Integrate pretrained semantic modules with baseline LLMs (e.g., GPT variants), implement gated fusion mechanism as described.\n   - Fine-tune the combined architecture on curated datasets, employing multi-task loss balancing generation fidelity and semantic compliance.\n\n4) Evaluation:\n   - Quantitatively evaluate aphasia detection accuracy against state-of-the-art LLM baselines.\n   - Perform qualitative assessments of interpretability by analyzing LLM-generated diagnosis rationales referencing semantic frame violations and cognitive linguistic markers.\n   - Evaluate model performance on multiple tasks: picture description task coherence, communicative participation indicators, and clinical diagnostic precision.\n   - Use metrics such as BLEU for generation quality, F1-score on semantic violation detection, and clinician-rated interpretability scales.\n\n5) Resource Planning:\n   - Estimated timeline: 12 months including data annotation (4 months), pretraining semantic modules (2 months), integration and training (3 months), evaluation (3 months).\n   - Compute resources: Access to GPUs with large memory (A100 or equivalent), clinical domain expert involvement, ethical clearance for EHR usage.\n\nThis comprehensive experimental protocol ensures robust validation of both semantic integration and clinical applicability.",
+        "Test_Case_Examples": "Example 1:\n- Input: Patient's narrative from a picture description task exhibiting low syntactic complexity, high pronoun usage, and semantic anomalies.\n- Output: \"The patient’s utterance violates semantic frames related to third-person referents and shows decreased noun proportion, consistent with primary progressive aphasia stage 2. This supports diagnosis reasoning highlighting impaired language-selective network disruptions.\"\n\nExample 2:\n- Input: Transcribed spontaneous connected speech with disrupted language network features.\n- Output: \"Detected frame violations in connected speech semantics and low Mini-Mental State Examination scores align with features of moderate aphasia as seen in randomized controlled trial data.\"\n\nThese outputs demonstrate not only accurate aphasia detection but explicit reference to semantic frame violations and cognitive markers improving interpretability.",
+        "Fallback_Plan": "If full architectural integration results in generation quality degradation beyond acceptable limits:\n- Implement partial semantic fine-tuning where semantic module influences only final output re-ranking rather than during token-by-token generation.\n- Explore post-hoc semantic explanation extraction methods from LLM latent representations without architectural changes.\n- Leverage pretrained recurrent convolutional networks independently for clinical marker detection to complement standard LLM outputs.\n- Conduct ablation studies to identify minimal semantic constraints preserving interpretability with minimal impact on fluency."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Domain Semantic Frameworks",
+      "Large Language Models",
+      "Clinical Language Disorders",
+      "Aphasia",
+      "Cognitive Semantic Integration",
+      "Clinical Interpretability"
+    ],
+    "direct_cooccurrence_count": 6304,
+    "min_pmi_score_value": 3.5826072027457103,
+    "avg_pmi_score_value": 4.9606604653516415,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "5202 Biological Psychology",
+      "52 Psychology",
+      "5204 Cognitive and Computational Psychology"
+    ],
+    "future_suggestions_concepts": [
+      "linguistic features",
+      "primary progressive aphasia",
+      "recurrent convolutional neural network",
+      "language network",
+      "automatic detection of AD",
+      "electronic health records",
+      "third-person referents",
+      "proportion of nouns",
+      "connected speech",
+      "low syntactic complexity",
+      "randomized controlled trials",
+      "Mini-Mental State Examination",
+      "pronoun usage",
+      "description task",
+      "syntactic complexity",
+      "picture description task",
+      "communicative participation",
+      "language-selective"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposal describes augmenting LLM architectures with dedicated semantic frame modules and a two-stream architecture combined via gated fusion. However, the mechanism of how these semantic modules will be pretrained, integrated at the architectural level, and how exactly the gating fusion will enforce semantic compliance while maintaining generation fluency is insufficiently detailed. Clarify the architectural design, the interaction between streams during training and inference, and how conflicts between generative and semantic constraints are resolved to validate the soundness of the approach and to prevent potential degradation in generation quality beyond what is anticipated in the fallback plan. Providing preliminary sketches or pseudo-algorithms could strengthen this section significantly. This clarification is critical to build confidence in the proposed method’s feasibility and interpretability improvements in clinical settings, where explainability is paramount. Target Section: Proposed_Method"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan outlines data curation, pretraining, integration, and evaluation phases. However, the plan lacks details regarding the specific clinical linguistic semantic frameworks and data sources to be used, the scale and annotation quality of the datasets, and criteria for evaluation metrics beyond aphasia detection accuracy. Moreover, it is not clear how the evaluation will quantify improvements in interpretability or diagnostic reasoning. Including more concrete experimental protocols for aligning semantic frames with cognitive stage markers, validation on multiple clinical datasets (e.g., electronic health records or picture description tasks), and approaches to mitigate potential dataset biases will enhance the practicality and robustness of the experimental plan. Additionally, a timeline or estimated resource requirements would help assess feasibility in a real-world research setting. Target Section: Step_by_Step_Experiment_Plan"
+        }
+      ]
+    }
+  }
+}

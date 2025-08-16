@@ -1,0 +1,67 @@
+{
+  "before_idea": {
+    "title": "Legal Text Hallucination Mitigation via Biomedical-Inspired Reliability Scoring",
+    "Problem_Statement": "Hallucination in legal text generation undermines reliability and trust, specifically because current LLMs adapted for legal tasks lack robust reliability estimators.",
+    "Motivation": "Inspired by biomedical report generation frameworks, this research proposes a specialized reliability scoring mechanism tailored for legal text generation to detect and reduce hallucinated outputs, improving critical legal NLP tasks' trustworthiness.",
+    "Proposed_Method": "Introduce a two-stage pipeline embedding a reliability scoring network trained on biomedical text generation datasets but adapted with legal domain data. This scorer quantifies factual consistency and domain appropriateness in generated legal texts. Integrate this score as a penalty during fine-tuning and as a re-ranking criterion during inference to filter hallucinated outputs.",
+    "Step_by_Step_Experiment_Plan": "1. Collect paired legal input-output datasets with annotations for hallucination. 2. Adapt biomedical reliability scoring models for legal text. 3. Train joint generation and scoring models. 4. Benchmark against baseline LLMs on tasks like contract summarization and legal question answering. 5. Evaluate hallucination rate, factual accuracy, and human expert trust ratings.",
+    "Test_Case_Examples": "Input: \"Generate a summary of the legal liabilities in this case.\" Output: A summary with a high reliability score, minimal invented facts, and references to documented cases.",
+    "Fallback_Plan": "If transfer from biomedical scoring models is ineffective, fine-tune scoring models exclusively on legal datasets. Alternatively, use adversarial training to penalize hallucination occurrences."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Legal Text Hallucination Mitigation via Domain-Adaptive Reliability Scoring and Expert Annotation Strategies",
+        "Problem_Statement": "Hallucination in legal text generation critically undermines reliability and trustworthiness in legal NLP applications. Current LLMs adapted for legal tasks frequently produce plausible but fabricated content, and existing reliability scoring methods from other domains lack direct validation or tailored adaptation strategies for legal text. This gap leads to insufficient mitigation of hallucinated outputs in sensitive legal contexts.",
+        "Motivation": "While prior work has explored reliability scoring in biomedical text generation, the domain differences between biomedical and legal texts—in terminology, logical structure, and domain-specific consistency criteria—pose significant adaptation challenges. Our approach innovates by rigorously validating domain transfer, grounding scoring mechanisms in comprehensive expert-annotated legal hallucination data, and integrating intelligent decision-making principles from healthcare critical care NLP. This multidisciplinary strategy advances beyond simplistic adaptation by explicitly addressing domain gaps, thereby strengthening hallucination mitigation's trustworthiness in legal AI systems. This contribution is critical for fulfilling real-time, high-stakes legal NLP demands where inference latency constraints and precise factuality are paramount.",
+        "Proposed_Method": "We propose a novel, two-phase pipeline: \n\n1. Preliminary Domain Transfer Validation & Data Collection: Conduct a domain similarity analysis between biomedical and legal texts focusing on terminology, logical discourse patterns, and hallucination taxonomy. Use pilot experiments adapting pretrained biomedical reliability scoring networks on a small annotated legal corpus to empirically validate transfer potential.\n\n2. Domain-Adaptive Reliability Scoring Network: Based on validation results, fine-tune or retrain scoring models on an expertly annotated legal hallucination dataset developed via a detailed annotation protocol involving legal professionals. This scorer assesses factual consistency, domain appropriateness, and logical justifiability in generated legal texts.\n\n3. Integration in Legal LLM Pipelines: \n- Use reliability scores as penalty terms during model fine-tuning to discourage hallucination.\n- Apply scores in re-ranking generated outputs at inference to prioritize high-fidelity texts.\n\n4. Annotation Strategy and Expert-In-The-Loop Workflow: Establish a rigorous annotation pipeline involving legal experts and trained annotators with clear guidelines for hallucination identification and severity scaling, enabling creation of a high-quality, domain-specific evaluation benchmark.\n\n5. Incorporate Intelligent Decision-Making Frameworks: Inspired by critical care NLP, incorporate human-in-the-loop feedback mechanisms and real-time inference latency optimizations to ensure practical deployment suitability and trust.\n\nThis multi-faceted approach ensures the scoring mechanism's domain relevance and robustness, surpassing prior direct transfers from biomedical domains, thereby delivering a competitive novelty and impact.",
+        "Step_by_Step_Experiment_Plan": "1. Domain Similarity & Pilot Validation:\n   - Conduct computational and linguistic analyses comparing biomedical and legal text properties.\n   - Perform pilot fine-tuning of biomedical reliability scorers on limited legal data.\n   - Evaluate initial transfer effectiveness via factual consistency metrics.\n\n2. Expert Annotation and Dataset Development:\n   - Design detailed annotation guidelines for hallucination detection.\n   - Recruit and train legal experts and annotators.\n   - Annotate a sufficiently large paired input-output legal dataset with hallucination labels.\n\n3. Model Training and Adaptation:\n   - Fine-tune reliability scoring models on annotated legal data.\n   - Jointly train scoring and generation models incorporating penalty terms.\n\n4. Benchmarking and Evaluation:\n   - Evaluate hallucination rates, factual accuracy, and human expert trust ratings using the new benchmark.\n   - Measure inference latency and feasibility for real-time applications.\n\n5. Fallback & Enhancement Strategies:\n   - If transfer or adaptation underperforms, initiate adversarial training using hallucination-specific triggers crafted with legal experts.\n   - Explore iterative human-in-the-loop feedback to refine scoring.\n\n6. Human-in-the-Loop Deployment Simulation:\n   - Test integrated model in simulated critical decision-making scenarios with legal professionals.\n\nThis comprehensive plan emphasizes feasibility, scientific rigor, and practical relevance.",
+        "Test_Case_Examples": "Input: \"Generate a summary of the legal liabilities in this case.\"\nOutput: A summary exhibiting a high reliability score that minimizes invented facts and explicitly references verifiable case law and statutes, with annotated confidence intervals on statements. \n\nInput: \"Produce contract clause extraction highlighting risk exposures.\"\nOutput: Extracted clauses are ranked and re-ranked by reliability scores, with hallucination-prone outputs penalized or flagged for expert review.\n\nAdditional tests include real-time scenario simulations where inference latency and scoring responsiveness are critical, ensuring combined trustworthiness and practical deployment compatibility.",
+        "Fallback_Plan": "If transfer learning from biomedical scoring models proves ineffective, we will: \n\n1. Exclusively fine-tune reliability scorers on large, expert-annotated legal datasets developed via our annotation pipeline.\n\n2. Implement adversarial training targeting hallucinated phrase patterns identified in legal text. Here, carefully crafted adversarial examples using legal context perturbations will be used to train the scorer to detect hallucination features explicitly.\n\n3. Incorporate human-in-the-loop feedback loops post-inference to iteratively improve model confidence calibration and hallucination detection.\n\n4. Optimize inference latency through model pruning and lightweight scoring approximations to maintain real-time applicability.\n\nThese steps ensure robustness without overreliance on cross-domain assumptions and maintain scientific rigor and applicability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Legal Text Hallucination",
+      "Reliability Scoring",
+      "Biomedical-Inspired Framework",
+      "Legal NLP",
+      "Large Language Models",
+      "Trustworthiness"
+    ],
+    "direct_cooccurrence_count": 1219,
+    "min_pmi_score_value": 3.521785357545689,
+    "avg_pmi_score_value": 5.505387132231373,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "healthcare professionals",
+      "critical care",
+      "intelligent decision-making",
+      "Pretrained language models",
+      "real-time applications",
+      "inference latency",
+      "medical visual question answering",
+      "visual question answering",
+      "question answering",
+      "evaluation benchmark"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The proposal hinges on the assumption that a reliability scoring network trained on biomedical text generation datasets can effectively transfer to legal domain hallucination mitigation after some adaptation. However, biomedical and legal texts differ substantially in terminology, logic, and domain-specific consistency criteria. This assumption needs stronger empirical justification or preliminary evidence to validate cross-domain transferability before committing extensive resources to this approach. Without this, the core premise risks ineffectiveness, undermining the entire pipeline's soundness. Consider conducting initial domain similarity analyses or pilot adaptation experiments to confirm viability early on rather than relying primarily on adaptation post biomedical training data usage. This clarification and empirical support will greatly strengthen confidence in the approach's foundational soundness and practical relevance to legal NLP tasks.\n\n\n(Suggest revising the Proposed_Method section to explicitly address this assumption and incorporate a subsection on preliminary validation or justification of domain transfer.)\n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed experiment plan is comprehensive but may underestimate the difficulty and resources needed to obtain high-quality hallucination annotations in legal text generation datasets, which are specialized and costly to acquire, especially paired input-output data with detailed hallucination labels. The plan should clearly address how annotated data volume and quality will be achieved given these challenges, possibly involving expert annotators with legal background and clear annotation guidelines. Without sufficient annotated data, adaptation and training of reliability scorers may fail to generalize well. Also, the fallback plan of adversarial training is underspecified and could be elaborated with clearer methodological steps and criteria.\n\n\nEnhancing this aspect with a detailed annotation strategy and resource feasibility analysis will improve the experiment plan's feasibility and scientific rigor.\n\n(Suggest expanding Step_by_Step_Experiment_Plan to explicitly include annotation procedures, annotator expertise requirements, and fallback technical design.)"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "before_idea": {
+    "title": "Graph Neural Network-Guided Prompt Engineering for Knowledge Base-Integrated LLMs",
+    "Problem_Statement": "Manual prompt engineering for integrating knowledge graphs into LLMs is cumbersome and insufficiently captures structured global knowledge, limiting domain expertise encoding.",
+    "Motivation": "Targets the internal gap of manual and imperfect prompt engineering and the lack of structured global knowledge integration by using graph neural networks to automate prompt construction synergistically with knowledge base embeddings.",
+    "Proposed_Method": "Design a GNN module to analyze the subgraph of a domain-specific knowledge base relevant to the input. This GNN outputs semantic and relational context vectors that guide an adaptive prompt generator module, which constructs context-rich prompt templates. Coupled with fine-tuned knowledge embeddings, this dynamically crafted prompt improves relation extraction and QA performance by better capturing global semantics and structural dependencies.",
+    "Step_by_Step_Experiment_Plan": "1) Use biomedical or legal KB datasets with entity and relation annotations. 2) Build baseline models using static prompt templates with embeddings. 3) Implement GNN architectures (GCN, GraphSAGE) to encode KB subgraphs. 4) Train prompt generator via reinforcement learning to maximize downstream task accuracy. 5) Evaluate on relation extraction, QA tasks using precision/recall/F1, and ablate prompt types.",
+    "Test_Case_Examples": "Input: Question \"What drugs interact with Warfarin?\" with a medical KB subgraph. Expected output: GNN-enhanced prompt captures interaction relations, producing accurate, contextually enriched answers listing relevant drugs with supporting evidence.",
+    "Fallback_Plan": "If GNN-guided prompts fail to improve, test simpler attention-based KB encodings or rule-based prompt augmentation. Alternatively, incorporate human expert feedback to refine prompt templates."
+  },
+  "novelty": "NOV-REJECT"
+}

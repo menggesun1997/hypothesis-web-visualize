@@ -1,0 +1,65 @@
+{
+  "original_idea": {
+    "title": "Semi-Supervised LLM-Augmented Labeling Function Synthesis for Cross-Domain NLP Tasks",
+    "Problem_Statement": "Limited interoperability and manual effort are needed to create high-quality labeling functions for diverse domains, obstructing scalable interactive hypothesis testing in NLP.",
+    "Motivation": "Targets the external gap related to poor linkage between semi-supervised learning, pseudo-labeling, and LLM-based data programming, promising to reduce labor while improving label function quality across disciplines.",
+    "Proposed_Method": "Develop a system that leverages LLMs to automatically synthesize candidate labeling functions from minimal seed examples and textual descriptions of domain heuristics. These functions are refined using semi-supervised learning and pseudo-label propagation on unlabeled corpora. The process is augmented by human-in-the-loop feedback and incorporated visual analytics to iteratively enhance function precision and coverage.",
+    "Step_by_Step_Experiment_Plan": "1) Collect datasets from multiple domains with varying labeling complexities. 2) Implement LLM prompt engineering methods for function synthesis from domain heuristics. 3) Design semi-supervised refinement algorithms using graph-based pseudo-label spreading. 4) Conduct user studies to validate labeling correctness and function usefulness. 5) Evaluate model training quality improvements over manually engineered functions.",
+    "Test_Case_Examples": "Input: A few seed examples labeled for biomedical entity recognition plus textual domain rules. Output: Synthesized labeling functions such as regex patterns or heuristic classifiers, improved through propagation. Result: final models trained on these labels achieve better precision/recall with reduced manual input.",
+    "Fallback_Plan": "If LLM-generated functions are too noisy, include confidence thresholding and function pruning phases. Alternatively, use transfer learning from related domains to bootstrap functions with stronger initial accuracy."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Semi-Supervised Learning",
+      "LLM-Augmented Labeling",
+      "Labeling Function Synthesis",
+      "Cross-Domain NLP",
+      "Pseudo-Labeling",
+      "Data Programming"
+    ],
+    "direct_cooccurrence_count": 1586,
+    "min_pmi_score_value": 2.9137676278570375,
+    "avg_pmi_score_value": 5.550846935969858,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "32 Biomedical and Clinical Sciences",
+      "3211 Oncology and Carcinogenesis"
+    ],
+    "future_suggestions_concepts": [
+      "neural network",
+      "mobile app reviews",
+      "synthesize new images",
+      "Pretrained language models",
+      "massive text data",
+      "active learning",
+      "labeled data",
+      "unlabeled samples",
+      "semi-supervised learning",
+      "natural language generation",
+      "vision-language models",
+      "adoption of deep learning",
+      "app reviews",
+      "evolution of artificial intelligence",
+      "development of convolutional neural networks",
+      "learning algorithms",
+      "deep learning",
+      "next generation of AI",
+      "user feedback",
+      "software requirements",
+      "labeling functions"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method combines LLM-based automatic labeling function synthesis with semi-supervised refinement and human-in-the-loop feedback, which is promising. However, the mechanism by which labeling functions generated via prompt engineering are calibrated, validated, and integrated with graph-based pseudo-label spreading is not sufficiently detailed. Clarity is needed on how conflicting or noisy labeling functions from LLMs are handled before propagation, and how feedback loops concretely improve function quality iteratively. Detailing the interaction between LLM outputs, semi-supervised refinement, and user input can strengthen confidence in the method's soundness and reproducibility. Consider including a formal workflow or algorithmic pseudocode to clarify the mechanism's end-to-end operation and robustness against noise inherent in LLM-generated heuristics, especially across diverse domains with varying data characteristics and labeling complexities. This will help verify core assumptions and ensure methodological transparency and validity in the system design, which is currently ambiguous and risks undermining soundness assurance in such a competitive research area. [Target section: Proposed_Method]"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is logically structured, progressing from data collection, LLM prompt engineering, semi-supervised algorithm design, user validation, to evaluation of downstream model improvements. Nonetheless, feasibility concerns arise in the operationalization of key components: collecting sufficiently diverse datasets with domain heuristics that are both accurately describable and representative; engineering effective prompts for LLMs to synthesize labeling functions in heterogeneous domains; and designing user studies that reliably measure labeling correctness and function utility without excessive manual effort, which conflicts with the motivation to reduce manual labeling costs. Moreover, the plan does not clarify metrics or baselines against which improvements will be quantitatively measured beyond general precision/recall, lacking specifics on evaluation protocol for iterative refinement and human feedback impact. Enhancing this section with risk mitigation strategies, quantitative success criteria, and a timeline or resource estimation will increase practical confidence in the proposal’s execution capability and resource planning. [Target section: Step_by_Step_Experiment_Plan]"
+        }
+      ]
+    }
+  }
+}

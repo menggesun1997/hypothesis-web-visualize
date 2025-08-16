@@ -1,0 +1,54 @@
+{
+  "before_idea": {
+    "title": "Ontology-Guided Few-Shot Adaptive Fine-Tuning for Legal LLMs",
+    "Problem_Statement": "Large Language Models (LLMs) often underperform when applied to legal documents due to domain shifts from general training data to specialized legal language. Labeled legal datasets are scarce, making it challenging to fine-tune models effectively.",
+    "Motivation": "This project addresses the internal gap of insufficient integration between domain ontologies and adaptive fine-tuning in legal LLMs. By leveraging the identified hidden bridge between 'few-shot learning' and 'domain generalization', it proposes an ontology-guided adaptive fine-tuning paradigm to improve model calibration using minimal labeled samples.",
+    "Proposed_Method": "Develop a novel adaptive fine-tuning framework where domain ontologies (e.g., legal taxonomies, case law hierarchies) inform prompt construction and guide parameter calibration. The method applies ontology-driven data augmentation to generate semantically rich few-shot examples for fine-tuning with contrastive learning. It dynamically calibrates LLMs using an ontology-aware loss component to minimize domain-shift errors while maximizing semantic fidelity to legal concepts.",
+    "Step_by_Step_Experiment_Plan": "1. Collect diverse legal corpora integrating domain ontologies (e.g., legal statutes, precedents). 2. Select a pre-trained LLM (e.g., GPT-4 or open-source equivalent). 3. Create ontology-driven few-shot prompts and augmented datasets. 4. Fine-tune the LLM adaptively using the proposed ontology-aware framework. 5. Evaluate on benchmark legal document tasks (e.g., contract clause classification, legal question answering). 6. Baselines: standard fine-tuning without ontology guidance, zero-shot LLM. 7. Metrics: accuracy, F1, calibration error, and domain generalization robustness.",
+    "Test_Case_Examples": "Input: \"Analyze the enforceability of a non-compete clause under California law.\" Expected Output: A structured summary identifying enforceability risks aligned with ontology concepts (e.g., 'non-compete', 'state law exceptions'), showcasing domain-aware reasoning.",
+    "Fallback_Plan": "If ontology guidance does not improve performance, fallback to augmenting few-shot learning with synthetic legal data generated via legal domain simulators. Analyze failure cases for ontology coverage gaps and incorporate additional legal knowledge sources."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Ontology-Guided Few-Shot Adaptive Fine-Tuning for Legal LLMs",
+        "Problem_Statement": "Large Language Models (LLMs) often underperform on legal documents due to pronounced domain shifts from their generalist training data to highly specialized legal language and reasoning. The scarcity of labeled legal datasets further complicates effective model fine-tuning and domain adaptation.",
+        "Motivation": "Despite advances in legal NLP, existing methods underutilize rich domain ontologies and generally treat few-shot adaptation and domain generalization as separate challenges. Our approach bridges this gap by explicitly integrating legal ontologies into the fine-tuning of LLMs, enabling semantically controlled adaptation with minimal labeled data. This novelty lies in the dynamic, ontology-driven calibration of model parameters, which enhances domain fidelity, interpretability, and robustness compared to past fine-tuning schemas. Consequently, our method aims to set a new state-of-the-art in legal domain generalization for LLMs by exploiting structured legal knowledge and advanced contrastive learning techniques inspired by deep learning paradigms.",
+        "Proposed_Method": "We propose a novel adaptive fine-tuning framework that formally incorporates legal domain ontologies into the training dynamics of LLMs via three core components:\n\n1. Ontology-Guided Parameter Calibration: We define a learnable parameter modulation function \\(f_\\theta(O)\\) conditioned on ontology embeddings \\(O\\), which dynamically adjusts specific model layers during fine-tuning. Formally, for model parameters \\(W\\), the adapted parameters become \\(W' = W \\odot f_\\theta(O)\\), where \\(\\odot\\) is element-wise modulation. This modulation encodes hierarchical legal concepts and relations, enabling domain-specific feature emphasis and mitigating domain shift.\n\n2. Ontology-Aware Loss Function: We introduce a composite loss \\(\\mathcal{L} = \\mathcal{L}_{task} + \\lambda \\mathcal{L}_{onto} + \\mu \\mathcal{L}_{contr}\\) where:\n   - \\(\\mathcal{L}_{task}\\) is the task-specific supervised loss (e.g., cross-entropy).\n   - \\(\\mathcal{L}_{onto} = \\sum_{(c_i,c_j) \\in E} w_{ij} \\|h_i - h_j\\|^2\\) aligns learned representations \\(h_i, h_j\\) of samples with ontology-related concepts \\(c_i, c_j\\) connected by edges \\(E\\) weighted by semantic proximity \\(w_{ij}\\), enforcing semantic coherence.\n   - \\(\\mathcal{L}_{contr}\\) is a contrastive loss formulated to maximize agreement between augmented ontology-driven few-shot samples and their semantic classes, enhancing intra-class clustering and inter-class separation.\n\n3. Ontology-Driven Data Augmentation: We generate augmented training samples through semantics-preserving perturbations guided by legal ontology constraints, increasing few-shot sample diversity while maintaining fidelity to legal concepts.\n\nPseudocode (high-level):\n\n```\nfor epoch in epochs:\n  for batch in data:\n    O = embed_ontology(batch.ontology_subgraph)\n    W_prime = W * f_theta(O)  # Parameter modulation\n    outputs = LLM.forward(batch.inputs, params=W_prime)\n    L_task = task_loss(outputs, batch.labels)\n    L_onto = ontology_loss(outputs, O)\n    L_contr = contrastive_loss(outputs, augmented_samples)\n    L = L_task + lambda * L_onto + mu * L_contr\n    optimize(L)\n```\n\nArchitecture diagrams will illustrate the parameter modulation module interfacing between the ontology embedding layer and intermediate transformer blocks, clarifying integration pathways.\n\nThis method draws from deep learning advances in conditional parameter modulation and contrastive representation learning, adapted innovatively for legal NLP domain generalization challenges.",
+        "Step_by_Step_Experiment_Plan": "1. Collect diverse legal corpora and extract corresponding ontology graphs covering statutes, case law, and legal taxonomies.\n2. Select a strong pre-trained LLM architecture (e.g., GPT-4 API, or open-source equivalent like LLaMA or Falcon).\n3. Develop ontology embedding encoders (e.g., graph neural networks) to embed legal concept networks.\n4. Implement the parameter modulation and ontology-aware loss components as detailed.\n5. Create ontology-driven few-shot prompts and perform semantics-preserving data augmentation.\n6. Fine-tune the LLM adaptively with the ontology-guided framework.\n7. Evaluate on benchmark tasks such as contract clause classification, legal question answering, and statute entailment.\n8. Baselines: (a) Standard fine-tuning without ontology integration, (b) Zero-shot LLM performance.\n9. Metrics: Accuracy, F1 score, Expected Calibration Error (ECE), and measures of domain generalization robustness.\n10. Conduct ablation studies isolating contributions of parameter modulation, ontology loss, and contrastive learning components.\n11. Visualize learned representations to confirm semantic clustering aligned with ontology concepts.",
+        "Test_Case_Examples": "Input: \"Analyze the enforceability of a non-compete clause under California law.\"\nExpected Output: Structured summary identifying enforceability risks and exceptions, explicitly referencing ontology concepts such as 'non-compete', 'state law exceptions', 'reasonableness', and 'jurisdictional variance'.\n\nEvaluation checks that output aligns semantically with ontology hierarchy and legal precedents, demonstrating domain-aware legal reasoning and internal consistency.",
+        "Fallback_Plan": "If ontology guidance fails to improve performance, pivot to augmenting the few-shot dataset with synthetic legal samples generated by domain-specific generative simulators (e.g., law-informed text generation models). Conduct error analysis to identify ontology coverage gaps or misalignments. Subsequently, expand ontology knowledge bases by incorporating additional legal sources such as regulatory guidelines or lawyer-annotated corpora. Explore hybrid methods combining ontology guidance with prompt tuning and meta-learning strategies to enhance model adaptability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Ontology-Guided Fine-Tuning",
+      "Few-Shot Learning",
+      "Legal Large Language Models",
+      "Domain Generalization",
+      "Model Calibration",
+      "Sparse Labeled Data"
+    ],
+    "direct_cooccurrence_count": 10316,
+    "min_pmi_score_value": 2.1936861499527534,
+    "avg_pmi_score_value": 4.795996063658191,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4601 Applied Computing"
+    ],
+    "future_suggestions_concepts": [
+      "deep learning",
+      "artificial intelligence"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines an innovative approach integrating domain ontologies into adaptive fine-tuning of legal LLMs via ontology-driven prompts, augmented data, and an ontology-aware loss. However, the precise mechanism of how ontology structures dynamically guide parameter calibration and how the ontology-aware loss is formulated lacks clarity. Providing a clear formalization or algorithmic description of these components is essential to validate the approach's soundness and reproducibility. Additionally, clarifying how contrastive learning interfaces with the ontology semantics will strengthen the argument of semantic fidelity preservation during fine-tuning, making the method more concrete and convincing to reviewers and practitioners alike. Enhancing this section with pseudocode or architectural diagrams would be highly beneficial for comprehension and implementation feasibility assessment. This clarification is critical before proceeding further to ensure the method’s core innovations are both novel and well-founded within existing literature and practices in legal NLP and domain adaptation frameworks.\n\n(Section targeted: Proposed_Method)"
+        }
+      ]
+    }
+  }
+}

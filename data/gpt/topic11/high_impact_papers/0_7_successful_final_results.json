@@ -1,0 +1,69 @@
+{
+  "before_idea": {
+    "title": "Advanced Named Entity Graphs for Transparent Clinical Reasoning in LLMs",
+    "Problem_Statement": "Current LLM interpretability approaches often miss explicit reasoning about clinical entities and their relationships, reducing transparency in sensitive healthcare decisions.",
+    "Motivation": "Targets internal gap of interpretability using advanced NLP to create structured, clinically meaningful output explanations bridging machine learning and human-centered AI, inspired by Opportunity 3.",
+    "Proposed_Method": "Construct named entity graphs extracted from patient data and clinical notes integrated with LLMs to provide explicit, visualized reasoning paths supporting predictions. This graph-based interpretability supplements natural language explanations making AI diagnostic reasoning traceable and auditable.",
+    "Step_by_Step_Experiment_Plan": "1) Annotate datasets with clinical entities and relations.\n2) Develop extraction and graph construction tools.\n3) Integrate graph outputs with LLM prediction workflows.\n4) Evaluate explanation completeness, fidelity, and clinician trust.\n5) Pilot with clinical users to assess decision impact.",
+    "Test_Case_Examples": "Input: Patient clinical note.\nOutput: Diagnostic prediction with an interactive named entity graph and textual rationale tracing key influencing factors.",
+    "Fallback_Plan": "If graph complexity impairs usability, simplify graphs to key relations or accompany with summarized textual explanations."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Enhanced Named Entity Graphs Integrated with LLM Attention for Transparent Clinical Reasoning",
+        "Problem_Statement": "Existing large language model (LLM) interpretability methods in clinical AI predominantly rely on natural language explanations that often lack explicit structured reasoning about clinical entities and their interrelations. This shortfall reduces transparency and clinician trust, particularly in high-stakes healthcare decisions. Furthermore, the added value of graph-based visualizations over textual explanations remains empirically unsubstantiated, and challenges persist with noisy clinical entity/relation extraction impacting explanation fidelity.",
+        "Motivation": "While prior work focuses on natural language or black-box explanations, there remains a significant interpretability gap in clinical decision-making AI needing structured, verifiable reasoning artifacts. Our method uniquely integrates named entity recognition (NER) and relation extraction with LLMs by leveraging their internal attention mechanisms to construct clinically meaningful, auditable named entity graphs. This approach complements text rationales with visual and interactional transparency, enabling clinicians to trace AI decisions through concrete biomedical entities and their contextual relations extracted from electronic health records (EHRs) and clinical notes. By systematically validating the added interpretability and trust through rigorous metrics and clinical user studies, our work advances the state of clinical AI interpretability beyond current competitive approaches.",
+        "Proposed_Method": "We propose a hybrid framework combining advanced biomedical NER and relation extraction with deep learning methods, fused with LLM attention weights from clinical note processing, to construct weighted named entity graphs that explicitly represent clinically relevant entities (e.g., symptoms, diagnoses, treatments) and their directed relationships. This graph encapsulation elucidates LLM decision pathways beyond superficial text explanations, grounding AI predictions in structured, clinically interpretable knowledge consistent with biomedical ontologies. To overcome extraction noise and ambiguity, we incorporate automated knowledge discovery techniques and reinforcement learning-based feedback loops to refine entity/relation accuracy iteratively. Our interactive visualization interface allows clinicians to explore explanations dynamically, improving transparency and trustworthiness. This integrated use of attention mechanisms and graph construction is novel in bridging deep learning interpretability with graph-based clinical reasoning support, targeting the complexity and sensitivity of healthcare AI.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Preparation: Utilize existing annotated biomedical corpora and EHR datasets with partial entity/relation labels. Supplement with a hybrid annotation pipeline combining automated NER/relation extraction models fine-tuned on clinical data and expert manual validation to create a scalable, high-fidelity dataset, targeting at least 5,000 annotated clinical notes.\n2) Model Development: Develop and train biomedical NER and relation extraction modules leveraging deep learning and attention mechanisms. Integrate these modules with an LLM fine-tuned on clinical datasets to produce attention-weighted entity graphs.\n3) Robustness and Noise Handling: Implement reinforcement learning-based feedback loops for iterative correction of extraction errors and ambiguity resolution. Validate with metrics such as precision, recall, and F1-score on entity and relation extraction.\n4) Explainability Evaluation: Define quantitative metrics for explanation completeness (coverage of key clinical factors) and fidelity (alignment between graph-based and LLM predictive reasoning paths). Compare against strong baselines of text-only explanations in clinical AI.\n5) Clinician Trust & Usability Study: Conduct a structured pilot clinical study with at least 20 practicing physicians recruited across diverse specialties. Utilize standardized trust questionnaires (e.g., Trust in Automation Scale), decision impact analysis, and think-aloud protocols to assess explanation effectiveness alongside controlled decision-making scenarios.\n6) Ethical Compliance & Data Security: Obtain IRB approval and follow data privacy best practices throughout.\n7) Iterative Refinement: Use clinician feedback and quantitative results to optimize graph complexity, visualization features, and integration with clinical workflows.",
+        "Test_Case_Examples": "Input: A de-identified patient clinical note containing symptoms, lab results, and medical history.\nOutput: (a) A diagnostic prediction by the integrated LLM; (b) An interactive weighted named entity graph depicting clinically salient entities like 'breast lump', 'mammogram results', 'family cancer history', linked by relevant relations (e.g., 'indicates', 'associated with'); (c) Textual rationale highlighting key phrases aligned with graph components; (d) Quantitative explanation scores (completeness and fidelity) displayed to the clinician.\nTest cases will include challenging clinical narratives such as breast cancer reconstruction cases to validate biomedical text mining applicability.",
+        "Fallback_Plan": "If noisy or ambiguous entity/relation extraction significantly degrades usability, fallback to a layered explanation approach combining simplified core entity graphs augmented with reinforced textual summaries. Additional automated filtering and ranking methods will prioritize clinically most relevant entities and relations, reducing cognitive load. Should incorporation of LLM attention weights prove insufficient for robust graph weighting, alternative knowledge discovery methods such as rule-based biomedical ontologies or external knowledge bases will be integrated to augment graph construction. Extensive user testing will guide iterative design pivots towards maximally effective, trust-enhancing explanations."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Named Entity Graphs",
+      "Clinical Reasoning",
+      "LLMs",
+      "Interpretability",
+      "NLP",
+      "Healthcare Decisions"
+    ],
+    "direct_cooccurrence_count": 2221,
+    "min_pmi_score_value": 3.429026315592775,
+    "avg_pmi_score_value": 4.809687602866181,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "deep learning",
+      "attention mechanism",
+      "biomedical text mining",
+      "electronic health records",
+      "advancement of artificial intelligence",
+      "Named Entity Recognition",
+      "automated knowledge discovery",
+      "question-answering system",
+      "breast cancer reconstruction",
+      "natural language processing applications",
+      "reinforcement learning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The proposal assumes that integrating named entity graphs with LLMs will significantly enhance transparency and interpretability for clinical reasoning. However, this assumption lacks supporting justification about how graph visualizations concretely improve trust or diagnostic accuracy beyond existing text-based explanations. Clarify why graph-based reasoning is necessary and superior for interpreting LLM outputs in clinical settings, considering known challenges in graph extraction fidelity and clinical relevance of relations extracted. Including citations or preliminary evidence supporting this assumption would strengthen the foundation of the method design and its relevance to sensitive healthcare decision-making scenarios where transparency is critical but challenging to achieve reliably with current LLM explainability tools. Without a robust rationale, the soundness of this core premise remains insufficiently substantiated, potentially undermining downstream feasibility and impact claims. Hence, I recommend explicitly articulating and empirically backing the core assumption that named entity graphs provide meaningful added transparency beyond natural language explanations in clinical AI applications. This should be addressed prior to or within early experiment phases to ensure resources target a valid interpretability gap specific to clinical contexts rather than a general or presumed one. This will help ensure the method’s soundness and clarify the unique interpretability contribution to the clinical AI trustworthiness discourse currently dominated by black-box LLM approaches. Target: Proposed_Method, Problem_Statement."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experiment plan outlines relevant steps but lacks detail on critical feasibility aspects necessary for success: 1) Annotating datasets with clinical entities and relations is a known bottleneck requiring domain expertise and costly manual work; a clear sourcing strategy and scale expectations are needed. 2) The graph extraction and integration with LLMs are complex tasks, but technical risks and fallback contingencies beyond graph simplification are not sufficiently elaborated—e.g., handling noisy entity/relation extraction or ambiguity in clinical notes. 3) Metrics for 'explanation completeness' and 'fidelity' should be clearly defined with measurable criteria and validation protocols, including how clinician trust will be quantitatively assessed beyond subjective impressions. 4) The pilot study design with clinical users needs elaboration regarding selection criteria, sample size, and evaluation settings to realistically assess actual impact on decision-making. Without these details, the plan risks underestimating resource/time requirements or missing critical failure modes, reducing project feasibility. I recommend expanding the experiment plan to include detailed annotation strategies (automatic plus manual hybrid?), concrete evaluation metrics and baselines, robustness checks for extraction errors, and a structured clinical trial design with ethics considerations early on to ensure scientific rigor and feasibility of delivering meaningful results. Target: Step_by_Step_Experiment_Plan."
+        }
+      ]
+    }
+  }
+}

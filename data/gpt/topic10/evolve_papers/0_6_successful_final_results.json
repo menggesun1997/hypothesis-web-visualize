@@ -1,0 +1,81 @@
+{
+  "before_idea": {
+    "title": "Bioinformatics-Inspired Multi-Level Evaluation Suite for Scientific NLP Texts",
+    "Problem_Statement": "Current LLM scientific text evaluation focuses on surface metrics, missing multi-level biological validation paradigms that could enhance assessment rigor.",
+    "Motivation": "Expands internal assessment gaps by importing layered validation models from bioinformatics, including sequence alignment analogues applied to semantic and factual consistency in scientific text generation.",
+    "Proposed_Method": "Adapt bioinformatics multi-level sequence comparison methods to evaluate LLM outputs at lexical, semantic, and factual layers. Incorporate graph alignment for knowledge consistency and network-based factual validation with external databases.",
+    "Step_by_Step_Experiment_Plan": "1) Build evaluation modules mimicking sequence alignment at text layers. 2) Gather biomedical and scientific corpora for evaluation. 3) Compare suite performance with traditional text evaluation metrics. 4) Validate impact on improving pipeline quality control.",
+    "Test_Case_Examples": "Input: LLM-generated biomedical hypothesis description. Output: Multi-level alignment scores reflecting semantic fidelity and factual accuracy against gold standard publications.",
+    "Fallback_Plan": "If complex alignment is computationally heavy, use approximate metrics or heuristic-based multi-level scoring."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Transformer-Enhanced Multi-Level Evaluation Suite with Knowledge Graph Integration for Scientific NLP Texts",
+        "Problem_Statement": "Current evaluation methods for large language model (LLM) outputs on scientific texts rely heavily on surface-level metrics, lacking rigor in assessing semantic fidelity and factual correctness. Furthermore, the adaptation of bioinformatics multi-level alignment techniques to text evaluation remains underdeveloped with limited clarity on mechanisms, impeding reproducibility and efficacy, especially in biomedical contexts where accuracy is critical.",
+        "Motivation": "To enhance the scientific NLP text evaluation paradigm, this proposal advances a multi-level evaluation framework inspired by bioinformatics sequence alignment but grounded in state-of-the-art Transformer-based models and knowledge graph integration. By precisely formalizing lexical, semantic, and factual layers and leveraging pretrained models such as T5 alongside domain-specific biomedical knowledge graphs, our approach addresses novelty concerns and offers scalable, robust, and contextualized assessment of LLM-generated scientific content. This method uniquely bridges structured biological validation paradigms with modern neural semantic modeling, aiming to advance accuracy in automated evaluation critical for healthcare and biomedical research.",
+        "Proposed_Method": "We propose a three-layer multi-level evaluation pipeline combining algorithmic adaptations from bioinformatics with Transformer-based semantic modeling and domain knowledge integration:\n\n1. Lexical Layer: Employ traditional sequence alignment algorithms (e.g., Needleman-Wunsch) adapted to token-level comparison for lexical similarity scores, formalized as:\n\n\\( L_{score} = AlignTokens(LLM_{output}, ReferenceText) \\)\n\n2. Semantic Layer: Utilize a pretrained Text-to-Text Transfer Transformer (T5) model fine-tuned for zero-shot semantic relevance scoring. We compute semantic similarity by encoding both texts and measuring cosine similarity of contextual embeddings, expressed as:\n\n\\( S_{score} = CosineSim(Encode_{T5}(LLM_{output}), Encode_{T5}(ReferenceText)) \\)\n\n3. Factual Layer: Implement graph alignment by:\n  a) Extracting biomedical entities and relations via Named Entity Recognition (NER) and Relation Extraction from both LLM outputs and gold standard texts.\n  b) Mapping extracted triples onto external biomedical knowledge graphs (e.g., Chinese Medical Knowledge Graph, UMLS).\n  c) Measuring factual consistency through graph edit distance and coverage metrics, formalized as:\n\n\\( F_{score} = GraphAlign(ExtractGraph(LLM_{output}), ExtractGraph(ReferenceText), KG) \\)\n\nThe pipeline integrates these scores into a composite metric, weighted based on task-specific priorities. Algorithmic flow diagrams accompany this pipeline to detail data flow and computation stages. Pseudocode modules for alignment computation and knowledge graph integration are provided to ensure reproducibility and clarity.\n\nExternal knowledge bases enrich factual verification by cross-referencing citation contexts, reducing quotation errors, and validating biomedical facts within radiology and healthcare domains. This synergy leverages advances in Transformer-based language models and automated knowledge discovery, enabling a scalable, interpretable, and rigorous evaluation framework unprecedented in current scientific NLP literature.",
+        "Step_by_Step_Experiment_Plan": "1) Implement lexical alignment adaptation based on established sequence alignment algorithms at token and phrase granularity.\n2) Fine-tune and evaluate T5-based zero-shot semantic similarity models on scientific and biomedical text pairs.\n3) Develop NER and relation extraction modules tailored for biomedical domain, linking entities to external knowledge graphs such as the Chinese medical knowledge graph and UMLS.\n4) Design graph alignment metrics incorporating graph edit distance and coverage to quantify factual consistency.\n5) Integrate all layers into a unified pipeline and devise composite scoring methods.\n6) Collect biomedical and healthcare corpora with annotated gold standard texts, including citation and quotation contexts.\n7) Benchmark the suite against traditional surface metrics (BLEU, ROUGE), recent semantic fidelity baselines, and knowledge-based factual evaluation methods.\n8) Analyze correlations between multi-level scores and human expert assessments.\n9) Conduct ablation studies to evaluate the impact of Transformer integration and knowledge graph usage on metric performance and computational overhead.\n10) Publish reproducible code, flow diagrams, and pseudocode to ensure transparency and community uptake.",
+        "Test_Case_Examples": "Input: LLM-generated biomedical hypothesis describing a potential gene-disease association.\nOutput:\n- Lexical score: Indicates token alignment with reference publication.\n- Semantic score: Quantifies conceptual equivalence using T5 contextual embeddings.\n- Factual score: Reflects correctness of gene-disease triples verified against biomedical knowledge graphs.\nComposite output provides a detailed profile highlighting strengths and weaknesses across text layers, enabling targeted model improvement.\n\nAdditional example considers citation context accuracy by detecting quotation errors and verifying referenced statements using linked knowledge bases.",
+        "Fallback_Plan": "If full graph alignment and Transformer-based semantic scoring prove computationally prohibitive, we will adopt approximate heuristic-based methods, such as simplified lexical overlap metrics combined with embedding-based retrieval from knowledge graphs for factual checks. Additionally, we will explore distilled Transformer models for faster inference and utilize subgraph sampling for scalable graph alignment. These strategies aim to balance computational feasibility with sufficient evaluation rigor to maintain meaningful multi-level assessments."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Bioinformatics",
+      "Multi-Level Evaluation",
+      "Scientific NLP",
+      "Text Generation",
+      "Semantic Consistency",
+      "Factual Consistency"
+    ],
+    "direct_cooccurrence_count": 6022,
+    "min_pmi_score_value": 2.5553325087850616,
+    "avg_pmi_score_value": 4.099440696463562,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "pre-trained language models",
+      "zero-shot setting",
+      "knowledge bases",
+      "Text-to-Text Transfer Transformer",
+      "Named Entity Recognition",
+      "learning methods",
+      "automated knowledge discovery",
+      "health care",
+      "Transformer-based language models",
+      "quotation errors",
+      "citation contexts",
+      "biomedical publications",
+      "natural language processing models",
+      "advancement of artificial intelligence",
+      "recurrent neural network",
+      "state-of-the-art baselines",
+      "zero-shot learning",
+      "extraction of semantics",
+      "Chinese medical knowledge graph",
+      "medical knowledge graph",
+      "neural network",
+      "radiology information system",
+      "neural network learning method"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method aims to adapt multi-level sequence comparison methods from bioinformatics for lexical, semantic, and factual evaluation of LLM outputs in scientific texts. However, the mechanism lacks detailed articulation regarding how traditional bioinformatics techniques like sequence alignment and graph alignment maps concretely onto textual semantic and factual layers. There is an absence of clear definitions for these layers, how alignment scores will be computed, and how external knowledge bases will be integrated into network-based factual validation. Providing precise methodological steps, algorithmic adaptations, and examples of metric computations will strengthen the clarity and robustness of the proposal's core mechanism. This will also aid reproducibility and feasibility evaluation by reviewers and practitioners alike. Consider including formal problem definitions and pseudocode or flow diagrams for the multi-level evaluation pipeline to improve soundness and clarity of the approach within the Proposed_Method section."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty assessment, it is crucial to leverage globally linked concepts to differentiate this work further. Incorporating recent advances in Transformer-based language models and neural network learning methods could enhance the proposed evaluation suite's capability to model semantic fidelity and contextualized factual consistency more effectively. Specifically, integrating pretrained models like Text-to-Text Transfer Transformer (T5) or other state-of-the-art baselines for zero-shot or few-shot semantic assessment, combined with knowledge graph-based medical or biomedical resources (e.g., Chinese medical knowledge graph or medical knowledge graphs), could significantly improve evaluation accuracy and scalability. Such integration can also address citation contexts and quotation errors, enhancing scientific NLP text evaluation impact in healthcare and biomedical domains. Emphasizing these connections and experimenting with such integrations in the experimental plan can elevate the work's novelty and practical impact substantially."
+        }
+      ]
+    }
+  }
+}

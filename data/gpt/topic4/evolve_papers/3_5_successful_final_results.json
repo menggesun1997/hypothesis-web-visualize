@@ -1,0 +1,78 @@
+{
+  "before_idea": {
+    "title": "Differentially Private Siamese Networks for Federated Unsupervised Linguistic Anomaly Localization",
+    "Problem_Statement": "Localization of anomalies in linguistic data—identifying specific tokens or segments responsible—is crucial for interpretability but remains unexplored in privacy-preserving federated unsupervised frameworks.",
+    "Motivation": "Addressing the internal privacy gap and anomaly localization needs, this idea pioneers combining Siamese representation learning with differential privacy in a federated setting to enable both effective anomaly detection and precise localization without compromising sensitive user data.",
+    "Proposed_Method": "We design a federated Siamese network architecture where paired normal linguistic samples are locally encoded with privacy-preserving noise added to gradients. This model captures fine-grained semantic similarity patterns to learn compact normal representations. Anomaly localization is performed by comparing new inputs with learned normal embeddings and back-tracing to token-level discrepancies using integrated gradients or attention maps. All training and localization computations respect differential privacy constraints.",
+    "Step_by_Step_Experiment_Plan": "1) Collect linguistic datasets segmented by tokens or phrases. 2) Implement centralized Siamese baseline for anomaly detection and localization. 3) Extend to federated training with differential privacy. 4) Evaluate detection accuracy and localization precision (e.g., token-wise F1). 5) Measure privacy budget impact. 6) Perform qualitative analysis of localization heatmaps in privacy scenarios.",
+    "Test_Case_Examples": "Input: Linguistic input containing subtle biased phrases among normal text segments. Expected Output: The model flags the input as anomalous and highlights specific biased tokens as sources of anomaly while respecting privacy guarantees.",
+    "Fallback_Plan": "If localization signal weakens under privacy noise, explore semi-supervised fine-tuning with pseudo-labeling or differential privacy budget relaxation. Alternatively, combine with explainability frameworks that do not require gradient access."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Federated Differentially Private Siamese Networks with Robust Token-Level Anomaly Localization in Heterogeneous Linguistic Data",
+        "Problem_Statement": "Precise localization of anomalies within linguistic data—identifying token-level sources of deviations—is essential for interpretability and trustworthiness in unsupervised anomaly detection. However, in privacy-critical federated settings with heterogeneous client data distributions, achieving accurate localization under rigorous differential privacy guarantees remains an open and challenging problem, due to noise-induced degradation of fine-grained explanation signals and the complexity of federated aggregation.",
+        "Motivation": "Current approaches do not adequately address the tradeoff between differential privacy, federated learning heterogeneity, and token-level linguistic anomaly localization interpretability. Our work innovates by integrating advanced privacy-preserving explainability mechanisms with Siamese representation learning in federated contexts, explicitly accounting for heterogeneous client distributions and communication constraints. Leveraging concepts from machine learning security and domain adaptation, this proposal pushes beyond competitive baselines by providing formal privacy-utility analyses and robust localization despite privacy noise. It enables transparent anomaly explanations while rigorously respecting user data privacy, filling a critical gap in privacy-preserving unsupervised linguistic anomaly detection and localization.",
+        "Proposed_Method": "We propose a federated Siamese network framework enhanced by adaptive noise calibration that strategically balances differential privacy budget allocation across training and explanation phases. Our method explicitly models heterogeneous client distributions via domain-adaptive federated averaging, mitigating divergence and improving convergence robustness. To preserve reliable token-level localization under privacy noise, we adopt recently developed privacy-preserving explainability tools—such as randomized smoothing integrated gradients and attention mechanism aggregation across clients—that produce stable importance scores even post noise-addition. We formally define the translation from Siamese similarity scores to token-level anomaly importances by decomposing similarity gradients into privacy-aware importance attributions consistent with federated differential privacy constraints. Communication overhead is optimized using compressed gradient sharing and secure aggregation protocols from learning security research. Our approach is further enhanced via pre-training on related public biomedical and medical domain corpora (leveraging transfer learning techniques) ensuring rich semantic representations, which improve generalization to clients with scarce or heterogeneous data. Through theoretical privacy-utility tradeoff analyses and empirical validations, we demonstrate that token-level anomaly explanations remain meaningful and interpretable under realistic federated differential privacy budgets, setting our approach apart from prior works that lacked such compositional guarantees and practical considerations.",
+        "Step_by_Step_Experiment_Plan": "1) Assemble federated linguistic datasets mimicking realistic client heterogeneity, including varied topic distributions and token usage patterns; simulate cross-silo federated settings.\n2) Pre-train the Siamese encoder on publicly available biomedical and medical domain corpora to infuse rich semantic knowledge beneficial for downstream anomaly detection.\n3) Implement a centralized Siamese baseline for anomaly detection and token-level localization to establish performance upper bound.\n4) Develop the federated framework incorporating domain-adaptive federated averaging, adaptive privacy budgeting, and privacy-preserving explainability modules.\n5) Evaluate detection accuracy, token-wise localization precision (e.g., token-level F1, precision, recall), and robustness across heterogeneous client distributions.\n6) Rigorously measure privacy parameters (epsilon, delta) and analyze their impact on both detection/localization metrics and communication overhead; report convergence behavior and computational cost.\n7) Integrate ablation studies for fallback strategies, including semi-supervised fine-tuning with pseudo-labels under relaxed privacy budgets and alternative explainability mechanisms not relying on gradients (e.g., perturbation-based methods) to validate tradeoffs.\n8) Conduct qualitative assessments of localization heatmaps, emphasizing clarity and fidelity under differential privacy noise.\n9) Document detailed logs for reproducibility and open-source release of code and synthetic federated datasets to stimulate community validation.",
+        "Test_Case_Examples": "Input: Federated linguistic datasets comprising subtle biased or anomalous phrases interspersed in diverse normal text segments, distributed heterogeneously across clients.\nExpected Output: The system accurately detects anomalous inputs and produces interpretable token-level anomaly heatmaps highlighting responsible biased tokens while maintaining strong differential privacy guarantees (quantified by epsilon, delta). Under simulated federated conditions, clear localization persists despite noise, and communication overhead remains manageable, demonstrating practical feasibility.",
+        "Fallback_Plan": "If token-level localization deteriorates under strict privacy constraints, we will systematically explore semi-supervised fine-tuning via pseudo-label generation on clients, balancing utility and privacy by dynamically adjusting privacy budgets. Additionally, we will implement ablation experiments employing gradient-free explainability techniques—such as perturbation-based importance scores or surrogate model explanations—compatible with federated differential privacy. These alternatives will be benchmarked for localization fidelity and interpretability. Further, communication compression and privacy budget reallocation strategies will be refined to optimize performance under constrained resources, ensuring that the methodology maintains practical utility and interpretability even when core assumptions are challenged."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Differential Privacy",
+      "Siamese Networks",
+      "Federated Learning",
+      "Linguistic Anomaly Localization",
+      "Unsupervised Learning"
+    ],
+    "direct_cooccurrence_count": 1220,
+    "min_pmi_score_value": 4.870015759851888,
+    "avg_pmi_score_value": 6.233695258225824,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4604 Cybersecurity and Privacy"
+    ],
+    "future_suggestions_concepts": [
+      "artificial intelligence",
+      "deep neural networks",
+      "deep learning",
+      "medical images",
+      "conventional transfer learning methods",
+      "medical domain",
+      "learning security",
+      "direction of knowledge transfer",
+      "fields of intelligent systems",
+      "communication networks",
+      "publication abbreviation",
+      "digital image forensics",
+      "field of digital forensics",
+      "digital forensics",
+      "electronic health records",
+      "image forensics",
+      "few-shot learning",
+      "biomedical time series",
+      "pre-training",
+      "medical data",
+      "development of deep neural networks",
+      "machine learning security"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section outlines a federated Siamese network with differential privacy noise added to gradients for unsupervised linguistic anomaly localization. However, the explanation lacks clarity on how integrated gradients or attention maps can be reliably computed and interpreted under strict differential privacy constraints, especially when noise is introduced during backpropagation. Please clarify the mechanism by which token-level localization signals remain meaningful despite privacy-preserving noise and federated aggregation. Providing more formal justification or preliminary proof-of-concept results would strengthen soundness here; otherwise, the approach risks token-level explanations that degrade severely under privacy noise, undermining interpretability claims and anomaly localization utility in a federated setting. This gap is crucial to address before proceeding further, as it impacts the core technical validity and feasibility of the approach in practice from both privacy and interpretability perspectives. A deeper discussion or analysis of privacy-utility tradeoffs in the explanation signals is strongly recommended, potentially leveraging recent advances in privacy-preserving explainability literature to solidify this aspect of the method design and increase confidence in the approach’s viability and clarity of mechanism. The revised section should also explicitly define how Siamese similarity scores translate into token-level importance under federated differential privacy constraints, leaving no ambiguity in the core algorithmic flow and its consistency with privacy guarantees.  (Target: Proposed_Method)  \n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is generally well-structured but lacks detail on crucial aspects affecting feasibility. Specifically: \n1) The plan should specify how the federated data distributions will realistically reflect heterogeneous client data, which often affects convergence and model robustness in federated settings.\n2) The plan does not address computational and communication overheads of differentially private gradient sharing in the Siamese network during federated training; these can be substantial and might limit practical applicability.\n3) Metrics for privacy budget evaluation appear underspecified; it would be beneficial to include plans for rigorously measuring privacy loss (epsilon, delta parameters) and its impact on detection/localization tradeoffs.\n4) The fallback plan mentions semi-supervised fine-tuning and combining with explainability frameworks that do not require gradient access, but the experiment plan should integrate these contingencies more concretely as alternative experiments or ablation studies.\nIncluding these refinements will strengthen the plan's realism and demonstrate clear foresight about federated differential privacy challenges, aiding reproducibility and encouraging more rigorous validation.\n(Target: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

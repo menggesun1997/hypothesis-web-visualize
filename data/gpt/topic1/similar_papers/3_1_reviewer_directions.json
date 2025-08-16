@@ -1,0 +1,51 @@
+{
+  "original_idea": {
+    "title": "SDG-Constrained Prompt Engineering for Bias Mitigation in LLMs",
+    "Problem_Statement": "LLMs applied in socioeconomically diverse, conflict-affected populations reflect biased reasoning that ignores Sustainable Development Goals (SDGs) and human development benchmarks in decision processes, amplifying ethnic and migration-related disparities.",
+    "Motivation": "Tackles the external gap of integrating SDGs and human development indicators into LLM fairness frameworks, addressing Opportunity 2 by embedding global policy constraints into AI reasoning, thus linking global goals with local conflict and health challenges.",
+    "Proposed_Method": "Design a prompt engineering framework that injects SDG-based contextual fairness constraints directly into LLM decoding. This involves creating a modular prompt template embedding policy guidelines, fairness criteria derived from SDGs (e.g., reduced inequalities, good health), and demographic sensitivity modules. Develop a plug-and-play adapter layer to dynamically enforce these constraints during generation, ensuring outputs align with equity and fairness objectives in conflict-affected narratives and policy recommendations.",
+    "Step_by_Step_Experiment_Plan": "1) Extract textual SDG guidelines and policy frameworks relevant to health and economic development. 2) Create prompt templates incorporating fairness constraints. 3) Implement adapter layers in LLM architectures to condition outputs on these constraints. 4) Evaluate on datasets with socioeconomically and ethnically diverse scenarios (e.g., policy documents, health advisories). Baselines: vanilla LLMs without constraints. Metrics: bias metrics (e.g., subgroup accuracy), adherence to SDG goals, human evaluation of fairness.",
+    "Test_Case_Examples": "Input: \"Advise on allocating health resources in a multi-ethnic post-conflict region.\" Output: \"Allocate resources prioritizing marginalized ethnic groups to reduce health disparities, ensure sustainable economic development per SDG targets.\"",
+    "Fallback_Plan": "If prompt-constrained decoding fails, fallback to post-processing output filtering based on fairness classifiers, or use reinforcement learning from human feedback (RLHF) to teach adherence to SDG-aligned fairness policies."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "SDG-Constrained Prompt Engineering",
+      "Bias Mitigation",
+      "Large Language Models (LLMs)",
+      "Sustainable Development Goals (SDGs)",
+      "Human Development Indicators",
+      "Fairness Frameworks"
+    ],
+    "direct_cooccurrence_count": 1098,
+    "min_pmi_score_value": 2.8278508619137663,
+    "avg_pmi_score_value": 5.457409108608601,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4604 Cybersecurity and Privacy"
+    ],
+    "future_suggestions_concepts": [
+      "artificial general intelligence",
+      "urban digital twin",
+      "intelligent decision-making",
+      "natural language processing",
+      "Artificial General Intelligence systems",
+      "smart applications",
+      "agent system"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines embedding SDG-based fairness constraints into prompt templates and enforcing them using adapter layers during decoding. However, it lacks clarity on how these adapters will effectively transform or constrain the large LLM outputs without degrading language quality or fluency. The mechanism for dynamically integrating complex policy guidelines with real-time demographic sensitivity during generation is underspecified, including how conflicts between competing constraints are managed or resolved. You should provide a more detailed algorithmic or architectural design, perhaps with preliminary technical sketches illustrating the adapter's integration with decoder states and how controllability is achieved without substantial tradeoffs to model coherence or factual accuracy, to strengthen the soundness of the approach's core mechanism component in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the Step_by_Step_Experiment_Plan appropriately outlines data extraction, prompt template creation, adapter implementation, and evaluation metrics, it currently appears high-level and optimistic about tackling socioeconomically and ethnically diverse conflict-affected scenarios. Given the complexity and sensitivity of the tasks, the feasibility of (1) obtaining high-quality, domain-specific datasets covering conflict-affected multi-ethnic regions and (2) evaluating fairness metrics aligned with SDGs needs further elaboration. More concretely, you should specify which datasets will be used or created, how human evaluation will be operationalized (e.g., expert annotators, evaluation protocols), and what success thresholds or baselines beyond vanilla LLMs are realistic. Strengthening these experimental details will increase confidence in the practical feasibility of the approach."
+        }
+      ]
+    }
+  }
+}

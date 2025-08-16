@@ -1,0 +1,64 @@
+{
+  "original_idea": {
+    "title": "Explainable Interactive QA with Theory-of-Mind Guided Query Refinement",
+    "Problem_Statement": "LLMs provide limited support for iterative clarification dialogues in open-domain QA, reducing explanation depth and trust.",
+    "Motivation": "Inspired by theory-of-mind inspired multi-turn explanations in vision models, this proposes an interactive system where the model elicits clarifying questions from users to refine answers and explanations iteratively, thereby addressing internal gaps in explanations and user engagement.",
+    "Proposed_Method": "Implement a meta-agent inside the LLM pipeline that models user knowledge state and expected misconceptions. It generates clarifying queries back to the user, receives responses, and updates explanations iteratively. This interactive loop uses theory-of-mind-driven counterfactual simulations to tailor explanations and improve understanding.",
+    "Step_by_Step_Experiment_Plan": "Collect or simulate multi-turn QA clarification dialogs with explanation interactions. Baselines: static explanations. Evaluate with human users on trust, satisfaction, and accuracy. Test ablations on user modeling fidelity and iteration limits.",
+    "Test_Case_Examples": "Input question: 'Why did the stock market crash in 1929?' User responds with confusion about 'crash.' System asks: 'Are you referring to the causes or the effects?' User clarifies, and the system refines answer and explanation accordingly.",
+    "Fallback_Plan": "If user interactions cause delays or complexity, allow optional clarification steps or fallback to a dynamic but single-turn explanation combining multiple facets."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Explainable Interactive QA",
+      "Theory-of-Mind",
+      "Query Refinement",
+      "Interactive System",
+      "Clarifying Questions",
+      "User Engagement"
+    ],
+    "direct_cooccurrence_count": 1435,
+    "min_pmi_score_value": 2.9913423544009734,
+    "avg_pmi_score_value": 4.89734353357332,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "information retrieval",
+      "natural language processing",
+      "information discovery",
+      "e-commerce",
+      "recommender systems",
+      "e-commerce search",
+      "dialog systems",
+      "human-in-the-loop interaction",
+      "agent reasoning",
+      "state-of-the-art results",
+      "search system",
+      "conversational search systems",
+      "workflow analysis",
+      "issue of information retrieval",
+      "agent code",
+      "dialogue systems",
+      "natural language processing community",
+      "neural approach",
+      "multi-turn interactions",
+      "model reasoning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a meta-agent that models the user's knowledge state and misconceptions and uses theory-of-mind-driven counterfactual simulations to iteratively generate clarifying questions and refine explanations. However, the description lacks sufficient clarity on how the meta-agent operationalizes and updates the user's knowledge state and misconception models during interaction. It is unclear what specific representations, algorithms, or training paradigms will enable this dynamic user-state modeling within an LLM pipeline. Additionally, the mechanism of integrating counterfactual simulations into query refinement is under-specified; details on how these simulations are computed, validated, and leveraged to produce tailored clarifications are needed. Clarifying these mechanisms with concrete design choices or algorithmic frameworks will strengthen soundness and reproducibility of the approach, enabling reviewers and future implementers to better assess feasibility and potential impact. Consider adding pseudocode or detailed architectural diagrams outlining the meta-agent’s internal workflow and learning dynamics in the multi-turn interactive setting to address this gap. This is critical for the core contribution to be well understood and evaluated effectively beyond a conceptual level, ensuring sound methodological foundation for the proposed research idea. (Target: Proposed_Method)"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan proposes collecting or simulating multi-turn QA clarification dialogues with explanation interactions, using static explanations as baselines, and evaluating with human users on trust, satisfaction, and accuracy while testing ablations related to user modeling fidelity and iteration limits. While overall reasonable, the plan is insufficiently detailed regarding the data collection or simulation processes, evaluation protocols, and metrics. For instance, it is unclear whether there exists or will be created a suitable dataset of multi-turn explanation-driven clarification dialogs, or how the system’s interaction latency and user burden will be measured and mitigated in a realistic user scenario. The plan to simulate data raises questions about the validity and representativeness of such data for downstream evaluation. Human evaluation protocols require more elaboration: participant recruitment, qualitative vs quantitative annotation schemes, statistical power considerations, and baseline comparison criteria. A more concrete, operationalized experimental design—including timeline, dataset creation or sourcing strategies, evaluation metrics definition, and pilot testing plans—would improve feasibility and credibility of the research plan, helping to ensure meaningful and confident interpretation of empirical results. (Target: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

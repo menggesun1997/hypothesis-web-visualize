@@ -1,0 +1,52 @@
+{
+  "topic_title": "Evaluating the Integration of Commonsense Knowledge in LLMs for Human-Robot Interaction",
+  "prediction": {
+    "ideas": [
+      {
+        "title": "Neuro-Symbolic Commonsense Fusion for Medical LLMs in HRI",
+        "Problem_Statement": "Current LLMs in human-robot interaction (HRI) for healthcare lack robust integration of explicit commonsense and domain expert knowledge, limiting their ethical transparency, context-awareness, and trustworthiness.",
+        "Motivation": "Addresses the critical internal gap of missing explicit commonsense knowledge integration and the absence of bridge nodes between language-focused NLP and expert healthcare knowledge. This innovation fuses symbolic knowledge graphs with foundation models, therefore enriching context embedding and enhancing decision support accuracy.",
+        "Proposed_Method": "Develop a hybrid neuro-symbolic architecture that combines large language models with symbolic commonsense knowledge graphs constructed via automatic knowledge extraction from electronic health records (EHRs). The system dynamically queries the knowledge graph during dialogue to supplement LLM reasoning, enabling transparent, explainable decision-making guided by expert healthcare ontologies and commonsense reasoning modules.",
+        "Step_by_Step_Experiment_Plan": "1) Extract structured knowledge graphs from EHR datasets using named entity recognition (NER) and relation extraction. 2) Pretrain/fine-tune LLMs (e.g., GPT, T5) with multi-task objectives incorporating query-answering over the knowledge graph. 3) Implement a neuro-symbolic interface that adaptively queries the graph during generation. 4) Evaluate on patient-robot dialogue datasets for accuracy, contextual coherence, and explainability against standard LLM baselines. 5) Measure trust and transparency via user studies with healthcare professionals.",
+        "Test_Case_Examples": "Input: Patient description ‘‘I’ve been feeling dizzy after my medication.” Expected Output: LLM consults the underlying knowledge graph indicating the medication’s side effects and responds, ‘‘Dizziness can be a side effect of your medication; would you like me to notify your doctor or adjust your dose?’’ The explanation traces back to the knowledge graph nodes on the medication and symptoms.",
+        "Fallback_Plan": "If dynamic graph querying proves computationally expensive or ineffective, implement a knowledge distillation phase to inject commonsense embeddings directly into the LLM weights. Alternatively, use prompt engineering to incorporate graph summaries in context windows."
+      },
+      {
+        "title": "Doctor-Labeled Summarization-Guided Trustworthy Dialogue Agents",
+        "Problem_Statement": "Existing AI virtual agents in healthcare lack interpretability and trustworthiness due to insufficient integration of expert-labeled summaries and reasoning over patient language samples.",
+        "Motivation": "Addresses the external gap identified in the hidden bridge by combining physician-labeled EHR summarization with foundation model multimodal reasoning, thus directly advancing the AI Trust Framework and ethical safeguards in HRI systems.",
+        "Proposed_Method": "Create a multi-stage pipeline that first uses expert-labeled physician summaries of patient dialogues to train specialized summarization models. Then, combine these summaries with multimodal inputs (e.g., patient speech, vitals) into a transformer-based reasoning framework that outputs interpretable recommendations with uncertainty quantification and provenance tracing.",
+        "Step_by_Step_Experiment_Plan": "1) Collect and preprocess physician-labeled dialogue summarization datasets. 2) Train an abstractive summarization model aligned with expert summaries. 3) Integrate multimodal patient data with summary embeddings via multi-head attention layers. 4) Fine-tune a reasoning head for decision support tasks. 5) Benchmark interpretability using explainable AI metrics and run clinical expert assessments for trustworthiness.",
+        "Test_Case_Examples": "Input: Dialogue transcript including patient symptoms and doctor notes. Output: Summarized health status with reasoning trace, e.g., ‘‘Summary: Patient experiences high blood pressure and headache. Recommended action: Schedule urgent cardiology consult. Reasoning: Elevated vitals coupled with clinical history indicate risk.’’",
+        "Fallback_Plan": "If physician-labeled summaries are sparse, utilize semi-supervised or self-training approaches bootstrapping from large unlabeled corpora. Alternatively, implement interpretable surrogate models to approximate decision reasoning."
+      },
+      {
+        "title": "Continuous Commonsense Learning via Dialogue Entity Recognition Feedback in Medical HRI",
+        "Problem_Statement": "Current healthcare virtual agents do not adapt commonsense knowledge dynamically from real-time interactions, limiting personalization and the effectiveness of human-robot communication.",
+        "Motivation": "Directly tackles the gap of isolated language analysis and virtual agent integration by enabling continuous learning from entity recognition in physician-verified dialogues, enhancing personalization and contextual decision-making in clinical HRI.",
+        "Proposed_Method": "Design an adaptive dialogue system that leverages entity recognition and knowledge summarization modules to incrementally update a commonsense knowledge base. The agent uses this evolving knowledge to personalize interactions and decision support, employing reinforcement learning to optimize dialogue strategies based on expert feedback.",
+        "Step_by_Step_Experiment_Plan": "1) Implement an entity recognition pipeline fine-tuned on medical dialogue data. 2) Develop online summarization algorithms to extract commonsense insights from new interactions. 3) Integrate reinforcement learning algorithms to update dialogue policy based on expert validation signals. 4) Evaluate on longitudinal patient-robot dialogue datasets measuring personalization improvements, task success rate, and expert satisfaction.",
+        "Test_Case_Examples": "Input: Patient mentions new symptom not covered before. Output: System recognizes new entity, updates knowledge base, and adapts next dialogue turns accordingly, e.g., ‘‘Noted your new symptom of intermittent chest pain, shall I notify your cardiologist?’’",
+        "Fallback_Plan": "If real-time updates degrade performance, implement periodic batch updates of the commonsense knowledge base. Also, fall back to supervised retraining cycles triggered by expert review."
+      },
+      {
+        "title": "Hybrid Multimodal-EHR Knowledge Graph for Ethical Decision-Making in Robotic Healthcare Agents",
+        "Problem_Statement": "Ethical transparency and expert domain embedding in LLM-driven healthcare virtual agents are insufficiently addressed, impairing trust and safety in patient-robot interactions.",
+        "Motivation": "Combines high-potential innovation Opportunity 1 and 2 by constructing hybrid knowledge graphs integrating multimodal clinical data with EHR language samples to provide ethical, expert-informed decision layers augmenting language models in robotic agents.",
+        "Proposed_Method": "Extract structured ethical AI constraints and clinical guidelines from multimodal EHR data and clinical narratives to build a dynamic knowledge graph. Fuse this graph with LLM reasoning through a gated attention mechanism that flags ethical conflicts and suggests expert-approved alternatives during interaction, ensuring transparent, ethically-sound recommendations.",
+        "Step_by_Step_Experiment_Plan": "1) Curate multimodal clinical datasets with annotated ethical constraints. 2) Develop pipelines for knowledge graph construction encompassing ethical rules and clinical knowledge. 3) Train LLM-graph fusion models that can detect and explain ethical dilemmas in outputs. 4) Evaluate on both clinical decision accuracy and ethical compliance metrics, supplemented by expert panel reviews.",
+        "Test_Case_Examples": "Input: User asks for a medication adjustment with known allergy risks. Output: System responds, ‘‘Based on your allergy history, this medication is contraindicated. I suggest discussing alternative therapies with your doctor.’’",
+        "Fallback_Plan": "If integration fails to detect ethical issues reliably, develop post-hoc ethical validation modules to filter or flag risky outputs. Alternatively, incorporate rule-based AI safety layers before reply generation."
+      },
+      {
+        "title": "Expert-Guided Multitask Benchmark for Evaluating Commonsense Integration in Healthcare LLMs",
+        "Problem_Statement": "Lack of standardized benchmarks explicitly measuring commonsense knowledge integration and ethical reasoning in medical LLMs for HRI limits research progress and comparison.",
+        "Motivation": "Fulfills a major infrastructure gap by providing a unified benchmark derived from expert-annotated dialogues, EHR-derived knowledge graphs, and ethical scenario tests, emphasizing the critical internal and external gaps of knowledge integration and trustworthiness.",
+        "Proposed_Method": "Develop a multitask benchmark suite combining tasks such as dialogue-based clinical decision support, commonsense inference question answering, ethical compliance classification, and knowledge graph reasoning. Benchmark includes physician-labeled ground truths and scenario-based trust assessment metrics.",
+        "Step_by_Step_Experiment_Plan": "1) Collect and curate datasets from clinical dialogues, expert annotations, and synthetic ethical dilemmas. 2) Define tasks covering language understanding, knowledge graph reasoning, and ethical safeguards. 3) Create scoring metrics focused on correctness, contextual appropriateness, transparency, and trust. 4) Release benchmark for public evaluation and analyze state-of-the-art LLMs' performance gaps.",
+        "Test_Case_Examples": "Task: Given a patient report with ambiguous symptoms, model must infer plausible commonsense explanations and select ethically sound treatment suggestions matching expert consensus.",
+        "Fallback_Plan": "If data scarcity arises for some tasks, consider data augmentation using expert-driven simulations or synthetic data creation. Provide modularity to allow incremental task additions later."
+      }
+    ]
+  }
+}

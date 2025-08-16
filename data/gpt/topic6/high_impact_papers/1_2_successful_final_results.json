@@ -1,0 +1,71 @@
+{
+  "before_idea": {
+    "title": "Hybrid Qualitative-Computational Framework for LLM Evaluation Grounded in Social Support Constructs",
+    "Problem_Statement": "LLM intrinsic evaluation largely ignores qualitative social constructs such as social support, resulting in assessments that lack social grounding and interpretability with respect to human-centered evaluations.",
+    "Motivation": "Addresses the internal gap of poor integration between qualitative thematic analyses (digital data types, social support concepts) and computational uncertainty/self-consistency metrics, leveraging interdisciplinary synthesis as per Opportunity 3.",
+    "Proposed_Method": "Create a framework that transforms qualitative thematic codes of social support from digital communication into computational features. Integrate these with LLM self-consistency measures by weighting uncertainty estimates according to the presence and type of social support expressed. This yields nuanced intrinsic evaluations that reflect human social behavior.",
+    "Step_by_Step_Experiment_Plan": "1. Utilize datasets from online communities annotated for social support (e.g., emotional, informational).\n2. Extract thematic codes using qualitative analysis (SAGE Handbook methods).\n3. Engineer quantitative social support features.\n4. Incorporate features into self-consistency score computation, modulating scores by support presence.\n5. Benchmark against standard intrinsic metrics.\n6. Validate interpretability and alignment with human judgments.\n7. Perform sensitivity analyses.",
+    "Test_Case_Examples": "Input: \"Feeling overwhelmed by work, what should I do?\"\nExpected Output: LLM responses providing emotional and practical support yield lowered perplexity weighted by social support signaling and higher self-consistency when support is consistently reflected.",
+    "Fallback_Plan": "If thematic coding is expensive, implement semi-supervised learning to auto-label social support types. Test whether simplified keyword presence can approximate thematic integration."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "A Computationally Transparent Hybrid Framework for Intrinsic LLM Evaluation Integrating Social Support Constructs and Cognitive Processes in Mathematics Learning",
+        "Problem_Statement": "Current intrinsic evaluation methodologies for large language models (LLMs) predominantly focus on statistical measures such as perplexity and do not adequately incorporate nuanced, qualitative social constructs like social support. This oversight limits the interpretability and human-centered relevance of LLM assessments, especially within contexts such as educational digital environments where students’ cognitive processes and social support are critical.",
+        "Motivation": "This research addresses a critical gap at the intersection of AI evaluation, social sciences, and educational research. By operationalizing qualitative social support constructs into quantitative computational features and integrating these with LLM self-consistency metrics, the framework enhances interpretability and social grounding of intrinsic evaluations. Furthermore, by explicitly incorporating students’ cognitive processes during mathematics learning, this approach extends beyond general online communities, enabling socially attuned and pedagogically informed intrinsic LLM assessments. Leveraging interdisciplinary insights from mathematics education research and cognitive science enriches the framework’s impact and sets it apart from prior work, positioning it as a novel, competitive contribution in AI evaluation and educational technology.",
+        "Proposed_Method": "The framework comprises a transparent, modular pipeline enabling reproducibility and clarity in integrating qualitative social constructs and cognitive dimensions with LLM intrinsic metrics:\n\n1. **Qualitative Coding & Feature Extraction:**\n   - Apply established qualitative thematic analysis (e.g., SAGE Handbook methods) on annotated datasets from online support communities and educational platforms (e.g., mathematics learning forums).\n   - Extract codes representing social support types (emotional, informational) and cognitive process indicators (e.g., reasoning steps, misunderstandings).\n   - Encode thematic codes quantitatively via one-hot and frequency-based embeddings, plus sentiment and semantic similarity vectorizations.\n\n2. **Computational Feature Engineering:**\n   - Construct composite feature vectors combining social support and cognitive indicators.\n   - Normalize and reduce dimensionality using PCA or t-SNE for robust integration.\n\n3. **Integration with LLM Self-Consistency Uncertainty:**\n   - For each input-output pair, compute the LLM self-consistency uncertainty score (e.g., entropy over multiple generated answers).\n   - Define weighting functions W(s,c) where s = degree of social support presence, c = cognitive process indicator intensity. For example:\n     W(s,c) = α * sigmoid(β * s) + γ * tanh(δ * c), with hyperparameters (α, β, γ, δ) optimized via grid or Bayesian search against human judgment alignment.\n\n4. **Composite Intrinsic Score Computation:**\n   - Adjust base uncertainty scores by multiplying with W(s,c) to obtain a socially and cognitively informed uncertainty metric:\n     Score_adjusted = Score_uncertainty * W(s,c)\n\n5. **Pipeline Visualization & Pseudo-code:**\n   - Provide clear schematic diagrams and annotated pseudo-code detailing each step for reproducibility (see Appendix).\n\n6. **Application to Mathematics Digital Learning Environments:**\n   - Extend evaluation datasets with transcripts of student-LLM interactions in math problem solving.\n   - Analyze how social support and cognitive scaffolding inherent in LLM outputs affect intrinsic evaluation metrics.\n\nThis method offers transparent, quantifiable, and interpretable mechanisms to fuse qualitative social and cognitive constructs with established LLM intrinsic evaluation algorithms, yielding superior and context-aware model assessments.",
+        "Step_by_Step_Experiment_Plan": "1. Collect and curate datasets from online social support forums and digital mathematics learning platforms annotated for social support types and cognitive process features.\n2. Conduct qualitative thematic coding, creating labeled corpora for social support and cognitive indicators.\n3. Develop quantitative encodings of thematic codes using vectorization, frequency statistics, and embedding methods.\n4. Compute baseline LLM intrinsic metrics, including perplexity and self-consistency uncertainty scores, on selected queries.\n5. Implement the weighting scheme W(s,c) with parameter tuning strategies to combine qualitative features with uncertainty scores.\n6. Benchmark the adjusted intrinsic scores against standard metrics across tasks, highlighting improvements in interpretability and alignment with human judgments.\n7. Validate the framework’s applicability in mathematics education by analyzing LLM responses supporting student cognitive processes, assessing correlation with learning outcome proxies.\n8. Perform sensitivity and ablation analyses to evaluate contributions of social support and cognitive components individually.\n9. Document the entire pipeline with pseudo-code, examples, and schematic illustrations to facilitate community adoption.",
+        "Test_Case_Examples": "Example Input: \"I'm struggling to understand how to solve quadratic equations. Can you help me out?\"\nExpected Model Behavior:\n- LLM generates multiple consistent solutions integrating informational and emotional social support elements (e.g., clear step explanations plus encouraging language).\n- Qualitative analysis detects presence of emotional ('encouragement') and informational ('stepwise guidance') support.\n- Cognitive process markers indicate scaffolding for student reasoning.\n- Computed adjusted uncertainty score decreases relative to baseline, reflecting enhanced social-cognitive sensitivity and consistent responses.\n- Intrinsic metrics better correlate with human evaluators’ ratings of helpfulness and cognitive supportiveness in educational context.",
+        "Fallback_Plan": "If manual thematic coding proves resource intensive, deploy semi-supervised machine learning models to automate annotation of social support and cognitive features using a small labeled subset. Additionally, investigate lexicon-based keyword spotting and sentiment heuristics as proxies for thematic signals. Evaluate approximation fidelity and adjust weighting parameters accordingly. In parallel, explore dimensionality reduction techniques to streamline feature integration without loss of interpretability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Hybrid Qualitative-Computational Framework",
+      "LLM Evaluation",
+      "Social Support Constructs",
+      "Qualitative Thematic Analyses",
+      "Computational Uncertainty Metrics",
+      "Human-Centered Evaluations"
+    ],
+    "direct_cooccurrence_count": 2720,
+    "min_pmi_score_value": 3.3724678543756994,
+    "avg_pmi_score_value": 4.694675523394908,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "3901 Curriculum and Pedagogy",
+      "3903 Education Systems",
+      "39 Education"
+    ],
+    "future_suggestions_concepts": [
+      "artificial general intelligence",
+      "students' cognitive processes",
+      "mathematics education",
+      "student’s mathematics learning experience",
+      "analysis of students’ interactions",
+      "qualitative approach",
+      "mathematics learning experiences",
+      "mathematics education research",
+      "digital learning environment",
+      "Marton’s variation theory",
+      "semiotic representation theory",
+      "impact of remote learning",
+      "cognitive processes",
+      "International Union of Nutritional Sciences"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines transforming qualitative thematic codes of social support into computational features integrated with LLM self-consistency measures by weighting uncertainty estimates. However, the mechanism for this transformation and integration lacks operational clarity. Key aspects such as how thematic codes will be quantitatively encoded, the specific mathematical or algorithmic integration with uncertainty measures, and how weighting will be calculated and optimized remain underdefined. Clarifying these steps with concrete computational methods or model architectures will strengthen methodological soundness and reproducibility, making the approach more convincing and actionable for reviewers and practitioners alike. Consider providing a schematic or pseudo-code outlining the exact pipeline, including feature extraction, weighting criteria, and score combination formulas, to concretize this innovative integration approach in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty verdict and the interdisciplinary nature of this idea, integrating globally-linked concepts can elevate its impact and distinctiveness. Specifically, incorporating insights from 'students’ cognitive processes' and 'mathematics education research' could broaden the framework’s applicability beyond social support in general online communities to educational contexts. For example, extending the framework to analyze LLM responses that support students' cognitive processes during mathematics learning in digital environments could enable tailored, socially grounded AI tutors with interpretable intrinsic evaluation metrics. This synergy can differentiate the contribution by bridging cutting-edge social construct evaluation with pressing educational technology challenges, thus widening impact and attracting cross-disciplinary research attention. Incorporate these connections explicitly as envisioned application areas or future work avenues in the Motivation or Impact discussion."
+        }
+      ]
+    }
+  }
+}

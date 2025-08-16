@@ -1,0 +1,71 @@
+{
+  "before_idea": {
+    "title": "Joint Representation Learning Framework Combining Knowledge Graphs and Scene Graphs for Explainable LLM Contextualization",
+    "Problem_Statement": "Current approaches fail to tightly integrate heterogeneous knowledge graphs with scene graph generation methods, limiting cross-modal relational reasoning and explainability within LLM contextualization frameworks.",
+    "Motivation": "Targeting external gap about integrating vision-language models and graph structured knowledge, this research synthesizes knowledge graphs and scene graphs into a joint representation space, enabling explainable, contextually rich LLM generation. It addresses internal gap (b) and opportunity 1 by unifying graph modalities for multi-granularity reasoning.",
+    "Proposed_Method": "Propose a dual-graph embedding framework that encodes knowledge graphs (KG) and vision-language scene graphs (SG) into a shared latent space via contrastive and graph alignment learning. Fusion layers in PLMs query this joint space dynamically during generation with relational attention modules. This leads to improved multi-hop inferencing, transparent knowledge attribution, and enhanced task performance on multimodal benchmarks.",
+    "Step_by_Step_Experiment_Plan": "1) Datasets: Visual Genome + relevant KG datasets (e.g., ConceptNet, biomedical KGs). 2) Models: Pretrained PLMs augmented with joint KG-SG encoders. 3) Baselines: Separate KG or SG embeddings in RAG, no joint training. 4) Metrics: Task accuracy on VQA, report generation, explainability evaluations via graph node attribution.",
+    "Test_Case_Examples": "Input: Image-text QA task asking, \"What is the relationship between the person and the object they hold?\" Expected Output: Generated answer referencing joint KG-SG reasoning highlighting object-person interaction with improved interpretability.",
+    "Fallback_Plan": "If joint embedding learning underperforms, explore staged training with frozen KG or SG embeddings, or attention weighting mechanisms to balance graph contributions dynamically."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Explainable Joint Representation Learning of Knowledge and Scene Graphs for Adaptive Multi-Modal Human-Robot Interaction",
+        "Problem_Statement": "Existing frameworks inadequately integrate heterogeneous knowledge graphs (KGs) with scene graphs (SGs) to support explainable, multi-hop relational reasoning within large language models (LLMs), especially under dynamic multi-modal scenarios such as human-robot interaction. This gap limits real-time contextualization that leverages both commonsense reasoning and visual context, thus hindering adaptive, explainable behavior in embodied AI agents.",
+        "Motivation": "While prior work explores separately embedding KGs or SGs for LLM contextualization, the novelty and broader impact are limited without addressing real-world, interactive multi-modal fusion and commonsense reasoning. This research advances the state-of-the-art by unifying KG and SG embeddings within a dynamic, query-based fusion mechanism embedded inside PLM layers, explicitly targeting adaptive multi-modal human-robot interaction. By incorporating temporal and action context from vision and language modalities, grounded in commonsense and affordance knowledge, the framework supports explainable and interactive multi-agent reasoning, marking a significant leap beyond static image-text tasks and enhancing applicability towards generative AI and artificial general intelligence domains.",
+        "Proposed_Method": "We propose a principled dual-graph embedding architecture that tightly integrates heterogeneous KGs (e.g., commonsense, affordance graphs) and SGs derived from vision-language inputs into a shared latent space, via a novel multi-objective learning framework combining: (1) Contrastive alignment loss ensuring semantic complementarity by maximizing agreement between semantically linked KG and SG node embeddings using hard negatives; (2) Graph structural consistency loss preserving intra-graph relational patterns during embedding; and (3) Temporal-action embedding alignment capturing dynamic multi-modal interaction contexts from video or sequential observations. \n\nWithin transformer-based PLMs, a novel Query-Based Dynamic Relational Fusion (QDRF) module is introduced at multiple layers: QDRF employs multi-head cross-attention concurrently over KG and SG node embeddings, weighted by learned relational gating functions that adaptively balance graph contributions per query token and context. This simultaneous attention enables contextually aware fusion supporting multi-hop reasoning paths. A hierarchical explanation generator module then traces attention scores and relational paths back to KG and SG nodes, producing transparent knowledge attributions and interpretable rationales.\n\nWe ground architectural and algorithmic design referencing prior works in graph alignment (e.g., GraphCL), cross-modal fusion transformers, and explainability frameworks, with detailed pseudocode and diagrams provided for core components, ensuring rigorous implementability and differentiation from existing approaches.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Compilation: Extend Visual Genome with temporally annotated human-robot interaction datasets (e.g., WATCH-ROBOT), enrich with aligned commonsense and affordance KGs (ConceptNet, ActionNet). \n2) Model Training: Pretrain joint KG-SG embeddings with multi-objective losses, integrate QDRF modules into pretrained PLMs (e.g., GPT-family), finetune end-to-end on multi-modal interactive tasks. \n3) Baselines: Compare against separate KG-only, SG-only, and static fusion models without dynamic gating or temporal alignment. \n4) Evaluation Metrics: Task accuracy on interactive multi-modal question answering and instruction following; explanation faithfulness metrics via graph node attribution; real-time responsiveness benchmarks; user study on explanation clarity.\n5) Ablation Studies: Analyze impact of contrastive alignment, gating mechanism, temporal embeddings, and explanation generation.",
+        "Test_Case_Examples": "Scenario: A human instructs a robot to 'pick up the cup that the person is drinking from while avoiding the hot coffee machine.' The system receives simultaneous video and language commands.\nExpected Output: The model generates a contextually grounded instruction execution plan referencing joint KG-SG reasoning—understanding object affordances, relational context between person and objects, and action constraints—while providing explicit explanations linking each decision step to knowledge graph nodes and scene elements.\nThis demonstrates multi-hop, explainable reasoning grounded in dynamic multi-modal fusion tailored for adaptive human-robot interaction.",
+        "Fallback_Plan": "If joint embedding learning encounters optimization instability or limited gains, fallback strategies include: (1) Staged training with frozen pretrained KG or SG embeddings before joint fine-tuning; (2) Simplify QDRF to sequential attention over KG then SG nodes to isolate interaction effects; (3) Implement weighted attention heuristics with validation-tuned fixed weighting as a baseline; (4) Leverage synthetic interaction data augmentation to improve temporal embedding alignment. Continuous user-driven evaluation will guide iterative refinements."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Knowledge Graphs",
+      "Scene Graphs",
+      "Joint Representation Learning",
+      "Explainable LLM Contextualization",
+      "Vision-Language Models",
+      "Multi-Granularity Reasoning"
+    ],
+    "direct_cooccurrence_count": 260,
+    "min_pmi_score_value": 3.538326406236168,
+    "avg_pmi_score_value": 5.6804923829014715,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4603 Computer Vision and Multimedia Computation"
+    ],
+    "future_suggestions_concepts": [
+      "human-robot interaction",
+      "commonsense reasoning",
+      "video anomaly detection",
+      "anomaly detection",
+      "ID switches",
+      "computer vision",
+      "neural network",
+      "multi-mode fusion technology",
+      "multi-modal fusion",
+      "fusion technology",
+      "artificial general intelligence",
+      "generative artificial intelligence",
+      "multi-agent",
+      "deep learning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a dual-graph embedding framework that integrates knowledge graphs (KG) and scene graphs (SG) via contrastive and graph alignment learning, along with relational attention modules in transformer-based PLMs during generation. However, the description lacks critical mechanistic details that underpin this integration's success. For example, how exactly are the heterogeneous graph structures aligned in the shared latent space? How does the contrastive learning objective ensure semantic equivalence or complementarity between KG and SG embeddings? The mechanism of query-based dynamic fusion within the PLM's layers is asserted but not elaborated — is this attention designed to attend over KG and SG nodes simultaneously or sequentially? Clarifying these components with more concrete architectural or algorithmic specifics, referencing potential prior works or theoretical rationales, would strengthen the soundness by showing the method is well-founded and implementable beyond a conceptual sketch. Including diagrams or pseudocode in the next iteration would aid clarity and confidence in the approach's feasibility and rigor as well as help differentiate it from competitive existing methods in this mature research space. This refinement is essential to establish that the proposed integrations are more than incremental and can be effectively operationalized for explainable multi-hop reasoning within LLM contextualization frameworks. Target section: Proposed_Method."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty rating and the broad application domain, a concrete way to augment impact and novelty is to incorporate 'commonsense reasoning' and 'multi-modal fusion' concepts explicitly. For example, extend the joint KG-SG embedding framework to support dynamic human-robot interaction scenarios where multimodal inputs (vision, language, action context) require real-time, explainable reasoning about object affordances and intentions, grounded in commonsense knowledge graphs. By integrating temporal or interactive dimensions, the framework can showcase generalizability beyond static image-text tasks (e.g., VQA), thus broadening impact. Leveraging 'multi-agent' or 'generative artificial intelligence' concepts could lead to adaptive, interactive contextualization in multi-modal AI agents, opening new avenues for explainability and reasoning in real-world environments. You may consider incorporating these globally-linked domains in the experiment plan and test cases to position your contribution distinctly in a competitive landscape. Target section: Motivation and Experiment_Plan."
+        }
+      ]
+    }
+  }
+}

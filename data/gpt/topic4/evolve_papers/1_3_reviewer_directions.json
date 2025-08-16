@@ -1,0 +1,71 @@
+{
+  "original_idea": {
+    "title": "Typology-Constrained Embedding Space Regularization",
+    "Problem_Statement": "Embeddings in multilingual LLMs often cluster languages by family or script rather than typological features, limiting typology-aware generalization and bias mitigation.",
+    "Motivation": "Addresses the internal gap by explicitly constraining learned embeddings via typological distances, enhancing typology representation diversity beyond traditional family-centric grouping.",
+    "Proposed_Method": "Introduce a novel embedding regularization loss that penalizes divergence from a typology-derived embedding manifold during training or fine-tuning. Typological distances computed from databases like WALS guide the embedding proximity constraints, encouraging embeddings of typologically similar languages to cluster while preserving meaningful task-specific distances.",
+    "Step_by_Step_Experiment_Plan": "1) Compute pairwise typology distances between languages; 2) Implement embedding regularization loss integrated into fine-tuning objective; 3) Fine-tune multilingual LLMs on diverse downstream tasks; 4) Evaluate on typology-diverse benchmarks; 5) Analyze embedding spaces with PCA/t-SNE and measure bias mitigations.",
+    "Test_Case_Examples": "Input: Multilingual embedding matrix including Turkish and Finnish. Expected outcome: Embeddings reflect typological similarities (e.g., agglutinative morphology) more accurately than mere language family membership, improving downstream task generalization.",
+    "Fallback_Plan": "If regularization destabilizes training, relax constraints via weighting schedules or combine with multitask objectives predicting typological properties directly."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Typology-Constrained Embedding",
+      "Typological Distances",
+      "Embedding Space Regularization",
+      "Multilingual LLMs",
+      "Language Typology Representation",
+      "Bias Mitigation"
+    ],
+    "direct_cooccurrence_count": 34,
+    "min_pmi_score_value": 3.9005237479243116,
+    "avg_pmi_score_value": 6.178988526057177,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "33 Built Environment and Design",
+      "40 Engineering"
+    ],
+    "future_suggestions_concepts": [
+      "human-computer interaction",
+      "Indic languages",
+      "information model",
+      "human centered computing",
+      "Big Data",
+      "robotic fabrication",
+      "historical discourse analysis",
+      "corpus linguistic studies",
+      "World Englishes",
+      "Human-Computer",
+      "driving innovation",
+      "industry experts",
+      "site management",
+      "Health & Safety",
+      "green buildings",
+      "Web intelligence",
+      "construction industry",
+      "construction site management",
+      "Building Information Modeling",
+      "human-centered artificial intelligence",
+      "communication techniques",
+      "application of AI",
+      "intelligent computing",
+      "real-world deployment",
+      "intelligent information technology",
+      "intelligent robots",
+      "center computer"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposed typology-derived embedding regularization is conceptually appealing, the exact mechanism for balancing typological constraints with task-specific embedding needs is unclear. The proposal should clarify how the regularization loss integrates mathematically with existing task losses, how conflicts between typological and task-driven gradients are resolved, and whether the method handles cases where typological similarity does not align with task semantics. Providing a formal loss function and discussing optimization stability would strengthen the soundness of the method section significantly, especially given the fallback plan's mention of training instability issues.—This will guide implementers and reviewers to assess viability more clearly and anticipate challenges ahead. This is critical for adoption and reproducibility in multilingual LLMs fine-tuning contexts. Target: Proposed_Method section."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty screening labeled the idea as NOV-COMPETITIVE, to enhance impact and distinctiveness, consider integrating human-centered AI concepts from the globally linked list. For example, incorporate user study aspects or real-world deployment scenarios where improved typology-aware embeddings can measurably reduce bias or improve usability for underrepresented language communities. This might include use cases related to Indic languages or World Englishes that diverge typologically from majority families, demonstrating the approach’s concrete benefits. Connecting the embedding regularization to human-computer interaction or human-centered artificial intelligence applications would broaden appeal and ground the research in practical, socially impactful contexts beyond benchmark tasks. Target: Motivation or Impact-related sections."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "before_idea": {
+    "title": "SQL-Driven Data Curation Pipelines for Bias Mitigation in Legal Domain Fine-Tuning",
+    "Problem_Statement": "Traditional fine-tuning pipelines for legal LLMs often fail to systematically curate domain-relevant datasets, resulting in biases and noise that aggravate domain-shift failures and reduce model reliability.",
+    "Motivation": "Directly addresses the external gap identified, leveraging SQL and database querying techniques from chemical informatics to systematically query, filter, and select legal data subsets, systematically reducing bias and improving data quality for fine-tuning.",
+    "Proposed_Method": "Build a fine-tuning data curation pipeline that treats legal corpora as structured databases, enabling SQL-based queries to extract balanced, representative, and ethically vetted data subsets for training. This method incorporates metadata, document provenance, and domain heuristics to create custom datasets that reduce skew and noise.",
+    "Step_by_Step_Experiment_Plan": "1) Convert legal document datasets into structured databases with appropriate schema encoding metadata and content indices. 2) Design SQL queries to extract balanced data slices focusing on jurisdiction, topic, and source diversity. 3) Fine-tune language models on curated datasets and benchmark against models trained on raw unfiltered data. 4) Evaluate for accuracy, fairness/bias metrics, and reliability on downstream legal NLP tasks.",
+    "Test_Case_Examples": "Input: Query requesting documents from diverse jurisdictions covering contract law and employment law. Output: Curated data subset including balanced representation from specified domains and jurisdictions for subsequent model fine-tuning, resulting in improved performance and fairness.",
+    "Fallback_Plan": "If direct SQL-based curation proves limited, fallback to embedding-based similarity filtering combined with metadata heuristics or incorporate semi-supervised active learning to iteratively refine the dataset."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Robust SQL-Driven Data Curation Pipelines with Fairness Auditing and Privacy-Enhanced Evaluations for Legal Domain Fine-Tuning",
+        "Problem_Statement": "Current fine-tuning paradigms for legal large language models (LLMs) often inadequately curate domain-specific datasets, leading to biased, noisy, or unrepresentative data that undermine model reliability, fairness, and privacy—ultimately exacerbating domain-shift failures and limiting real-world utility in sensitive legal applications.",
+        "Motivation": "While domain-driven SQL-based curation offers systematic dataset extraction, prior approaches lack rigorous validation of query representativeness, robustness to metadata inconsistencies, and comprehensive bias mitigation. This proposal innovates by integrating scalable database structuring, rigorous fairness auditing tailored to legal NLP, and privacy attack detection modules—combining structured querying with adversarial and semi-supervised learning components. The intersection of data curation, fairness, and privacy offers a novel, practically viable pathway that elevates pipeline transparency, trustworthiness, and impact beyond existing competitive methods.",
+        "Proposed_Method": "We propose a multi-component pipeline treating large legal corpora as structured databases, enabling scalable SQL-driven queries augmented by dynamic schema evolution and metadata quality checks. The pipeline incorporates (1) rigorous fairness auditing modules leveraging legal domain-specific metrics to validate and quantify bias reduction in curated subsets; (2) privacy-attack simulation and detection frameworks inspired by privacy challenge paradigms to ensure data subset confidentiality; and (3) hybrid fallback strategies combining embedding-based similarity filtering and semi-supervised active learning to iteratively refine dataset representativeness and robustness. Furthermore, the curated data will be evaluated using downstream multi-turn legal interaction tasks to assess real-world applicability and fairness under conversational contexts, advancing current legal NLP fine-tuning methodologies.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Structuring & Validation: Convert large-scale legal datasets into structured SQL databases with appropriate schema encoding metadata (e.g., jurisdiction, topic, source, timestamp), implementing automated quality-control heuristics for noisy/inconsistent metadata detection and correction.\n2) Query Design & Bias Mitigation: Develop SQL queries aimed at extracting balanced, representative data slices ensuring diverse jurisdictional and topical coverage. Incorporate schema evolution protocols to adapt to changing metadata schemas.\n3) Fairness Auditing Integration: Apply advanced fairness metrics tailored for legal NLP (e.g., demographic parity across jurisdictions, equalized odds on legal task outcomes) to the curated subsets to quantitatively assess bias reduction, setting clear success criteria (e.g., minimum 15% improvement over baseline raw data bias scores).\n4) Privacy Attack Detection: Simulate privacy challenge scenarios on curated datasets (e.g., membership inference, attribute inference attacks) and integrate detection systems to evaluate and mitigate privacy risks.\n5) Fine-Tuning & Benchmarking: Fine-tune legal LLMs on curated datasets and benchmark against models trained on raw, unfiltered data and fallback hybrid-curated datasets.\n6) Downstream Multi-Turn Task Evaluation: Evaluate models on realistic multi-turn legal dialogue tasks to assess fairness, privacy robustness, accuracy, and reliability in practical use cases.\n7) Iterative Refinement: Employ semi-supervised active learning strategies informed by embedding similarity and fairness audit feedback to iteratively enhance dataset curation and model performance.\nEach experimental stage will include rigorous statistical validation and scalability benchmarking on large industrial-scale legal corpora.",
+        "Test_Case_Examples": "Input: SQL query extracting documents covering contract and employment law from multiple U.S. jurisdictions and EU countries, filtered to ensure metadata completeness and temporal diversity.\nOutput: A curated, privacy-vetted dataset balancing jurisdictional representation and legal topics, passing fairness audits with quantifiable bias reduction (e.g., reduction of demographic parity gap by 18%), resistant to membership inference attacks.\nFine-tuned LLMs on this data demonstrate improved F1 scores on multi-turn legal consultation simulations and exhibit fairer, more consistent responses across underrepresented jurisdictions compared to baseline models fine-tuned on raw data.",
+        "Fallback_Plan": "If direct SQL-based curation encounters bottlenecks scaling to very large or highly heterogeneous legal corpora, or metadata incompleteness persists despite cleaning efforts, fallback to a hybrid curation approach combining embedding-based semantic similarity filtering with metadata heuristics. Integrate semi-supervised active learning loops that progressively refine data selection based on model uncertainty and fairness audit feedback. Additionally, explore leveraging external knowledge bases for augmenting sparse metadata fields. This fallback ensures continuous bias mitigation and privacy preservation, while maintaining robustness and adaptability of the fine-tuning pipeline."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "SQL",
+      "Data Curation",
+      "Bias Mitigation",
+      "Legal Domain",
+      "Fine-Tuning",
+      "Domain-Shift"
+    ],
+    "direct_cooccurrence_count": 1556,
+    "min_pmi_score_value": 1.9288176389400835,
+    "avg_pmi_score_value": 3.495525405133031,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4604 Cybersecurity and Privacy",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "software engineering",
+      "code generation",
+      "privacy challenges",
+      "privacy attacks",
+      "detection system",
+      "artificial intelligence",
+      "multi-turn interactions",
+      "natural language processing tasks",
+      "CIC-IDS2017 dataset",
+      "training deep learning models",
+      "life cycle inventory model",
+      "life cycle inventory",
+      "learning-based intrusion detection systems",
+      "F1 score",
+      "Industrial Internet",
+      "CIC-IDS2017",
+      "IIoT networks",
+      "convolutional neural network",
+      "intrusion detection system",
+      "Critical Infrastructure Protection",
+      "life cycle assessment",
+      "robust intrusion detection system"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed Step_by_Step_Experiment_Plan outlines a plausible experimental framework but lacks specific details on how the SQL queries will be validated for representativeness and bias mitigation. There is also no mention of practicality challenges such as the scalability of converting large legal corpora into databases with appropriate schema or handling noisy or inconsistent metadata. To improve feasibility, it is recommended to include preliminary feasibility analyses of dataset structuring, rigorous validation protocols for the SQL-based curation, and contingency strategies for schema evolution or incomplete metadata. Clear success criteria for bias reduction in the curated subsets should also be defined upfront to assess effectiveness beyond standard accuracy metrics, possibly integrating fairness measurement methodologies tailored to legal NLP datasets and tasks. This will strengthen confidence in successful real-world deployment of the pipeline and demonstrate experimental rigor necessary for conference-level acceptance, especially in a competitive area such as legal NLP bias mitigation pipelines.  Target: Experiment_Plan"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty rating as NOV-COMPETITIVE and the focused domain on legal LLM fine-tuning data curation, consider augmenting the pipeline with privacy attack detection or robust fairness auditing modules inspired by concepts like 'privacy challenges', 'privacy attacks', and 'detection system' from the globally-linked concepts list. Incorporating adversarial approaches or privacy threat simulations on the curated datasets could yield richer evaluations, improving novelty and impact. Moreover, integrating multi-turn interactions evaluation or downstream tasks representing real-world legal conversations could broaden applicability and attractiveness. Exploring semi-supervised active learning or embedding-based similarity, as fallback hints, could also connect to recent advances in 'training deep learning models' and 'natural language processing tasks', potentially leading to hybrid curation strategies that improve robustness and set this work apart in impact and technical depth. Target: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

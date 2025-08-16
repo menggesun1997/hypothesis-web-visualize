@@ -1,0 +1,51 @@
+{
+  "original_idea": {
+    "title": "Social Impact-Weighted Self-Consistency Metrics for LLM Evaluation Using Online Community Support Dynamics",
+    "Problem_Statement": "Self-consistency metrics do not currently account for the social impact or benefit of model outputs in online community settings, limiting evaluations of real-world value.",
+    "Motivation": "By integrating social support and community care discourse insights directly into self-consistency metrics, this idea addresses the hidden bridge between online social sciences and AI metrics, tackling a novel external gap.",
+    "Proposed_Method": "Augment standard self-consistency computation by weighting output agreement scores with estimated social impact measures derived from community feedback signals, such as upvotes, replies indicating support, or linguistic markers of social value. Use a supervised model to learn optimal social impact weights. This produces a socially meaningful self-consistency metric reflecting both agreement and social benefit.",
+    "Step_by_Step_Experiment_Plan": "1. Obtain datasets from online forums with community feedback annotations.\n2. Extract social impact features from feedback signals and linguistic markers.\n3. Fine-tune model to predict social impact scores.\n4. Combine with standard self-consistency calculations.\n5. Benchmark against unweighted self-consistency.\n6. Validate correlation with human social impact evaluations.\n7. Conduct robustness tests across domain shifts.",
+    "Test_Case_Examples": "Input: \"How can I find support when feeling lonely?\"\nExpected Output: Responses consistently promoting community care and yielding high social feedback produce higher social impact-weighted self-consistency scores than generic advice.",
+    "Fallback_Plan": "If feedback signals are sparse, use proxy features such as sentiment or community recognition badges. Employ unsupervised clustering to detect socially positive responses as fallback impact estimators."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Self-Consistency Metrics",
+      "Social Impact",
+      "Online Community Support",
+      "LLM Evaluation",
+      "Community Care Discourse",
+      "AI Metrics"
+    ],
+    "direct_cooccurrence_count": 4425,
+    "min_pmi_score_value": 2.363603973832587,
+    "avg_pmi_score_value": 3.8711510659683626,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "42 Health Sciences",
+      "4203 Health Services and Systems",
+      "46 Information and Computing Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "mental health professionals",
+      "generative AI",
+      "online health information",
+      "evaluation metrics",
+      "Biomedical and Health Informatics",
+      "patient education",
+      "tobacco control"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The core assumption that community feedback signals (such as upvotes, replies, and linguistic markers) can be reliably mapped to meaningful social impact is not sufficiently justified. Online feedback can be noisy, biased, or reflect popularity rather than genuine social benefit. The proposal would benefit from a clearer theoretical grounding and empirical evidence that these signals robustly capture socially beneficial outcomes in diverse communities before integrating them as weights into self-consistency metrics. Without this, the validity of the socially weighted metric is questionable, threatening the soundness of the entire framework and downstream conclusions drawn from it. Consider incorporating preliminary analysis or citations that validate the correlation between feedback signals and true social impact in online support settings, especially for sensitive topics like mental health or community care discourse, where feedback may be sparse or influenced by social dynamics unrelated to impact effectiveness. This refinement would strengthen the foundational assumptions and increase confidence in the proposed method’s meaningfulness and applicability in real-world evaluations of LLM outputs in online community contexts, ensuring the metric’s social impact weighting is not conflating engagement/popularity with substantive supportiveness or harm reduction, which are the ultimate targets of impact evaluation here.  This is a critical issue to address before advancing to feasibility and experimental implementation stages in the pipeline described in Step_by_Step_Experiment_Plan.  \n\nIn summary: please explicitly verify or better justify that social feedback signals serve as valid proxies of social impact in the target settings, to ensure soundness of the approach and avoid misleading evaluation results caused by noisy or proxy signals that deviate from true social good measures. This can include exploration of variance across communities, topic domains, and types of feedback and how those relate to real-world benefits or harms.  \n\nThis is the highest priority critique to fix for this proposal’s viability at peer review stage, as it underpins the entire rationale for social impact-weighted self-consistency metrics.  \n\n---\nSOU-ASSUMPTION: Problem_Statement & Proposed_Method"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The outlined experiment plan is comprehensive but partially optimistic in pragmatism and clarity of evaluation. Key feasibility challenges arise regarding the availability and suitability of datasets with reliable, granular community feedback annotations for social impact, which are needed to train and validate the weighting model. Many forums or online communities do not provide direct social impact labels, and reliance on proxy signals or noisy feedback may complicate supervised training and benchmarking. \n\nIt is therefore critical to explicitly address data availability and informatics challenges at the start, including a detailed strategy to obtain or construct high-quality annotated datasets, delineate criteria for data inclusion, and justify that the data is representative of the social support dynamics targeted by the metric. Moreover, the plan to \"validate correlation with human social impact evaluations\" requires clearer protocol specification—such as human evaluation design, annotator expertise (mental health professionals?), agreement metrics, and scale—to ensure external validity. \n\nAdditionally, as robustness tests against domain shifts are proposed, the experimental plan must specify which domain shifts (e.g., different types of online communities or health-related topics) will be tested and how domain adaptation techniques might be integrated or required. Without these clarifications, the feasibility and reproducibility of experiments are uncertain.\n\nTo improve, provide a more granular, practical roadmap addressing these potential data and evaluation challenges, including fallback methods as indicated but concretely tied to measurable criteria for success. This helps reviewers and practitioners assess how the complex social impact-weighted metric can be built and validated in practice, rather than remaining conceptual.\n\n\n---\nFEA-EXPERIMENT: Step_by_Step_Experiment_Plan"
+        }
+      ]
+    }
+  }
+}

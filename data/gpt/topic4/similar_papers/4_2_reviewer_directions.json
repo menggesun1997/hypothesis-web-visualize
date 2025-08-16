@@ -1,0 +1,70 @@
+{
+  "original_idea": {
+    "title": "Privacy-Driven Continual Federated Learning with Language-Specific Regularization",
+    "Problem_Statement": "Personalized model adaptation in federated learning for languages with scarce biomedical data is unaddressed, risking poor model generalization and privacy leakage during continuous updates.",
+    "Motivation": "Bridges external gaps combining privacy-enhanced continual learning with FL, addressing personalization and linguistic diversity as highlighted in the innovation opportunities.",
+    "Proposed_Method": "Design a continual federated learning system that integrates language-specific regularization terms preserving linguistic features while employing differential privacy noise injection per client. The system allows clients to adapt continually as new biomedical data arrives while safeguarding privacy and preventing catastrophic forgetting.",
+    "Step_by_Step_Experiment_Plan": "Use time-sequenced multilingual biomedical datasets simulating client data arrival. Evaluate continual NER and classification tasks, measuring accuracy over time, privacy budget consumption, and model stability. Compare to non-continual FL and non-private continual learners.",
+    "Test_Case_Examples": "Input: New clinical notes in Thai arriving sequentially; Output: Updated client model improving NER performance without revealing prior data.",
+    "Fallback_Plan": "If privacy noise deteriorates model quality, tune privacy budget or adopt local replay buffers to reinforce forgetting prevention without breaching privacy."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Privacy-Driven",
+      "Continual Federated Learning",
+      "Language-Specific Regularization",
+      "Personalized Model Adaptation",
+      "Linguistic Diversity",
+      "Biomedical Data Scarcity"
+    ],
+    "direct_cooccurrence_count": 1266,
+    "min_pmi_score_value": 5.139328490157122,
+    "avg_pmi_score_value": 6.2251880526940875,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "40 Engineering",
+      "4003 Biomedical Engineering"
+    ],
+    "future_suggestions_concepts": [
+      "federated learning",
+      "language model",
+      "medical image analysis",
+      "few-shot learning",
+      "computational resources",
+      "natural language processing",
+      "context window",
+      "recommender systems",
+      "automatic speech recognition",
+      "natural language processing techniques",
+      "customer reviews",
+      "mobile edge computing system",
+      "edge computing",
+      "mobile edge computing",
+      "active learning",
+      "pervasive healthcare",
+      "intelligent decision-making",
+      "field of medical image segmentation",
+      "computer vision",
+      "image segmentation",
+      "convolutional neural network",
+      "deep learning-based methods",
+      "medical image segmentation",
+      "biomedical time series",
+      "supervised learning",
+      "few-shot"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed method describes integrating language-specific regularization with differential privacy noise injection in continual federated learning, but lacks detail on how these components interact systematically. Clarify how language-specific regularization is formulated and imposed during continual updates, especially under differential privacy noise perturbations, and how this mechanism effectively prevents catastrophic forgetting while preserving linguistic features. Providing a clear mathematical formulation or algorithmic sketch would strengthen the soundness of the core mechanism and help anticipate potential trade-offs between personalization, privacy, and forgetting prevention. This is critical given the complex interplay of continual learning, privacy, and multilingual adaptation in the biomedical domain, and to convince readers of feasibility and novelty beyond existing federated learning approaches. Consider specifying how client heterogeneity and non-i.i.d. data distributions are handled by the regularization and privacy components as well, since these are common real-world challenges impacting method effectiveness and evaluation relevance in federated biomedical NLP scenarios."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the experiment plan proposes using time-sequenced multilingual biomedical datasets with continual NER and classification tasks, it lacks clarity on dataset selection, baseline baselining, and privacy budget management details. To ensure feasibility and scientific rigor, specify which publicly available biomedical datasets will be used or detail a plan for data collection/simulation especially for low-resource languages like Thai. Describe the criteria and method for constructing the time-sequenced setting simulating client data arrival and distribution shifts. Expand on baseline methods to include strong recent continual federated learning approaches with and without privacy. Provide plans on the privacy budget accounting during continual updates and strategies for tuning privacy vs. utility trade-offs systematically. Also, clarify metrics such as forgetting quantification and model stability measures to be reported. This will improve reproducibility and strengthen confidence that the experimental evaluation will convincingly demonstrate improvements in continual adaptation, privacy preservation, and performance in realistic biomedical multilingual federated setups."
+        }
+      ]
+    }
+  }
+}

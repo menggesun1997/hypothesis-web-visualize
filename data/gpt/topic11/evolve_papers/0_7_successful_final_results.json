@@ -1,0 +1,69 @@
+{
+  "before_idea": {
+    "title": "Psychological Trait-Driven Dynamic Prompt Engineering for Bias Reduction",
+    "Problem_Statement": "Static prompt designs for healthcare LLMs do not account for psychological and political bias factors affecting responses, limiting bias mitigation effectiveness during inference time.",
+    "Motivation": "Responds to the critical external gap by embedding real-time psychological trait signals into prompt engineering, enabling dynamic bias-aware context adjustments and more equitable LLM outputs in medical domains.",
+    "Proposed_Method": "Design a dynamic prompt engineering system that first assesses the input’s psychological and political trait context via lightweight classifiers, then automatically constructs tailor-made prompts incorporating disclaimers, neutralization instructions, or bias calibration hints. The system learns policy mappings between detected traits and prompt templates, optimizing for minimal hallucination and bias propagation.",
+    "Step_by_Step_Experiment_Plan": "1. Build classifiers for input psychological and political traits. 2. Create prompt template libraries with bias mitigation instructions. 3. Train a policy model mapping traits to prompt templates via reinforcement learning optimizing clinical correctness and fairness. 4. Evaluate on healthcare dialogue and clinical QA datasets. Metrics: hallucination reduction, bias score decrease, clinical accuracy.",
+    "Test_Case_Examples": "Input: Patient query with politically charged language; system applies prompt template suppressing political bias, resulting in unbiased clinical answer.",
+    "Fallback_Plan": "If classifiers are inaccurate, fallback to semi-static prompt blending multiple bias mitigation templates or employ manual override filters during deployment."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Psychological Trait-Driven Dynamic Prompt Engineering for Bias Reduction in Healthcare LLMs Integrating Wearable Sensor Context",
+        "Problem_Statement": "Static prompt designs for healthcare large language models (LLMs) often overlook nuanced psychological and political bias signals embedded in patient queries, limiting bias mitigation effectiveness and risking clinically inappropriate or inequitable responses during inference. Additionally, absence of real-world context from wearable sensor data and human activity recognition restricts comprehensive understanding of patient states when generating responses.",
+        "Motivation": "Although prior work has explored static or semi-static prompt bias mitigation, few approaches dynamically adjust prompts based on reliable psychological, political, and contextual signals extracted from real-time inputs. Our approach innovatively couples psychological trait classifiers with real-world behavioral context from wearable sensor-based human activity recognition, facilitating deeply personalized, bias-aware prompt engineering. Emphasizing transparent, algorithmically defined mechanisms and robust validation steps ensures reproducibility and scientific rigor, addressing the competitive novelty criteria. This fusion advances equitable, clinically accurate, and contextually grounded healthcare LLM outputs.",
+        "Proposed_Method": "We propose a three-tier pipeline: (1) Development of multi-modal trait classifiers integrating NLP and wearable sensor data for real-time estimation of psychological (e.g., anxiety, political leaning) and behavioral states (via activity recognition). Psychological trait classifiers will be trained and validated using curated healthcare query datasets labeled through crowdsourcing with expert oversight and augmented by proxy labels from validated psychological scales. (2) Design of a parametrized prompt template library with modular components, including disclaimers, neutralization instructions, bias calibration hints, and context-specific health guidance. Each template is encoded as a structured representation with slots dynamically filled and weighted based on detected trait-behavioral vectors. Conflict resolution mechanisms will use probabilistic weighting when multiple signals conflict. (3) A reinforcement learning (RL) policy model optimized to map multi-modal trait-context vectors to prompt templates, trained on simulated LLM inference environments. The RL reward combines explicit metrics: hallucination reduction (measured via clinical fact verification against trusted medical knowledge bases), bias reduction score (computed via calibrated fairness metrics comparing responses across sensitive demographic subgroups), and clinical correctness (evaluated through expert-annotated benchmarks). The iterative training will include stress testing with noisy or ambiguous classifier outputs, employing fallback blending strategies and uncertainty-aware prompts to preserve clinical safety and bias mitigation. Integration of wearable sensor data anchored via established public health frameworks (e.g., CDC guidelines on activity levels) enriches context to refine prompt tailoring, a novel augmentation in prompt engineering for healthcare LLMs.",
+        "Step_by_Step_Experiment_Plan": "1. Data Collection & Labeling: Compile healthcare query datasets annotated for psychological and political traits through expert-guided crowdsourcing. Acquire synchronized wearable sensor datasets for targeted patient cohorts to obtain activity labels. 2. Classifier Development: Build and validate NLP classifiers for psychological and political traits, and implement state-of-the-art sensor-based human activity recognition models, ensuring cross-modal alignment and reliability through metrics like F1, AUC. 3. Prompt Template Engineering: Develop a structured library of modular prompt templates with clear semantic components and rules for dynamic adaptation based on classifier outputs. 4. RL Policy Training: Simulate LLM inference environments with clinical knowledge validation modules. Define composite reward functions combining hallucination penalties, bias score improvements, and clinical accuracy incentives. Train the policy using proximal policy optimization (PPO) or similar RL algorithms, including scenarios with conflicting or ambiguous trait signals. 5. Evaluation: Perform quantitative evaluations on established clinical QA and healthcare dialogue datasets, measuring hallucination incidence, bias metrics stratified demographically, and domain-expert clinical correctness assessments. Conduct ablation studies isolating the impact of wearable sensor context integration. 6. Robustness Checks: Stress test system under classifier inaccuracies, noisy sensor inputs, and adversarial queries, assessing fallback mechanisms and overall system resilience.",
+        "Test_Case_Examples": "Example 1: Input - Patient query expressing anxiety-laden political concerns about vaccine policies. System detects high anxiety and certain political bias together with sedentary activity via wearable data. Prompt dynamically incorporates disclaimers clarifying LLM limits in political opinions, neutralizes biased framing, and provides evidence-based vaccine guidance linked to activity levels. Output - unbiased, clinically accurate, empathetic response supporting patient reassurance. Example 2: Input - Query with ambiguous political tone but elevated agitation detected in wearable heart rate data during activity recognition of high-intensity movement. System weighs physiological context to adjust confidence in trait classifier outputs, blending prompt modules to emphasize safety disclaimers and delay political commentary, focusing on immediate health advice. Output - bias-mitigated, contextually appropriate clinical answer with cautionary framing.",
+        "Fallback_Plan": "If multi-modal trait classifiers exhibit degraded performance or scarce labeled data limits training, the system defaults to a semi-static blended prompt constructed by aggregating multiple bias mitigation template components weighted via heuristic rules derived from domain experts. Manual override filters guided by public health standards (e.g., CDC recommendations) are applied during deployment to safeguard clinical accuracy and fairness. Additionally, uncertainty thresholds trigger conservative prompt templates minimizing hallucination and political content. Continuous data augmentation pipelines and periodic expert audits will iteratively improve classifiers and policy components."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Psychological Traits",
+      "Dynamic Prompt Engineering",
+      "Bias Reduction",
+      "Healthcare LLMs",
+      "Medical Domain",
+      "Equitable Outputs"
+    ],
+    "direct_cooccurrence_count": 2494,
+    "min_pmi_score_value": 3.005533898691678,
+    "avg_pmi_score_value": 4.609129238190781,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "wearable sensor data",
+      "human activity recognition",
+      "sensor data",
+      "activity recognition",
+      "wearable sensor-based human activity recognition",
+      "learning techniques",
+      "sensor-based human activity recognition",
+      "Centers for Disease Control and Prevention",
+      "public health guidance",
+      "artificial general intelligence",
+      "intelligent decision-making",
+      "International Union of Nutritional Sciences"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method lacks clarity on how the psychological and political trait classifiers will be designed and validated as reliable predictors of bias-relevant signals in healthcare queries. Furthermore, the dynamic prompt construction mechanism—how disclaimers, neutralization instructions, and calibration hints are integrated and adapted per input—is underspecified. Articulating more detailed algorithmic steps, examples of prompt adaptation per detected trait, and how the policy model balances clinical accuracy with bias mitigation is critical for soundness and reproducibility of the approach. Consider explicitly defining the prompt template representations and learning process to ensure the method's reasoning is transparent and scientifically grounded, addressing potential challenges such as conflicting signals or ambiguous trait detection outcomes in the input text, which could otherwise undermine bias mitigation efficacy and hallucination prevention."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is conceptually sound but lacks important practical details that affect feasibility. For example, it assumes availability of labeled data for psychological and political traits relevant to healthcare queries, but does not specify data sources, labeling protocols, or how realistic such annotations are. Also, the plan to optimize the policy model via reinforcement learning requires defining reward signals for hallucination reduction, bias scoring, and clinical correctness, none of which are described. Providing explicit definitions of these metrics, the experimental setup for policy training (e.g., simulators or real LLM inference), and fallback evaluation methods will strengthen confidence in feasibility. Moreover, the plan should anticipate challenges in classifier accuracy impacting downstream prompt selection and propose robust strategies or stress tests to validate system behavior in these conditions."
+        }
+      ]
+    }
+  }
+}

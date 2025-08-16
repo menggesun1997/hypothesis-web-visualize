@@ -1,0 +1,63 @@
+{
+  "before_idea": {
+    "title": "Dynamic Biological Network-Informed Benchmarks for LLM Domain Expertise",
+    "Problem_Statement": "Existing benchmarks inadequately capture the multidimensional, dynamic nature of biological networks alongside language-based clinical reasoning tasks, limiting effective evaluation of LLM domain expertise and safety.",
+    "Motivation": "Addresses the external gap about insufficient comprehensive benchmarks by synthesizing domain-specific question answering with evolving biological network annotations to create rigorous evaluation protocols for scientific and medical LLM capabilities.",
+    "Proposed_Method": "Create a benchmark dataset combining temporal protein interaction networks, up-to-date protein function annotations, and complex medical QA pairs derived from structured biological contexts. The benchmark will include tasks assessing reasoning over evolving knowledge graphs, factual consistency, and safety constraints relevant to clinical applications.",
+    "Step_by_Step_Experiment_Plan": "1. Aggregate dynamic PPI data with timestamped functional annotations.\n2. Generate clinical and bioinformatics QA pairs linked explicitly to network evolution events.\n3. Define evaluation metrics including reasoning correctness, temporal consistency, and safety violations.\n4. Release benchmark publicly with baseline LLM and GNN-plus-LLM model results.\n5. Collect community feedback and iterate on benchmark robustness.",
+    "Test_Case_Examples": "Input: \"Given the recent update showing interaction between proteins M and N, does this affect the predicted risk for disease Y in patient cohorts?\"\nExpected Output: \"Yes, the new interaction suggests altered signaling pathways that increase disease Y risk, which should inform updated clinical guidelines.\"",
+    "Fallback_Plan": "If dynamic data integration proves too complex, start with static snapshots of PPI networks with detailed annotations and gradually incorporate temporal aspects. Alternatively, modularize benchmark tasks by dimension (network reasoning, temporal adaptation, safety testing)."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Multimodal, Dynamic Knowledge Graph-Centered Benchmarks for Robust LLM Domain Expertise in Biomedical Domains",
+        "Problem_Statement": "Current benchmarks inadequately capture the complexity of dynamic biological networks and their integration with language-based clinical reasoning tasks, limiting the comprehensive evaluation of large language model (LLM) expertise and safety. Additionally, lack of incorporation of multimodal knowledge representations and interactive reasoning frameworks constrains the ability to test interpretability, temporal adaptation, and multimodal understanding in practical biomedical scenarios.",
+        "Motivation": "While existing benchmarks focus on static snapshots of biomedical knowledge or isolated language tasks, our work pioneers a scalable, multimodal benchmark that integrates dynamic, timestamped biomedical knowledge graphs with natural language and visual inputs. By embedding state-of-the-art knowledge graph evolution modeling and cognitive psychology-inspired reasoning paradigms, the benchmark uniquely assesses LLM capabilities in temporal reasoning, multimodal understanding (e.g., visualized network dynamics), explainability, and safety in clinical decision-making workflows. This approach significantly advances beyond current efforts, addressing the 'NOV-COMPETITIVE' novelty challenge by providing a rigorously validated, multimodal, and interactive framework that marries biological network complexity with real-world clinical reasoning demands.",
+        "Proposed_Method": "We will construct a benchmark comprising: 1) Curated, timestamped protein-protein interaction (PPI) knowledge graphs sourced from reliable public databases including BioGRID and IntAct, enhanced with manual and automated temporal annotation validated through expert curation and cross-database consistency checks; 2) Multimodal inputs combining temporal network visualizations generated using dynamic graph visualization tools alongside clinical and bioinformatics question-answer pairs; 3) Interactive question-answering tasks mimicking clinical workflows, where models must incorporate temporal evolution, visual network cues, and justification/explanation of answers aligned with cognitive psychology principles (e.g., causal reasoning, hypothesis testing); 4) Evaluation modules incorporating metrics for temporal consistency, correctness of reasoning over evolving graphs, multimodal integration, and safety violations with explainability criteria; 5) Baseline implementations using state-of-the-art graph neural networks plus LLM architectures with interpretability overlays. To ensure reproducibility and scalability, we will develop formal protocols for dynamic graph representation, timestamp alignment, visual rendering standards, and validation pipelines involving domain experts. This multimodal and interactive framework elevates the benchmark’s scientific rigor and practical relevance, targeting core gaps in existing biomedical LLM evaluation methods.",
+        "Step_by_Step_Experiment_Plan": "1. Identify and integrate timestamped PPI datasets from BioGRID, IntAct, and temporal annotations from recent literature, implementing automated temporal extraction pipelines supplemented by expert manual curation to ensure data quality.\n2. Develop dynamic knowledge graph representations following formal temporal graph standards (e.g., time-aware edge and node attributes), and create standardized visual renderings of network evolution using tools like Dynamic Graph Visualizer or custom D3.js implementations.\n3. Generate multimodal QA pairs linking language queries with corresponding temporal network visualizations, encompassing questions on the biological and clinical impact of network changes; incorporate interactive clinical decision-making scenarios requiring stepwise reasoning and explanations.\n4. Design and implement comprehensive evaluation metrics: reasoning accuracy over temporal changes, temporal consistency verification, multimodal comprehension scoring (matching visual and textual info), explanation quality assessment, and safety violation detection within clinical contexts.\n5. Release the benchmark publicly with detailed documentation, baseline results from combined Graph Neural Networks and LLMs with interpretability modules (e.g., attention visualization, explanation generators).\n6. Establish a community-driven feedback and iteration platform to refine and expand benchmark scope, ensuring ongoing alignment with emerging biomedical knowledge and LLM capabilities.",
+        "Test_Case_Examples": "Input (text + visualization): \"Considering the new interaction verified on 2023-03-15 between proteins M and N depicted in the accompanying dynamic network visualization, how does this affect signaling pathways relevant to disease Y? Provide a detailed explanation citing temporal changes and clinical implications.\"\nExpected Output: \"The 2023-03-15 update reveals that protein M now interacts with protein N, altering the downstream phosphorylation cascade implicated in disease Y pathology. This suggests an increased risk profile by enhancing pathway activation as visualized, recommending updated clinical surveillance protocols. Explanation: The temporal edge addition modifies pathway topology, impacting signal transduction efficiency, supported by the shifted node connectivity in the network visualization reflected in the latest temporal snapshot.\"",
+        "Fallback_Plan": "If integrating fully interactive multimodal scenarios and comprehensive temporal curation proves excessively resource-intensive, the approach will pivot to a modular benchmark focusing initially on high-quality, manually curated static PPI network snapshots paired with rich language-only QA tasks emphasizing interpretability and safety. Subsequently, temporal and multimodal components will be incrementally introduced, supported by automated tools enabling scalable graph visualization and temporal annotation. Further fallback includes leveraging synthetic temporal network data generated to simulate biological dynamics for proof-of-concept evaluations while securing partnerships with domain experts for ongoing real-data integration."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Biological Networks",
+      "Benchmarks",
+      "Large Language Models (LLM)",
+      "Domain Expertise",
+      "Question Answering",
+      "Clinical Reasoning"
+    ],
+    "direct_cooccurrence_count": 3668,
+    "min_pmi_score_value": 2.7935787122299036,
+    "avg_pmi_score_value": 4.130868254729059,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "32 Biomedical and Clinical Sciences",
+      "4804 Law In Context",
+      "48 Law and Legal Studies"
+    ],
+    "future_suggestions_concepts": [
+      "knowledge graph",
+      "state-of-the-art",
+      "visual question answering",
+      "cognitive psychology",
+      "language-related tasks",
+      "application of natural language processing"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan proposes aggregation of dynamic protein-protein interaction data and generation of clinical QA pairs linked to network evolution events. However, practical challenges such as the scarcity, heterogeneity, and curation difficulty of timestamped, high-quality PPI data may undermine feasibility. The plan should include concrete data sources, clear strategies for reliable temporal annotation, and contingency methods for scaling complexity, beyond the fallback to static snapshots. Additionally, clarity on how evolving knowledge graphs will be concretely represented and validated for benchmarking is needed to avoid ambiguity in implementation and reproducibility challenges. Strengthening this section with detailed methodology and validation protocols will improve feasibility and scientific soundness of the proposed benchmark development process.\n\n"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the 'NOV-COMPETITIVE' novelty assessment and the domain's existing rich connections, the idea can achieve stronger impact and novelty by explicitly integrating state-of-the-art knowledge graph techniques and leveraging natural language processing advances, such as cognitive psychology-inspired reasoning or visual question answering paradigms. For instance, extending the benchmark to include multimodal inputs (e.g., visualizations of dynamic networks) or interactive question answering that mimics clinical decision-making workflows could differentiate this work. Moreover, embedding interpretability or explainability modules within models evaluated on this benchmark would align with safety concerns and broaden community interest, thereby enhancing both scientific contribution and practical relevance."
+        }
+      ]
+    }
+  }
+}

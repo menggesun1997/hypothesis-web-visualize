@@ -1,0 +1,63 @@
+{
+  "original_idea": {
+    "title": "Human-in-the-Loop Semantic Prompt Refinement for Imbalanced Software Engineering NLP Data",
+    "Problem_Statement": "Fully automated prompt design in LLMs fails to generalize robustly on imbalanced and evolving datasets common in software engineering NLP tasks, leading to reliability and efficiency trade-offs.",
+    "Motivation": "Addresses the external gaps by leveraging human-in-the-loop interactive learning paradigms to iteratively refine and optimize prompt designs, fostering both computational efficiency and trustworthiness. This approach taps into cognitive science frameworks to overcome fully automated pipeline limitations noted as a high-potential opportunity.",
+    "Proposed_Method": "Create an interactive platform where domain experts iteratively provide feedback on LLM outputs for representative samples, which is used to adapt prompts semantically. Employ active learning to identify ambiguous or error-prone instances and guide human annotation. Incorporate prompt update strategies that adjust semantic augmentations and catalog patterns dynamically based on feedback, optimizing for both accuracy and reduced compute demands.",
+    "Step_by_Step_Experiment_Plan": "1) Deploy on SE datasets with class imbalance (e.g., bug triaging). 2) Define initial prompt catalogs and baseline LLM outputs. 3) Engage human experts to assess output quality and provide real-time feedback. 4) Implement active learning to focus expert effort. 5) Iterate prompt refinements and evaluate improvements using accuracy, resource metrics, and human trust indices. 6) Compare fully automated vs human-in-the-loop results.",
+    "Test_Case_Examples": "Input: Bug report text with unclear severity classification. Initial output: \"Low priority\" but human feedback corrects to \"High priority\" prompting prompt adaptation. Expected output after refinement: Correct classification with reduced query complexity.",
+    "Fallback_Plan": "Should human-in-the-loop integration be resource-intensive, fallback to simulated expert feedback using annotated datasets or crowdsourcing. Additionally, explore semi-supervised prompt adaptation to reduce human load while maintaining gains."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Human-in-the-Loop",
+      "Semantic Prompt Refinement",
+      "Imbalanced Data",
+      "Software Engineering NLP",
+      "Interactive Learning",
+      "Cognitive Science Frameworks"
+    ],
+    "direct_cooccurrence_count": 4715,
+    "min_pmi_score_value": 3.1571037808677462,
+    "avg_pmi_score_value": 4.700414857886815,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "40 Engineering",
+      "34 Chemical Sciences",
+      "46 Information and Computing Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "small-data challenge",
+      "artificial neural network",
+      "mechanical product development",
+      "computer-aided design system",
+      "CAD model",
+      "design intent",
+      "parametric CAD models",
+      "computer-aided design",
+      "parametric computer-aided design",
+      "data challenge",
+      "long short-term memory",
+      "kernel learning",
+      "gradient boosted trees",
+      "neural network",
+      "support vector machine",
+      "convolutional neural network",
+      "generative adversarial network",
+      "graph neural networks",
+      "engineering design practice"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The proposal assumes that human-in-the-loop (HITL) semantic prompt refinement will significantly improve performance on imbalanced software engineering NLP tasks compared to fully automated prompt methods. However, this assumption needs further justification with references to prior work demonstrating HITL efficacy specifically in the domain of prompt engineering for LLMs. The cognitive science basis is mentioned but not concretely mapped to how it enables overcoming automation limitations. Strengthening this assumption with clearer theoretical and empirical grounding would improve soundness and stakeholder confidence in the approach's foundational premise, especially given the resource trade-offs involved in HITL setups. Consider elaborating on why this HITL approach is expected to outperform or complement automated prompt tuning baselines within such data imbalance contexts, backed by domain-specific evidence or pilot data if available, to validate this critical underpinning hypothesis early on without which the method’s rationale is incomplete and possibly fragile."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the step-by-step experimental plan is reasonably structured, it currently under-specifies key practical aspects threatening feasibility and replicability. For instance, details about the scale and selection criteria of \"domain experts,\" the granularity and interface of the interactive platform, and the exact active learning strategies (query strategies, uncertainty metrics) to be employed are missing. Furthermore, metrics like \"human trust indices\" are conceptually valuable but lack operational definition and measurement methodology, which undermines evaluation clarity. Clarifying these components with specific actionable experimental design elements (e.g., number and expertise level of annotators, frequency of feedback cycles, computational budget limits, and exact quantitative methods for trust measurement) will help ensure the experiment is practical and scientifically rigorous, facilitating meaningful assessment of both performance gains and human factors. Without these details, reproducibility and impact validation could be compromised."
+        }
+      ]
+    }
+  }
+}

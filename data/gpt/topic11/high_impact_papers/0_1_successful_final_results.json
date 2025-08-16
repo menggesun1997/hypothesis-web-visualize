@@ -1,0 +1,68 @@
+{
+  "before_idea": {
+    "title": "LLMs Embedded with Social Determinants of Health for Equitable Clinical Predictions",
+    "Problem_Statement": "Healthcare LLMs inadequately model social determinants of health (SDOH), leading to biased predictions that exacerbate healthcare disparities.",
+    "Motivation": "Targets external gap of integrating public health concepts with human-centered AI and LLMs (Opportunity 2), proposing context-sensitive models to reduce bias linked to underserved populations.",
+    "Proposed_Method": "Design a contextual embedding framework that explicitly encodes SDOH features (e.g., income, education, neighborhood) into LLM input layers for clinical prediction tasks. Use multi-modal input combining structured EHR and unstructured clinical notes enriched with SDOH tags. Train with adversarial bias mitigation conditioned on sensitive group membership and SDOH contexts to encourage invariant, fair representations.",
+    "Step_by_Step_Experiment_Plan": "1) Collect EHR datasets with annotated SDOH info.\n2) Train baseline LLMs on clinical outcome prediction.\n3) Inject SDOH embedding layers and implement adversarial debiasing.\n4) Compare fairness metrics such as disparate impact and equalized odds.\n5) Evaluate clinical utility via ROC-AUC and calibration.\n6) Conduct user studies to validate enhanced equity and interpretability.",
+    "Test_Case_Examples": "Input: Patient clinical notes plus encoded SDOH attributes indicating low socioeconomic status.\nOutput: Equitably adjusted risk score prediction with reduced bias against low-SES groups and rationale highlighting influential social factors.",
+    "Fallback_Plan": "If SDOH embeddings underperform, try curriculum learning to progressively incorporate SDOH or augment with domain adaptation techniques from public health datasets."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Contextualized Multi-Modal LLMs Embedded with Nursing-Informed Social Determinants of Health for Equitable Clinical Predictions",
+        "Problem_Statement": "Current healthcare large language models (LLMs) fail to adequately integrate social determinants of health (SDOH) at a granular level, particularly lacking frontline perspectives such as nurse practitioners' insights documented in nursing notes. This results in biased clinical predictions that perpetuate inequities and under-address social contexts critical to patient outcomes.",
+        "Motivation": "While prior approaches embed SDOH features into models, few systematically incorporate the rich, interpretive social context captured by nursing documentation and deliberate qualitative perspectives from nurse practitioners. This work addresses the competitive gap between data-driven AI and patient-centered care by fusing structured EHR data, unstructured clinical notes, and nurse-informed social inputs to enhance fairness, interpretability, and utility of clinical predictions. This multi-modal, human-centered approach not only broadens the scope of SDOH representation but explicitly targets nuanced social signals that frontline caregivers observe, aiming to improve equity and acceptance of AI recommendations in real-world care delivery.",
+        "Proposed_Method": "We propose a novel multi-modal embedding framework integrating three core data streams: 1) structured EHR records enriched with standardized SDOH codifications, 2) unstructured clinical notes incorporating SDOH annotations, and 3) nursing documentation and elicited nurse practitioner insights on social and environmental determinants relevant to each patient. Nursing notes will be processed via specialized NLP pipelines to extract nurse-perceived SDOH signals, which are embedded to complement clinical data. Furthermore, we will conduct qualitative elicitation studies with nurse practitioners to identify key social factors often omitted in existing datasets and develop encoders to represent these concepts within the LLM input layers. The model training pipeline incorporates adversarial bias mitigation conditioned on sensitive group membership and nursing-informed SDOH contexts to form invariant and fair latent representations. This integrated approach synergizes machine learning, domain knowledge, and patient-centered care principles to set a new standard for equitable clinical prediction models.",
+        "Step_by_Step_Experiment_Plan": "1) Data Acquisition and Validation:\n   a) Establish collaborations with healthcare institutions possessing EHR datasets that formalize SDOH annotations aligned with community standards (e.g., PhenX Toolkit). \n   b) Access nursing documentation datasets, including nursing notes linked to patient records, ensuring diverse demographic and geographic representation. \n   c) Conduct quality assessment protocols validating SDOH annotation completeness, consistency, and accuracy through inter-annotator agreement and clinical expert reviews.\n2) Qualitative Elicitation Studies:\n   a) Partner with nurse practitioners to conduct structured interviews and focus groups eliciting critical social determinants often underrepresented in datasets.\n   b) Develop annotation guidelines and encode elicited insights into embedding schemas.\n3) Model Development:\n   a) Train baseline LLMs on clinical prediction tasks using structured EHR without SDOH augmentation.\n   b) Incrementally integrate clinical notes and then nursing-informed SDOH embeddings extracted from NLP pipelines.\n   c) Implement adversarial debiasing conditioned on demographic groups and nursing-informed SDOH contexts.\n4) Evaluation:\n   a) Quantitative metrics: assess predictive performance (ROC-AUC, calibration) and fairness (disparate impact ratio, equalized odds difference) across sensitive groups.\n   b) Interpretability assessment: generate saliency maps highlighting social factors influencing predictions.\n   c) User Studies: design mixed-method user studies with diverse stakeholders (nurse practitioners, physicians, patients) involving simulated decision-making tasks to assess perceived equity, interpretability, and trustworthiness.\n   d) Analysis of user feedback using validated evaluation metrics for fairness perceptions and comprehension.\n5) Reproducibility and Risk Mitigation:\n   a) Outline contingency plans for sparse SDOH data including data augmentation from public health datasets and curriculum learning approaches.\n   b) Implement rigorous data preprocessing pipelines ensuring scalable and reproducible experimental practices.",
+        "Test_Case_Examples": "Input: A patient record combining structured EHR data with annotated SDOH (e.g., income level, education), unstructured clinical notes, and nursing documentation expressing nurse-perceived social risks such as housing instability or social isolation.\nOutput: A clinical risk score prediction (e.g., risk of hospital readmission) adjusted equitably to mitigate bias against low-SES or marginalized groups. The prediction includes interpretable rationales underscoring influential social factors identified by nursing notes and nurse elicitation, facilitating trust and actionable insights for care teams.",
+        "Fallback_Plan": "Should high-quality nursing documentation or comprehensive SDOH annotations be limited, alternative strategies include leveraging domain adaptation from public health datasets and implementing curriculum learning to progressively incorporate SDOH signals. Additionally, we will explore semi-supervised and weak supervision methods to infer nurse-informed social context from sparse data. Lastly, engagement with healthcare partners will continue to iteratively improve data quality and expand annotations to ensure model robustness and fairness."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "LLMs",
+      "Social Determinants of Health",
+      "Healthcare Disparities",
+      "Bias Reduction",
+      "Human-centered AI",
+      "Equitable Clinical Predictions"
+    ],
+    "direct_cooccurrence_count": 1738,
+    "min_pmi_score_value": 2.165445224136069,
+    "avg_pmi_score_value": 4.668500727955788,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "42 Health Sciences",
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "machine learning algorithms",
+      "data-driven interventions",
+      "patient-centered model of care",
+      "real-world data",
+      "health care applications",
+      "health care domain",
+      "nursing documentation",
+      "perinatal mental health research",
+      "nurse practitioners' perceptions ",
+      "nurse practitioners",
+      "practitioners' perceptions"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed step-by-step experiment plan lacks clarity on the availability and quality of EHR datasets with annotated social determinants of health (SDOH) data, which is critical for training and evaluation. Since accurate SDOH annotation is often sparse or inconsistent in real-world clinical data, the proposal should include detailed data sourcing strategies, validation protocols for SDOH annotations, and a risk mitigation plan if such datasets are limited. Additionally, the user studies to validate equity and interpretability require concrete design considerations to ensure statistically meaningful and unbiased feedback from diverse stakeholders. Enhancing the experiment plan with these specifics will improve feasibility and robustness of the approach, enabling credible evaluation of the fairness claims in clinical settings. This is vital before advancing to complex adversarial debiasing frameworks embedded in LLMs, which demand high-quality multimodal inputs and rigorous validation setups to confirm impact and fairness improvements at scale.  Targeted recommendations: explicitly identify accessible datasets or outline partnerships for acquiring SDOH annotations; define annotation quality criteria and validation steps; sketch detailed user study protocols, including participant diversity, study design, and evaluation metrics for interpretability and equity assessment.  This refinement is essential for proving the concept's practical viability and reproducibility in realistic healthcare environments.  The feedback targets the 'Step_by_Step_Experiment_Plan' section for enhancing scientific rigor and practical readiness of the experimental evaluation framework.  \n\n"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "To elevate both the novelty and impact of this research in a competitive space, I recommend integrating domain insights from 'nurse practitioners' perceptions' and 'nursing documentation' within the SDOH embedding and modeling framework. Including nurse-generated data and perspectives can enrich the social context representation beyond structured EHR fields and clinical notes, providing more granular, interpretive, and contextual social determinants relevant at the frontline of patient care. For example, extracting and embedding nuances of social and environmental factors documented or perceived by nurse practitioners could improve model contextualization and fairness, making the clinical risk prediction more aligned with real-world care delivery. Moreover, incorporating such data aligns well with the patient-centered model of care and may enhance interpretability and acceptance of the model recommendations among healthcare workers. To operationalize, consider collaborating with healthcare institutions to access nursing notes and conduct qualitative elicitation studies on SDOH from nurses, then encode these social inputs as part of the multi-modal embedding layers. This approach leverages globally linked concepts in a concrete manner, strengthens interdisciplinary bonds across data-driven ML and human-centered care, and differentiates the research agenda, potentially increasing both societal impact and competitive edge. This suggestion targets the overall conceptual integration and method augmentation to broaden scope and enhance practical relevance and novelty in the 'Proposed_Method' and 'Motivation' sections."
+        }
+      ]
+    }
+  }
+}

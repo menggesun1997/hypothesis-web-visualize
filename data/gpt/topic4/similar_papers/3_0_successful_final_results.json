@@ -1,0 +1,78 @@
+{
+  "before_idea": {
+    "title": "Community-Driven Privacy Adaptive LLMs for Urdu-speaking Telehealth Users",
+    "Problem_Statement": "Current LLM privacy-preserving methods lack cultural sensitivity and transparency, limiting adoption within Urdu-speaking healthcare communities, especially in telehealth contexts where linguistic diversity and data privacy must be balanced.",
+    "Motivation": "This idea addresses the internal gap of limited customization and transparency in LLMs for equitable healthcare adoption, while leveraging the external gap spotlighting community-based participatory research and privacy preservation for low-resource languages like Urdu.",
+    "Proposed_Method": "Develop a participatory framework that co-designs LLM fine-tuning pipelines integrating community feedback loops with privacy-preserving federated learning techniques. This integrates culturally-aware privacy policies and localized paraphrase detection to dynamically adapt privacy-utility trade-offs. The architecture allows community representatives to guide data usage policies, ensuring transparency and equitable LLM behavior for Urdu telehealth users.",
+    "Step_by_Step_Experiment_Plan": "1. Collect Urdu health dialogue datasets via community consent. 2. Fine-tune existing LLMs using federated learning with adaptive compression techniques. 3. Implement feedback modules for community participants to evaluate privacy and utility. 4. Compare against baseline LLMs without participatory design on metrics: privacy leakage, accuracy in paraphrase detection, and user trust surveys. 5. Perform ablation on privacy policies' transparency effects.",
+    "Test_Case_Examples": "Input: Patient message in Urdu mentioning a sensitive health condition. Expected output: LLM generates responses preserving privacy (e.g., redacting identifiers while maintaining medical relevance). User feedback indicates improved trust and cultural appropriateness compared to standard models.",
+    "Fallback_Plan": "If federated learning shows limited convergence, fallback to secure multi-party computation for model updates; if community feedback integration delays training, use simulated community preferences or proxy cultural metrics."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Community-Driven Privacy Adaptive LLMs for Urdu-speaking Telehealth Users with Transparent Feedback-Integrated Federated Learning",
+        "Problem_Statement": "Current privacy-preserving large language model (LLM) methods lack cultural sensitivity, transparency, and concrete mechanisms to incorporate community input, limiting adoption within Urdu-speaking telehealth communities. These limitations challenge maintaining linguistic diversity and data privacy while ensuring trust and utility in low-resource, privacy-sensitive healthcare contexts.",
+        "Motivation": "While previous work combines privacy preservation and participatory design separately, this proposal uniquely interweaves culturally-aware privacy policies with explicit, transparent community feedback control integrated tightly into federated learning mechanisms. This addresses the competitive gap in equitable healthcare AI by delivering a replicable architecture where community-driven privacy preferences dynamically guide technical model adaptation—enabling unprecedented trust, transparency, and performance for Urdu-speaking telehealth users in a manner previously unexplored in existing methods.",
+        "Proposed_Method": "We propose a rigorously designed participatory framework leveraging human-computer interaction principles and intelligent system design for dynamic integration of community feedback in federated LLM fine-tuning specific to Urdu telehealth. \n\nThe pipeline includes:\n1. Community representatives provide structured privacy preference inputs via an interactive user interface (UI) with adaptive explanation modules, enabling intuitive expression of culturally salient privacy constraints (e.g., sensitivity levels for health topics).\n2. These inputs parameterize a privacy budget allocator module that dynamically adjusts differential privacy noise levels during federated aggregation, aligning technical privacy guarantees with community expectations.\n3. Paraphrase detection models are fine-tuned concurrently based on community-tagged paraphrase examples collected through crowdsourcing, filtered with active learning to prioritize culturally-relevant linguistic phenomena.\n4. Federated learning updates incorporate feedback by weighting client gradient contributions according to privacy preference profiles, operationalizing a feedback-weighted gradient aggregation algorithm (pseudo-code below).\n\nArchitecture Diagram Summary:\n- Community Feedback UI → Privacy Budget Allocator → Federated Server (gradient weighting & adaptive noise) ← Client Updates (fine-tuning Urdu LLM)\n- Paraphrase Detection Model updated iteratively via feedback-labeled data\n\nPseudo-code snippet for feedback-weighted aggregation:\n\nFor each round t:\n  For each client i:\n    Receive local gradient g_i^{(t)}\n    Retrieve privacy weight w_i from community feedback preferences\n  Aggregate gradient G^{(t)} = sum_i (w_i * g_i^{(t)}) / sum_i w_i\n  Add calibrated noise based on privacy budget from allocator\n  Update global model with G^{(t)}\n\nThis transparent, feedback-integrated federated learning mechanism ensures direct and quantifiable influence of cultural privacy requirements on model updates and privacy-utility trade-offs, fostering replicability and clarity.",
+        "Step_by_Step_Experiment_Plan": "1. Establish partnership with Urdu telehealth providers and community organizations to facilitate participant recruitment and obtain ethically transparent community consent protocols that include education on federated learning and privacy implications.\n2. Collect Urdu health dialogue datasets via federated clients with local data stores to preserve privacy; employ adaptive communication protocols tolerant to low-bandwidth environments.\n3. Deploy the interactive community feedback UI to community representatives to capture privacy preference profiles and crowdsourced paraphrase examples.\n4. Implement the feedback-weighted federated learning pipeline with dynamic privacy budget allocation and paraphrase detection fine-tuning.\n5. Monitor and empirically measure convergence rates, communication overhead, and privacy leakage using simulation with real network constraints reflecting telehealth settings.\n6. Evaluate model performance on privacy leakage metrics, paraphrase detection accuracy, clinical dialogue relevance, and user trust surveys comparing baseline LLMs without participatory design.\n7. Perform ablation studies varying community feedback integration levels to measure impact on convergence and trust.\n\nPreliminary simulations will be conducted prior to full deployment to validate expected federated convergence and communication costs, ensuring experimental feasibility and scalability.",
+        "Test_Case_Examples": "Input: Patient message in Urdu mentioning a sensitive health condition (e.g.,:\"میری دل کی بیماری کے بارے میں مشورہ چاہیے\") expecting the LLM to respond with privacy-preserving redactions of personal identifiers yet provide medically relevant guidance.\nExpected Model Behavior:\n- Outputs preserve medical relevance and cultural appropriateness.\n- Paraphrase detection successfully identifies diverse culturally-specific linguistic variants to support response accuracy.\n- User feedback from community participants indicates higher trust and transparency compared to standard models lacking feedback integration.",
+        "Fallback_Plan": "If federated learning convergence is compromised due to network constraints or limited data, fallback to hybrid architectures combining federated learning with secure multi-party computation (SMPC) for critical updates, while offloading less privacy-sensitive learning to centralized but anonymized settings.\nIf community feedback integration delays training timelines, simulate feedback profiles through pre-collected cultural and linguistic metrics and incrementally integrate real feedback to reduce latency and maintain experimental progress."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Privacy Adaptive LLMs",
+      "Urdu-speaking Telehealth",
+      "Community-driven Research",
+      "Low-resource Languages",
+      "Cultural Sensitivity",
+      "Data Privacy"
+    ],
+    "direct_cooccurrence_count": 42,
+    "min_pmi_score_value": 3.6535137671869613,
+    "avg_pmi_score_value": 5.2330493724994485,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "intelligent systems",
+      "soft computing",
+      "natural language processing",
+      "user interface adaptation",
+      "human-computer interaction research",
+      "interface adaptation",
+      "AI research",
+      "intelligent agents",
+      "Human-Computer",
+      "intelligent environments",
+      "creation of intelligent environments",
+      "pattern recognition",
+      "design of intelligent environments",
+      "communication techniques",
+      "application of AI",
+      "Computer Science and Information Technology",
+      "area of software engineering",
+      "Systems Conference",
+      "core computer science",
+      "subfield of artificial intelligence",
+      "design interactions"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a participatory framework integrating community feedback loops with federated learning and adaptive privacy policies. However, the mechanism needs clearer technical elaboration: it is unclear how community representatives' inputs are operationalized within the LLM fine-tuning pipeline. Specifically, the pipeline should explicitly describe how feedback influences the federated learning updates, privacy budget allocation, and paraphrase detection models. Clarifying this interaction between community input and model adaptation will strengthen the soundness and replicability of the approach, ensuring transparent mapping between cultural privacy requirements and technical model behavior adjustments. Consider including concrete algorithmic steps or architectural diagrams to resolve this ambiguity in the method design section (Proposed_Method)."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan includes data collection, federated fine-tuning, community feedback, and evaluation metrics. However, federated learning for low-resource languages like Urdu in telehealth settings can be highly challenging due to limited data availability, network constraints, and convergence issues. The fallback to secure multi-party computation is a sound alternative but may introduce scalability bottlenecks. It is recommended to strengthen the experimental feasibility by clearly detailing how community consent and participant recruitment will be operationalized at scale, and including preliminary empirical or simulation evidence indicating expected convergence rates and communication overheads for federated training in this context. This will improve the methodological feasibility and increase confidence in the proposed experiment plan's practicality."
+        }
+      ]
+    }
+  }
+}

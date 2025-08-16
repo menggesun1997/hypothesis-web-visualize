@@ -1,0 +1,59 @@
+{
+  "before_idea": {
+    "title": "Multimodal Intrinsic Probes Incorporating Clinical Imaging and Text for LLMs",
+    "Problem_Statement": "LLMs evaluated only by textual intrinsic probes miss holistic comprehension needed in healthcare, which relies on joint interpretation of language and images. Existing benchmarks fail to capture integrated understanding of clinical multimodal data.",
+    "Motivation": "Leverages hidden bridge between joint video synthesis/monocular depth estimation and medical language understanding to create novel multimodal intrinsic probes, addressing the external gap of lacking rich multimodal intrinsic benchmarks and enhancing explainability in clinical contexts.",
+    "Proposed_Method": "Develop a multimodal intrinsic probe suite combining clinical image features (X-rays, MRIs) and associated textual reports. Construct joint representation tasks such as cross-modal entailment, diagnostic consistency, and clinically relevant multimodal attribute extraction embedded in the probe.",
+    "Step_by_Step_Experiment_Plan": "1) Collect paired medical imaging and textual report datasets (e.g., CheXpert, MIMIC-CXR). 2) Fine-tune multimodal LLM architectures (e.g., visual-linguistic transformers). 3) Design multimodal intrinsic probes with attribute alignment and diagnostic reasoning probes. 4) Benchmark against text-only LLM intrinsic probes and vision-only diagnostic models. 5) Metrics: multimodal understanding accuracy, intrinsic evaluation correlations, explainability scores.",
+    "Test_Case_Examples": "Input: Chest X-ray image and its report text snippet referencing 'cardiomegaly'; Expected Output: Probe detects consistent diagnostic concept understanding across modalities with high confidence scores, illustrating integrated comprehension.",
+    "Fallback_Plan": "If multimodal probes underperform, modularize into sequential unimodal intrinsic assessments followed by a fusion consistency evaluation or incorporate video-based depth estimation inspired features as auxiliary inputs to boost multimodal signal."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Contrastive Multimodal Intrinsic Probes for Clinical LLMs Integrating 3D Imaging and Text with Temporal Dynamics",
+        "Problem_Statement": "Language models evaluated solely on textual intrinsic probes inadequately capture the holistic multimodal understanding essential in healthcare, where clinical decision-making depends on integrated interpretation of language, 2D/3D imaging, and temporal data such as video or volumetric scans. Current benchmarks largely overlook joint multimodal representations incorporating complex medical imagery and associated text, limiting comprehensive intrinsic evaluation of LLMs’ clinical reasoning capabilities.",
+        "Motivation": "While existing intrinsic probe benchmarks focus primarily on unimodal textual or visual data, we identify an external gap in intrinsic evaluation frameworks that jointly probe multimodal understanding in complex healthcare contexts. This proposal innovates by leveraging state-of-the-art contrastive self-supervised learning methods from computer vision combined with neural network architectures to create a robust suite of intrinsic probes. These probes explicitly align and assess LLM representations across multimodal clinical inputs—including static 2D images, 3D volumetric scans, and temporal imaging sequences—together with their textual reports. This approach is distinctive in embedding explicit task formulations for diagnostics consistency and entailment within a unified contrastive learning paradigm, enhancing both explainability and robustness beyond prior vision-language or unimodal probes. Thus, it pushes intrinsic evaluation of clinical LLMs toward richer, clinically relevant comprehensions.",
+        "Proposed_Method": "We propose a multimodal intrinsic probe framework that operationalizes joint representation tasks through explicit definitions and leverage contrastive self-supervised learning to align textual and imaging embeddings. The method consists of: \n\n1) Model Architecture: Utilize a visual-linguistic transformer backbone extended with contrastive modules inspired by SimCLR and CLIP, capable of jointly encoding 2D images (e.g., chest X-rays), 3D volumetric data (e.g., CT/MRI scans), and associated clinical text reports. Temporal dynamics of imaging sequences (e.g., ultrasound videos) are incorporated via temporal convolutional or transformer layers.\n\n2) Task Definitions:\n  - Cross-modal Entailment: Define entailment as a binary classification task predicting whether textual diagnostic statements are supported by image-derived embeddings. Use a binary cross-entropy loss with hard negatives mined through contrastive sampling.\n  - Diagnostic Consistency: Formulate as a contrastive ranking loss ensuring that paired image-text representations from the same clinical case are closer in embedding space than mismatched pairs.\n  - Multimodal Attribute Extraction: Design probe heads predicting clinically relevant attributes (e.g., cardiomegaly presence) from joint embeddings using supervised classification losses.\n\n3) Training Protocols: Train probes in a multi-task learning setup combining supervised classification and self-supervised contrastive losses with balanced weighting strategies. Employ fine-tuning on paired datasets such as MIMIC-CXR (for 2D) and datasets with 3D volumes (e.g., BraTS or LIDC-IDRI) plus accompanying reports.\n\n4) Intrinsic Evaluation Metrics: Define metrics quantifying multimodal understanding accuracy (classification accuracy of probe tasks), internal embedding alignment (contrastive loss convergence), and explainability (attribution alignment scores using integrated gradients across modalities).\n\nThese methods go beyond prior vision-language approaches by explicitly leveraging contrastive learning to enhance embedding robustness and by integrating temporal and volumetric data, thereby expanding scientific novelty and applicability.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Collection: Aggregate paired datasets encompassing 2D clinical images with text reports (MIMIC-CXR, CheXpert), 3D volumetric imaging with textual annotations (BraTS, LIDC-IDRI), and temporal clinical videos (echocardiograms).\n2) Model Implementation: Develop a multimodal transformer with contrastive learning heads incorporating visual, textual, 3D volumetric, and temporal modules.\n3) Probe Design & Training: Construct probe tasks for cross-modal entailment, diagnostic consistency, and attribute extraction with defined loss functions.\n4) Evaluation: Benchmark multimodal intrinsic probes against text-only LLM intrinsic benchmarks and vision-only diagnostic models across intrinsic evaluation metrics.\n5) Ablation Studies: Analyze contributions of contrastive objectives, temporal dynamics, and 3D integration to probe performance and explainability.\n6) Analysis: Interpret embedding spaces and probe outputs to elucidate clinical reasoning capacities of LLMs.\n7) Dissemination: Release benchmark datasets, code, and probe implementations for reproducibility and community adoption.",
+        "Test_Case_Examples": "Input: A volumetric chest CT scan sequence with temporal reconstruction and its linked radiology report snippet referencing 'pulmonary nodules' and their characteristics.\nExpected Output: Probes detect and quantify high-confidence cross-modal entailment that text descriptions are supported by imaging features; diagnostic consistency probes rank the true pair close while mismatched pair distances increase; attribute extraction probes correctly classify nodule attributes (size, location). Explainability maps highlight joint regions of interest reflecting integrated multimodal understanding.",
+        "Fallback_Plan": "If joint multimodal probes underperform, modularize the approach into a two-stage pipeline: (a) unimodal intrinsic probes assessing LLM comprehension separately on text, 2D/3D images, and temporal sequences; (b) a fusion consistency module employing learned embeddings to evaluate cross-modal alignment via contrastive scoring. Additionally, incorporate auxiliary video depth estimation–derived features and leverage pretrained contrastive vision-language models (e.g., MedCLIP) to bootstrap representations before fine-tuning probes."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multimodal intrinsic probes",
+      "Clinical imaging",
+      "Large Language Models (LLMs)",
+      "Medical language understanding",
+      "Video synthesis",
+      "Monocular depth estimation"
+    ],
+    "direct_cooccurrence_count": 360,
+    "min_pmi_score_value": 1.7241786165004926,
+    "avg_pmi_score_value": 4.565859408548902,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "4603 Computer Vision and Multimedia Computation",
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "computer vision",
+      "neural network"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a multimodal intrinsic probe suite combining clinical images and textual reports. However, the description lacks clarity on how the joint representation tasks (cross-modal entailment, diagnostic consistency, attribute extraction) will be concretely formulated and operationalized. Clear definitions of task objectives, loss functions, and how these contribute to intrinsic evaluation metrics are needed to ensure the mechanism is sound and reproducible. Please elaborate the method details, specifying model architectures, training protocols, and probe design with concrete examples to clarify how the approach directly probes multimodal understanding in LLMs within clinical contexts, beyond existing vision-language methods. This will strengthen the overall soundness and interpretability of the method.  (Target: Proposed_Method) "
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the pre-screening novelty result (NOV-COMPETITIVE) and the links with 'computer vision' and 'neural network', a promising way to enhance impact and distinctiveness would be to integrate self-supervised or contrastive learning techniques from neural networks—particularly those advanced in computer vision—to enrich the multimodal probe representations. For example, leveraging contrastive objectives to better align textual and imaging embeddings could improve robustness and explainability. This integration could also extend the probes to include temporal dynamics in video-based clinical data or 3D volumetric imaging, thus broadening the scope beyond 2D images and static text. Such additions would capitalize on globally trending neural approaches and computer vision advances, positioning this work with clearer scientific novelty and broader applicability. (Target: Proposed_Method)"
+        }
+      ]
+    }
+  }
+}

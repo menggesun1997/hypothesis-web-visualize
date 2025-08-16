@@ -1,0 +1,63 @@
+{
+  "before_idea": {
+    "title": "Human-AI Collaboration Modeling for Bias Mitigation in Clinical LLM Outputs",
+    "Problem_Statement": "Biases inherent in LLM outputs pose clinical risks, and existing human-in-the-loop assessments do not systematically model or mitigate how clinician interactions influence bias propagation during decision-making.",
+    "Motivation": "This project targets internal gaps in bias mitigation by modeling human-AI collaboration paths and identifying intervention points to reduce harmful bias, using socio-technical insights about online labor market sampling and interaction workflows (Critical Gap + Innovation Opportunity 2).",
+    "Proposed_Method": "Develop a computational framework simulating clinician review behaviors, anchoring biases in LLM suggestions, and correction workflows. Introduce bias detection algorithms coupled with dynamic query refinement mechanisms involving human feedback at critical junctures. Evaluate the framework on synthetic and real clinical scenarios for bias attenuation effectiveness.",
+    "Step_by_Step_Experiment_Plan": "(1) Collect datasets illustrating common clinical LLM biases.\n(2) Model clinician interaction workflows and correction patterns.\n(3) Implement bias detection and refinement modules.\n(4) Simulate collaborative sessions with varying human correction intensities.\n(5) Measure bias reduction and decision accuracy improvements.\n(6) Test framework robustness in real or simulated clinical environments.\n(7) Propose best-practice guidelines for human-AI bias mitigation synergy.",
+    "Test_Case_Examples": "Input: LLM output exhibits gender bias in treatment recommendation.\nExpected Output: Simulation shows how clinician overrides correct bias and system adapts future suggestions accordingly, reducing repeated bias occurrence.",
+    "Fallback_Plan": "If simulated workflow models lack fidelity, collect real interaction data for improved modeling. If bias detection algorithms yield false positives, tune thresholds or incorporate domain expert signals."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Human-AI Collaboration Modeling for Bias Mitigation in Clinical LLM Outputs with Focus on Perinatal Mental Health and Global Health Contexts",
+        "Problem_Statement": "Biases inherent in Large Language Model (LLM) outputs pose significant clinical risks, particularly in sensitive domains such as perinatal mental health. Existing human-in-the-loop assessments often lack precise mechanistic modeling of how clinician interactions impact bias propagation during decision-making. Furthermore, the scarcity of high-fidelity interaction datasets and globally relevant clinical scenarios limits effective bias mitigation approaches, especially in underrepresented low-resource healthcare settings.",
+        "Motivation": "This project addresses critical gaps in bias mitigation by developing a mechanistically detailed computational framework that models diverse clinician-Large Language Model (LLM) collaboration workflows, capturing complex correction and feedback dynamics. By integrating domain-specific, globally relevant scenarios such as perinatal mental health care and leveraging partnerships with institutions like the University Clinics of Kinshasa, the research not only enhances novelty but also broadens societal impact. The approach advances beyond prior work by formalizing adaptive query refinement algorithms informed by real human correction behaviors, offering unprecedented granularity in bias attenuation methods within clinical NLP.",
+        "Proposed_Method": "We propose a multi-component computational framework incorporating: (1) a formal probabilistic model of clinician correction workflows derived from clinical interaction patterns, representing diverse clinician biases, correction intensities, and anchoring effects; (2) bias detection algorithms that leverage statistical disparity metrics tailored for clinical subdomains, including perinatal mental health; (3) dynamic query refinement modules driven by Bayesian updating mechanisms, which adapt LLM query formulation in real time based on human feedback signals at defined interaction junctures. The clinician correction model will be parameterized using a combination of expert-curated heuristics and annotated datasets from clinical collaborators at the University Clinics of Kinshasa as well as publicly available medical dialogue corpora (e.g., MedDialog). Algorithmic descriptions will formally specify the interaction dynamics and feedback loops. The framework will use simulation scenarios reflecting both generic clinical workflows and targeted, globally relevant test cases such as gender and cultural biases in perinatal mental health treatment recommendations. This dual focus ensures mechanistic clarity, reproducibility, and context-specific validation of bias mitigation strategies.",
+        "Step_by_Step_Experiment_Plan": "1) Collect existing annotated datasets exhibiting clinical LLM output biases, emphasizing perinatal mental health cases and demographic biases (e.g., gender, ethnicity) from public corpora and University Clinics of Kinshasa collaborations;\n2) Develop formal probabilistic clinician correction workflow models from collected data and clinical expert elicitation;\n3) Implement bias detection algorithms enhanced with domain-specific disparity measures and integrate threshold criteria based on clinical relevance and sensitivity;\n4) Design and implement dynamic Bayesian query refinement algorithms integrating human feedback signals;\n5) Conduct extensive simulated collaborative sessions incorporating variable clinician correction behavior types and intensities to evaluate bias reduction and decision accuracy using quantifiable metrics such as reduction in demographic parity gaps and F1 scores on clinical outcome predictions;\n6) Validate model robustness and generalizability via deployment in pilot studies with clinical partners under ethical guidelines, collecting real-time interaction data for fine-tuning;\n7) Analyze results to formulate best-practice guidelines for synergistic human-AI bias mitigation with special consideration of low-resource and perinatal mental health contexts.",
+        "Test_Case_Examples": "Input: LLM output recommends a treatment plan for prenatal depression that exhibits implicit gender and cultural biases leading to suboptimal advice for certain demographic groups.\nExpected Output: The simulation models clinicians detecting biases through their correction workflows; clinician overrides trigger dynamic query refinements that adapt future LLM suggestions to minimize repeated bias. Results demonstrate statistically significant reductions in bias metrics without compromising clinical accuracy. Additional case: Application of the framework in simulated scenarios reflecting typical workflows at the University Clinics of Kinshasa, highlighting cultural and resource-specific adaptation.",
+        "Fallback_Plan": "If initial clinician workflow simulations lack sufficient fidelity, prioritize collection and annotation of real clinician-LLM interaction data from partner institutions to recalibrate models. Alternatively, incorporate semi-synthetic data augmentation from public medical dialogue corpora to enrich behavioral diversity. If bias detection algorithms produce excessive false positives, refine metric thresholds guided by clinical expert validation and incorporate ensemble approaches combining automated detection with domain expert signals to improve precision while maintaining recall."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Human-AI Collaboration",
+      "Bias Mitigation",
+      "Clinical LLM Outputs",
+      "Socio-technical Insights",
+      "Human-in-the-loop Assessments",
+      "Bias Propagation"
+    ],
+    "direct_cooccurrence_count": 1360,
+    "min_pmi_score_value": 4.447575922831187,
+    "avg_pmi_score_value": 5.3123469376082,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "4204 Midwifery",
+      "42 Health Sciences",
+      "3215 Reproductive Medicine"
+    ],
+    "future_suggestions_concepts": [
+      "perinatal mental health research",
+      "University Clinics of Kinshasa"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "[SOU-MECHANISM]",
+          "feedback_content": "The Proposed_Method outlines a computational framework simulating clinician behaviors combined with bias detection and query refinement modules. However, the specific mechanisms of how clinician interactions are modeled and integrated with bias detection algorithms remain vague. Clarify how the simulation captures the diversity and complexity of real clinician correction workflows and how dynamic query refinements adapt concretely based on human feedback. This detailed exposition will strengthen the scientific grounding and reproducibility of the approach, addressing a key gap in mechanistic clarity identified at this stage of the review. Consider including formal models or algorithmic descriptions for the correction and adaptation processes proposed to enhance understanding and validity of the methodology.\n\n(Target section: Proposed_Method)"
+        },
+        {
+          "feedback_code": "[FEA-EXPERIMENT]",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is comprehensive but ambitious, involving data collection, modeling, algorithm development, simulation, and real environment testing. However, feasibility concerns arise from potential difficulties in obtaining high-fidelity clinician interaction data and real clinical bias benchmarks, which are critical for model calibration and validation. To ensure practical progress, strengthen fallback plans by specifying alternative data sources, such as collaborations with clinical institutions (e.g., University Clinics of Kinshasa), or leveraging publicly available medical dialogue corpora. Additionally, clarify evaluation metrics and threshold criteria for 'bias reduction' and 'decision accuracy improvements' to enable scientifically sound and reproducible experimentation.\n\n(Target section: Step_by_Step_Experiment_Plan)"
+        },
+        {
+          "feedback_code": "[SUG-GLOBAL_INTEGRATION]",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty rating, consider integrating domain-specific test scenarios linked to globally-relevant clinical contexts such as perinatal mental health research. Expanding the scope through targeted use cases from such underexplored but high-impact areas will enhance novelty and societal relevance. Moreover, collaborating with institutions like University Clinics of Kinshasa can provide unique datasets and validation environments, enriching the evaluation and adoption pathways. Embedding these globally linked concepts would not only broaden impact but may position the work distinctively within clinical NLP and AI fairness communities.\n\n(Target section: Test_Case_Examples and Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

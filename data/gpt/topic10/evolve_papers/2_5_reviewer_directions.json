@@ -1,0 +1,72 @@
+{
+  "original_idea": {
+    "title": "Narrative Role-Based Bias Auditing in LLM Outputs",
+    "Problem_Statement": "Existing LLM bias audits lack granular interpretation of how roles and character archetypes influence embedded biases in text generation, limiting actionable insights for mitigation.",
+    "Motivation": "Targets the external gap linking theater role understanding ('Princess','Willy Loman') with bias interpretability by using narrative archetypal role detection as a tool for bias auditing.",
+    "Proposed_Method": "Develop an automatic narrative role detection system identifying archetypical roles in generated outputs (hero, victim, villain). Cross-reference these with known bias patterns (e.g., stereotyping of certain demographics) to pinpoint role-based bias manifestations. Use this audit to guide targeted bias reduction interventions in model fine-tuning.",
+    "Step_by_Step_Experiment_Plan": "1) Compile annotated datasets with labeled narrative roles and demographic attributes. 2) Train classifiers for role recognition in generated text. 3) Evaluate correlation between role assignment and bias metrics. 4) Perform bias correction using role-sensitive fine-tuning and re-evaluate.",
+    "Test_Case_Examples": "Input: Generated story with a female character cast as 'damsel in distress.' Detection highlights stereotypical role bias prompting corrective response generation minimizing stereotype reinforcement.",
+    "Fallback_Plan": "If role detection accuracy is low, utilize crowd-annotated narrative role datasets or transfer learning from literary analysis models. Alternatively, incorporate sentiment and framing analysis as proxies."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Narrative Role-Based Bias",
+      "LLM Outputs",
+      "Theater Role Understanding",
+      "Bias Interpretability",
+      "Narrative Archetypal Role Detection",
+      "Bias Auditing"
+    ],
+    "direct_cooccurrence_count": 25,
+    "min_pmi_score_value": 3.583504351721832,
+    "avg_pmi_score_value": 5.6719557564438565,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4609 Information Systems",
+      "35 Commerce, Management, Tourism and Services"
+    ],
+    "future_suggestions_concepts": [
+      "deep learning models",
+      "learning models",
+      "public policy",
+      "public administration",
+      "Anglo-Saxon manuscripts",
+      "reconstruction work",
+      "digital reconstruction",
+      "International Conference on Software Engineering",
+      "software engineering",
+      "smart cities",
+      "trustworthiness of information",
+      "input of clinical experts",
+      "clinical documentation",
+      "health system",
+      "health records",
+      "learning health system",
+      "electronic health records",
+      "information systems",
+      "intelligent information systems",
+      "legal professionals",
+      "legal evidence",
+      "project life cycle management",
+      "project management knowledge",
+      "project management office",
+      "decision support system",
+      "project management",
+      "project management practices",
+      "field of public administration"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines an automatic system for detecting narrative roles to audit bias, yet lacks sufficient clarity on how exactly archetypal role detection will be operationalized within large language model outputs. It is critically important to explicitly detail the computational approach for role detection, especially how roles like 'hero', 'victim', and 'villain' will be defined, annotated, and distinguished in generated text — including mechanisms to handle ambiguous, overlapping, or culturally variable roles. Moreover, the linkage between detected roles and bias patterns requires an articulated, theoretically grounded mapping schema with metrics. Without a rigorous mechanism design addressing these aspects, the method's validity remains under-specified, risking fragility or lack of explainability in outcomes. I recommend formalizing the narrative role taxonomy, annotation standards, classifier design, and bias correlation methodology upfront to establish a sound foundation for the rest of the work. This will also guide experiment reproducibility and interpretability of results effectively. This is the priority to ensure the proposal’s core assumption that role detection can reveal actionable bias is sufficiently substantiated and not purely speculative or heuristic-driven. (Target section: Proposed_Method)  \n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the Step_by_Step_Experiment_Plan outlines key stages, its feasibility is weakened by lack of concrete plans regarding dataset acquisition, annotation quality, and classifier validation. Compiling annotated datasets with both narrative roles and demographic attributes is non-trivial; current public corpora for narrative roles in generated text are largely unavailable or limited. The plan should explicitly include strategies for dataset sourcing, annotation protocols, inter-annotator agreement thresholds, and steps to mitigate annotator bias. Furthermore, training classifiers and evaluating correlations between roles and bias metrics requires robust experimental controls to isolate role effects from confounding factors in LLM output. The fallback plan proposing crowd annotations or transfer learning should be expanded with precise methodologies rather than high-level suggestions. Especially, fine-tuning interventions must be defined with clear evaluation metrics beyond correlation—e.g., bias reduction measurements validated on held-out test sets. Strengthening the experimental design with these specifics will enhance scientific soundness and feasibility, increasing confidence in successful demonstration and reproducibility. (Target section: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

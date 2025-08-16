@@ -1,0 +1,76 @@
+{
+  "before_idea": {
+    "title": "Self-paced Contrastive Learning for Robust Clinical Re-ranking under Data Scarcity",
+    "Problem_Statement": "Re-ranking models for clinical patient-trial matching degrade when labeled data is scarce and clinical descriptions vary widely, limiting replicability and practical deployment.",
+    "Motivation": "Addressing methodological robustness under limited data scenarios highlighted in the critical gaps by adopting self-paced learning principles combined with contrastive learning adapted from person re-identification research.",
+    "Proposed_Method": "Develop a self-paced curriculum learning framework that gradually incorporates harder-to-classify unlabeled clinical samples into contrastive training for re-ranking models. Use semantic similarity metrics derived from entity extraction to guide pseudo-label confidence and sample weighting, thereby enhancing feature representation without excessive labeled data.",
+    "Step_by_Step_Experiment_Plan": "1) Use public clinical datasets with annotated and unlabeled patient-trial matching data. 2) Train baseline fully-supervised re-ranking models. 3) Implement contrastive learning with self-paced sample selection and semantic similarity weighting. 4) Evaluate ranking improvements, sample efficiency, and generalization across heterogeneous clinical sites.",
+    "Test_Case_Examples": "Input: Partial patient clinical summaries with no trial labels; Output: Improved ranking of potentially eligible trials with confidence scores derived from self-paced contrastive embeddings reflecting semantic matches.",
+    "Fallback_Plan": "If self-paced scheduling harms convergence, revert to fixed curriculum schedules or employ data augmentation. Alternatively, incorporate domain adaptation techniques to leverage external related datasets."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Self-paced Contrastive Learning for Robust Clinical Trial Re-ranking under Data Scarcity with Formalized Curriculum Scheduling and Semantic Weighting",
+        "Problem_Statement": "Clinical trial re-ranking models for patient-trial matching struggle with performance degradation under scarce labeled data and heterogeneous clinical descriptions, limiting replicability and deployment across diverse healthcare settings.",
+        "Motivation": "While prior studies have applied contrastive learning and curriculum learning separately, there is a lack of rigorous frameworks integrating self-paced curriculum strategies with semantic similarity guided contrastive training tailored to clinical patient-trial matching. Addressing this gap with a formally defined self-paced learning mechanism promises enhanced robustness and sample efficiency under clinical data scarcity, a setting rarely solved convincingly. Our work stands out by specifying quantitative difficulty metrics and semantic weighting strategies, thereby advancing beyond existing competitive methods in semi-supervised and few-shot learning for clinical text ranking.",
+        "Proposed_Method": "We propose a self-paced contrastive learning framework with an explicitly formalized curriculum scheduling and semantic similarity weighting pipeline. First, difficulty scores for unlabeled clinical samples are computed by combining: (i) pseudo-label confidence obtained via semantic similarity from entity extraction using clinical NLP tools like cTAKES, and (ii) the sample's embedding distance margin in the contrastive feature space. We define a difficulty metric D_i for sample i as D_i = 1 - α * Confidence_i + β * Embedding_Margin_i, where α and β are hyperparameters balancing confidence and margin effects. Samples are iteratively incorporated starting from low D_i to higher D_i values, following a self-paced scheduler S(t) = min(D_max, D_init + γ * t), where t is the training iteration, D_init and D_max the difficulty bounds, and γ the pace rate. Contrastive loss for each batch is weighted by semantic similarity scores normalized between 0 and 1, mitigating noise propagation. Pseudocode is provided to define this pipeline rigorously. To counteract noise from inaccurate semantic extraction, we integrate a confidence calibration module using temperature scaling on semantic similarity scores, and employ an early stopping criterion monitoring validation loss fluctuations. We also integrate domain adaptation components via adversarial training to enhance out-of-distribution generalization to new clinical sites. This framework synergizes self-supervised and few-shot learning concepts to robustly learn in scarce labeled data settings with clinical variability.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Selection: Use publicly available patient-trial matching datasets such as the n2c2 clinical trial eligibility corpus (with ~2k labeled samples), supplemented with unlabeled clinical notes from MIMIC-IV (~40k samples) to simulate scarcity and heterogeneity. Characterize each dataset by size, label distribution, and clinical site demographics. 2) Preprocessing: Apply cTAKES for entity extraction across datasets for semantic similarity computations; validate extraction accuracy with domain expert annotations on a small subset. 3) Baseline Models: Train fully supervised re-ranking models (e.g., BERT-based rankers) on labeled data only; evaluate with NDCG@k, MAP, and Precision@k. 4) Proposed Method Implementation: Incorporate unlabeled data iteratively using the formalized self-paced curriculum, integrating semantic similarity based sample weighting and temperature-calibrated confidence scores. 5) Evaluation Metrics: Quantitatively assess ranking metrics (NDCG, MAP); plot sample efficiency curves showing performance versus labeled data size; apply paired statistical tests (Wilcoxon signed-rank) across clinical sites to assess generalization. 6) Ablation Studies: Isolate effects of curriculum scheduling vs semantic weighting by disabling each component in controlled experiments; assess performance impact. 7) Computational Resources: Execute on NVIDIA A40 GPUs with mixed precision training; document runtime and memory usage to establish practical feasibility. 8) Contingency Measures: Conduct micro-experiments validating pseudo-label calibration before large-scale runs; adjust scheduling pace γ based on convergence diagnostics; if semantic extraction noise proves critical, augment data with clinical synonyms using domain-specific data augmentation techniques.",
+        "Test_Case_Examples": "Input: Partial clinical summaries of patients without trial eligibility labels, containing diverse and noisy entity mentions extracted by cTAKES. Output: Ranked list of clinical trials with associated confidence scores derived from self-paced contrastive embeddings weighted by calibrated semantic similarity, demonstrating improved recall of eligible trials under scarce labeled data conditions. For example, given a patient note referencing hypertrophic cardiomyopathy implicitly, the system confidently ranks trials targeting cardiomyopathy higher than baseline, illustrating robust semantic generalization.",
+        "Fallback_Plan": "If the formalized self-paced curriculum scheduling fails to yield convergence or performance gains, we will revert to fixed curriculum strategies with empirically tuned thresholds derived from initial difficulty distributions. Should semantic similarity weighting cause instability due to noisy entity extraction, we will replace it with proxy confidence scores derived from model uncertainty estimates (e.g., Monte Carlo dropout). Additionally, data augmentation with clinical entity paraphrasing and synthetic samples will be incorporated to alleviate label scarcity. Finally, external domain-adaptive pretraining on related medical text corpora will be explored to improve out-of-distribution robustness."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Self-paced Learning",
+      "Contrastive Learning",
+      "Clinical Re-ranking",
+      "Data Scarcity",
+      "Patient-Trial Matching",
+      "Methodological Robustness"
+    ],
+    "direct_cooccurrence_count": 2896,
+    "min_pmi_score_value": 4.031954947891799,
+    "avg_pmi_score_value": 4.9945400896516325,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "3208 Medical Physiology"
+    ],
+    "future_suggestions_concepts": [
+      "self-supervised learning",
+      "computer vision",
+      "semi-supervised learning",
+      "few-shot learning",
+      "out-of-distribution generalization",
+      "adversarial robustness",
+      "sign language understanding",
+      "medical computer vision",
+      "Visual Object Tracking challenge",
+      "real-world surveillance",
+      "affective behavior analysis",
+      "in-vehicle sensing",
+      "EEG signal classification",
+      "visual inductive priors",
+      "ECML-PKDD",
+      "context of few-shot learning",
+      "data augmentation",
+      "signal classification",
+      "neural network"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method proposes a self-paced curriculum learning framework combined with contrastive learning guided by semantic similarity from entity extraction. However, the mechanism for how harder samples are identified, weighted, and integrated convincingly into contrastive loss remains underspecified. It would be beneficial to clarify the specific metrics, thresholds, and scheduling strategies that govern sample difficulty and pseudo-label confidence, as well as how semantic similarity scores quantitatively influence sample weighting. Providing a formalized description or pseudocode of this self-paced contrastive learning pipeline will strengthen the method's conceptual rigor and reproducibility potential. Additionally, consider discussing potential failure modes where inaccurate semantic extraction could propagate noise in pseudo-labels and how this is mitigated, enhancing the justification of the mechanism's soundness and robustness under clinical data variability and scarcity conditions. This refinement is critical before proceeding to experiments, to avoid ambiguous method implementation and incomplete evaluation interpretation in a complex clinical setting. It addresses a core aspect of soundness: clarity and reasoning of the proposed learning mechanism is pivotal for reviewers and implementers alike to trust and reproduce the findings effectively and for the research impact to materialize convincingly in this challenging domain context (clinical trial re-ranking)."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is appropriately structured across baseline establishment, method implementation, and evaluation stages. However, feasibility concerns exist regarding the broadness and complexity of evaluation criteria: ranking improvements, sample efficiency, and cross-site generalization on heterogeneous clinical datasets. Given data scarcity and variability, the proposed plan should explicitly specify: (i) concrete dataset selections with size, label distributions, and known clinical heterogeneity; (ii) quantitative metrics for ranking (e.g., NDCG, MAP), sample efficiency curves, and generalization (statistical tests across sites); (iii) the process for integrating unlabeled clinical samples, including data preprocessing and semantic entity extraction tools to be used; and (iv) computational resources and runtime considerations given iterative self-paced training. Furthermore, an ablation study isolating effects of curriculum scheduling versus semantic similarity weighting would be crucial for interpretability. Outline contingency measures within experiments beyond fallback plans, such as micro-experiments validating pseudo-label confidence calibration. These clarifications will enhance scientific rigor and practical reproducibility, ensuring the experiments can convincingly validate both soundness and method efficacy under realistic resource constraints and clinical variability scenarios."
+        }
+      ]
+    }
+  }
+}

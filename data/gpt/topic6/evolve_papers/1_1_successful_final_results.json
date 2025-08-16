@@ -1,0 +1,77 @@
+{
+  "before_idea": {
+    "title": "Ethically-Calibrated Intrinsic Metrics for Healthcare LLMs",
+    "Problem_Statement": "Intrinsic evaluation metrics currently neglect ethical, privacy, and legal dimensions crucial for sensitive domain deployments like healthcare, resulting in models that may be accurate but violate fairness or compliance guidelines.",
+    "Motivation": "Fills the internal gap of ethical and legal framework integration with intrinsic evaluations, crafting transparent and auditable metrics that quantify fairness, privacy compliance, and accountability alongside conventional accuracy measures for healthcare LLMs.",
+    "Proposed_Method": "Design an intrinsic evaluation suite embedding fairness metrics (demographic parity, equality of opportunity) and privacy risk estimators (measuring potential PII leakage) into LLM intrinsic evaluations. This includes a novel audit module comparing model outputs across protected groups and an interpretable accountability scoring that tracks provenance and decision paths. The framework outputs a composite trustworthiness index designed for regulatory alignment in healthcare.",
+    "Step_by_Step_Experiment_Plan": "1) Gather healthcare datasets with sensitive attributes (e.g., MIMIC-III with patient demographics). 2) Apply existing LLMs fine-tuned on healthcare text. 3) Use proposed metrics to evaluate outputs on diagnosis and treatment recommendation tasks. 4) Correlate metric scores with known bias incidences and privacy risks. 5) Validate with domain experts to refine interpretability and legal alignment.",
+    "Test_Case_Examples": "Input: An LLM provides treatment recommendations for patients from diverse demographic groups. Output: Metrics reveal disparities in recommendation language or risk profiles, highlighting potential fairness violations, while also scoring privacy risks indicating possible PII exposure.",
+    "Fallback_Plan": "If direct ethical metric computation is infeasible, develop proxy measures using synthetic subgroup analyses or data perturbation tests. Additionally, consider embedding chain-of-thought explanations to improve accountability tracking."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Ethically-Calibrated Intrinsic Metrics for Healthcare LLMs Integrating Regulatory and Access Control Frameworks",
+        "Problem_Statement": "Intrinsic evaluation metrics for healthcare language models generally focus on accuracy and relevance but fail to comprehensively capture critical ethical, privacy, and legal aspects necessary for safe deployment in sensitive clinical environments. This gap leads to models that may inadvertently perpetuate bias, violate privacy regulations, or lack transparency and accountability when used for clinical decision support, undermining trust and compliance.",
+        "Motivation": "While existing intrinsic evaluation benchmarks measure performance and some fairness criteria, they often overlook nuanced, domain-specific ethical and legal concerns vital to healthcare NLP systems. Our approach uniquely integrates interpretability, privacy risk, and fairness metrics into a unified, clinically grounded framework aligned with emerging regulations like the EU AI Act and incorporates attribute-based access control concepts derived from electronic health record security paradigms. This holistic metric suite is designed to be transparent, auditable, and trustworthy, advancing beyond prior work by embedding chain-of-thought explanation support to serve clinical decision support contexts, thereby addressing novelty concerns and enhancing practical impact in healthcare AI deployment.",
+        "Proposed_Method": "We propose a comprehensive, algorithmically defined intrinsic evaluation framework comprising three integrated components: (1) Fairness and Privacy Metrics Module — calculates demographic parity, equality of opportunity, and privacy leakage risks by applying subgroup analyses and novel privacy estimators over protected attributes in clinical datasets; (2) Accountability and Interpretability Module — implements provenance tracking via traceable decision paths in model inference, operationalized through interpretable surrogate models (e.g., SHAP explanations adapted for LLM outputs) coupled with embedded chain-of-thought explanations that link model reasoning to outputs; (3) Regulatory Alignment and Access Control Module — embeds compliance assessments against AI Act requirements and integrates attribute-based access control policies inspired by electronic health records security, enforcing model output constraints accordingly. These modules produce standardized quantitative scores that are algorithmically combined into a composite Trustworthiness Index using a weighted aggregation model that balances accuracy, ethics, privacy risk, and accountability. Explicit algorithmic steps include: preprocessing outputs tagged with protected attributes; computing fairness metrics collapsed over task-specific clinical endpoints; measuring privacy risk via differential privacy proxies and inferred PII leakage; extracting explanation features and provenance trees for accountability scoring; mapping model capabilities against regulatory checklists; and finally, synthesizing these metrics into a composite index supporting regulatory audit readiness and clinical decision support use cases.",
+        "Step_by_Step_Experiment_Plan": "1) Secure access to de-identified, ethically approved healthcare datasets containing diverse protected attributes (e.g., MIMIC-III with patient demographics), ensuring compliance via formal data governance frameworks (IRB approvals, HIPAA guidelines, anonymization, and consent protocols). 2) Fine-tune state-of-the-art healthcare domain LLMs with clinical notes and EHR data, implementing attribute-based access control policies in training and inference pipelines. 3) Evaluate models on diagnosis and treatment recommendation tasks, generating outputs annotated with provenance and chain-of-thought explanations. 4) Compute the integrated fairness, privacy, and accountability metrics, and algorithmically derive the Trustworthiness Index. 5) Correlate metric outputs with known bias incidents and documented privacy risks, performing sensitivity analyses. 6) Collaborate with clinical domain experts through structured workshops to validate metric interpretability, relevance, and legal alignment; incorporate expert feedback iteratively into metric refinement protocols recorded in a reproducible pipeline. 7) Deploy pilot studies embedding the framework within clinical decision support systems to assess downstream impact on decision equity and explainability.",
+        "Test_Case_Examples": "Input: A healthcare LLM generates treatment recommendations and rationale for diabetic patients from multiple demographic groups, including protected attributes like age, ethnicity, and gender. Output: The evaluation framework outputs detailed reports revealing disparities in recommendation phrasing and treatment intensity across groups (fairness metrics), privacy leakage risk scores quantifying exposure of potential patient-identifiable information, chain-of-thought explanations clarifying model reasoning for each decision, and an overall Trustworthiness Index score aligned with AI Act compliance and attribute-based access control enforcement—highlighting actionable weaknesses and strengths for model developers and clinicians.",
+        "Fallback_Plan": "If direct computation of all ethical and privacy metrics is unattainable due to data or tooling limitations, fallback strategies include generating synthetic subgroup datasets to approximate fairness evaluations, employing data perturbation and adversarial testing for privacy risk proxy measurements, and incorporating chain-of-thought explanation embedding solely to bolster accountability and interpretability. Additionally, we will focus on modularizing the framework so partial metric availability still yields informative composite scoring, facilitating incremental adoption and iterative improvement."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Ethical Metrics",
+      "Healthcare LLMs",
+      "Fairness",
+      "Privacy Compliance",
+      "Accountability",
+      "Intrinsic Evaluation"
+    ],
+    "direct_cooccurrence_count": 2950,
+    "min_pmi_score_value": 3.1298546872944906,
+    "avg_pmi_score_value": 4.8630877015470215,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4604 Cybersecurity and Privacy",
+      "31 Biological Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "clinical decision support",
+      "decision support",
+      "messaging replies",
+      "quantitative metrics",
+      "research challenges",
+      "Generative Pretrained Transformer",
+      "electronic health records",
+      "security of electronic health records",
+      "attribute-based access control",
+      "neural network",
+      "massive amount of text data",
+      "context of natural language processing",
+      "amount of text data",
+      "nursing education",
+      "AI Act"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines embedding fairness metrics and privacy risk estimators into intrinsic evaluations alongside a novel audit module and accountability scoring. However, the methodological specifics of how these components integrate, compute, and interact within a single, unified framework remain underdeveloped. For instance, the process by which the accountability scoring tracks provenance and decision paths is not clearly described, leaving gaps in reproducibility and soundness. To improve, explicitly detail the algorithmic steps, the nature of the interpretability models used, and how composite scores balance between ethical, privacy, and accuracy metrics to ensure clarity and rigor in the method's mechanism."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is generally appropriate but lacks clarity on some critical aspects impacting feasibility. Gathering and utilizing healthcare datasets with sensitive attributes involves complex privacy and ethical approvals, which can be time-consuming and may limit access or scale of data. The plan should explicitly address data governance strategies, consent, and anonymization protocols to ensure practical execution. Additionally, the correlation step (step 4) and domain expert validation (step 5) could benefit from a more detailed protocol outlining evaluation criteria, expert recruitment, and feedback incorporation to strengthen feasibility and reproducibility."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty rating, integrating broader context from globally linked concepts could boost impact and distinctiveness. In particular, aligning the trustworthiness index with emerging regulatory frameworks such as the AI Act and incorporating attribute-based access control concepts from electronic health records security could advance compliance and deployment relevance. Embedding chain-of-thought explanations and explainability modules could also bridge to clinical decision support applications to position the framework as a comprehensive ethical evaluation tool used downstream in healthcare NLP pipelines."
+        }
+      ]
+    }
+  }
+}

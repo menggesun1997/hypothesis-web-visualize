@@ -1,0 +1,66 @@
+{
+  "before_idea": {
+    "title": "Dynamic Perplexity Metrics Incorporating Discourse Moves in Digital Health Communities",
+    "Problem_Statement": "Static perplexity metrics fail to capture discourse evolution and social dynamics within fast-changing digital health spaces, limiting LLM intrinsic evaluation relevance.",
+    "Motivation": "Targets the internal gap of insufficient integration of emergent digital data streams and discourse moves into computational metrics, responding to Opportunity 1’s call for context-aware evaluation reflecting real-world social dynamics.",
+    "Proposed_Method": "Design a dynamic perplexity measurement framework where perplexity is computed over evolving discourse states modeled as latent variables. The model segments dialogues by identified discourse moves and adjusts perplexity weights based on discourse progression stages (inquiry, elaboration, support). This captures not just raw likelihood but social discourse evolution.",
+    "Step_by_Step_Experiment_Plan": "1. Gather temporal dialogue datasets from digital health forums.\n2. Segment conversations by discourse move types.\n3. Develop a latent discourse state model.\n4. Compute dynamic perplexity adjusted by discourse states.\n5. Compare with traditional perplexity measures.\n6. Correlate dynamic perplexity with measures of social engagement and helpfulness.\n7. Test generalization across health topics.",
+    "Test_Case_Examples": "Input: Conversation thread starting with \"I’m worried about side effects of medication.\"\nExpected Output: Dynamic perplexity scores drop as conversation transitions into supportive and informative moves, reflecting adaptive model understanding aligned with discourse.",
+    "Fallback_Plan": "If latent state modeling is complex, try category-wise perplexity weighting using pre-annotated discourse segments. Evaluate ease-of-implementation tradeoffs."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Clinically-Grounded Dynamic Perplexity Metrics via Latent Discourse State Modeling in Digital Health Dialogues",
+        "Problem_Statement": "Traditional perplexity metrics, being static and context-agnostic, inadequately capture the evolving discourse and clinically-relevant social dynamics inherent in rapidly changing digital health communities. This limitation reduces their relevance for intrinsic evaluation of language models in health NLP applications where both linguistics and medical context co-evolve.",
+        "Motivation": "Addressing a key gap in existing perplexity metrics, this work proposes to integrate biomedical informatics insights—specifically electronic health records (EHR) and structured clinical notes—as auxiliary data to inform latent discourse state modeling. By grounding discourse moves not only linguistically but also clinically, the approach responds to calls for context-aware metrics reflective of real-world social and medical dynamics in digital health. This integration broadens impact beyond informal online forums to clinical decision support and patient engagement, differentiating our method from prior approaches and enhancing both novelty and utility in the competitive landscape of perplexity evaluation.",
+        "Proposed_Method": "We develop a formal latent discourse state model that dynamically adjusts perplexity computations by capturing the progressive stages of health-related dialogue informed by both linguistic discourse moves and clinical metadata. \n\n(1) **Latent State Definition:** Let \\( Z_t \\) denote the latent discourse state at utterance \\( t \\), capturing combined discourse move categories (inquiry, elaboration, support) and clinical context indicators extracted from linked EHR or clinical notes (e.g., symptom mentions, medication changes).\n\n(2) **State Transition Dynamics:** Modeled as a Hidden Markov Model (HMM) with transition probabilities \\( P(Z_t \\mid Z_{t-1}) \\) learned from joint dialogue-clinical data to capture realistic progression patterns, e.g., inquiry followed by elaboration on specific health concerns.\n\n(3) **Dynamic Perplexity Computation:** For a sequence of tokens \\( W_{1:T} \\), conditional perplexity at \\( t \\) is weighted by state-dependent factors \\( \\alpha_{Z_t} \\), reflecting discourse and clinical relevance:\n\n\\[ \\mathrm{Perplexity}_{dynamic} = \\exp\\left(-\\frac{1}{T} \\sum_{t=1}^T \\alpha_{Z_t} \\log P(W_t \\mid W_{<t}, Z_t)\\right) \\]\n\nHere, \\( \\alpha_{Z_t} \\) emphasizes or de-emphasizes token likelihoods based on discourse stage and clinical significance (e.g., higher weight during elaboration with critical clinical content).\n\n(4) **Auxiliary Clinical Features Extraction:** Using NLP pipelines on EHR and clinical notes, extract features such as diagnosis codes, medication mentions, symptom onset to inform states.\n\n(5) **Algorithmic Steps:** \n```\nInput: Dialogue data D with clinical metadata C\n1. Preprocess D to segment utterances and annotate discourse moves.\n2. Extract clinical features from C linked to D.\n3. Define latent states Z combining discourse and clinical feature clusters.\n4. Train HMM parameters P(Z_t | Z_{t-1}) and emission models P(W_t | W_{<t}, Z_t).\n5. For new dialogues, infer Z_t via Viterbi algorithm.\n6. Compute weighted perplexity as above.\n```\n\n(6) **Novelty and Improvement:** Unlike prior perplexity metrics that ignore discourse progression dynamics or clinical context, our model explicitly fuses biomedical informatics data with discourse analysis. This synergy is a novel contribution enhancing interpretability and relevance of intrinsic LLM metrics in healthcare contexts.\n\n(7) **Downstream Link:** Dynamic states can feed recommender systems for personalized patient content based on discourse evolution and clinical status.",
+        "Step_by_Step_Experiment_Plan": "1. Collect temporally-annotated digital health forum datasets paired with de-identified EHR excerpts or publicly available clinical note corpora (e.g., MedDialog, MedHelp).\n2. Develop discourse move annotation scheme compatible with clinical feature extraction.\n3. Implement NLP pipelines for clinical concept extraction and normalization.\n4. Define and cluster latent states combining linguistic and clinical dimensions.\n5. Train HMM and emission parameters on combined datasets.\n6. Calculate traditional and dynamic perplexity scores on test dialogues.\n7. Assess correlation of dynamic perplexity with social engagement metrics (likes, replies) and clinical relevance indicators (symptom resolution, medication adherence signals).\n8. Evaluate generalization across multiple health topics and clinical contexts.\n9. Explore integration of dynamic states into a prototype recommender system module to demonstrate downstream utility.",
+        "Test_Case_Examples": "Input: A conversation thread begins with \"I\u00030m worried about side effects of medication X.\" The linked clinical notes indicate recent prescription change.\n\nExpected Output: Initially high perplexity during inquiry state; as conversation proceeds through elaboration with clinical validation (supporting info from EHR indications), dynamic perplexity scores should decrease reflecting better model alignment with evolving clinically grounded discourse. Perplexity weights \\( \\alpha_{Z_t} \\) increase when critical clinical topics arise, highlighting model sensitivity. This dynamic adaptation contrasts with static perplexity which remains insensitive to discourse and clinical state transitions.",
+        "Fallback_Plan": "If full latent state HMM modeling proves computationally or data-wise prohibitive, fallback to category-wise perplexity weighting scheme using pre-annotated discourse segments augmented with heuristic clinical feature tags (e.g., binary flags for clinical mentions). Evaluate trade-offs in implementation complexity versus performance improvements and explore semi-supervised state inference methods to leverage limited clinical annotations."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Perplexity Metrics",
+      "Discourse Moves",
+      "Digital Health Communities",
+      "Computational Metrics",
+      "Social Dynamics",
+      "Context-aware Evaluation"
+    ],
+    "direct_cooccurrence_count": 5318,
+    "min_pmi_score_value": 2.421159931826884,
+    "avg_pmi_score_value": 4.2184438982014685,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "35 Commerce, Management, Tourism and Services",
+      "3503 Business Systems In Context",
+      "3506 Marketing"
+    ],
+    "future_suggestions_concepts": [
+      "fashion industry",
+      "perceived quality",
+      "global fashion industry",
+      "recommender systems",
+      "Biomedical and Health Informatics",
+      "electronic health records",
+      "memorization of training data",
+      "business research",
+      "digital diaspora"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section would benefit from a clearer and more detailed explanation of the latent discourse state model. Currently, the dynamics of how discourse moves are integrated into the perplexity computation and the exact modeling choices (e.g., the nature of latent variables, transition dynamics between discourse states) are under-specified. Providing formal definitions or illustrative algorithmic steps would improve clarity and strengthen soundness by making the mechanism more transparent and reproducible, reducing ambiguity about how discourse progression modulates perplexity weights in practice. This is crucial to convincingly argue the dynamic perplexity metric's validity beyond a conceptual level and to facilitate implementation by others in the community. Consider adding mathematical formulations or pseudo-code to concretize the framework design and assumptions underpinning discourse state evolution modeling in digital health dialogues, as well as how these states translate to perplexity adjustments at each stage of the conversation progression (inquiry, elaboration, support). This would greatly improve reviewer and audience confidence in the technical soundness of the proposal's core innovation (Proposed_Method). Also, explicitly discuss how this modeling differs or improves over existing perplexity and discourse analysis approaches in the literature to better establish novelty and soundness simultaneously, addressing the NOV-COMPETITIVE context noted in the initial assessment. (Target section: Proposed_Method)  \n\n"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the competitive novelty rating and domain specificity, integrating insights from the broader field of Biomedical and Health Informatics could dramatically enhance both the impact and novelty of this work. Specifically, the authors could leverage electronic health records (EHR) or structured clinical notes as auxiliary data to inform the latent discourse state modeling, grounding discourse moves not just linguistically but also clinically. This integration could enable dynamic perplexity metrics that are sensitive to medically relevant discourse progression patterns, increasing the metric’s relevance and utility for digital health stakeholders such as clinicians, patients, and health informatics systems. Furthermore, such an integration aligns well with the motivation to incorporate emergent digital data streams and social dynamics, grounding social discourse evolution in concrete biomedical context. This would broaden the impact beyond informal health forums to clinical decision support or patient engagement monitoring systems, thus pushing the boundary of current perplexity evaluation work in health NLP. Consider collaborations or data partnerships with Biomedical Informatics groups or use publicly available health dialogue corpora linked with clinical metadata as testbeds. Additionally, connecting to recommender systems concepts could further motivate potential downstream applications, e.g., personalized content recommendation informed by dynamic discourse states. (Target section: Motivation/Proposed_Method)"
+        }
+      ]
+    }
+  }
+}

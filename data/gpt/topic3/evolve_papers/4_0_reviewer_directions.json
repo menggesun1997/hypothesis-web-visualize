@@ -1,0 +1,73 @@
+{
+  "original_idea": {
+    "title": "Dynamic Semantic Prompt Adaptation for Subjective NLP Tasks in Software Engineering",
+    "Problem_Statement": "Subjective NLP tasks like emotion recognition in software engineering outputs exhibit significant performance drops when LLMs are optimized for computational efficiency, leading to unreliable results. Achieving computational efficiency without sacrificing reliability in such subjective tasks remains a challenge.",
+    "Motivation": "Addresses the internal reliability gap of LLMs on complex and subjective tasks as identified in the critical gaps. This research introduces a dynamically adaptive prompt engineering framework tailored to semantic complexity and data representativeness, improving performance in low-resource, subjective NLP problems in software contexts.",
+    "Proposed_Method": "We propose a multi-layer adaptive prompt generation framework that analyzes input task complexity and semantic features in real-time to select and customize prompt patterns from an enriched catalog. The system incorporates imbalanced learning strategies to weight data samples dynamically and semantic augmentation tuned per instance. A feedback module estimates task difficulty to guide prompt adjustment iteratively, creating a 'smart prompt tuner' that balances efficiency and reliability.",
+    "Step_by_Step_Experiment_Plan": "1) Collect datasets on subjective NLP tasks in SE (e.g., emotion detection on commit messages). 2) Implement baseline LLM pipelines with static prompt patterns. 3) Develop the dynamic prompt adaptation module integrating semantic and complexity features. 4) Evaluate models with metrics like F1-score, accuracy, and computational resource usage. 5) Compare against baseline and analyze performance on balanced vs imbalanced subsets. 6) Conduct ablation studies on components of the adaptation process.",
+    "Test_Case_Examples": "Input: \"Fixes crashing issue when user inputs invalid credentials — really frustrated with the error handling here!\" Expected output: Emotion label \"Frustration\" with high confidence and reduced computation through targeted prompt augmentation.",
+    "Fallback_Plan": "If dynamic adaptation fails to improve reliability, fallback to hybrid ensemble approaches combining static semantic prompt catalog patterns with post-hoc calibration using lightweight classifiers. Additionally, conduct qualitative error analysis to refine complexity metrics guiding prompt adaptation."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Semantic Prompt Adaptation",
+      "Subjective NLP Tasks",
+      "Software Engineering",
+      "Large Language Models",
+      "Prompt Engineering Framework",
+      "Computational Efficiency"
+    ],
+    "direct_cooccurrence_count": 13505,
+    "min_pmi_score_value": 2.5379132497556505,
+    "avg_pmi_score_value": 4.671924867450196,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "convolutional neural network",
+      "conversational agents",
+      "model long-range dependencies",
+      "state-of-the-art word embeddings",
+      "optical character recognition",
+      "recurrent neural network",
+      "long short-term memory",
+      "domain generalization",
+      "application of artificial intelligence",
+      "computer vision system",
+      "narrative visualization",
+      "climate change",
+      "level of privacy protection",
+      "on-device",
+      "vision-language models",
+      "brain-computer interface",
+      "medical code prediction",
+      "deformable convolutional neural network",
+      "evaluation metrics",
+      "natural language inference",
+      "user feedback",
+      "software requirements",
+      "app reviews",
+      "mobile app reviews",
+      "visual system",
+      "self-regulated learning",
+      "intelligent visual system",
+      "short informal texts",
+      "spatial features"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed multi-layer adaptive prompt generation framework introduces several complex components such as real-time semantic complexity analysis, dynamic weighting via imbalanced learning, and iterative feedback-guided prompt adjustment. However, the mechanism lacks detailed clarification about how these components are technically integrated and coordinated during inference. For example, how exactly is task difficulty quantified and operationalized to update prompt patterns? What is the computational overhead of these dynamic adjustments, and how is efficiency balanced against reliability concretely? Greater methodological rigor is required to clearly articulate the inner workings, dependencies, and expected trade-offs of the framework to ensure its soundness and reproducibility. I recommend including formal algorithmic descriptions or pseudocode, and clarifying the role and design of the feedback module within the overall system pipeline to enhance clarity and technical credibility in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given that the novelty screening rated the idea as 'NOV-COMPETITIVE', there is an opportunity to refine and elevate its impact and uniqueness by integrating concepts from globally-linked domains. For example, incorporating domain generalization techniques could enhance robustness against distribution shifts typical in subjective software engineering data. Furthermore, leveraging user feedback as a real-world dynamic signal to refine prompts could create a self-regulated learning paradigm improving adaptation over time. Additionally, exploring vision-language models or narrative visualization could open novel multimodal analysis angles for subjective emotions in code-related artifacts (e.g., commit messages paired with screenshots). I suggest concretely exploring such cross-disciplinary methods to enrich the adaptive prompting framework, thus pushing beyond purely NLP-centric approaches toward a highly innovative, impactful contribution."
+        }
+      ]
+    }
+  }
+}

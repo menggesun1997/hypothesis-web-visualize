@@ -1,0 +1,61 @@
+{
+  "before_idea": {
+    "title": "Ethically Governed LLM-Integrated Social Robot for Moral Agency-Driven Psychological Interventions",
+    "Problem_Statement": "Lack of robotic systems that embed moral agency explicitly for ethical, psychologically informed interventions in sensitive human contexts.",
+    "Motivation": "Bridges psychological and robotic research gaps by concretely embedding normative moral agency frameworks into LLM-driven robot interactions, expanding human-in-the-loop testing with ethical safeguards (Opportunity 2).",
+    "Proposed_Method": "Develop an LLM-augmented social robot embedded with formal moral agency modules inspired by computational ethical reasoning (e.g., deontic logic). The system generates intervention dialogue constrained by ethical policies while monitoring psychological state indicators, providing adaptive and ethically sound responses.",
+    "Step_by_Step_Experiment_Plan": "1. Formalize moral agency rules compatible with NLP constraints. 2. Integrate with LLM dialogue generation conditioned on these rules. 3. Test in experimental psychological therapy simulations with human participants. 4. Measure ethical compliance, participant comfort, and intervention efficacy.",
+    "Test_Case_Examples": "Input: Participant reveals suicidal ideation during interaction. Output: Robot triggers ethical protocols to provide supportive, non-harmful responses and recommend human clinician involvement, maintaining privacy and safety standards.",
+    "Fallback_Plan": "If real-time moral reasoning proves computationally costly, pre-script critical ethical scenarios for robot fallback. Alternatively, implement human-in-the-loop ethical decision overrides during intervention."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Ethically Governed LLM-Integrated Social Robot for Moral Agency-Driven Psychological Interventions",
+        "Problem_Statement": "Current robotic systems lack explicit embedding of moral agency to enable ethically sound, psychologically informed interventions in sensitive human contexts, limiting their safe integration in mental health support scenarios.",
+        "Motivation": "Although recent advances integrate normative ethics and large language models (LLMs) for conversational agents, prior work rarely operationalizes formal moral reasoning in real-time adaptive dialogue within social robots tailored for psychological interventions. This research addresses competitive gaps by defining a modular, transparent pipeline coupling deontic logic-based moral reasoning with LLMs, ensuring consistent ethical adherence and interaction adaptability. By embedding rigorous ethical constraints alongside AI assistance capabilities within therapy-centered application scenarios, we pioneer a novel hybrid approach that advances both AI ethics and clinical robotics fields.",
+        "Proposed_Method": "We propose a modular architecture explicitly linking a formal moral agency module with LLM dialogue generation to operationalize ethical constraints in real time during interaction. Specifically, the system consists of:\n\n1. A Moral Reasoning Component (MRC): Implements deontic logic-based rules formalized to represent ethical obligations, permissions, and prohibitions relevant to psychological interventions.\n\n2. Dialogue Control Layer (DCL): Translates MRC outputs into structured constraints, such as soft and hard prompt augmentations or filtering rules that guide the downstream LLM’s token generation probabilities.\n\n3. LLM Dialogue Generator: An off-the-shelf large language model (e.g., GPT-4) interfaced through a controlled decoding pipeline augmented by the DCL’s constraints, ensuring the generated utterances align with moral reasoning verdicts.\n\nTo concretize this integration, we design an iterative feedback loop where the MRC evaluates the proposed utterance candidates or their semantic embeddings against ethical rules. The DCL uses this evaluation to re-rank or suppress unethical responses dynamically using efficient constraint-satisfaction heuristics to minimize computational overhead. This pipeline balances LLM’s stochastic creativity with enforceable ethical guardrails.\n\nWe will illustrate this workflow with schematic diagrams and pseudo-code examples showcasing the interaction between the MRC and LLM via the DCL middleware, demonstrating transparency and replicability.\n\nIn application scenarios focused on psychological support, the system measures multimodal psychological state indicators (e.g., sentiment, stress cues) to adapt moral reasoning contextually, enhancing AI assistance by responding ethically and empathetically.",
+        "Step_by_Step_Experiment_Plan": "1. Develop and formally specify the moral agency rules in deontic logic aligned with clinical ethical guidelines.\n2. Implement the Dialogue Control Layer to mediate between the moral reasoning outputs and the LLM prompt and decoding interface.\n3. Conduct offline evaluations using benchmark ethical dialogue datasets to validate adherence of generated responses to moral constraints.\n4. Design and secure IRB approval for controlled human-in-the-loop experiments with volunteer participants recruited through clinical research partnerships.\n   - Participants will engage in simulated therapeutic dialogues with the robot under strict ethical protocols.\n   - Include a licensed clinical psychologist supervising sessions.\n   - Employ validated psychometric instruments (e.g., State-Trait Anxiety Inventory, Client Satisfaction Questionnaire) to measure psychological comfort and intervention efficacy.\n   - Integrate real-time data privacy safeguards, anonymization, and secure storage.\n5. Test experimental conditions comparing:\n   - Fully autonomous system operation\n   - Human-in-the-loop override enabled as a control condition to disambiguate LLM system effects\n6. Perform quantitative analysis of ethical compliance rates, participant-reported comfort, and intervention success indicators.\n7. Iterate system refinements based on experimental insights and clinical expert feedback.",
+        "Test_Case_Examples": "Input: Participant discloses suicidal ideation during interaction.\nOutput: The Moral Reasoning Component flags high ethical priority constraints prohibiting certain responses and mandates supportive, non-harmful replies.\nDialogue Control Layer translates these constraints to augment prompts with phrases encouraging safety, empathy, and referral to human clinicians.\nLLM generates responses such as: “I’m really sorry to hear you’re feeling this way. It’s important to reach out to a mental health professional who can provide you with immediate support. Would you like me to help you find someone to talk to?”\nSystem logs the interaction and triggers alerts for human clinical intervention while ensuring participant privacy and data security.",
+        "Fallback_Plan": "If real-time moral reasoning proves computationally intensive or unstable, we will implement a tiered fallback strategy:\n\n1. Pre-scripted ethical response templates for critical high-risk scenarios hardcoded within the Dialogue Control Layer.\n2. Real-time monitoring interface to enable licensed clinicians to review and override system outputs during live sessions (human-in-the-loop control).\n3. Incorporate confidence thresholds that trigger fallback to pre-approved dialogues when the system's ethical adherence is uncertain.\n\nThese layers safeguard participant well-being and uphold system reliability while maintaining feasibility during human trials."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Ethical governance",
+      "LLM-integrated social robot",
+      "Moral agency",
+      "Psychological interventions",
+      "Human-in-the-loop testing",
+      "Normative frameworks"
+    ],
+    "direct_cooccurrence_count": 1237,
+    "min_pmi_score_value": 3.596561057868101,
+    "avg_pmi_score_value": 4.866656408948739,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "application scenarios",
+      "system application scenarios",
+      "AI capabilities",
+      "AI assistance"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines integrating formal moral agency modules with LLM-driven dialogue constrained by ethical policies. However, the interaction mechanism between the moral agent components and the LLM is insufficiently detailed. Specifically, it's unclear how deontic logic-based reasoning will practically condition or guide the LLM's natural language output in real time, especially given LLMs' stochastic generation nature. Clarify: how are moral reasoning outputs operationalized as constraints or prompts within the LLM? What architectural or algorithmic choices ensure consistent, reliable adherence to ethical constraints without excessive computational overhead? A more explicit pipeline or modular system design would strengthen the soundness of the method and support feasibility assessments of real-time ethical interventions in conversation-based settings. Without this, the integration risks being conceptually plausible but practically ambiguous or technically fragile.\n\nConsider including schematic diagrams or pseudo-code examples illustrating the integration workflow between moral agency modules and LLM dialogue generation to concretize the approach for reviewers and implementers alike, enhancing confidence in the method's soundness and clarity."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan introduces valuable stages but raises concerns about experimental feasibility and scientific rigor in human participant testing. Stage 3 proposes testing in psychological therapy simulations with human subjects to measure ethical compliance, comfort, and efficacy, yet lacks details on participant recruitment, ethical approvals, and concrete evaluation metrics.\n\nPractically, conducting human trials involving psychological states, especially sensitive disclosures like suicidal ideation, necessitates strict ethical safeguards, clinical oversight, and validated assessment protocols. The proposal should elaborate on how ethical risks to participants will be managed, data privacy guaranteed, and interventions' psychological effects systematically measured (e.g., validated psychometric scales, behavioral observations).\n\nMoreover, the fallback plan suggests human-in-the-loop overrides as a backup, yet the experiment design should clarify whether and how these fallbacks are integrated into the testing phases as controls or baselines to disambiguate the LLM-driven system's contributions. Addressing these considerations is critical to ensure the proposed method's feasibility and to gain acceptance from IRBs and the clinical research community for human-involved experiments."
+        }
+      ]
+    }
+  }
+}

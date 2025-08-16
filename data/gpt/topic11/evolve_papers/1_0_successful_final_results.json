@@ -1,0 +1,75 @@
+{
+  "before_idea": {
+    "title": "Federated Homomorphic Encryption for Privacy-Preserving Financial LLMs",
+    "Problem_Statement": "Existing LLM deployments in financial services inadequately protect sensitive user data during model training and inference, risking regulatory non-compliance and privacy breaches.",
+    "Motivation": "Addresses the critical gap of integrating cryptographic privacy-preserving techniques explicitly tailored for financial LLMs by synergizing federated learning with homomorphic encryption, meeting the need for cross-disciplinary privacy and cybersecurity integration.",
+    "Proposed_Method": "Design a dual-layer privacy framework combining federated learning to decentralize training across financial institutions with homomorphic encryption to enable encrypted inference without decrypting data. Architect a privacy-preserving LLM pipeline enabling joint model fine-tuning and real-time encrypted query responses while enforcing data sovereignty and ensuring regulatory compliance.",
+    "Step_by_Step_Experiment_Plan": "1) Assemble de-identified financial transaction datasets from multiple institutions. 2) Develop an LLM architecture adapted for encrypted federated training. 3) Compare baseline centralized models with federated homomorphic encryption models on utility and privacy leakage metrics. 4) Evaluate compliance adherence via simulated audit inspections. Metrics: model accuracy, privacy leakage rates, computational overhead, compliance audit pass/fail rates.",
+    "Test_Case_Examples": "Input: An encrypted customer query \"What is my current credit card balance?\" Output: The LLM returns an encrypted response correctly decrypted by the customer, demonstrating privacy preservation with accurate financial information retrieval.",
+    "Fallback_Plan": "If homomorphic encryption overhead is prohibitive, fallback to secure multi-party computation protocols to maintain data privacy. Alternatively, evaluate partial encryption approaches with risk-based data exposure control."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Federated Homomorphic Encryption Enhanced with Differential Privacy for Scalable, Privacy-Compliant Financial LLMs",
+        "Problem_Statement": "Current deployments of large language models (LLMs) in financial services inadequately protect highly sensitive customer data during both training and real-time inference, exposing institutions to privacy breaches and potential regulatory violations. Integrating advanced cryptographic methods with distributed learning architectures is challenged by computational overhead, key management complexities, and unclear mechanisms for encrypted joint fine-tuning, hindering practical adoption under strict financial compliance regimes.",
+        "Motivation": "While federated learning (FL) and homomorphic encryption (HE) have individually demonstrated promise for privacy preservation, their combined application in financial LLMs remains underexplored and faces significant practical barriers, particularly regarding system design that balances privacy, scalability, and inference efficiency. Addressing this gap, our work proposes a novel, systematically architected approach that integrates encrypted federated fine-tuning enhanced with differential privacy guarantees, optimized cryptographic protocols for key management, and hardware-aware acceleration strategies. By pushing this interdisciplinary frontier, we aim to deliver a pioneering, compliant framework that not only ensures rigorous privacy protection but also advances the state-of-the-art in scalable, real-time financial AI applications, surpassing existing methods in utility and regulatory readiness.",
+        "Proposed_Method": "We propose a tri-layer privacy-preserving framework combining (1) federated learning for decentralized model fine-tuning across multiple financial institutions without data sharing, (2) leveled homomorphic encryption schemes (e.g., CKKS) for enabling encrypted inference and intermediate computations during training, and (3) differential privacy mechanisms applied at gradient aggregation points to furnish formal privacy guarantees aligning with regulatory standards. The system architecture incorporates an encrypted parameter-server model enabling joint encrypted fine-tuning while preserving model convergence by employing optimized ciphertext packing and approximation techniques to reduce computational latency. Key distribution is managed via a threshold cryptography protocol allowing secure multi-party key generation and usage with rotating keys to mitigate compromise risks. Encrypted customer queries are processed locally on institution edge servers with homomorphic evaluation circuits tailored to the LLM architecture adapted for encrypted linear and nonlinear transformations, leveraging recent advances in HE-friendly transformers and attention mechanisms. To further accelerate computation, hardware-aware optimizations utilizing GPU and TPU vectorized operations are integrated. The framework’s compliance with GDPR and FINRA regulations is reinforced by embedding a compliance audit layer instrumented for formal privacy proofs and real-world policy enforcement.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Construction: Curate a suite of synthetic yet statistically representative multi-institutional financial transaction datasets leveraging data synthesis tools (e.g., CTGAN) to emulate privacy-preserving training without legal hurdles. 2) Baseline Models: Implement centralized and federated-only LLM models (e.g., transformer-based architectures with specified hyperparameters) as baselines. 3) Privacy Layers: Incrementally integrate homomorphic encryption and differential privacy, forming three experimental groups (FL-only, FL+HE, FL+HE+DP). 4) Performance Evaluation: Measure model accuracy, convergence rates, query latency, computational overhead (CPU/GPU utilization, memory), and privacy leakage via membership inference attacks. 5) Compliance Assessment: Conduct formal privacy certification using differential privacy epsilon values and model audit simulations reflecting regulatory checklists, supplemented by expert legal review. 6) Hardware Profiling: Benchmark inference and training time under various hardware setups to validate practical deployment feasibility. 7) Ablation Studies: Analyze trade-offs by selectively disabling privacy components and measuring impacts. 8) Fallback Exploration: Evaluate secure multi-party computation protocols as alternative privacy-preserving modules under stringent resource constraints.",
+        "Test_Case_Examples": "Input: An encrypted client query \"What is my recent credit card payment history?\" submitted via a homomorphically encrypted channel. Process: The institution's edge server processes the query with the encrypted federated model, performing encrypted inference computations using the CKKS scheme combined with attention-based transformer adaptations. Output: An encrypted response is returned to the client and decrypted locally, revealing accurate, personalized financial information without any plaintext exposure at the server side or during transmission, demonstrating effective privacy preservation with real-time responsiveness compliant with financial regulations.",
+        "Fallback_Plan": "If homomorphic encryption's computational overhead proves prohibitive despite hardware acceleration, we will pivot to integrating state-of-the-art secure multi-party computation (SMPC) protocols as a fallback privacy layer while preserving federated learning architecture. Alternatively, we will investigate a selective partial encryption scheme with risk-based exposure controls using differential privacy thresholds and model quantization techniques to trade off privacy with efficiency adaptively. These pathways ensure a robust route to practical, secure deployment while maintaining foundational privacy assurances."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Federated Learning",
+      "Homomorphic Encryption",
+      "Privacy-Preserving",
+      "Financial LLMs",
+      "Data Security",
+      "Regulatory Compliance"
+    ],
+    "direct_cooccurrence_count": 750,
+    "min_pmi_score_value": 3.8006912928131666,
+    "avg_pmi_score_value": 5.57512863554306,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4604 Cybersecurity and Privacy",
+      "32 Biomedical and Clinical Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "federated learning",
+      "generative AI",
+      "homomorphic encryption",
+      "secure multiparty computation",
+      "adoption of artificial intelligence",
+      "privacy-preserving techniques",
+      "research challenges",
+      "transfer learning",
+      "Medical Things",
+      "Internet of Medical Things",
+      "human-AI interaction",
+      "generative artificial intelligence",
+      "systematic literature review",
+      "health informatics technologies",
+      "Critical Infrastructure Protection",
+      "FL system",
+      "deep neural networks",
+      "differential privacy"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed dual-layer privacy framework combining federated learning (FL) with homomorphic encryption (HE) is conceptually strong but lacks clarity on integrating these two computationally intensive techniques in practice. Detailed architectural design is needed to explain how encrypted inference queries operate efficiently over the distributed federated model without prohibitive latency. In particular, the mechanism for joint model fine-tuning under encryption and the management of key distribution or encryption schemes across multiple financial institutions require elaboration to ensure secure yet practical deployment. Clarify how encryption overheads are balanced with model convergence and real-time query responsiveness to solidify soundness of the method's mechanism and deployment assumptions in a strict regulatory environment. This will also address regulatory compliance integration challenges implied but not detailed in the current description, increasing confidence in feasibility and soundness of the core method's operation within privacy constraints and financial domain requirements. Please provide algorithmic flow, cryptographic protocol choices, and how the LLM architecture is adapted for encrypted federated learning scenarios, possibly with references to state-of-the-art techniques in this intersection area to ascertain novelty and rigor of the planned approach."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan outlines relevant benchmarking metrics and data usage but needs refinement to demonstrate feasibility robustly. Assembling de-identified financial transaction datasets from multiple institutions is non-trivial due to legal and compliance burdens; outline concrete dataset sources or synthetic counterparts to realistically enable training. The plan should also clarify how the experiments will manage and measure computational overhead from homomorphic encryption in practice, including hardware requirements or optimizations. Evaluation of compliance should extend beyond simulated audits to incorporate formal privacy certification (e.g., differential privacy guarantees or formal proofs) where possible; this strengthens claims of regulatory adherence. Baseline centralized models need clearer specification (model types, hyperparameters) for fair comparison. Including ablation studies for each privacy component (federated learning only vs. federated+HE vs. fallback secure multi-party computation) would yield insightful performance-privacy tradeoffs. Addressing these aspects concretely will improve experimental feasibility and rigor, ensuring the study yields actionable insights on practicality, utility, and regulatory acceptance in realistic financial environments."
+        }
+      ]
+    }
+  }
+}

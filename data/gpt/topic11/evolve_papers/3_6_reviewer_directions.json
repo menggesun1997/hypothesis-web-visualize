@@ -1,0 +1,49 @@
+{
+  "original_idea": {
+    "title": "Self-Supervised Energy Profiling for Scalable LLM Training",
+    "Problem_Statement": "Quantifying energy consumption during large language model training requires manual instrumentation, which is not scalable across diverse hardware and settings.",
+    "Motivation": "Fills internal and external gaps by applying self-supervised learning to predict energy profiles from model internal states and gradients, enabling non-intrusive, scalable environmental impact estimation.",
+    "Proposed_Method": "Train a self-supervised model that maps internal training signals (loss curves, gradient norms, batch sizes) to estimated energy consumption using limited ground-truth data. This model generalizes energy profiling across architectures and hardware, enabling downstream use in green optimization and monitoring tools without explicit power measurement setups.",
+    "Step_by_Step_Experiment_Plan": "1) Collect multi-hardware training logs with ground truth energy data. 2) Train a regression model on these features. 3) Evaluate prediction accuracy on unseen models/hardware. 4) Integrate the predictor with training loops for dynamic energy estimation. 5) Compare to hardware-based meters and analyze cost-benefit.",
+    "Test_Case_Examples": "Input: Training metadata (iteration number, batch size, gradient norms). Output: Predicted energy consumption per iteration within 5% error margin to physical measurements.",
+    "Fallback_Plan": "If self-supervised signal quality is insufficient, augment with semi-supervised fine-tuning using more labeled data. If model generalization is poor, train separate models per hardware class."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Self-Supervised Learning",
+      "Energy Profiling",
+      "Large Language Model (LLM) Training",
+      "Scalable Environmental Impact Estimation",
+      "Model Internal States",
+      "Energy Consumption Quantification"
+    ],
+    "direct_cooccurrence_count": 1265,
+    "min_pmi_score_value": 2.729652478652209,
+    "avg_pmi_score_value": 4.307949618510759,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "3101 Biochemistry and Cell Biology",
+      "31 Biological Sciences",
+      "40 Engineering"
+    ],
+    "future_suggestions_concepts": [
+      "artificial intelligence",
+      "brain lesion segmentation",
+      "deep learning",
+      "neural architecture search method",
+      "International Union of Nutritional Sciences"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The fundamental assumption that internal training signals such as loss curves and gradient norms correlate consistently and predictably with energy consumption across diverse hardware is ambitious but not sufficiently justified. Hardware-specific energy behaviors, thermal throttling, and power management optimizations may introduce noise or non-linearities that challenge this assumption. It is essential to include a more detailed analysis or preliminary evidence supporting the stability and generalizability of these signals as predictors across architectures and hardware platforms. Clarifying these assumptions upfront will strengthen the core premise and guide more targeted model design or data collection strategies where this assumption fails, such as hardware families with varying power characteristics or training regimes with dynamic resource allocation techniques. Consider expanding the Problem Statement or Proposed_Method to address and mitigate these potential confounds explicitly, possibly via adaptive calibration or hierarchical model components representing hardware classes or training modes separately, to enhance robustness and trustworthiness of predictions across settings. This is critical because the method relies on these signals exclusively to replace direct power measurements, which are hardware-dependent by nature, thus this assumption governs the soundness of the entire approach.  \n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed experiment plan outlines a sensible sequence but lacks sufficient detail on how training logs and energy ground truth will be acquired at scale across diverse hardware and models, which is critical for obtaining representative and generalizable data. The plan should explicitly specify the hardware types, models, and training configurations targeted for data collection to assess coverage and represent diversity realistically. Additionally, mechanisms for synchronizing timestamps between training signals and energy measurements need clarification to ensure accurate labeling for model training. The fallback strategy mentions semi-supervised fine-tuning or per-hardware models, indicating possible challenges with generalization; the plan should incorporate evaluation criteria or diagnostics early to detect and quantify such failures. Furthermore, integrating the predictor with live training loops (step 4) may face engineering complexities, which should be accounted for, with risk mitigation steps. Finally, a structured baseline comparison with hardware meters (step 5) must define metrics beyond average error, such as robustness across load conditions or latency impact during training. More rigorous experimental design and operational details are needed to fully establish feasibility and effectiveness of this self-supervised energy profiling approach."
+        }
+      ]
+    }
+  }
+}

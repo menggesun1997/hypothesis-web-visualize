@@ -1,0 +1,75 @@
+{
+  "before_idea": {
+    "title": "Semantic Hierarchy-Driven Domain Adaptation for Stable LLM Fairness",
+    "Problem_Statement": "Bridging semantic data hierarchies with real-world human factors and domain adaptation to enforce stable fairness remains an open challenge in LLM deployment.",
+    "Motivation": "Targets the external gap of domain adaptation integrating hierarchical semantics with human factor considerations, leveraging the 'hidden bridge' between semantic hierarchies and practical fairness.",
+    "Proposed_Method": "Develop a domain adaptation framework incorporating semantic hierarchies (WordNet/ImageNet) to transform LLM embeddings adaptively based on target domain human-factor distributions. Use meta-learning techniques to enable stability of fairness metrics during domain shifts. Introduce human-in-the-loop evaluations to continuously verify fairness stability post-adaptation.",
+    "Step_by_Step_Experiment_Plan": "1) Select source domain datasets with annotated biases and target domains with different factor distributions. 2) Implement semantic hierarchy guided embedding transformation layers. 3) Train LLMs with meta-learning to maintain fairness stability across domains. 4) Evaluate on fairness and stability benchmarks across multiple domain shifts.",
+    "Test_Case_Examples": "Input: Text dialogue generation trained on generic datasets adapted to public health domain with different demographic distributions. Expected output: Consistent fairness metrics and unbiased responses post-adaptation.",
+    "Fallback_Plan": "Fallback to simpler domain adaptation methods with post-hoc fairness correction; increase supervised fairness annotations in target domain."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Graph-Enhanced Semantic Hierarchy Adaptation via Meta-Learning for Robust Fairness in LLMs",
+        "Problem_Statement": "Ensuring consistent fairness in large language models (LLMs) across domain shifts is challenging due to complex interactions between semantic structures and evolving human-factor distributions. Existing domain adaptation methods lack explicit mechanisms to leverage semantic hierarchies in embedding transformations tied to fairness metrics, resulting in unstable fairness outcomes when deployed in new domains.",
+        "Motivation": "Although prior work explores domain adaptation and fairness independently, integrating semantic hierarchy-driven embedding adaptation with fairness stability under domain shifts remains under-explored and non-reproducible due to vague mechanisms. This proposal introduces a novel graph representation learning approach that explicitly models semantic hierarchies as structured knowledge and aligns them with human-factor distributions via meta-learning, enabling stable and generalizable fairness in LLM deployment. Incorporating state-of-the-art graph-structured representation learning and contrastive self-supervised objectives enhances model generalization—offering fundamentally improved methodology beyond conventional embedding adaptation approaches.",
+        "Proposed_Method": "We propose a graph-enhanced semantic hierarchy embedding adaptation framework for LLMs combining: \n\n1) Construction of a semantic hierarchy graph incorporating WordNet and ImageNet concepts linked to vocabulary tokens, embedding hierarchical and relational info.\n\n2) Integration of a graph neural network (GNN)-based embedding transformation layer on top of LLM token embeddings to produce domain-adaptive semantic representations sensitive to hierarchical context.\n\n3) A meta-learning algorithm that trains the GNN-Layer and LLM jointly across multiple source domain shifts, optimizing a fairness stability objective which quantifies stability of fairness metrics (e.g., demographic parity, equalized odds) across shifts rather than traditional accuracy alone.\n\n4) Use of contrastive self-supervised learning to align semantic graph embeddings with human-factor feature embeddings, enabling better capture of domain-specific human-centric disparities.\n\n5) A human-in-the-loop evaluation pipeline where periodic fairness audit feedback is fed back into meta-updates to refine embedding adaptation.\n\nConceptually, the adaptive embedding transformation relies on the GNN propagating hierarchical semantic context, modulated by meta-learned parameters that optimize fairness stability measured holistically over domain shifts. Pseudocode for key components is included below.\n\n-----\nPseudocode (simplified):\nfor each meta-training epoch:\n  for each domain shift d in sampled shifts:\n    embeddings = LLM.embed(tokens)\n    semantic_graph_feats = GNN(embeddings, semantic_graph)\n    adapted_embeddings = AdaptLayer(embeddings, semantic_graph_feats, params_d)\n    predictions = Classifier(adapted_embeddings)\n    fairness_loss = FairnessMetric(predictions, labels, human_factors_d)\n    total_loss = task_loss + lambda * fairness_loss\n    Update params via meta-optimizer to minimize expected stability of fairness_loss across d\n-----\n\nThis explicit multi-component mechanism with graph-structured semantic info and meta-learned fairness stability is novel compared to prior approaches that treat embeddings as flat vectors and apply post-hoc fairness correction.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Curation: Identify and assemble a suite of multi-domain textual datasets with annotated semantic hierarchies and rich human-factor attributes. Examples include:\n   - The Bias in Bios and Jigsaw datasets with demographic fairness annotations.\n   - Public health domain corpora (e.g., Clinical Notes datasets) enriched with demographic metadata.\n   - Construct or augment datasets by mapping token vocabularies to WordNet/ImageNet semantic graphs.\n\n2) Implementation:\n   - Develop the GNN-based embedding transformation leveraging graph representation learning frameworks (e.g., PyTorch Geometric).\n   - Integrate contrastive self-supervised objectives to align semantic embeddings and human-factor features.\n   - Design meta-learning training loop optimizing fairness stability metrics across simulated domain shifts.\n\n3) Baselines & Benchmarks:\n   - Compare against conventional domain adaptation methods without semantic hierarchy or meta-learning.\n   - Use state-of-the-art fairness benchmarks including Fairness Gym’s stability metrics measuring fairness across temporal or contextual shifts.\n\n4) Evaluation:\n   - Quantitatively evaluate fairness stability (variance and worst-case degradation of fairness metrics) and task performance across multiple unseen domain shifts.\n   - Qualitative human-in-the-loop audits assessing real-world fairness consistency.\n\n5) Ablation Studies:\n   - Evaluate impact of GNN semantic graph layers, contrastive learning, and meta-learning individually.\n\n6) Scalability:\n   - Test extension to zero-shot settings and vision-language models by embedding aligned semantic graphs.\n\n7) Reproducibility:\n   - Publish code, semantic graphs, and dataset processing scripts enabling peers to reproduce graph constructions and meta-learning pipelines.",
+        "Test_Case_Examples": "Input: Dialogue text prompts from general social media datasets adapted to clinical domain data with differing demographic distributions and explicit human-factor attributes.\nExpected output: The adapted LLM generates responses maintaining consistent fairness metrics (e.g., demographic parity within ±5%) despite domain shifts, outperforming baselines that show degradation or instability.\n\nAdditional case: Zero-shot domain adaptation on unseen demographic distributions in public health forums, retaining fairness metrics with minimal drop and stable variance across metric evaluations.",
+        "Fallback_Plan": "If graph-based embedding transformations prove computationally challenging or dataset annotations insufficient:\n- Employ simpler semantic hierarchy embedding augmentations without GNN (e.g., hierarchical embeddings from pretrained ontology encoders).\n- Increase supervised fairness annotations in target domains and use standard domain adversarial training combined with post-hoc fairness corrections.\n- Incorporate transfer learning with contrastive self-supervised pretraining on available semantic graphs to bootstrap adaptation.\n- Conduct focused experiments on synthetic domain shifts with simulated human-factor distributions for controlled ablation before scaling."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Semantic Hierarchy",
+      "Domain Adaptation",
+      "LLM Fairness",
+      "Hierarchical Semantics",
+      "Human Factors",
+      "Stable Fairness"
+    ],
+    "direct_cooccurrence_count": 3821,
+    "min_pmi_score_value": 2.1541624689782424,
+    "avg_pmi_score_value": 4.52015287963732,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "self-supervised learning",
+      "graph-structured data",
+      "aggregate queries",
+      "health data science",
+      "graph representation learning",
+      "contrastive learning",
+      "generative AI",
+      "state-of-the-art baselines",
+      "zero-shot setting",
+      "vision-language models",
+      "self-supervised learning method",
+      "query techniques",
+      "healthcare data",
+      "healthcare applications",
+      "AI systems",
+      "touch-based mobile devices",
+      "large-scale multidimensional data",
+      "representation learning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed method involves incorporating semantic hierarchies and meta-learning for domain adaptation aimed at fairness stability, but the mechanism for how semantic hierarchies concretely transform LLM embeddings and interact with human-factor distributions is insufficiently detailed. Clarify the exact model architecture changes, the algorithmic steps of the adaptive embedding transformation, and how meta-learning optimizes for fairness stability beyond standard performance metrics. This clarity is critical to assess methodological soundness and reproducibility effectively, especially given the complexity of tying semantic hierarchies with human-centric fairness metrics under domain shifts. Consider including pseudocode or a conceptual pipeline diagram in subsequent versions to enhance transparency and rigor in your approach description, enabling reviewers and researchers to assess key assumptions and reproducibility conditions explicitly in your Proposed_Method section and experimental plans accordingly.  "
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experimental plan specifies dataset selection, implementation of semantic hierarchy-guided layers, meta-learning training, and fairness evaluation but lacks detail on the choice and availability of datasets that have both semantic hierarchies annotated and rich human-factor fairness annotations across diverse domains. Since your approach hinges on adapting to domain shifts with differing human-factor distributions, explicitly identify or propose datasets that match this requirement or the strategy to annotate existing ones. Also, detail metrics and benchmarks that will measure fairness stability robustly over multiple shifts rather than static fairness snapshots. Without concrete datasets and fairness benchmarks aligned to your novel semantic hierarchy embedding transformation and meta-learning approach, feasibility and empirical validity remain uncertain and risk null results. Addressing this in the Step_by_Step_Experiment_Plan will strengthen confidence in practical execution and evaluation rigor."
+        }
+      ]
+    }
+  }
+}

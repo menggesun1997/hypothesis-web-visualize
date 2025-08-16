@@ -1,0 +1,77 @@
+{
+  "before_idea": {
+    "title": "Semantic Path-Based Contrastive Learning for Fine-Grained Mechanistic Analysis in Language Models",
+    "Problem_Statement": "Current contrastive learning approaches inadequately leverage semantic path distances in ontologies to produce fine-grained mechanistic interpretations beyond coarse category matching.",
+    "Motivation": "Responding to the internal gap of limited domain-specific interpretability frameworks, this idea proposes encoding semantic path lengths within WordNet as continuous contrastive weighting to guide language models toward detailed mechanistic representations mirroring graded semantic relationships.",
+    "Proposed_Method": "Develop a contrastive loss function that weights positive and negative pairs by semantic path distance between concepts in WordNet, creating a smooth supervision signal reflecting ontology structure. Integrate this loss into the embedding space of language models to expose mechanistic structures capturing nuanced semantic proximity.",
+    "Step_by_Step_Experiment_Plan": "1) Prepare text corpora with WordNet tags; 2) Compute semantic path distances for pair sampling; 3) Train language model embeddings with weighted contrastive loss; 4) Compare interpretability against unweighted methods; 5) Evaluate on downstream tasks requiring semantic nuance (e.g., paraphrase detection).",
+    "Test_Case_Examples": "Input: Sentences \"The wolf howled\" and \"The dog barked\" with semantic distance small but non-zero; Expected Output: Embeddings show proportional similarity reflecting approximate relation, showcasing mechanistic insight at finer granularity.",
+    "Fallback_Plan": "If path-weighted loss causes optimization issues, consider discretizing distances into bins or use attention mechanisms to dynamically learn weighting schemes."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Semantic Path-Weighted Contrastive Learning Integrating Ontological Structures for Enhanced Mechanistic Interpretability in Language Models",
+        "Problem_Statement": "Existing contrastive learning approaches in language models often treat semantic relationships in a binary or discrete manner, insufficiently capturing the nuanced, graded semantic proximities encoded in ontological structures like WordNet. This leads to coarse representational clusters lacking fine-grained mechanistic interpretability reflective of inherent semantic hierarchies.",
+        "Motivation": "Addressing limitations in current embedding-based interpretability, this work proposes a principled learning framework that explicitly incorporates continuous semantic path distances from WordNet into a weighted contrastive loss. Unlike prior methods that rely on simple categorical or binary semantic signals, our approach preserves graded semantic relationships, thereby promoting embeddings that better reflect subtle linguistic and ontological nuances. This enhances downstream interpretability and performance on tasks requiring fine semantic discrimination, such as paraphrase detection or paraphrase ranking, even under low inter-class variability and scarce annotated datasets. Integrating foundational deep learning frameworks with structured linguistic knowledge advances AI safety and representation of language in large deep neural networks through more transparent and mechanistically grounded embeddings.",
+        "Proposed_Method": "We formalize a novel semantic path-weighted contrastive loss function L as follows: For an anchor embedding x, positive samples x^+ and negative samples x^-, each pair is weighted by a function w(d) of their semantic path distance d extracted from WordNet taxonomy. Specifically, we define w(d) = exp(-α * d), where α>0 controls weight decay relative to path length, mapping shorter paths (closer semantic concepts) to higher weights. The loss is given by:\n\nL = - Σ_{x^+, x^-} w(d(x,x^+)) * log [ exp(sim(x,x^+)/τ) / (exp(sim(x,x^+)/τ) + Σ exp(sim(x,x^-)/τ)) ]\n\nwhere sim(·,·) is cosine similarity, and τ temperature parameter. This smoothly modulates positive pair contribution by semantic closeness while negatives are sampled with inverse weighting to preserve gradient balance. To ensure training stability and avoid trivial collapse, we employ gradient clipping, and incorporate an auxiliary grammatical structure consistency loss inspired by recent deep learning approaches to grammatical knowledge, enforcing embeddings to respect syntactic roles, enhancing both semantic and structural representation. We also integrate a learnable attention module that dynamically adjusts weighting functions based on context, supporting zero-shot learning scenarios. This architecture is optimized with standard Adam-based methods, with ablations on α and τ to confirm hyperparameter sensitivity and convergence robustness in large deep neural network classifiers.",
+        "Step_by_Step_Experiment_Plan": "1) Construct WordNet-tagged corpora from diverse, natural language datasets spanning several NLP domains, including paraphrase corpora (e.g., Quora Question Pairs, MRPC). 2) Extract semantic path distances for all pairs using WordNet graph traversal. 3) Implement the semantic path-weighted contrastive loss and auxiliary grammatical structure consistency loss in a transformer-based language model embedding framework. 4) Train models under various weighting functions and hyperparameters; conduct ablation studies comparing: (a) unweighted contrastive loss baseline; (b) discretized bin weighting; (c) continuous exponential decay weighting; (d) with and without auxiliary grammatical loss. 5) Evaluate performance quantitatively using interpretable metrics, such as:\n  - Spearman correlation between embedding similarity and semantic path distances (graded semantic proximity fidelity).\n  - Downstream paraphrase detection accuracy and F1 scores on benchmark datasets.\n  - Probing tasks for syntactic and semantic knowledge representation.\n6) Assess optimization stability by tracking gradient norms, loss convergence speed, and embedding norm distributions; include run-time profiling to measure computational overhead and scalability. 7) Perform qualitative mechanistic analyses via embedding space visualization (e.g., UMAP) to demonstrate nuanced semantic clustering reflecting ontological hierarchies. 8) Release code and datasets for reproducibility.",
+        "Test_Case_Examples": "Example: Given sentence pairs:\n(a) \"The wolf howled\" vs \"The dog barked\" — semantic path distance between 'wolf' and 'dog' is small but non-zero.\n(b) \"The wolf howled\" vs \"The car honked\" — semantic path distance larger reflecting unrelated concepts.\n\nExpected outcomes:\n- Embeddings of (a) show similarity proportional to moderate semantic proximity, demonstrating smooth semantic gradation, not just binary categorization.\n- Embeddings of (b) are clearly dissimilar.\n- Probing tasks reveal stronger correlation between embedding similarity and WordNet path distances than baseline models.\n- Paraphrase detection accuracy improves over state-of-the-art baselines, especially in cases with subtle semantic distinctions.\n\nThese results demonstrate enhanced mechanistic interpretability of the representations and their practical efficacy.",
+        "Fallback_Plan": "If the continuous exponential weighting leads to optimization instability or collapse, we will explore discretizing semantic path distances into fine-grained bins (e.g., 3–5 levels) and apply stepwise constant weights to reduce gradient variance. Additionally, the attention module for dynamic weighting will be refined or replaced by a learned parametric function constrained by monotonicity. If auxiliary grammatical structure loss conflicts with semantic objectives, we will isolate and test their impacts separately and consider curriculum training schedules or multi-task balancing losses. Scalability limitations will be mitigated through mini-batch negative sampling strategies and approximate nearest neighbor retrieval for pairing. Throughout, comprehensive hyperparameter tuning with automated schedulers will guide stable convergence and robust performance."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Semantic Path-Based Contrastive Learning",
+      "Fine-Grained Mechanistic Analysis",
+      "Language Models",
+      "Semantic Path Lengths",
+      "WordNet",
+      "Domain-Specific Interpretability"
+    ],
+    "direct_cooccurrence_count": 150,
+    "min_pmi_score_value": 3.702435767461723,
+    "avg_pmi_score_value": 5.762234692735259,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "language model",
+      "grammatical knowledge",
+      "information extraction",
+      "zero-shot learning",
+      "artificial intelligence deep learning",
+      "problems of machine learning",
+      "framework of deep learning",
+      "learning approach",
+      "deep neural network classifier",
+      "low inter-class variability",
+      "lack of annotated training data",
+      "training data",
+      "deep learning approach",
+      "deep neural networks",
+      "AI safety",
+      "human language processing",
+      "representation of language",
+      "negative polarity items",
+      "grammatical structure",
+      "natural language processing applications"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method hinges on weighting pairs by continuous semantic path distances in WordNet for contrastive loss, but the proposal lacks clarity on how these continuous distances will integrate mathematically and be optimized alongside standard embedding objectives. The treatment of potential gradient instability or imbalance in positive-negative sampling due to dense weighting is not sufficiently detailed. You should explicitly formalize the loss function, explain how semantic path distances map to weight scalars (e.g., inverse, exponential decay), and discuss optimization stability, perhaps with preliminary theoretical or empirical support to confirm soundness of this core mechanism and avoid training collapse or trivial solutions. Clarity here is crucial to validate the approach's soundness and implementation feasibility in large language models embedding spaces without disrupting convergence or expressiveness of representations. Addressing these points will strengthen conceptual rigor and practical viability of the mechanism before experiments proceed. This detail is missing from the current Proposed_Method section and should be added to ground the contribution convincingly."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan outlines standard steps such as preparing WordNet-tagged corpora, computing semantic path distances, and training with weighted contrastive loss, but it lacks concrete evaluation metrics and baselines that would convincingly measure improvement in fine-grained mechanistic interpretability. Specifically, 'compare interpretability against unweighted methods' is too vague — you should specify quantitative interpretability metrics or probing tasks, e.g., how you will operationalize 'mechanistic insight' or graded semantic proximity in embedding space similarity tests or downstream task performance (paraphrase detection is mentioned but needs detailed benchmarks and ablation studies). Furthermore, possible computational challenges and scalability (especially for integrating semantic distances at scale) are not addressed. Refinement of the experiment plan to specify evaluation criteria, dataset selection, ablation studies, and fallback triggers will improve feasibility and ensure results are meaningful and reproducible."
+        }
+      ]
+    }
+  }
+}

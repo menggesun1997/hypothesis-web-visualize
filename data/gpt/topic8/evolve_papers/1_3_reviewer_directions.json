@@ -1,0 +1,55 @@
+{
+  "original_idea": {
+    "title": "Dynamic Explainability via Semantic Activation Feedback Loops",
+    "Problem_Statement": "Current XAI methods for LLMs in HRI lack mechanisms to dynamically update explanations as contextual semantic activations evolve during interactions, reducing real-time trust and interpretability.",
+    "Motivation": "Filling the gap of missing end-to-end explainability frameworks that integrate dynamic semantic grounding for HRI, this project leverages cognitive semantic activation to generate evolving, interactive explanations responsive to interaction progression, enhancing user trust and collaboration quality.",
+    "Proposed_Method": "Develop a feedback-driven explainability system that monitors real-time semantic activation states within LLMs during HRI. The system generates continuously updated explanations highlighting how activated commonsense concepts influence model decisions. User feedback is incorporated to refine semantic activation models and explanation granularity. The approach combines anchoring explanation methods with cognitive semantic dynamics.",
+    "Step_by_Step_Experiment_Plan": "1) Collect interactive HRI sessions annotated with commonsense reasoning points.\n2) Implement real-time semantic activation trackers inside LLM layers.\n3) Design dynamic explanation modules that update explanation outputs according to activation changes.\n4) Conduct user studies assessing perceived trust and comprehension versus static explanation baselines.\n5) Analyze feedback-driven adaptation efficiency and explanation stability.\n6) Test across heterogeneous HRI scenarios requiring different commonsense domains.",
+    "Test_Case_Examples": "Input: User asks the robot for 'a warm blanket if it's cold.'\nExpected output: Initially the explanation references temperature commonsense activations; if user adds 'I just spilled coffee,' explanations dynamically incorporate spill-related safety commonsense concepts influencing behavior changes.",
+    "Fallback_Plan": "If real-time updates hinder system responsiveness, a compromise with batch update explanations or user-triggered refreshes will be tested. Alternative explanation modalities, such as visual graphs of concept activation trajectories, will be explored."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Explainability",
+      "Semantic Activation",
+      "Human-Robot Interaction (HRI)",
+      "Cognitive Semantic Grounding",
+      "Interactive Explanations",
+      "User Trust"
+    ],
+    "direct_cooccurrence_count": 401,
+    "min_pmi_score_value": 4.362314848186727,
+    "avg_pmi_score_value": 5.796990041163435,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "human-robot interaction",
+      "language model",
+      "natural language",
+      "simulated robotic agent",
+      "natural flow of communication",
+      "human-robot communication",
+      "virtual reality",
+      "multi-robot environment",
+      "dance aesthetics",
+      "performance art",
+      "mimetic art"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method lacks sufficient clarity on how semantic activation states within LLMs will be monitored and modeled in real-time, especially considering the complexity and opacity of LLM internal representations. To address this, the proposal should more explicitly define the mechanisms for tracking semantic activations, including any architectural modifications, algorithms for semantic grounding, and how user feedback concretely refines the activation models and explanation granularity. This would strengthen the soundness by clarifying feasibility and reproducibility of the dynamic explanation system in the HRI context, which currently seems underspecified and highly challenging given LLMs' complexity and speed constraints in interactive settings. Consider elaborating with a concrete example workflow or pseudo-code illustrating the feedback loop from semantic activation detection to explanation update and user feedback incorporation. This will also help align expectations on system performance and responsiveness more realistically with current LLM capabilities and HRI demands (e.g., latency requirements). Also, explicitly discuss how the system will isolate and represent commonsense reasoning components in the semantic activations, as these are central to the explainability claims but remain conceptually vague in the current presentation.\";\",\"target_section\":\"Proposed_Method\"},{"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan outlines promising evaluation steps but lacks critical details that may threaten feasibility. Specifically, real-time semantic activation monitoring and dynamic explanation updating in LLMs pose substantial technical and experimental complexity, yet no intermediate validation phases or technical benchmarks on system latency, scalability, and stability under realistic HRI workloads are described. Also, obtaining comprehensive and high-quality annotations for commonsense reasoning points in interactive HRI sessions may be time-consuming and challenging; plans for annotation protocols, inter-annotator agreement, and data scale requirements would strengthen experimental feasibility. Furthermore, user studies assessing trust and comprehension need clearer design—e.g., how will static and dynamic explanation conditions be controlled, what metrics or instruments will be used, and what participant demographics or task domains will be targeted? Without these details, feasibility risks are elevated, potentially undermining the project's impact and scientific validity. It would be beneficial to insert incremental benchmarking or simulation phases before full end-to-end user evaluations to progressively validate core components and uncover scalability or responsiveness bottlenecks early on (step 2 and 3). Overall, more explicit experimental rigor and contingency in the plan will enhance feasibility and success likelihood in this complex, multi-layered system development endeavor.\";\",\"target_section\":\"Step_by_Step_Experiment_Plan\"}]}{"
+        }
+      ]
+    }
+  }
+}

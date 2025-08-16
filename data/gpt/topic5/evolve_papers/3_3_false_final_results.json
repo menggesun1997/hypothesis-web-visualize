@@ -1,0 +1,12 @@
+{
+  "before_idea": {
+    "title": "Sparse Cross-Scale Attention for Efficient Scientific Literature Mining",
+    "Problem_Statement": "Transformers for scientific literature processing have scaling issues when integrating multi-scale information due to quadratic attention complexity, leading to high computational and environmental costs.",
+    "Motivation": "This idea directly addresses the internal computational bottlenecks and memory constraints while exploiting multi-scale feature integration gaps by introducing a sparse, cross-scale attention mechanism inspired by efficient attention models and feature fusion from vision.",
+    "Proposed_Method": "Develop a transformer variant where attention computation is restricted to a sparse subset of tokens selected based on cross-scale relevance scores computed via lightweight selectors. Tokens across scales attend selectively, allowing high-priority interactions while pruning redundant ones, enabling efficient semantic fusion of document segments of varying granularity (words, sentences, sections).",
+    "Step_by_Step_Experiment_Plan": "1) Build or select scientific paper text datasets. 2) Compare with dense transformer baselines on entity recognition and document classification. 3) Profile compute/memory use and inference speed. 4) Test impact of varying sparsity levels and selector strategies. 5) Measure environmental impact via estimated energy consumption.",
+    "Test_Case_Examples": "Input: Full scientific article requiring classification of section topics and extraction of key entities. Expected Output: Accurate semantic understanding of multi-granularity units with 50% less compute than dense attention baselines.",
+    "Fallback_Plan": "If sparse selectors degrade accuracy significantly, integrate learnable dynamic thresholds or fallback to block-wise dense attention within selected segments. Alternatively, combine with knowledge distillation to retain performance."
+  },
+  "novelty": "NOV-REJECT"
+}

@@ -1,0 +1,73 @@
+{
+  "before_idea": {
+    "title": "Multi-Modal Semantic Consistency Evaluation for Biomedical LLMs",
+    "Problem_Statement": "Current intrinsic evaluation metrics for LLMs inadequately capture domain-specific semantic consistencies, especially in biomedical contexts where textual and visual evidence coexist. This causes overlooked factual inaccuracies and undermines trustworthiness.",
+    "Motivation": "Addresses the internal critical gap of limited handling of domain-specific complexities and the external opportunity of multi-modal intrinsic evaluations by integrating visual and textual semantic coherence into intrinsic metrics for biomedical LLMs.",
+    "Proposed_Method": "Develop a novel multi-modal intrinsic evaluation framework that combines perplexity and self-consistency metrics with semantic alignment scores derived from cross-modal embeddings between textual outputs and associated biomedical images, charts, or diagrams. This involves a fusion module leveraging joint text-vision transformers adapted for biomedical data, integrating word-cloud visualizations for enhanced semantic context representation. The system dynamically weights multi-modal signals to produce a composite intrinsic metric sensitive to factual and contextual domain correctness.",
+    "Step_by_Step_Experiment_Plan": "1) Collect biomedical corpora with aligned text and image data (e.g., PubMed Central with figures). 2) Fine-tune BioBERT + Vision Transformer hybrid models for joint embedding learning. 3) Implement the multi-modal intrinsic metric and baseline metrics (perplexity, BLEU, LUNA). 4) Evaluate on biomedical QA and summarization tasks, comparing metric correlations with human trustworthiness and accuracy judgments. 5) Perform ablation to isolate modality contributions.",
+    "Test_Case_Examples": "Input: A biomedical LLM generates a diagnosis explanation supported by an associated diagnostic X-ray image. Output: The evaluation system outputs a high multi-modal intrinsic score if textual descriptions align semantically and visually with the X-ray findings, while a lower score flags discrepancies indicating hallucination or inconsistency.",
+    "Fallback_Plan": "If multi-modal fusion yields noisy or uncorrelated metrics, fallback to enhanced textual embeddings combined with semantic similarity to structured biomedical ontologies. Alternatively, incorporate expert-in-the-loop evaluations to calibrate multi-modal metric weighting."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Robust Multi-Modal Semantic Consistency Evaluation Framework for Biomedical LLMs with Adaptive Fusion and Expert-Calibrated Metrics",
+        "Problem_Statement": "Current intrinsic evaluation methods for biomedical large language models (LLMs) inadequately capture complex semantic consistencies across textual and diverse visual biomedical data modalities (e.g., X-rays, charts, diagrams). This limitation leads to insufficient detection of domain-specific factual inaccuracies and undermines the reliability of LLM-generated biomedical explanations and reports.",
+        "Motivation": "Although prior multi-modal intrinsic evaluation techniques leverage joint text-vision embeddings, they often lack explicit, interpretable mechanisms to reconcile conflicting signals across heterogeneous biomedical modalities and do not sufficiently address the practical complexities of multi-modal biomedical data alignment. Addressing the competitive challenge of existing approaches, this research proposes a novel, interpretable, and adaptive fusion framework that dynamically weights multi-modal signals using self-supervised and expert-calibrated methods, fostering more reliable and semantically coherent evaluation metrics critical for biomedical AI trustworthiness.",
+        "Proposed_Method": "We introduce a multi-modal intrinsic evaluation framework integrating self-supervised vision-language models specialized for biomedical domains by fine-tuning BioBERT with convolutional neural networks (CNNs) and Vision Transformer (ViT) backbones, designed to handle variable biomedical image types (X-rays, histology images, charts). The core innovation is an adaptive fusion module composed of: 1) a cross-modal semantic alignment scorer based on cosine similarity of joint embeddings normalized per modality, enhanced by graph-structured data representing biomedical ontologies to contextualize semantic relations; 2) a dynamic weighting mechanism utilizing a gated attention network that learns modality trustworthiness weights through expert-annotated calibration data and self-supervised consistency signals, enabling robust resolution of modality discrepancies; and 3) integration of interpretable word-cloud visualizations generated from weighted textual embeddings to visually summarize semantic focus areas, aiding human interpretability. The composite intrinsic metric is computed as an expert-calibrated weighted sum of perplexity, self-consistency, and normalized semantic alignment scores, with uncertainty estimates derived from embedding variance. This design explicitly addresses conflicts among modalities and incorporates expert-validated weighting schemas to enhance sensitivity to factual and contextual correctness in biomedical LLM outputs.",
+        "Step_by_Step_Experiment_Plan": "1) Data Preparation: Aggregate a large-scale, high-quality biomedical multi-modal dataset (e.g., from PubMed Central and Radiology Society datasets) ensuring alignment of diverse image types with corresponding text, implementing rigorous pre-processing including image normalization, modality tagging, and text segmentation. Establish validation splits stratified by modality and clinical subdomain.\n2) Model Development: Fine-tune BioBERT with CNN and ViT components to learn robust joint embeddings. Incorporate biomedical ontologies (e.g., UMLS) as graph-structured priors for embedding enrichment.\n3) Fusion Module Training: Train the gated attention fusion network using a curated dataset annotated by biomedical experts rating trustworthiness and semantic consistency, enabling supervised learning of modality weights. Complement with self-supervised learning methods to reinforce alignment under data scarcity.\n4) Baseline Implementation: Implement traditional metrics (perplexity, BLEU, LUNA) and state-of-the-art vision-language evaluation metrics for comparison.\n5) Evaluation: Apply the composite metric on biomedical QA and summarization tasks. Collect expert human judgments on trustworthiness and factual accuracy through structured annotation protocols involving domain specialists. Measure correlation and agreement between metric scores and expert assessments.\n6) Ablation Studies: Systematically disable components (e.g., expert calibration, graph priors, word-cloud visualization) to quantify their effect on performance.\n7) Contingency Plan: If correlation with expert ratings is weak or inconsistent, iteratively refine the weighting mechanism and consider active expert-in-the-loop recalibration strategies to enhance metric reliability and practical usability.",
+        "Test_Case_Examples": "Example 1: A biomedical LLM outputs a radiology report describing lung nodules with a supporting X-ray image. The evaluation system calculates a high intrinsic score if the textual descriptions semantically co-align with image features indicating nodules, confirmed through weighted attention emphasizing lung regions and lung-nodule concepts from ontologies. If discrepancies or hallucinations occur, the system returns a lower score with interpretable word-cloud visualizations highlighting contradictory terms.\n\nExample 2: A summarization task where the LLM generates a clinical trial summary alongside associated charts. The metric assesses semantic alignment across text and charts, down-weighing noisy or ambiguous charts through learned fusion weights, producing a composite score that reflects both textual quality and visual consistency relative to expert judgments.",
+        "Fallback_Plan": "If multi-modal fusion suffers from excessive noise or inconsistent modality trustworthiness due to heterogeneous biomedical data, fallback to an enhanced text-centric evaluation pipeline incorporating semantic similarity to structured biomedical ontologies using graph embeddings and knowledge-aware metrics. Additionally, implement an expert-in-the-loop system where domain specialists provide calibration annotations periodically to adapt fusion weights and validate metric outputs, thereby ensuring robustness and continued metric improvement despite limitations in multi-modal data quality or alignment."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multi-Modal Evaluation",
+      "Semantic Consistency",
+      "Biomedical LLMs",
+      "Intrinsic Metrics",
+      "Visual and Textual Coherence",
+      "Domain-Specific Complexities"
+    ],
+    "direct_cooccurrence_count": 1752,
+    "min_pmi_score_value": 4.163748238340048,
+    "avg_pmi_score_value": 5.439065306702388,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "32 Biomedical and Clinical Sciences",
+      "40 Engineering"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "medical image analysis",
+      "visual question answering",
+      "vision-language models",
+      "medical report generation",
+      "evaluation metrics",
+      "radiology report generation",
+      "multimodal input",
+      "medical artificial intelligence",
+      "multimodal machine learning",
+      "convolutional neural network",
+      "intelligent decision-making",
+      "self-supervised learning",
+      "graph-structured data",
+      "healthcare data",
+      "self-supervised learning method"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method hinges on combining perplexity, self-consistency, and cross-modal semantic alignment via joint text-vision transformers, which is a sophisticated approach. However, the description lacks clarity on how dynamically weighted multi-modal signals will be integrated and balanced within the composite metric, especially considering potential conflicts between textual and visual modalities. The mechanism for fusing word-cloud visualizations with cross-modal embeddings also remains vague. To improve soundness, explicitly detail the architecture of the fusion module, how weights are learned or adapted, and how semantic alignment scores are calculated and normalized to ensure interpretability and robustness against noisy or contradictory input signals in biomedical contexts. This clarity is crucial to validate the core mechanism's feasibility and expected behavior in practice, underpinning the claimed semantic consistency capability of the evaluation metric, particularly given the complexity of multi-modal biomedical data and potential modality discrepancies inherent in clinical imaging and text correlations, which can greatly affect factual correctness detection and trustworthiness assessments in LLM outputs for biomedical applications.\","
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Experiment_Plan is reasonably well-structured but under-specifies important practical aspects impacting feasibility. For example, the plan suggests fine-tuning BioBERT plus Vision Transformer hybrids but omits details on handling the inherent challenges in aligning images, which may be of varying types and modalities (X-rays, charts, diagrams) with text. It also lacks explicit mention of data pre-processing, quality controls, and validation splits, which are crucial for biomedical domain data. The plan does not explain how human trustworthiness and accuracy judgments will be collected, which is a non-trivial and expensive process often requiring expert raters and annotation protocols. Clarify these steps and consider potential bottlenecks in obtaining high-quality multi-modal paired data and robust, reproducible evaluation benchmarks. Additionally, specify contingency planning for negative or ambiguous correlation results between the new metric and human judgments to ensure the practicality and scientific credibility of the evaluation."
+        }
+      ]
+    }
+  }
+}

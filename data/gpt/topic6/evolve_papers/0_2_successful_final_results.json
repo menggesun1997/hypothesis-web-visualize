@@ -1,0 +1,60 @@
+{
+  "before_idea": {
+    "title": "Efficient Intrinsic Probing via Few-Shot Clinical Segmentation-Driven Language Tasks",
+    "Problem_Statement": "Low-resource clinical domains suffer from limited annotated data for intrinsic evaluation of LLMs. Current intrinsic probing techniques require extensive labeled datasets, hampering scalable and efficient assessment.",
+    "Motivation": "Adapts strategies from ISBI few-shot segmentation challenges and human activity recognition to intrinsic probing for language, innovating sample-efficient intrinsic benchmark designs that support scalable evaluation in low-resource healthcare contexts, addressing internal gaps of training inefficiency and external lack of low-resource adaptability.",
+    "Proposed_Method": "Propose a few-shot intrinsic probing framework where limited annotated clinical text samples with segmentation-like structure labels (e.g., entity boundaries) guide probe design. Utilize meta-learning and contrastive learning for intrinsic feature extraction and evaluation, enabling generalized intrinsic probing from few examples.",
+    "Step_by_Step_Experiment_Plan": "1) Prepare few-shot annotated clinical text datasets with segmentation of key entities (e.g., diseases, treatments). 2) Train meta-learned intrinsic probes on base domains, test on unseen clinical subdomains. 3) Compare to standard intrinsic probes trained with full data. 4) Evaluate using probe accuracy, sample efficiency, domain adaptability metrics.",
+    "Test_Case_Examples": "Input: Few annotated clinical sentences delineating symptom mentions; Expected Output: Intrinsic probe accurately segments and identifies relevant symptoms from new clinical texts with few-shot supervision, demonstrating efficient intrinsic language understanding assessment.",
+    "Fallback_Plan": "If few-shot training fails to generalize, incorporate synthetic data augmentation or explore unsupervised intrinsic probing methods that leverage self-supervised signal from unlabeled clinical corpora."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Efficient Intrinsic Probing via Structured Few-Shot Clinical Segmentation with Meta-Contrastive Learning",
+        "Problem_Statement": "Low-resource clinical domains lack sufficient annotated data for intrinsic evaluation of large language models (LLMs), limiting scalable and interpretable assessment of their internal language understanding. Existing intrinsic probing methods require extensive labeled datasets and often do not generalize well across clinical subdomains.",
+        "Motivation": "While intrinsic probing is critical for understanding LLMs' behavior, scalable and sample-efficient approaches tailored to low-resource healthcare settings remain underexplored. Inspired by few-shot segmentation in ISBI challenges and human activity recognition, our method innovates by leveraging segmentation-like entity boundary labels in clinical text to construct intrinsic probes that reveal semantically meaningful, structured features internal to language models. By integrating meta-learning with contrastive representation learning, this work advances intrinsic probing beyond prior methods by enabling generalizable, interpretable, and data-efficient evaluation. Moreover, we explicitly connect intrinsic features to downstream clinical language processing tasks, thus enhancing the method's practical relevance. Incorporation of natural language processing advances ensures alignment with state-of-the-art language understanding paradigms.",
+        "Proposed_Method": "We propose a novel few-shot intrinsic probing framework that translates segmentation-like clinical entity boundary annotations into structured probe supervision. The core idea is to interpret segment boundaries (e.g., symptom or treatment spans) as structured cues supervising probing classifiers that predict intrinsic token-level and span-level features within pretrained LLMs. \n\nThe probe architecture consists of a token-level segmentation head combined with span-level binary classifiers over entity candidates, jointly optimized. Meta-learning (model-agnostic meta-learning, MAML) trains probe parameters to rapidly adapt to new clinical subdomains using very few annotated examples, enhancing domain generalization.\n\nComplementing this, we employ contrastive learning on the probe’s intermediate representations, using positive pairs from semantically related segments (e.g., same entity type) and negative pairs from unrelated segments or other texts. This learns robust, discriminative intrinsic feature spaces reflective of clinical language semantics captured by the LLM.\n\nThe overall training proceeds in two phases: (1) meta-training on base clinical datasets with segmentation labels to learn adaptable probe initializations and contrastive embedding spaces, and (2) rapid adaptation (few-shot fine-tuning) on novel clinical subdomains for intrinsic evaluation.\n\nAn illustrative schematic depicts input clinical text with segmented entity boundaries feeding into the probing architecture, showing token-classification (segmentation) and contrastive embedding modules, culminating in intrinsic feature extraction. This framework ensures interpretable intrinsic features aligned with downstream clinical language processing tasks such as named entity recognition or symptom extraction.\n\nIntegration with natural language processing techniques, including BIO-tagging inspired token labeling and span representation methods, grounds the approach in established clinical NLP conventions, enhancing interpretability and relevance.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Preparation: Use the i2b2 2010 and 2012 clinical NLP challenge datasets, which provide annotated entities with boundaries (symptoms, treatments, disorders) suitable for segmentation-based probing. To simulate low-resource settings, restrict annotation budgets to 5-20 annotated samples per subdomain.\n\n2) Annotation Simulation: From full datasets, sample few-shot training sets preserving segmentation labels. Use these to meta-train probes via MAML.\n\n3) Implementation Details: Define meta-learning protocol with episodic training; each episode includes support (few-shot training) and query (evaluation) sets sampled from different clinical subdomains. Use a token-level BiLSTM-CRF or transformer-based probe head for segmentation.\n\n4) Contrastive Learning Setup: Generate positive and negative pairs from segment representations within and across support/query sets. Use NT-Xent loss for contrastive optimization.\n\n5) Evaluation: Measure probe accuracy on token segmentation (entity boundary F1), intrinsic feature quality via cluster purity on embeddings, and domain adaptability via zero-/few-shot performance on held-out clinical subdomains.\n\n6) Resources: Use open-source clinical datasets, train on a single NVIDIA A100 GPU with estimated 48h runtime for meta-training. Annotation effort capped at ~100 annotated sentences across experiments.\n\n7) Fallback Plan: If few-shot probing fails to generalize, implement data augmentation via back-translation and entity replacement leveraging unlabeled clinical corpora. Additionally, explore unsupervised intrinsic probing using masked language model prediction scores as intrinsic features. Decision criteria are performance improvement plateaus under a fixed annotation budget.",
+        "Test_Case_Examples": "Input: 10 annotated clinical sentences from a rare subdomain (e.g., nutritional disorders) with annotated symptom and treatment spans.\nExpected Output: The intrinsic probe segments symptoms and treatments with token F1 >80% and produces contrastive embeddings that cluster entities meaningfully, demonstrating effective intrinsic feature learning from limited supervision. Applying the probe to unannotated subdomain clinical notes yields consistent intrinsic feature patterns correlated with downstream clinical NLP task performance.",
+        "Fallback_Plan": "If few-shot meta-learned probing shows poor generalization, first augment few-shot data by applying back-translation and controlled entity substitution on annotated sentences to enlarge support sets synthetically. If this augmentation fails to improve performance, pivot to unsupervised intrinsic probing by designing intrinsic metrics that leverage masked language model prediction errors or attention distribution statistics from unlabeled clinical corpora. This pivot reduces reliance on labeled segmentation and still captures intrinsic model understanding signals. Progressively evaluate these intrinsic features’ relevance by correlating with downstream clinical task success to ensure practical utility."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Few-Shot Clinical Segmentation",
+      "Intrinsic Probing",
+      "Low-Resource Healthcare",
+      "Language Model Evaluation",
+      "Training Inefficiency",
+      "Sample-Efficient Benchmark"
+    ],
+    "direct_cooccurrence_count": 6793,
+    "min_pmi_score_value": 3.5789804284712314,
+    "avg_pmi_score_value": 4.832071975333278,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "32 Biomedical and Clinical Sciences",
+      "3214 Pharmacology and Pharmaceutical Sciences",
+      "3210 Nutrition and Dietetics"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "language processing",
+      "International Union of Nutritional Sciences"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposed method combines meta-learning and contrastive learning for few-shot intrinsic probing, the mechanism by which segmentation-like structure labels directly support intrinsic probing of language models is underdeveloped. Clarify how the segmentation annotations translate into effective intrinsic probes, detail the probe architectures, and specify how meta-learning and contrastive approaches integrate to yield generalizable intrinsic features. This will improve the soundness and reproducibility of the method, reducing ambiguity in core technique execution and evaluation metrics definitions, such as precisely what intrinsic features are probed and how they relate to downstream clinical understanding tasks. Include an illustrative example or schematic if possible to concretize the concept's internal logic and make it more convincing and actionable for implementation and peer critique in a competitive research environment."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan is broadly described but lacks specific details about key practical aspects needed for realistic feasibility assessment. For example, clearly specify which clinical datasets will be used or how annotation for entity segmentation will be obtained or simulated in a low-resource setting. Define the exact meta-learning protocols and evaluation splits to rigorously test domain generalization. Quantify expected annotation budgets, compute resources, and timeline estimates to ensure the approach is tractable within typical research constraints. Additionally, elaborate on the fallback plan's implementation details and decision criteria when few-shot probing fails, to demonstrate robustness of the experimental approach. Providing these details will solidify the plan’s feasibility and help reviewers and future researchers reproduce or build upon the results in a fair and contextualized manner."
+        }
+      ]
+    }
+  }
+}

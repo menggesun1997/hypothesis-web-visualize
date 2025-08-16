@@ -1,0 +1,72 @@
+{
+  "before_idea": {
+    "title": "Cognitive Load-Aware Prompt Engineering Framework for Enhanced Replicability",
+    "Problem_Statement": "Prompt engineering lacks systematic consideration of cognitive load and semantic capacity which impacts consistency and reproducibility of LLM outputs.",
+    "Motivation": "Novel integration of cognitive psychology concepts of cognitive load and memory limitations into prompt design frameworks addresses an overlooked external gap, potentially enhancing replicability by controlling semantic complexity.",
+    "Proposed_Method": "Develop a framework that quantitatively assesses cognitive load of prompts (e.g., semantic complexity, token entropy) and optimizes prompt formulations to balance informativeness and cognitive load, thus improving replicability across contexts.",
+    "Step_by_Step_Experiment_Plan": "1) Design cognitive load metrics for prompts.\n2) Collect datasets requiring multi-hop reasoning.\n3) Generate prompt variations.\n4) Evaluate replicability and performance across prompt sets.\nModels: GPT-3, instruction-tuned LLMs.\nMetrics: Replicability variance, task success rates, prompt cognitive load scores.",
+    "Test_Case_Examples": "Input: Complex legal question prompt with varying semantic load.\nExpected Output: Lower cognitive load prompts yield more consistent and reproducible answers across runs.",
+    "Fallback_Plan": "If cognitive load metrics fail to predict replicability, experiment with alternative psycholinguistic measures such as syntactic complexity or semantic ambiguity."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Cognitive Load-Aware and Test-Retest Stability-Informed Framework for Enhanced Prompt Replicability with Personality-like Trait Characterization in LLMs",
+        "Problem_Statement": "Prompt engineering often overlooks the nuanced conceptual translation of human cognitive load theory to language model (LLM) processing and lacks rigorous quantitative frameworks to assess prompt replicability. Without establishing theoretical and empirical bridges between model-based semantic capacity and human cognitive principles, efforts to improve consistency and reproducibility of LLM outputs remain unsubstantiated and incomplete.",
+        "Motivation": "While prior work explores prompt complexity, our approach innovatively establishes a theoretically grounded connection between human cognitive load constructs and LLM semantic processing by reconceptualizing cognitive load as a property of prompt-model interaction rather than human cognition alone. Additionally, we integrate test-retest stability paradigms and personality-like trait frameworks adapted from psychological assessment to provide robust, quantitative benchmarks for prompt replicability and characterize prompt-response variability. This multifaceted integration advances prompt engineering by supplying a scientifically rigorous, interdisciplinary framework that enhances replicability and interpretability beyond competitive existing methods.",
+        "Proposed_Method": "1) Theoretically formalize cognitive load metrics for LLM prompts by mapping human cognitive load elements (intrinsic, extraneous, and germane load) onto LLM processing attributes such as token entropy, semantic diversity, and attention dynamics, substantiated by preliminary empirical validation using probe tasks.\n2) Incorporate test-retest stability methodology by repeatedly evaluating prompt-response pairs across multiple runs and sessions to quantify replicability variance with statistical rigor (e.g., intraclass correlation coefficients).\n3) Develop and adapt 'personality-like' trait assessment tools for prompts, inspired by psychological personality frameworks, to characterize prompt styles influencing response variability, enabling stratified analysis.\n4) Design and validate these metrics through controlled experiments employing established multi-hop benchmarks (e.g., HotpotQA, StrategyQA) with curated prompt variations.\n5) Integrate these components into a unified framework that balances cognitive load optimization, stable reproducibility, and personality-informed prompt characterization to guide prompt engineering practices.",
+        "Step_by_Step_Experiment_Plan": "1) Define cognitive load dimensions for prompts based on human cognitive load theory and pilot test candidate metrics (token entropy, semantic complexity, syntactic measures) on sample prompts.\n2) Select and preprocess multi-hop reasoning benchmarks such as HotpotQA and StrategyQA for prompt generation.\n3) Generate diverse prompt sets varying in semantic and syntactic complexity, informed by personality-like trait categories.\n4) Conduct repeated test-retest evaluations: each prompt executed multiple times across sessions using GPT-3 and instruction-tuned LLMs.\n5) Measure replicability using intraclass correlation coefficients, variance analysis under controlled baseline prompts.\n6) Analyze correlations between cognitive load metrics, personality trait scores, and replicability results to validate theoretical assumptions.\n7) Iterate metric refinement and framework parameters based on experimental outcomes.\n8) Document standardized metric definitions, validation procedures, and provide open-source tools for community use.",
+        "Test_Case_Examples": "Input: Multi-hop reasoning prompt variants on legal and medical domains crafted to differ in semantic complexity and personality-like traits (e.g., direct vs. exploratory prompt style).\nExpected Output: Prompts optimized for lower cognitive load and stable personality trait profiles achieve significantly higher test-retest replicability (ICC > 0.8) and improved task success rates across LLM runs, compared to high-load, unstable prompts.\nAdditional Result: Statistical evidence supporting theoretical mapping of cognitive load metrics to LLM behavior and identification of prompt personality profiles correlating with response variability.",
+        "Fallback_Plan": "If cognitive load metrics show weak predictive power for replicability, pivot to alternative linguistically grounded psycholinguistic measures such as syntactic complexity and semantic ambiguity with enhanced validation. If personality-like trait frameworks do not yield stable categories, simplify to clustering approaches based on prompt linguistic features without psychological analogies. Employ ablation studies to separately quantify contributions of each framework component and identify effective elements for incremental integration."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Cognitive Load",
+      "Prompt Engineering",
+      "Replicability",
+      "Semantic Complexity",
+      "Cognitive Psychology",
+      "LLM Outputs"
+    ],
+    "direct_cooccurrence_count": 454,
+    "min_pmi_score_value": 2.897471490164904,
+    "avg_pmi_score_value": 4.6887750956980385,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "5202 Biological Psychology",
+      "5205 Social and Personality Psychology"
+    ],
+    "future_suggestions_concepts": [
+      "reasoning layer",
+      "cybersecurity education",
+      "code generation",
+      "consumer research",
+      "information systems engineering",
+      "personality framework",
+      "human personality traits",
+      "personality-like traits",
+      "personality assessment tools",
+      "test-retest stability",
+      "example-based learning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The assumption that cognitive load, a psychological concept traditionally applied to human cognition, can be directly and quantitatively translated to prompt engineering for language models requires more rigorous justification. LLMs do not process information like humans, so the correlation between cognitive load metrics (e.g., semantic complexity, token entropy) and model replicability should be theoretically substantiated or preliminary empirical evidence should be provided to validate this foundational premise before full framework development proceeds. Clarify how model-based semantic capacity relates to human cognitive load theory to strengthen the core assumption underpinning the method and overall problem framing in the Proposed_Method section and Problem_Statement respectively., This ensures the initiative is grounded in sound scientific rationale and avoids potential conceptual mismatch risks."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the stepwise experimental plan outlines key actions, it lacks important practical details that affect feasibility. For instance, the criteria and design process for the proposed cognitive load metrics are underspecified—how will these metrics be developed, validated, and standardized? Also, collecting datasets requiring multi-hop reasoning is reasonable but the plan should specify which datasets or benchmarks to use or how to create them. Finally, the evaluation strategy could be enhanced by describing how replicability variance will be statistically measured and controlled across prompt variations, and clarifying control conditions or baselines. Providing these specifics will strengthen confidence in the experimental plan’s reproducibility and overall practical execution."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty rating of 'NOV-COMPETITIVE,' the idea’s impact and originality could be elevated by integrating concepts from 'test-retest stability' and 'personality assessment tools' from the globally-linked list. Specifically, incorporating test-retest stability paradigms can provide rigorous, quantitative benchmarks for prompt replicability over repeated trials, complementing cognitive load metrics. Additionally, exploring analogies with personality-like traits or personality frameworks to characterize prompt styles or model response variability could add a novel psychological dimension to the framework. Such interdisciplinary integration may deepen insights into prompt engineering dynamics and broaden the work's appeal and impact within NLP and cognitive science communities."
+        }
+      ]
+    }
+  }
+}

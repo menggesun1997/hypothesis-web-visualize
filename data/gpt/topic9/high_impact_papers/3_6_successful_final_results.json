@@ -1,0 +1,71 @@
+{
+  "before_idea": {
+    "title": "Explainability-Driven Legal Document Summarization with Emphasis on Ethical and Governance Constraints",
+    "Problem_Statement": "Legal document summarization by LLMs lacks transparent explanation for content selection and potential bias, risking ethical and governance failures in legal AI deployment.",
+    "Motivation": "Building on internal gaps around ethics and deployment and external opportunities linking ethics with national research evaluation, this idea uniquely entwines explainability mechanisms within summarization to reveal rationale and compliance with governance principles, a paradigm shift from pure generation to accountable summarization.",
+    "Proposed_Method": "Develop a hybrid summarization framework embedding transparent sub-module explanations that trace sentence or clause contribution to summary. Integrate ethical constraint verification modules enforcing fairness, privacy, and bias mitigation policies. Use attention visualization and counterfactual analysis to elucidate governance compliance within generated summaries.",
+    "Step_by_Step_Experiment_Plan": "1. Fine-tune summarization LLMs on legal corpora with ethical annotation. 2. Implement explanation extraction layers (attention, gradient-based, counterfactual). 3. Encode governance policies as logical constraints integrated during generation. 4. Evaluate summary quality, explanation fidelity, and ethical compliance via expert review and automated metrics. 5. Iterate models to optimize tradeoffs.",
+    "Test_Case_Examples": "Input: Court opinion requiring summary. Output: Summary with traceable explanation of key points chosen and flagged potential ethical concerns (e.g., bias, privacy exposure). Expected: Higher trust and auditability in summary use.",
+    "Fallback_Plan": "If explicit ethical constraint integration limits summary quality, fallback to post-hoc ethical explanation layers highlighting risks and allowing human override."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Explainability-Driven Legal Document Summarization with Operational Ethical Governance for Trustworthy AI Deployment",
+        "Problem_Statement": "Legal document summarization by large language models (LLMs) often produces outputs lacking transparent explanations for content selection and risks embedding undisclosed biases, thereby threatening ethical, privacy, and governance compliance critical in legal AI applications.",
+        "Motivation": "While prior work focuses on summarization and post-hoc explanations, few integrate explainability mechanisms tightly with verifiable ethical governance constraints, especially tailored to legal frameworks like US civil rights laws. Addressing the NOV-COMPETITIVE verdict, this proposal pioneers an operationally integrated pipeline unifying explainability and ethical governance in the summarization process, leveraging recent advances in attribute-based access control and natural language processing to enable accountable, bias-aware legal summary generation that supports trustworthy AI adoption and auditability.",
+        "Proposed_Method": "We propose a modular, end-to-end pipeline with three interacting submodules: (1) a Summarization Module based on a fine-tuned Generative Pretrained Transformer (GPT) architecture specialized in US legal texts, implementing attribute-based access controls (ABAC) to enforce privacy policies; (2) an Explainability Module extracting multi-faceted explanations via attention visualization, gradient attribution, and counterfactual generation, providing transparent sentence-level rationale; and (3) an Ethical Governance Module encoding logical governance constraints drawn from US civil rights and privacy laws as formal rules. These rules act as hard constraints applied during and after summary generation in two steps: first, the Summarization Module generates candidate summaries under soft guided control influenced by feedback from the Ethical Governance Module using constrained decoding strategies; second, the Ethical Governance Module performs automated filtering and flags violations, prompting iterative refinement with human-in-the-loop override if needed. Explanation feedback loops inform summary revision and ethical compliance verification iteratively within a unified pipeline. Graph-based architecture diagrams and pseudocode define the detailed data flows and decision logic among modules, illustrating how summary materialization emerges from interleaved generation, explanation, and constraint enforcement.",
+        "Step_by_Step_Experiment_Plan": "1. Data Preparation: Acquire publicly available US court opinions and legal corpora, and augment them with synthetic ethical annotations following legal domain expert guidelines and attribute-based access control policies; where unavailable, employ semi-supervised annotation leveraging transfer learning from healthcare EHR security datasets to simulate privacy breach labels. 2. Model Fine-Tuning: Train the GPT-based summarization model on annotated corpora, integrating ABAC rules as soft constraints in constrained beam search. 3. Explanation Extraction: Implement and validate multi-method explanation techniques, quantifying explanation fidelity via metrics such as comprehensiveness and sufficiency scores. 4. Ethical Governance Encoding: Formalize governance rules from US civil rights laws and privacy statutes into a logical rule engine; integrate automated ethical compliance detectors validated with bias quantification metrics (e.g., demographic parity). 5. Pipeline Integration: Develop the iterative unified pipeline with explicit feedback loops implementing human-in-the-loop protocols for ethical override fallback. 6. Evaluation: Conduct ablation studies comparing full pipeline vs. partial module variants against baselines without ethical constraints; use quantitative evaluation for summary quality (ROUGE), explanation fidelity, ethical compliance, and runtime feasibility; expert legal reviewers provide qualitative assessments. 7. Iterative Refinement: Based on evaluation results, optimize tradeoffs between summary quality, explanation transparency, and governance adherence.",
+        "Test_Case_Examples": "Input: A US federal court opinion involving potential civil rights violations. Output: A concise legal summary with detailed traceable explanations for each key point chosen, alongside explicit flags and rationale for any detected ethical concerns such as potential bias towards protected groups or privacy exposures. Expected outcome: Enhanced user trust through auditability of summary rationale; demonstrable adherence to ethical, privacy, and legal governance constraints ensuring responsible deployment of legal AI summarization.",
+        "Fallback_Plan": "Should tight integration of ethical constraints during generation cause unacceptable drops in summary quality or computational infeasibility, we will implement a staged fallback combining (a) soft-constrained generation with lower strictness, followed by (b) a post-hoc Ethical Governance Module performing comprehensive compliance assessments and risk highlighting through explanation overlays. Human-in-the-loop mechanisms will allow expert override and manual summary adjustment. Additionally, iterative user studies will guide balanced thresholds optimizing utility and compliance."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Explainability",
+      "Legal Document Summarization",
+      "Ethical Constraints",
+      "Governance Principles",
+      "Bias in AI",
+      "Accountable Summarization"
+    ],
+    "direct_cooccurrence_count": 1132,
+    "min_pmi_score_value": 3.65656320619967,
+    "avg_pmi_score_value": 6.106279394669082,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4604 Cybersecurity and Privacy",
+      "4804 Law In Context"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "adoption of artificial intelligence",
+      "US law",
+      "legal framework",
+      "civil rights laws",
+      "legal issues",
+      "Generative Pretrained Transformer",
+      "electronic health records",
+      "security of electronic health records",
+      "attribute-based access control",
+      "healthcare domain",
+      "urban digital twin",
+      "NLP research",
+      "platform integration"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a hybrid framework with explanation extraction (attention, gradients, counterfactuals) and governance constraint enforcement, but it lacks a clear and concrete specification of how these modules interact during the generation process. For example, how are logical governance constraints integrated into the generation model operationally? Are these soft constraints guiding model outputs, or hard constraints enforcing filtering? Clarifying the internal workflow, data flows between sub-modules, and exact algorithmic steps is essential to assess soundness and reproducibility reliably. Providing a detailed architecture diagram or pseudocode would strengthen the proposal's clarity and mechanistic validity considerably, reducing ambiguity about integration and compliance assurance steps within the LLM summarization framework. Without this, the core mechanism remains vague and could face substantial implementation challenges or misalignments with the stated ethical goals. Address this gap by specifying the interfacing and decision logic of these hybrid modules explicitly, including how explanation feedback influences summary materialization and ethical compliance verification in a unified pipeline or iterative manner, if applicable.  This will help verify assumptions and facilitate sound scientific development and review of the proposed system's principle working principles and technical feasibility from a mechanistic angle. Target: Proposed_Method section."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is generally well-structured but misses critical details impacting feasibility and reproducibility: (1) Availability and scope of the 'ethical annotation' in legal corpora are unclear—given the specialized nature and sensitivity of legal documents, sourcing or creating such annotated data is nontrivial and needs elaboration. (2) The plan does not describe strategies or metrics for quantitatively measuring 'explanation fidelity' and 'ethical compliance.' Relying mostly on expert review without automated, objective metrics could hinder scalability and empirical rigor. (3) The integration of logical governance policies during generation is ambitious; the experiment plan should outline fallback protocols or prototype stages to handle potential failures in constraint enforcement gracefully. (4) Additionally, there's no mention of baseline or ablation studies to validate component contributions or tradeoffs mentioned in iteration steps. To improve feasibility, specify data acquisition or synthetic augmentation methods for ethical annotations, define or cite precise evaluation metrics (e.g., faithfulness scores, bias quantification metrics), and propose incremental evaluation steps with fallback or human-in-the-loop components. Target: Step_by_Step_Experiment_Plan section."
+        }
+      ]
+    }
+  }
+}

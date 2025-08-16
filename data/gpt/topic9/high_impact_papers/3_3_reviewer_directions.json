@@ -1,0 +1,63 @@
+{
+  "original_idea": {
+    "title": "Legal-Specific Shapley Value Approximation for Efficient Explanation in Long-Form Legal Documents",
+    "Problem_Statement": "Computational inefficiency and low interpretability hamper the application of SHapley Additive exPlanations (SHAP) in long and complex legal texts, limiting their practical utility in legal LLM explainability.",
+    "Motivation": "Addressing internal gaps of domain-specific explainability and external robustness from cybersecurity XAI, this project develops an approximation method tailored to legal document structures, harnessing their hierarchical and semantic properties to accelerate and contextualize SHAP computations, a novel technical advance.",
+    "Proposed_Method": "Introduce a hierarchical SHAP approximation leveraging legal document parsing into sections, clauses, and semantic units, computing aggregated Shapley values at multiple granularities. Employ graph neural networks to model interrelations and approximate contributions more efficiently. This method aligns computational efficiency with legal interpretability needs.",
+    "Step_by_Step_Experiment_Plan": "1. Collect datasets of annotated legal contracts and court rulings. 2. Parse documents into hierarchical nodes (sections, paragraphs). 3. Implement baseline SHAP and proposed hierarchical SHAP approximation. 4. Benchmark computation time and fidelity of explanations. 5. Conduct expert evaluation on interpretability and granularity preferences. 6. Compare with non-hierarchical SHAP methods in terms of utility and efficiency.",
+    "Test_Case_Examples": "Input: Employment contract with multiple clauses. Output: Section-level SHAP explanation quickly highlighting most influential sections and clauses for model prediction. Expected: Explanation correctness close to exact SHAP with large time savings.",
+    "Fallback_Plan": "If GNN-based approximations underperform, fallback to simpler heuristic aggregation methods combined with sampling techniques for Shapley value estimation."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Shapley Value Approximation",
+      "Legal Documents",
+      "Explainability",
+      "SHAP Computations",
+      "Cybersecurity XAI",
+      "Long-Form Legal Texts"
+    ],
+    "direct_cooccurrence_count": 559,
+    "min_pmi_score_value": 3.183264036674266,
+    "avg_pmi_score_value": 6.474764910703275,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4604 Cybersecurity and Privacy"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "deep learning",
+      "black-box models",
+      "adversarial attacks",
+      "security surveillance",
+      "state-of-the-art methods",
+      "malware samples",
+      "Local Interpretable Model-Agnostic Explanations",
+      "generative adversarial network",
+      "Portable Document Format",
+      "healthcare robots",
+      "machine/deep learning models",
+      "cybersecurity solutions",
+      "health informatics",
+      "improve human-computer interaction",
+      "decision tree",
+      "vulnerable source code",
+      "application of deep learning",
+      "malware analysis"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed hierarchical SHAP approximation leveraging document structure and GNNs is promising but lacks clarity on how GNNs will accurately approximate Shapley values given the combinatorial nature of SHAP. The method needs a more rigorous explanation or theoretical foundation on mapping the hierarchical parsing and the GNN outputs to valid SHAP value approximations, including how they ensure fidelity and avoid bias in explanations. Clarifying this mechanism will strengthen soundness and reproducibility of the approach substantially. Consider including formal guarantees or bounds on approximation error if possible, or at least baselines and ablation studies showing why this approach is justified over simpler heuristics from the outset, beyond the fallback plan outlined in the proposal. This will also enhance confidence in the method’s interpretability and accuracy claims without trading off computational efficiency excessively, which is central to the paper’s contribution scope and novelty argumentation in a competitive area. Target: Proposed_Method section."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the step-by-step experiment plan is structured, it lacks defined quantitative metrics for comparing the proposed hierarchical SHAP approximation and baseline SHAP methods in terms of fidelity and interpretability, which are critical for assessing feasibility. Additionally, the plan should specify how expert evaluation on interpretability and granularity preferences will be conducted (e.g., number and expertise of experts, evaluation criteria, and inter-rater reliability). Also, given the legal domain, potential legal and privacy constraints on data collection should be acknowledged with mitigation strategies. Strengthening these experimental details will improve feasibility and increase confidence that the intended experiments can validate the proposed contributions effectively and reproducibly. Target: Step_by_Step_Experiment_Plan section."
+        }
+      ]
+    }
+  }
+}

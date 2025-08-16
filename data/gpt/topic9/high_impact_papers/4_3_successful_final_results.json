@@ -1,0 +1,79 @@
+{
+  "before_idea": {
+    "title": "Cross-Domain Semi-Supervised Data Augmentation for Edge LLM Optimization",
+    "Problem_Statement": "Data scarcity on IoT edge domains leads to poor LLM adaptability and performance degradation post-compression.",
+    "Motivation": "Addresses external data scarcity gap by exploiting semi-supervised learning and domain adaptation techniques, extending Opportunity 1 by synthesizing cross-domain synthetic data with minimal labeling.",
+    "Proposed_Method": "Create a data augmentation pipeline leveraging semi-supervised GANs to generate context-relevant synthetic textual data for unlabeled IoT domains. Use this augmented data to fine-tune compressed LLMs with transfer learning, enhancing performance despite limited real labels.",
+    "Step_by_Step_Experiment_Plan": "1) Identify IoT NLP tasks with sparse labeled datasets. 2) Train GANs conditioned on available unlabeled domain data to produce synthetic text. 3) Augment training with generated data and fine-tune compressed LLMs. 4) Evaluate gains over baselines without augmentation and fully labeled sets. 5) Metrics: accuracy, data efficiency, compression impact.",
+    "Test_Case_Examples": "Input: Few labeled smart factory voice commands and large unlabeled command logs. Expected Output: Augmented dataset expands coverage enabling compressed LLM model to accurately classify commands with fewer real labels.",
+    "Fallback_Plan": "If GANs produce low-quality synthetic data, incorporate filtering using pretrained discriminators or adopt alternative augmentation methods like back-translation or synonym replacement."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Graph-Enhanced Semi-Supervised Data Augmentation for Compressed Edge LLM Optimization in IoT",
+        "Problem_Statement": "Data scarcity and domain heterogeneity on IoT edge devices lead to limited adaptability and degraded performance of compressed large language models (LLMs) post-deployment, especially under constrained labeling and noisy, diverse text sources.",
+        "Motivation": "Existing semi-supervised GAN-based augmentation methods for edge LLM fine-tuning often overlook relational and structural information inherent to IoT command and log data, which hinders generating semantically coherent and contextually relevant synthetic data. Addressing this gap by integrating graph neural networks (GNNs) and graph representation learning into data augmentation creates richer, relationally-aware synthetic samples that enhance domain adaptation and compressed LLM robustness. This approach leverages recent advances in self-supervised and few-shot learning to push beyond conventional augmentation, improving data efficiency and performance across diverse IoT edge applications, thereby elevating both novelty and real-world impact.",
+        "Proposed_Method": "We propose a novel, multi-modal data augmentation framework combining semi-supervised GANs with graph neural networks for IoT edge NLP tasks:\n\n1) Construct graph-structured representations of IoT textual data by modeling relationships between commands, entities, and contextual metadata (e.g., temporal or device linkage).\n\n2) Employ graph representation learning and a GNN-based encoder to capture underlying semantic and relational patterns, producing rich node embeddings.\n\n3) Integrate these graph embeddings as conditioning inputs into a semi-supervised GAN text generator specialized for sparse labeled domains, enforcing semantic coherence and context sensitivity in synthetic data.\n\n4) Incorporate uncertainty quantification metrics to filter and select high-quality synthetic samples, validated by downstream semantic similarity and domain consistency checks.\n\n5) Fine-tune compressed LLMs using a two-step transfer learning strategy: first adapt on graph-enhanced augmented data with contrastive and self-supervised objectives to internalize relational structures, then perform few-shot supervised fine-tuning on scarce real labels to maximize edge deployment efficacy.\n\n6) Employ ablation studies on components including graph conditioning, GAN architecture, and filtering to rigorously evaluate soundness and reproducibility.\n\nThis integrated graph-augmented semi-supervised pipeline advances prior GAN-only augmentation by harnessing latent structural knowledge inherent in IoT domains, boosting compressed LLM adaptability and generalization.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Preparation: Collect multiple sparse-labeled IoT NLP datasets spanning smart factory commands, device logs, and sensor metadata.\n2) Graph Construction: Define domain-specific relational graphs capturing entity interactions, temporal sequences, and contextual dependencies.\n3) Model Training:\n  a) Train GNN-based graph encoders to learn node embeddings.\n  b) Develop semi-supervised GAN with graph embedding conditioning to generate synthetic text.\n4) Quality Assurance: Apply uncertainty quantification and similarity-based filtering on generated synthetic samples.\n5) Fine-Tuning:\n  a) Pre-train compressed LLMs on augmented datasets with contrastive and self-supervised losses.\n  b) Perform few-shot fine-tuning with labeled samples.\n6) Evaluation: Compare against baselines (GAN-only augmentation, no augmentation, fully supervised fine-tuning) on classification accuracy, robustness to domain shift, and data efficiency.\n7) Ablations: Evaluate contributions of graph conditioning, filtering, and multi-step fine-tuning.\n8) Reproducibility: Release code, pretrained models, and detailed hyperparameters.",
+        "Test_Case_Examples": "Input: Sparse labeled dataset of smart factory voice commands, large unlabeled command logs with temporal and device metadata.\nExpected Output: Graph-structured representation capturing semantic and contextual relationships; high-quality synthetic commands generated by graph-conditioned GAN;\nAugmented dataset enabling compressed LLM to classify diverse commands accurately with limited real labels, outperforming GAN-only augmentation by +5% accuracy and demonstrating resilience to noisy inputs.",
+        "Fallback_Plan": "If integration of graph neural networks with GAN conditioning proves unstable or suboptimal, revert to enhanced filtering of GAN-generated data using pretrained discriminator confidence scores and semantic similarity heuristics. Explore alternative augmentation methods such as back-translation augmented by graph-based data selection. Additionally, employ transformer-based self-supervised pretraining on unlabeled IoT graphs and texts separately before fine-tuning compressed LLMs to salvage performance gains."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Cross-Domain",
+      "Semi-Supervised Learning",
+      "Data Augmentation",
+      "Edge LLM Optimization",
+      "Domain Adaptation",
+      "Data Scarcity"
+    ],
+    "direct_cooccurrence_count": 2692,
+    "min_pmi_score_value": 2.9739263335947124,
+    "avg_pmi_score_value": 4.306639189792077,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "40 Engineering"
+    ],
+    "future_suggestions_concepts": [
+      "self-supervised learning",
+      "few-shot learning",
+      "graph-structured data",
+      "medical image analysis",
+      "graph neural networks",
+      "offensive language detection",
+      "representation learning",
+      "graph representation learning",
+      "social media platforms",
+      "digital communication environment",
+      "offensive language",
+      "language detection",
+      "offensive content",
+      "speech enhancement",
+      "multimodal learning",
+      "biomedical time series",
+      "transformer architecture",
+      "computer-aided drug design",
+      "self-supervised learning method",
+      "healthcare data",
+      "healthcare applications",
+      "vision-language models"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section should provide more clarity on the semi-supervised GAN design and conditioning. Specifically, it is unclear how GANs will generate contextually relevant and semantically coherent synthetic textual data for diverse IoT edge domains, which are typically text- and noise-sensitive. Moreover, the mechanism for integrating the augmented data into the compressed LLM fine-tuning pipeline needs more explicit explanation, including how domain shifts are handled and what transfer learning strategy is employed. Without these details, the soundness of performance improvement claims is questionable and may lead to replication or feasibility issues. A more detailed architectural and algorithmic description is recommended, possibly including ablation studies or uncertainty quantification on generated data quality to substantiate soundness and reproducibility of results. This will strengthen the mechanistic justification and feasibility of the approach's core innovation and improve reviewer confidence in the method’s soundness and reliability in edge LLM optimization scenarios."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty verdict and the availability of Globally-Linked Concepts, the proposal would benefit significantly by integrating graph neural networks (GNNs) or graph representation learning to enhance cross-domain data augmentation. For example, representing IoT commands, logs, or related contextual information as graph-structured data could exploit underlying relational information that conventional GAN-based text generation might miss. This may improve synthetic data quality and domain adaptation fidelity, thereby addressing performance bottlenecks under constrained labeled data. Additionally, coupling transformer architectures with graph-based representations could increase model robustness and open pathways for few-shot or self-supervised learning strategies within the compressed LLM fine-tuning pipeline. This integration can broaden the impact beyond basic text augmentation by enabling more nuanced representation learning attuned to IoT semantic structures, ultimately raising both the novelty and practical effectiveness of the research."
+        }
+      ]
+    }
+  }
+}

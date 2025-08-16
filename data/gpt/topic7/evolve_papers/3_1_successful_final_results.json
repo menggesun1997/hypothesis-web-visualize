@@ -1,0 +1,68 @@
+{
+  "before_idea": {
+    "title": "Cross-Domain Semantic Fairness Constraints for Multimodal LLMs",
+    "Problem_Statement": "Existing multimodal LLMs do not incorporate explicit semantic fairness constraints derived from cross-domain knowledge, leading to bias instabilities in real-world sensitive applications like healthcare and environmental monitoring.",
+    "Motivation": "This project addresses the external gaps and high-potential innovation of integrating semantic hierarchies (e.g., WordNet/ImageNet) with domain-specific knowledge from biomedical and environmental sciences, which remain underutilized for enforcing fairness.",
+    "Proposed_Method": "Construct a multimodal fairness framework that layers semantic fairness constraints inspired by hierarchical taxonomies combined with domain-specific ontologies (e.g., biomedical ontologies, environmental datasets). The framework will impose bias stability metrics and fairness regularization terms aligned with domain ethics within the LLM training and fine-tuning process. Semantic embeddings reflect multi-domain fairness priorities, enabling cross-modal stable behavior.",
+    "Step_by_Step_Experiment_Plan": "1) Curate multimodal datasets combining text/image data with biomedical and environmental context labels. 2) Develop semantic fairness constraint modules by integrating WordNet/ImageNet hierarchies with biomedical ontologies and mapping those to LLM embeddings. 3) Train a multimodal LLM with fairness-aware loss functions enforcing bias stability. 4) Evaluate on bias and fairness benchmarks specific to healthcare and environmental monitoring, measuring bias drift over replicable deployments.",
+    "Test_Case_Examples": "Input: Medical report text combined with related imagery possibly containing racial or gender bias. Expected output: The model generates unbiased multimodal responses respecting semantic fairness constraints informed by the healthcare domain ontology.",
+    "Fallback_Plan": "If direct semantic constraint integration is ineffective, explore post-hoc adjustment layers or fairness-guided latent space alignment based on domain knowledge."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Graph-Enhanced Semantic Fairness Constraints for Multimodal LLMs with Phased Evaluation in Biomedical and Environmental Domains",
+        "Problem_Statement": "Although multimodal large language models (LLMs) offer powerful cross-modal understanding, they currently lack explicit, rigorous mechanisms to integrate heterogeneous domain ontologies and semantic hierarchies for enforcing fairness. This gap leads to bias instabilities and unmeasured fairness degradation in critical, sensitive applications such as healthcare and environmental monitoring, where semantic relationships and domain ethics must be respected across modalities.",
+        "Motivation": "Existing works have explored fairness in unimodal or basic multimodal contexts but fall short of leveraging structured graph-based domain knowledge (e.g., biomedical ontologies, environmental hierarchies) combined with semantic taxonomies (WordNet/ImageNet) within multimodal LLM training. By introducing a graph representation learning framework that explicitly integrates these heterogeneous ontologies into the LLM’s internal embedding space, this project advances beyond prior fairness interventions. It promises more grounded, domain-aligned semantic fairness constraints, improving bias stability through an interpretable and mathematically formulated regularization scheme. This methodological novelty directly addresses limitations identified in the literature, responding to the competitive research landscape with a rigorous, multi-domain, multimodal approach crucial for socially impactful AI deployment.",
+        "Proposed_Method": "We propose a novel multimodal fairness framework that employs graph representation learning to encode semantic hierarchies and domain-specific ontologies into unified, continuous embeddings tightly coupled with the LLM’s internal multimodal representations. Specifically, heterogeneous domain knowledge graphs (e.g., biomedical ontologies like UMLS, environmental taxonomies) and general semantic hierarchies (WordNet/ImageNet) are encoded via a scalable graph neural network (GNN) module producing semantic fairness embeddings. These embeddings are aligned and fused with the multimodal transformer’s internal hidden states via cross-modal attention and modality-specific projection layers during training. \n\nFormally, denote the multimodal LLM’s hidden states as H and ontology embeddings as G. We introduce a fairness regularization term R_fairness = λ * D_align(H_proj, G_proj), where H_proj and G_proj represent projected latent spaces of model and graph embeddings respectively, D_align is a distance metric (e.g., canonical correlation or contrastive loss) measuring alignment enforcing semantic consistency, and λ balances accuracy and fairness. The loss function is thus L_total = L_task + R_fairness, imposing bias stability as the model internal representations respect domain semantic relations across modalities explicitly. The approach incorporates fairness-aware loss weighting schedules and enables disentanglement of bias sources per domain ontology node, making bias drift measurable and controllable.\n\nIntegrating graph representation learning and cross-modal attention within the LLM architecture ensures the fairness constraints operate during both training and inference, fostering stable, semantically meaningful, and unbiased output generation. This precise mathematical mechanism and architectural design elevate our contribution beyond heuristic or post-hoc fairness treatments.",
+        "Step_by_Step_Experiment_Plan": "1) **Phase 1 – Proof-of-Concept with Synthetic and Small-Scale Data:**\n - Curate accessible small multimodal datasets composed of synthetic text-image pairs with controlled, annotated bias attributes related to biomedical and environmental concepts.\n - Implement ontology graphs from publicly available biomedical (e.g., UMLS subset) and environmental taxonomies.\n - Develop and integrate the proposed GNN-based semantic fairness encoding pipeline and cross-modal attention fusion within a baseline multimodal LLM.\n - Conduct ablation studies to evaluate the effect of varying λ values and embedding alignment losses on bias metrics (e.g., demographic parity difference, equal opportunity across domains).\n\n2) **Phase 2 – Scaled Domain Dataset Integration:**\n - Collaborate with domain experts to acquire or access restricted biomedical and environmental multimodal datasets with relevant labels (e.g., disease reports/images, environmental report/images).\n - Refine models with domain-specific ontology graph expansions.\n - Evaluate on established domain bias benchmarks and propose new quantitative bias stability metrics capturing bias drift over fine-tuning and deployment cycles, such as temporal fairness degradation curves.\n\n3) **Phase 3 – Generalization and Real-World Deployment Simulation:**\n - Test the framework on unseen cross-domain multimodal datasets to assess transferability of semantic fairness constraints.\n - Simulate replicable deployment scenarios measuring sustained bias stability.\n\nThroughout all phases, fallback strategies include isolating domain knowledge integration to post-hoc latent space alignment layers and hyperparameter tuning schedules for fairness loss weighting to ensure feasibility and gradual model improvements without compromising core task performance.",
+        "Test_Case_Examples": "Example 1 - Biomedical Domain:\nInput: A multimodal input consisting of a medical report mentioning symptoms alongside associated imaging (e.g., X-ray or MRI), where text or image data risk exhibiting gender or racial biases.\nExpected Output: The model generates diagnosis suggestions or summaries unbiased with respect to protected attributes, with outputs semantically consistent with biomedical ontologies, demonstrating reduced bias drift in repeated inference.\n\nExample 2 - Environmental Domain:\nInput: Multimodal data describing environmental policies with images of affected areas, potentially embedding socioeconomic biases.\nExpected Output: Responses reflect fairness constraints derived from environmental ontologies, avoiding stereotypes and demonstrating semantic stability across repeated queries.",
+        "Fallback_Plan": "Should full semantic constraint integration via graph embeddings and cross-modal fusion prove infeasible, the fallback approach involves developing post-hoc fairness-guided latent space alignment techniques. This includes training auxiliary adversarial networks to disentangle protected attributes from latent multimodal embeddings, informed by domain ontologies, and applying contrastive loss-based debiasing layers. Additionally, curriculum learning scheduling for fairness loss weights will be explored to incrementally enforce semantic constraints without destabilizing model training or compromising core task accuracy."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Cross-Domain",
+      "Semantic Fairness",
+      "Multimodal LLMs",
+      "Semantic Hierarchies",
+      "Biomedical Science",
+      "Environmental Science"
+    ],
+    "direct_cooccurrence_count": 1888,
+    "min_pmi_score_value": 1.9457447700658568,
+    "avg_pmi_score_value": 3.733529060977865,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "32 Biomedical and Clinical Sciences",
+      "3202 Clinical Sciences",
+      "46 Information and Computing Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "AI agents",
+      "vision-language models",
+      "artificial general intelligence",
+      "recurrent neural network",
+      "generative adversarial network",
+      "convolutional neural network",
+      "medical image analysis",
+      "feature extraction",
+      "graph representation learning",
+      "representation learning",
+      "model of human vision"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method involves layering semantic fairness constraints inspired by hierarchical taxonomies combined with domain-specific ontologies and embedding these into LLM training. However, the mechanism lacks clarity regarding how the semantic embeddings specifically interact with the multimodal LLM internal representations during training and inference. It is unclear how the fairness regularization terms are formally formulated, balanced, and enforced across modalities, especially given the complexity of integrating heterogeneous ontologies (e.g., biomedical and environmental). Providing a more concrete description or preliminary mathematical formulation of these constraints and their integration into the loss function would significantly strengthen the soundness of the approach and increase confidence in feasibility and reproducibility in later steps. Please clarify and detail the method's mechanism to better justify the proposed intervention on bias stability and semantic fairness enforcement in multimodal LLMs. This is critical because without a clear mechanism, the link between semantic hierarchies/ontologies and measurable fairness impact remains speculative and weakly grounded in rigorous AI methodology standards for top conferences such as NeurIPS or ACL.  This will also help reviewers assess soundness and underlying assumptions more precisely, preventing rejection due to lack of methodological rigor or clarity in a highly competitive area. (Target Section: Proposed_Method)  "
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan outlines a sequence from dataset curation through evaluation on specialized bias benchmarks, which is a good start. Nonetheless, the plan risks being overly ambitious and lacking prioritization or feasibility details. For instance, curation of suitable multimodal datasets combining text and images with fine-grained biomedical and environmental domain context labels is a very challenging task that often requires extensive expert collaboration and data access rights, yet no contingency or timeline is clarified. Similarly, modules for integrating complex ontologies and taxonomies into LLM embeddings are nontrivial software engineering and research efforts that might take substantial time and iterative refinement to stabilize, especially while enforcing fairness regularization. The evaluation metrics mentioned (bias drift over replicable deployments) are promising but underspecified—consider proposing specific quantitative bias stability metrics or benchmark datasets to clarify scope and allow reproducibility. Overall, the plan would benefit from a phased approach prioritizing proof-of-concept experiments with smaller, well-defined multimodal datasets or synthetic data and ablation studies analyzing constraint effects before full-scale domain benchmark evaluations. Adding fallback protocols within the main experiment plan, beyond the stated fallback plan, would improve feasibility confidence. Otherwise, the ambitious scale risks jeopardizing concrete deliverables expected at a premier conference. (Target Section: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

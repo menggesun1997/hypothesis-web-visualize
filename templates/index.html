@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Hypothesis Visualization System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-lightbulb"></i>
+                Research Hypothesis Visualization System
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/sorting">
+                    <i class="bi bi-funnel"></i> Advanced Sorting
+                </a>
+                <span class="navbar-text">
+                    <i class="bi bi-gear"></i>
+                    Topic Navigation
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-md-4 col-lg-3 sidebar">
+                <!-- Sidebar Header -->
+                <div class="sidebar-header">
+                    <h5>Research Topics</h5>
+                </div>
+                
+                <!-- Topics Tree -->
+                <div id="topics-tree">
+                    <!-- Topics will be loaded here -->
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <h6>Quick Statistics</h6>
+                    <div id="quick-stats-content">
+                        <!-- Quick stats will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-md-8 col-lg-9 main-content">
+                            <!-- Content Header -->
+            <div class="content-header" id="content-header" style="display: none;">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+                
+                <!-- Strategy Filter Section -->
+                <div class="strategy-filter-section">
+                    <h6><i class="bi bi-funnel"></i> Select Strategies to View Hypotheses</h6>
+                                    <div class="strategy-filter">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="filterEvolve" value="evolve">
+                        <label class="form-check-label" for="filterEvolve">
+                            <i class="bi bi-arrow-repeat"></i> Evolve
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="filterHighImpact" value="high_impact">
+                        <label class="form-check-label" for="filterHighImpact">
+                            <i class="bi bi-star"></i> High Impact
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="filterSimilar" value="similar">
+                        <label class="form-check-label" for="filterSimilar">
+                            <i class="bi bi-search"></i> Similar
+                        </label>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Subtopic Information Area -->
+                <div id="subtopic-keywords">
+                    <!-- Subtopic details will be loaded here -->
+                </div>
+                
+                <!-- Current Analysis Area -->
+                <div id="current-analysis">
+                    <!-- Current analysis will be loaded here -->
+                </div>
+                
+                <!-- Content Area -->
+                <div id="content-area">
+                    <!-- Main content will be loaded here -->
+                </div>
+                
+                <!-- Pagination -->
+                <div id="pagination" style="display: none;">
+                    <!-- Pagination will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hypothesis Detail Modal -->
+    <div class="modal fade" id="hypothesisModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hypothesis Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="hypothesisModalBody">
+                    <!-- Hypothesis details will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/app_enhanced.js') }}"></script>
+</body>
+</html>
+

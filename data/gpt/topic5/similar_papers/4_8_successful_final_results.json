@@ -1,0 +1,77 @@
+{
+  "before_idea": {
+    "title": "Ontology-Driven Multimodal Prompt Engineering for Legal LLM Fine-Tuning",
+    "Problem_Statement": "Current multimodal fine-tuning approaches for legal LLMs lack integration with domain ontologies leading to suboptimal semantic grounding and interpretability in complex legal documents.",
+    "Motivation": "By bridging ontology-driven NLP tools with state-of-the-art multimodal fine-tuning techniques, this research fills the critical gap of siloed domains, advancing semantic richness and explainability in legal multimodal LLMs.",
+    "Proposed_Method": "Develop ontology-aware prompt engineering methods where multimodal inputs (text plus document images) are processed through ontology-guided embedding layers. These embeddings influence prompt templates that dynamically adjust to semantic context during fine-tuning. The approach incorporates explainability layers mapping outputs back to ontology concepts supporting transparent reasoning.",
+    "Step_by_Step_Experiment_Plan": "1. Compile a dataset of multimodal legal documents annotated with ontology concept mappings. 2. Preprocess data into multimodal embeddings augmented by ontology features. 3. Construct adaptive prompts integrating these embeddings for fine-tuning a legal LLM. 4. Evaluate on legal document classification, summarization, and retrieval tasks. 5. Baselines: multimodal fine-tuning without ontology guidance. Metrics include performance, semantic alignment, and explainability scores.",
+    "Test_Case_Examples": "Input: A scanned legal contract image plus associated textual metadata. Output: A legally accurate classification with explainable attribution to contract clauses and ontology concepts.",
+    "Fallback_Plan": "If ontology embedding integration reduces model generalization, use ontology features as auxiliary tasks or post-hoc explanation tools rather than direct prompt components."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Knowledge Graph-Driven Multimodal Prompt Engineering for Legal LLM Fine-Tuning with Explainable Semantic Reasoning",
+        "Problem_Statement": "Current multimodal fine-tuning approaches for legal large language models (LLMs) lack a structured mechanism to leverage the rich semantic interrelations encapsulated in legal ontologies, resulting in suboptimal semantic grounding, limited interpretability, and challenges in modeling complex legal documents with multimodal inputs such as text and scanned images.",
+        "Motivation": "While ontology-guided NLP and multimodal fine-tuning have seen individual development, their siloed application in legal LLMs limits semantic richness and explainability. By explicitly integrating a legal domain knowledge graph—structurally modeling ontology concepts and their relationships—within the prompt engineering pipeline for multimodal inputs, this research advances novelty and impact. This fusion enables dynamic context-aware prompt adaptation, powerful semantic reasoning, and traceable explainability, addressing prior gaps in semantic alignment and interpretability. The proposed method situates itself uniquely within the broader AI paradigms of knowledge representation and commonsense reasoning, enhancing downstream capabilities such as complex legal question answering and abstractive summarization.",
+        "Proposed_Method": "The method consists of four core components, integrated into a unified architecture:\n\n1. Legal Domain Knowledge Graph Construction: Build or leverage an existing comprehensive legal knowledge graph (KG) encoding ontology concepts as nodes and relations as edges. This KG structurally captures semantic hierarchies, legal concepts, entities, and their interrelations.\n\n2. Multimodal Embedding Fusion with Graph Context:\n   - Textual and image inputs (e.g., OCR outputs from scanned contracts plus metadata) are encoded separately using pretrained encoders.\n   - Concurrently, graph embeddings for relevant ontology concepts are computed using graph neural networks (e.g., GraphSAGE or GAT), capturing relational context.\n   - A fusion layer integrates textual, visual, and graph embeddings into a unified semantic representation, enabling the model to ground multimodal content within the knowledge graph’s relational framework.\n\n3. Dynamic Ontology-Guided Prompt Engineering:\n   - An adaptive prompt template engine conditions prompts on fused embeddings.\n   - Prompt templates contain placeholders linked to specific ontology concepts fetched dynamically via KG traversal based on input context.\n   - This dynamic insertion enables the prompt to semantically adjust to each legal document’s context, guiding the LLM’s attention and grounding its reasoning in explicit legal concepts.\n\n4. Explainability and Reasoning Layer:\n   - Outputs from the fine-tuned LLM are post-processed through an explainability module that maps generated tokens and decisions back onto paths and subgraphs within the KG.\n   - This mapping supports transparent attribution of predictions (e.g., classifications, summaries) to ontology concepts and relations, enabling end-users to trace the model’s reasoning path.\n\nData flow is as follows: multimodal inputs → encoders (text + image) → identify relevant ontology nodes via semantic matching → fetch graph embeddings → fuse embeddings → generate dynamic prompts with ontology concept placeholders → fine-tune LLM → output → explainability module maps outputs to KG subgraphs.\n\nThis architecture ensures reproducibility with modular components, clear data dependency paths, and leverages advanced knowledge representation and commonsense reasoning techniques to surpass existing multimodal legal LLM approaches. It elevates novelty by embedding structured KG reasoning within prompt engineering pipelines specifically tailored for complex multimodal legal tasks.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Preparation:\n   - Compile a large-scale multimodal legal document dataset with annotations linking document segments to ontology concepts represented in the constructed knowledge graph.\n   - Include scanned contract images, text metadata, and complex legal question-answer pairs.\n\n2. Knowledge Graph Development:\n   - Construct or adopt a legal knowledge graph encoding domain ontologies and commonsense legal relations.\n   - Generate graph embeddings using state-of-the-art graph neural networks.\n\n3. Embedding and Fusion Implementation:\n   - Develop separate embeddings for text and image inputs.\n   - Design and train fusion layers integrating multimodal embeddings with graph embeddings.\n\n4. Dynamic Prompt Engine:\n   - Implement a prompt template system with placeholders for ontology concepts dynamically populated using graph traversals based on input context.\n\n5. Fine-Tuning:\n   - Fine-tune a large legal LLM with the dynamically generated prompts on tasks including legal document classification, abstractive summarization, retrieval, and complex question answering.\n\n6. Explainability Module:\n   - Create a mapping framework that traces model outputs back to KG inference paths, enabling human-interpretable reasoning outputs.\n\n7. Evaluation:\n   - Benchmark against baselines that use multimodal fine-tuning without KG guidance and static ontology embeddings.\n   - Metrics: task-specific performance (accuracy, ROUGE for summarization), semantic alignment scores measuring output adherence to ontology concepts, and quantitative plus qualitative explainability assessments.\n\n8. Ablation Studies:\n   - Evaluate impact of graph embeddings, dynamic prompt adaptation, and explainability layer individually.\n\n9. Downstream Task Generalization:\n   - Test model adaptability on unseen legal domains and tasks such as complex legal QA to demonstrate transferability and robustness.",
+        "Test_Case_Examples": "Input: A scanned image of a multi-clause legal contract accompanied by textual metadata describing involved parties.\nOutput: \n- Classification: Contract categorized accurately into a predefined class (e.g., NDA, employment agreement).\n- Summarization: Abstractive summary highlighting essential clauses.\n- Explainability: Visualization of inference path highlighting ontology concepts such as \"Confidentiality Clause,\" \"Effective Date,\" and their relations that led to classification and summary sentences.\n\nAdditional Example:\nInput: A complex legal question regarding liability derived from contract clauses.\nOutput: Answer generated referencing specific ontology concepts, with an explanation traceable over the knowledge graph showing how the model derived the reasoning by traversing related legal concepts and document sections.",
+        "Fallback_Plan": "If integrating graph embeddings directly into prompt conditioning hampers generalization or training stability, the fallback approach will:\n- Use the constructed legal knowledge graph to generate auxiliary tasks, such as ontology concept prediction or relation extraction, to enrich intermediate representations during fine-tuning.\n- Employ the KG primarily in a post-hoc explainability framework that maps model outputs to ontology concepts without tightly coupling KG embeddings into the prompt pipeline.\n- Experiment with knowledge distillation techniques wherein the graph-informed models serve as teachers to simpler multimodal models.\n- Incrementally enhance the prompt engineering by static injection of ontology-derived keywords rather than fully dynamic graph traversal-based conditioning."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Ontology-Driven",
+      "Multimodal Prompt Engineering",
+      "Legal LLM",
+      "Fine-Tuning",
+      "Semantic Richness",
+      "Explainability"
+    ],
+    "direct_cooccurrence_count": 447,
+    "min_pmi_score_value": 4.187904347811449,
+    "avg_pmi_score_value": 5.891647073825874,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "40 Engineering",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "knowledge graph",
+      "transport system",
+      "enhance roadway safety",
+      "advanced analytical framework",
+      "intelligent transportation systems",
+      "roadway safety",
+      "autonomous driving systems",
+      "medical images",
+      "significance of music",
+      "learning paradigm",
+      "approach to knowledge representation",
+      "commonsense reasoning",
+      "anomaly detection",
+      "image understanding",
+      "radiology report generation",
+      "text generation",
+      "medical image understanding",
+      "question answering system",
+      "modern transport system",
+      "abstractive summarization"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section lacks clarity on how ontology-guided embedding layers will be integrated technically within the prompt engineering pipeline. Specifically, it's unclear how ontology concepts will dynamically influence or modify prompt templates during fine-tuning and how the explainability layers concretely map model outputs back to ontology concepts for transparent reasoning. Providing a precise architectural design or algorithmic outline is crucial to validate soundness and reproducibility of the approach, especially given the complexity of multimodal inputs and legal domain specificity. This will help establish a well-reasoned mechanism rather than a high-level concept and address key feasibility concerns related to model training and interpretability pipelines in legal contexts. Please elaborate details on data flow, embedding fusion methods, prompt adaptation mechanisms, and the explainability integration framework within the model stack in the Proposed_Method section. This is the foundation for judging technical soundness and operational feasibility of your approach given the problem stated."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the high competition and existing links between ontology-guided NLP and multimodal fine-tuning, consider integrating 'knowledge graph' concepts explicitly to elevate both novelty and impact. For example, build or leverage a legal domain knowledge graph that structurally represents ontology concepts and their interrelations, and use graph embeddings as a richer, structured signal for prompt conditioning. This could enable more powerful semantic reasoning, facilitate advanced explainability by tracing inference paths on the graph, and potentially improve generalization by aligning model outputs with graph-based commonsense legal knowledge. Connecting to broader 'knowledge representation' and 'commonsense reasoning' paradigms through knowledge graphs may open innovative downstream tasks (e.g., complex legal question answering) and increase your work's relevance to the wider AI community while addressing semantic alignment challenges noted in the proposal."
+        }
+      ]
+    }
+  }
+}

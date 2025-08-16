@@ -1,0 +1,66 @@
+{
+  "before_idea": {
+    "title": "Digital Twin-based Synthetic Data Generation for LLM Training and Evaluation",
+    "Problem_Statement": "Lack of realistic, dynamic data representing real-world production complexities impairs LLM training and replicability evaluations.",
+    "Motivation": "Builds on external gap of integrating urban digital twin systems (Opportunity 2) by proposing synthetic data generation guided by digital twin simulations, to improve model generalization and replicability.",
+    "Proposed_Method": "Utilize urban digital twin simulations to generate synthetic multimodal textual and sensor data reflecting realistic environmental and user interactions. This synthetic data augments standard training sets, and is used to rigorously evaluate LLM replicability across evolving and complex scenarios not covered by static benchmarks.",
+    "Step_by_Step_Experiment_Plan": "1) Develop synthetic data pipelines interfacing with digital twin simulation outputs. 2) Train LLMs with augmented datasets including synthetic scenarios. 3) Design replicability evaluation tests on synthetic and real-world mixed inputs. 4) Compare performance to baseline training without synthetic data. 5) Study effects on downstream tasks such as anomaly detection and context-aware reasoning.",
+    "Test_Case_Examples": "Input: Synthetic emergency communication streams generated from a simulated urban disaster scenario. Expected output: LLM reliably interprets and prioritizes information with replicable accuracy across repeated simulation runs.",
+    "Fallback_Plan": "If synthetic data quality limits improvements, fallback includes refinement of simulation parameters or semi-synthetic data blending real and synthetic inputs to smooth distribution gaps."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Graph-Driven Digital Twin Synthetic Data Generation with Edge-Cloud Collaborative Training for Enhanced LLM Evaluation",
+        "Problem_Statement": "Current LLM training and replicability evaluation suffer from insufficiently realistic, dynamic, and multimodal datasets that capture the complex dependencies and interactions in real-world urban environments, limiting model robustness and generalization in production-scale scenarios.",
+        "Motivation": "While prior efforts have used urban digital twins to generate synthetic data for LLMs, they neglect explicit modeling of complex urban entity interactions and lack mechanisms to simulate real-world deployment constraints. By integrating graph neural network (GNN)-based representations of dynamic urban systems with edge-cloud collaborative computing frameworks for distributed data generation and model training, this proposal aims to advance synthetic data realism and replicability evaluation to a new level of fidelity and practical relevance, thus addressing the NOV-COMPETITIVE gap.",
+        "Proposed_Method": "We propose a comprehensive pipeline that converts rich urban digital twin outputs into structured dynamic graph representations, where nodes represent urban entities (e.g., vehicles, humans, infrastructure) and edges encode interactions and contextual dependencies. These graphs are processed by temporal graph neural networks to generate synchronized multimodal data streams, including coherent textual annotations and sensor signals, precisely aligned and tokenized for LLM input formats. Textual data is synthesized through graph-to-text neural modules trained on scenario-specific ontologies, ensuring semantic alignment with environmental states. Simultaneously, sensor modalities (video, LiDAR, environmental readings) are embedded and aligned temporally with text tokens. To mimic real production conditions and enhance evaluation realism, we leverage edge-cloud collaborative computing infrastructures to distribute synthetic data generation and incremental LLM fine-tuning with latency and resource constraints modeled. This enables iterative, scalable LLM training and replicability tests that factor in dynamic urban scenarios, graph-based interdependencies, and deployment complexities, surpassing traditional static or unimodal augmentation approaches.",
+        "Step_by_Step_Experiment_Plan": "1) Develop dynamic graph extraction modules to transform urban digital twin outputs into temporal heterogeneous graphs with detailed semantic annotations. 2) Train temporal graph neural networks to learn urban interaction dynamics and generate synchronized multimodal data embeddings. 3) Construct graph-to-text neural modules for generating coherent contextual textual streams aligned to graph states and sensor data. 4) Design and implement multimodal fusion pipelines tokenizing and aligning textual and sensor data streams for LLM training input. 5) Deploy edge-cloud collaborative infrastructure to orchestrate distributed synthetic data generation and LLM fine-tuning workflows simulating real-world latency and constraints. 6) Train LLM instances with augmented datasets generated across diverse urban scenarios and evaluate replicability under evolving conditions and deployment parameters by comparing to baseline models without synthetic augmentation. 7) Analyze impacts on downstream urban AI tasks such as anomaly detection, context-aware reasoning, and emergency response prioritization.",
+        "Test_Case_Examples": "Input: Dynamic graph sequences from a simulated urban disaster scenario containing interacting emergency vehicles, sensor data streams (e.g., traffic cameras, air quality sensors), and generated textual emergency communications. Expected output: LLM generates accurate, contextually consistent interpretations and prioritizes responses with replicable performance across repeated runs and deployment setups, handling multimodal fusion and reflecting realistic urban interactions and constraints.",
+        "Fallback_Plan": "Should complexities in graph-based multimodal integration or edge-cloud coordination hinder progress, fallback strategies include: 1) Simplifying graph models to key urban entity subsets and interactions, 2) Using pre-defined template-based text annotations instead of learned graph-to-text neural models to ensure textual coherence, 3) Emulating edge-cloud data distributions via simulated latency injections on centralized resources, and 4) Incrementally increasing synthetic data modality scope starting from textual-only augmentations to progressively approach full multimodal complexity."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Digital Twin",
+      "Synthetic Data Generation",
+      "LLM Training",
+      "Urban Digital Twin Systems",
+      "Model Generalization",
+      "Replicability Evaluation"
+    ],
+    "direct_cooccurrence_count": 312,
+    "min_pmi_score_value": 2.939345050272881,
+    "avg_pmi_score_value": 4.801644957025768,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "3707 Hydrology",
+      "37 Earth Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "edge-cloud collaborative computing",
+      "collaborative computing",
+      "Leveraging Applications",
+      "long short-term memory",
+      "graph neural networks",
+      "convolutional neural network",
+      "neural network",
+      "information systems development",
+      "system development"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method suggests using urban digital twin simulations to generate synthetic multimodal data for LLM training and evaluation, but it lacks detail on how textual data and sensor data will be coherently integrated and represented for effective LLM consumption. Clarify the pipeline translating simulation outputs into LLM training examples, detailing modalities, annotation procedures, and alignment with LLM input formats to ensure this method is actionable and reproducible. Without this clarity, the mechanism risks being underspecified, threatening both soundness and practical implementation success, especially given the complexity of urban digital twin outputs and LLM tokenization needs. This should be addressed by including concrete data generation and integration workflows and sample schemas for multimodal input representation targeting LLM architectures, which will also ease later evaluation steps and increase confidence in the approach's feasibility and validity. This issue is central to validating core assumptions of effective synthetic data enrichment for LLM training and evaluation, thus highly critical to address first in revision efforts.  Target Section: Proposed_Method"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty verdict and the existing integration of digital twins and LLM development, the proposal could significantly strengthen its impact and differentiate itself by integrating concepts from graph neural networks and edge-cloud collaborative computing. Specifically, modeling urban entities and interactions as dynamic graphs processed via graph neural networks could enhance the fidelity and expressiveness of synthetic data generated from digital twins. Further, leveraging edge-cloud collaborative infrastructures to distribute synthetic data generation and LLM fine-tuning in real-time can simulate realistic latency and resource constraints seen in production environments, improving replicability evaluation. This integration would augment the scientific novelty and practical relevance, addressing complex dependencies and deployment scenarios in urban contexts and making the contribution more competitive compared to current baseline approaches limited to static or isolated data modalities. Hence, a focused extension incorporating these linked concepts is recommended to escalate the work’s novelty and broaden impact. Target Section: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

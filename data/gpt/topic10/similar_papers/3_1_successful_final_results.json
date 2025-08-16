@@ -1,0 +1,137 @@
+{
+  "before_idea": {
+    "title": "Explainable Homomorphic Ensemble Models for Transparent Fog IDS",
+    "Problem_Statement": "Current AI/ML-based IDS for fog architectures suffer from low interpretability, particularly when ensemble models or complex architectures are employed. Additionally, the integration of encryption techniques like homomorphic encryption to protect data during inference further obfuscates model transparency. This lack of interpretability undermines trust and hinders operational deployment in sensitive resource-constrained fog environments.",
+    "Motivation": "This proposal answers the gap of insufficient transparency and interpretability in AI/ML IDS systems while also embracing edge-aware homomorphic encryption as highlighted in the high-potential innovation opportunities. We aim to build an inherently interpretable yet encrypted ensemble IDS that fosters trust without compromising security or efficiency.",
+    "Proposed_Method": "We design a novel IDS framework combining inherently interpretable ensemble learners (e.g., rule-based boosted trees and decision sets) integrated within a homomorphic encryption inference pipeline. The ensemble is structured modularly to map decisions to understandable rules, while homomorphic encryption allows inference over encrypted data at fog nodes. To maintain interpretability post-encryption, a secure side-channel methodology is employed wherein encrypted intermediate decisions correspond to human-readable explanations via a pre-shared context. This fusion ensures transparent, encrypted, real-time IDS capable of deploying on fog nodes with constrained resources, maximizing user trust and security simultaneously.",
+    "Step_by_Step_Experiment_Plan": "1. Dataset: Utilize fog-relevant IDS datasets with TCP/IP flow features and labeled attacks. 2. Implement base interpretability ensemble models without encryption as baseline. 3. Integrate state-of-the-art homomorphic encryption libraries for edge inferencing. 4. Develop the explanation extraction mechanism by correlating encrypted intermediate outputs with textual rule sets. 5. Benchmark detection accuracy, inference latency, and interpretability quality (via human expert evaluation and fidelity metrics). 6. Compare against opaque encrypted deep-learning-based IDS methods.",
+    "Test_Case_Examples": "Input: Encrypted network feature vectors captured by a fog node from an IoT device. Output: Encrypted intrusion prediction plus accessible human-readable explanation such as \"Alert: Suspicious SYN flood detected because of high connection requests (Rule 12 triggered)\" while preserving data confidentiality end-to-end.",
+    "Fallback_Plan": "If homomorphic encryption overhead proves prohibitive on fog hardware, explore lightweight secure multiparty computation as an alternative encryption method or reduce model complexity further while retaining interpretability. Also consider hybrid edge-cloud schemes where explanations are computed off-device under strict privacy policies."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Robust Explainable and Privacy-Preserving Ensemble IDS for Resource-Constrained Fog Environments",
+        "Problem_Statement": "Intrusion detection systems (IDS) deployed in fog computing face the dual challenges of achieving high detection accuracy and maintaining interpretability, particularly when leveraging ensemble or complex AI/ML models. Simultaneously, privacy preservation mandates the use of encryption methods such as homomorphic encryption (HE) during inference on sensitive network data from heterogeneous IoT and IoMT devices. Existing IDS solutions either sacrifice interpretability when applying encryption or fail to rigorously secure explanation extraction mechanisms, limiting trust and operational feasibility in resource-constrained fog nodes. Hence, there is a critical need for an IDS framework that seamlessly integrates formally secure and interpretable ensemble models with privacy guarantees and practical deployment viability under fog constraints.",
+        "Motivation": "While ensemble learning and homomorphic encryption have individually advanced IDS confidentiality and accuracy, their combined use typically results in opaque models with unclear explanation reliability and unverifiable side-channel security. Our work uniquely addresses this by formalizing a secure explanation extraction method aligned with homomorphic encrypted inference, tailored for fog nodes with limited computational resources. This proposal capitalizes on novel privacy-preserving AI concepts and federated learning paradigms, pioneering an IDS solution that ensures transparency, security, and real-time performance. By rigorously defining threat models and systematically validating interpretability and encryption integrity, our approach surpasses existing competitive techniques and substantially fosters trust necessary for widespread fog IDS adoption.",
+        "Proposed_Method": "We present a novel framework comprising: (1) a modular ensemble IDS built from inherently interpretable models such as rule-based boosted decision trees and SHapley Additive exPlanations (SHAP)-guided feature importance embeddings, enabling transparent reasoning paths; (2) an integration with leveled homomorphic encryption schemes optimized for fog hardware capable of ciphertext inference, with carefully selected encryption parameters balancing security (e.g., semantic security under standard assumptions) and computational efficiency; (3) a formally defined secure explanation extraction protocol employing cryptographic commitments and zero-knowledge proofs to map encrypted intermediate ensemble decisions to human-readable rules, ensuring no leakage beyond intended explanations; (4) adversary threat modeling focusing on fog node capabilities and side-channel analysis, guiding the design of a pre-shared context management protocol using lightweight key exchange and renewal mechanisms resistant to replay and man-in-the-middle attacks; (5) extension to federated learning (FL) at the fog layer to collaboratively improve model robustness against zero-day attacks without sharing raw data, further enhancing privacy; and (6) detailed algorithmic exposition of ciphertext-level inference, explanation extraction, and security proofs, accompanied by adaptive model complexity scaling tailored to fog node capacity and runtime constraints. This approach guarantees interpretation fidelity, privacy preservation, and feasible deployment on constrained fog nodes, positioning the system ahead of deep opaque encrypted models.",
+        "Step_by_Step_Experiment_Plan": "1. Hardware Profiling: Conduct comprehensive benchmarks of state-of-the-art leveled homomorphic encryption libraries (e.g., Microsoft SEAL, PALISADE) on representative fog nodes (e.g., NVIDIA Jetson, Raspberry Pi 4) assessing computation time, memory, and energy consumption; establish viability thresholds and fallback triggers. 2. Dataset and Baselines: Utilize fog-relevant, realistic intrusion detection datasets (including IoMT and V2X traffic), implementing the base interpretable ensemble IDS without encryption as the performance and transparency baseline. 3. Encryption Integration: Implement and parameterize homomorphic encryption inference pipelines aligned with hardware constraints; document encryption parameters (ciphertext size, noise budget, poly modulus degree) and security assumptions. 4. Secure Explanation Mechanism: Develop the cryptographic protocol for explanation extraction—mapping encrypted intermediate outputs to rule-based textual explanations—supported by formal security proofs; validate no unintended leakage or side-channel vulnerabilities through adversarial simulations. 5. Federated Learning Setup: Simulate distributed IDS training across multiple fog nodes with privacy-preserving model updates to examine scalability and robustness improvements against adversarial attacks. 6. Evaluation Metrics: Benchmark detection accuracy, inference latency, and detailed interpretability evaluation including SHAP fidelity scores, automated quantitative metrics for explanation consistency, and human user studies with fog environment operators to assess explanation utility and trust. 7. Comparative Analysis: Contrast results against state-of-the-art opaque encrypted deep-learning IDS approaches and traditional unencrypted IDS models across all metrics. 8. Fallback Strategy Validation: Deploy secure multiparty computation alternatives and hybrid edge-cloud scenarios as contingency plans, monitoring performance and security trade-offs. 9. Documentation: Provide complete reproducible experiment configurations, open-source code, and benchmark datasets to ensure robustness and facilitate community adoption.",
+        "Test_Case_Examples": "Input: Encrypted network flow feature vector captured by a fog node from an IoMT device exhibiting potential intrusions, encrypted via leveled homomorphic encryption with pre-shared keys. Output: Encrypted intrusion detection prediction alongside a cryptographically secured human-readable explanation such as \"Alert: High-frequency SYN flood detected (Rule 12 triggered based on connection request rate exceeding threshold), explanation verified under zero-knowledge proof ensuring no data leakage.\" This output is produced with inference latency within acceptable fog node real-time constraints and is verified robust against side-channel attacks. The encrypted explanation can be decrypted only by authorized operators maintaining privacy end-to-end. Additionally, collated model updates from multiple fog nodes improve detection robustness via federated learning without exposing raw traffic data.",
+        "Fallback_Plan": "Should homomorphic encryption computations exceed resource limits on targeted fog devices, we will pivot to lightweight secure multiparty computation approaches or hybrid architectures performing heavy encrypted computations in proximate cloudlets with strict privacy protocols. Model complexity will be adaptively scaled down, focusing on more efficient inherently interpretable learners and reducing ensemble size while monitoring interpretability quality. Moreover, we will explore post-quantum cryptographic methods for future-proofing privacy guarantees. Throughout, fallback trigger criteria and parameter adjustments will be quantitatively formalized and integrated into the experiment plan for transparent, empirical evaluation and reproducibility."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Explainable AI",
+      "Homomorphic Encryption",
+      "Ensemble Models",
+      "Fog Intrusion Detection System (IDS)",
+      "Interpretability",
+      "Edge-aware Security"
+    ],
+    "direct_cooccurrence_count": 927,
+    "min_pmi_score_value": 4.012704541376843,
+    "avg_pmi_score_value": 5.745494370944949,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4604 Cybersecurity and Privacy",
+      "4606 Distributed Computing and Systems Software"
+    ],
+    "future_suggestions_concepts": [
+      "federated learning",
+      "artificial intelligence",
+      "intrusion detection system",
+      "deep learning",
+      "security solutions",
+      "privacy preservation",
+      "Internet of Medical Things",
+      "intrusion detection system model",
+      "decentralized intrusion detection system",
+      "artificial neural network",
+      "SHapley Additive exPlanations",
+      "intrusion detection system solution",
+      "AI models",
+      "IoMT devices",
+      "fog computing",
+      "privacy-preserving methods",
+      "extension of cloud computing",
+      "intrusion detection system framework",
+      "fog computing environment",
+      "traditional intrusion detection systems",
+      "communication networks",
+      "network layer",
+      "adversarial attack scenarios",
+      "combination of blockchain technology",
+      "security services",
+      "Self-Organizing Network capabilities",
+      "FL system",
+      "multi-model machine learning approach",
+      "synchronized artificial neural networks",
+      "conventional intrusion detection systems",
+      "information management system",
+      "real-time intrusion detection",
+      "privacy-preserving techniques",
+      "review of neural networks",
+      "activities of attackers",
+      "cloud-based security services",
+      "training model",
+      "communication channels",
+      "wireless communication channels",
+      "adversarial learning techniques",
+      "IoT applications",
+      "adoption of cloud technology",
+      "intrusion detection dataset",
+      "zero-day attacks",
+      "post-quantum cryptographic techniques",
+      "advanced intrusion detection",
+      "improved marine predator algorithm",
+      "Privacy-preserving machine learning",
+      "statistical learning",
+      "data environment",
+      "feature selection",
+      "temporal convolutional network",
+      "big data environment",
+      "advanced security mechanisms",
+      "optimization algorithm",
+      "taxonomy of security threats",
+      "ensemble learning",
+      "transfer learning",
+      "IoT security solutions",
+      "susceptible to cyber-attacks",
+      "cybersecurity measures",
+      "volumes of high-dimensional data",
+      "sensitive data privacy",
+      "Vehicle-to-Everything (V2X) networks",
+      "machine learning-based IDS",
+      "detect zero-day attacks",
+      "IDS deployment",
+      "benchmark intrusion detection dataset",
+      "robust intrusion detection system",
+      "ML-based intrusion detection system",
+      "deep learning-based IDS",
+      "computational complexity",
+      "privacy-preserving model",
+      "vehicular networks",
+      "edge AI",
+      "V2X security",
+      "IoHT framework",
+      "efficient resource management",
+      "privacy-preserving approaches",
+      "accuracy of detecting intrusions"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposal outlines an innovative integration of inherently interpretable ensemble models with homomorphic encryption and a secure side-channel explanation mechanism, the specifics of the explanation extraction method and its security guarantees lack clarity. How encrypted intermediate outputs reliably map to human-readable rules without risking information leakage, and how the pre-shared context is managed securely, require more rigorous description and formal analysis. Clarifying these mechanisms is crucial to establish soundness of the method and to convince that interpretability is retained without compromising encryption integrity or introducing side-channel vulnerabilities in the constrained fog environment, where resources and adversary capabilities differ from more powerful cloud settings. Including threat models and clear algorithmic steps will strengthen this core contribution's credibility and technical soundness in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The outlined experiment plan covers key dataset selection, baseline model implementation, encryption integration, explanation extraction, and benchmarking on accuracy, latency, and interpretability metrics, which is comprehensive. However, feasibility concerns arise regarding the resource constraints and real-time inference requirements on fog nodes using state-of-the-art homomorphic encryption, known for computational intensity. The plan should explicitly include performance profiling of homomorphic encryption on representative fog hardware early in the pipeline to evaluate viability and guide fallback strategy adoption timely. Furthermore, the reliance on human expert evaluation for interpretability quality, while valuable, could benefit from augmented automated quantitative measures and user studies reflecting fog environment operator capabilities. Detailed specifications of encryption parameter selections, model complexity scaling, and fallback triggers are necessary to assure experimental robustness, repeatability, and practical feasibility in the Step_by_Step_Experiment_Plan."
+        }
+      ]
+    }
+  }
+}

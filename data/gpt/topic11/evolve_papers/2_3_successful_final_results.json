@@ -1,0 +1,75 @@
+{
+  "before_idea": {
+    "title": "Legal Ontology-Driven Contrastive Explanation Generation for LLMs",
+    "Problem_Statement": "Legal AI lacks explainability methods that produce contrastive explanations grounded in legal hierarchical ontologies to clarify why certain conclusions were reached over alternatives.",
+    "Motivation": "Bridges the domain-adapted explainability gap by constructing contrastive explanations mapped to legal ontology structures, enhancing user trust through clear articulation of alternative legal interpretations and their hierarchical relationships.",
+    "Proposed_Method": "Design an explanation generator that produces contrastive explanations by contrasting predicted legal outcomes against plausible alternatives drawn from the legal ontology. The model leverages a dual-encoder architecture embedding legal concepts and case contexts, generating explanation segments that explicitly contrast and justify selected conclusions over alternatives in an interpretable, ontology-aware manner.",
+    "Step_by_Step_Experiment_Plan": "1. Construct a dataset of legal cases with annotated alternative outcomes and hierarchical legal concept tags. 2. Train dual-encoders to represent cases and legal concepts. 3. Develop a contrastive explanation generation module leveraging ontology-driven knowledge. 4. Evaluate explanation informativeness, user interpretability, and alignment with legal expert judgments.",
+    "Test_Case_Examples": "Input: Patent infringement judgment. Output: Explanation contrasting ruling with alternative interpretations (e.g., non-infringement) clearly mapped to ontology concepts representing patent claim elements, highlighting reasoning for preferred conclusion.",
+    "Fallback_Plan": "If dual-encoder similarity fails to distinguish alternatives, integrate graph neural networks over legal ontologies for richer relational representation or augment with rule-based legal reasoning modules."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Hybrid Neuro-Symbolic Legal Ontology-Driven Contrastive Explanation Generation for LLMs",
+        "Problem_Statement": "Current explainability methods in legal AI systems inadequately produce contrastive explanations that are explicitly grounded in comprehensive multi-relational legal knowledge graphs and rule-based legal reasoning. This limitation hinders transparent elucidation of why certain legal conclusions prevail over alternatives within complex hierarchical ontologies.",
+        "Motivation": "To overcome the limitations of purely embedding-based explanation approaches and address the NOV-COMPETITIVE verdict, we propose a novel hybrid neuro-symbolic framework that synergistically integrates knowledge graph representations of legal ontologies with rule-based legal inference. This integration ensures explanations are not only contrastive and interpretable but also legally valid and semantically interoperable. Our approach advances the state-of-the-art in legal AI explainability by enabling richer contextualization of cases and legal concepts, thereby enhancing user trust and facilitating adoption in judicial and compliance settings.",
+        "Proposed_Method": "We design a hybrid system combining: (1) Graph Neural Networks (GNNs) over multi-relational legal knowledge graphs representing hierarchical ontologies, case facts, and alternative legal interpretations, to capture rich relational context; (2) a dual-encoder neural architecture embedding case contexts and legal concepts guided by ontology embeddings; (3) a symbolic legal reasoning module utilizing rule-based inference engines encoding domain-specific regulations and precedents to validate and generate inference chains; and (4) a contrastive explanation generator that synthesizes outputs from neural embeddings and symbolic reasoning to produce legally coherent, ontology-aware contrastive explanations. This neuro-symbolic approach ensures explanations align with explicit legal rules and knowledge while maintaining flexibility and interpretability. Semantic interoperability with external legal knowledge sources is emphasized throughout the system design to facilitate extensibility and generalizability.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Construction: Source publicly available annotated legal case corpora (e.g., European Court of Human Rights, US Supreme Court datasets) enriched with meta-data from established legal ontologies (e.g., LKIF-Core, LegalRuleML). Collaborate with legal experts to annotate alternative plausible outcomes and hierarchical concept tags using semi-automated workflows combining ontology-driven pre-annotations and expert validation, thereby reducing annotation costs and improving reproducibility. 2. Knowledge Graph Development: Build multi-relational legal knowledge graphs integrating ontological hierarchies, case facts, and annotated alternatives; validate graph quality and coverage with legal scholars. 3. Model Training: Train GNNs to embed nodes/relations, and dual-encoders to represent legal cases and concepts, leveraging transfer learning from pretrained language/legal models. Simultaneously, formalize and encode symbolic legal rules for the reasoning module. 4. Explanation Generation: Develop the hybrid contrastive explanation generator combining neural and rule-based insights to produce justifications contrasting predicted and alternative outcomes mapped to ontology elements. 5. Evaluation Protocols: Define quantitative metrics for explanation informativeness (e.g., BLEU/ROUGE against expert gold explanations, fidelity scores of explanation to model decisions), and qualitative metrics (human expert-rated interpretability, legal validity). Conduct user studies involving domain experts (lawyers, judges) assessing clarity, trust, and decision support utility through questionnaires and think-aloud protocols. 6. Iterative Refinement & Benchmarking: Iterate model design based on feedback, compare performance to baseline explainability approaches, and analyze failure modes. Milestones and checkpoints throughout ensure feasibility given domain complexity constraints.",
+        "Test_Case_Examples": "Input: A patent infringement case involving contested claim scope. Output: A contrastive explanation clarifying why the ruling favors infringement by mapping arguments to legal ontology nodes (e.g., claim elements, prior art hierarchy), and contrasting with the alternative non-infringement interpretation validated via rule-based inference. Explanation includes explicit symbolic reasoning chains referencing binding statutes and case precedents, enabling end-users to easily interpret and verify the rationale behind the decision.",
+        "Fallback_Plan": "If GNN embeddings or dual-encoder integration underperform, increase reliance on symbolic legal reasoning modules augmented with manually curated rule sets to ensure explanation validity. Alternatively, integrate knowledge engineering techniques to refine ontology coverage and employ crowd-sourced annotation approaches to scale dataset labeling. In case neuro-symbolic fusion proves complex, modularize system components to allow independent development and assessment before full integration."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Legal Ontology",
+      "Contrastive Explanation",
+      "Large Language Models (LLMs)",
+      "Explainability",
+      "Legal Hierarchical Structures",
+      "User Trust"
+    ],
+    "direct_cooccurrence_count": 567,
+    "min_pmi_score_value": 4.597803133139475,
+    "avg_pmi_score_value": 5.644355581464125,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "32 Biomedical and Clinical Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "vision-language models",
+      "approach to knowledge representation",
+      "knowledge graph",
+      "AI decisions",
+      "Crowd-based Requirements Engineering",
+      "international working conference",
+      "requirements engineering",
+      "security management",
+      "multi-agent systems",
+      "knowledge engineering",
+      "semantic interoperability",
+      "NLP research",
+      "gaze-based interaction",
+      "Intensive Care Unit domain",
+      "rule-based system",
+      "clinical decision support systems",
+      "learning paradigm"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed Step_by_Step_Experiment_Plan lacks specific details on how the dataset of legal cases with annotated alternative outcomes and hierarchical legal concept tags will be constructed. Since legal domain annotation is complex and costly, the plan should clarify data sources, annotation protocols, and how legal ontology integration will be validated to ensure feasibility and reproducibility. Moreover, it would benefit from a clearer definition of evaluation metrics for explanation informativeness and alignment with legal expert judgments, specifying qualitative and quantitative criteria, and how user interpretability will be measured empirically with target users (e.g., lawyers or domain experts). Without these details, it's unclear if the experimental plan is practical within common project constraints and can yield robust conclusions about the method's effectiveness or generalizability in real-world legal AI contexts. Strengthening this section will directly improve the project's feasibility and credibility in delivering sound, impactful outcomes on explainability in legal AI applications, a notoriously challenging area due to domain-specific complexity and interpretability requirements.\n\nSuggested action: Provide detailed annotation plans, dataset sourcing, concrete evaluation protocols (including human evaluation), and milestones that de-risk the experimental effort and demonstrate readiness to handle domain challenges effectively within the outlined plan, increasing confidence in feasibility."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE rating and focus on legal ontology-driven contrastive explanations, integrating concepts from 'knowledge graph', 'knowledge engineering', and 'rule-based system' could significantly strengthen both novelty and impact. Specifically, augmenting the dual-encoder architecture with explicit graph neural networks operating over comprehensive legal knowledge graphs representing multi-relational ontologies can enable richer contextualization of legal concepts, case facts, and alternative legal interpretations. Additionally, embedding symbolic reasoning modules or rule-based legal inference engines can complement learned representations, ensuring legally valid contrasts and explanations grounded in established legal rules. This hybrid neuro-symbolic approach would help overcome limitations of purely embedding-based contrastive approaches and boost model explainability, robustness, and user trust. Emphasizing semantic interoperability with broader legal knowledge sources and aligning explanations with symbolic reasoning chains could differentiate the work in a competitive space and accelerate adoption in legal AI and NLP research communities. Considering these globally-linked concepts for a more integrated and hybrid approach will heighten scientific contributions and practical benefits, elevating the work's standing."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "original_idea": {
+    "title": "Domain-Specific Trustworthy Metric Calibration via Controlled Biomedical Factuality Benchmarks",
+    "Problem_Statement": "Intrinsic evaluation metrics lack precise calibration connecting their scores quantitatively to downstream factual errors and harms in critical domains like biomedicine.",
+    "Motivation": "Targets the internal critical gap of ambiguous metric calibration by introducing controlled biomedical benchmarks explicitly designed to map intrinsic scores to real factuality and harm likelihood, fostering trustworthiness evaluation with real-world rigour.",
+    "Proposed_Method": "Create a benchmark suite of biomedical LLM outputs with ground-truth factuality labels curated by domain experts. Design a calibration framework that fits statistical models linking intrinsic metrics (perplexity, self-consistency) to these factuality outcomes. Introduce confidence intervals and threshold calibration enabling model risk scoring tailored for clinical safety requirements.",
+    "Step_by_Step_Experiment_Plan": "1) Collect diverse biomedical LLM generations along with expert factuality annotations. 2) Compute various intrinsic metric values for these samples. 3) Fit calibration curves and develop probabilistic mappings. 4) Evaluate calibration quality with Brier scores and reliability diagrams. 5) Deploy calibrated metrics in safety-critical LLM deployment simulations.",
+    "Test_Case_Examples": "Input: Biomedical LLM generates treatment recommendation text. Output: Calibrated metric score accurately predicts factual error probability, enabling downstream system to issue warnings proportional to risk level.",
+    "Fallback_Plan": "If insufficient expert annotations limit calibration, augment datasets with synthetic factual errors or use weak supervision from structured biomedical knowledge bases for labeling."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Trustworthy Metric Calibration",
+      "Biomedical Factuality Benchmarks",
+      "Intrinsic Evaluation Metrics",
+      "Factual Errors",
+      "Harm Likelihood",
+      "Biomedical Domain"
+    ],
+    "direct_cooccurrence_count": 168,
+    "min_pmi_score_value": 4.083198626344354,
+    "avg_pmi_score_value": 6.245342824259336,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "patient safety",
+      "snowballing literature review",
+      "real-time applications",
+      "inference latency"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The core assumption that intrinsic evaluation metrics such as perplexity and self-consistency can be reliably calibrated to explicitly predict downstream factuality errors and associated harms in biomedical text needs stronger foundational justification. Given the complexity and variability of biomedical knowledge and clinical language, intrinsic metrics may not capture nuanced factual inaccuracies or the severity of related harms without extensive domain adaptation. It would strengthen the work to explicitly discuss potential mismatches between metric behavior and factual errors, and how the proposed calibration accounts for such complexities or edge cases, especially in safety-critical biomedical contexts where errors have serious consequences. Clarifying and validating this assumption upfront would improve the soundness of the approach substantially. This critique targets the 'Problem_Statement' and 'Proposed_Method' sections where these assumptions underpin the entire project scope and methodology. Recommendations include including empirical or theoretical motivation from prior literature that links intrinsic metrics to factuality outcomes in biomedical domains, or pilot studies demonstrating the feasibility of this assumption before full calibration framework development."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experimental plan is well-structured but may face practical feasibility challenges regarding the collection of sufficient high-quality expert factuality annotations, a known bottleneck in biomedical NLP research. Expert annotation is costly and time-consuming; the fallback strategy of augmenting with synthetic errors or weak supervision is noted but requires a more detailed methodological design and validation protocol to ensure these augmentations do not bias or degrade calibration reliability. Furthermore, the plan could benefit from more explicit inclusion of metrics assessing annotation quality and inter-annotator agreement, and a timeline or resource estimation for the data curation effort. These additions will bolster the feasibility claim and provide clearer execution paths. The critique regards the 'Step_by_Step_Experiment_Plan' and the 'Fallback_Plan' sections, suggesting that further operational details and risk mitigation strategies are necessary to ensure practical deliverability and scientific rigor."
+        }
+      ]
+    }
+  }
+}

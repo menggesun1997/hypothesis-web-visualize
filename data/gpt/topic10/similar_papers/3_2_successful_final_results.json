@@ -1,0 +1,134 @@
+{
+  "before_idea": {
+    "title": "Blockchain-Enabled Collaborative Trust Layer for Fog-ID Frameworks",
+    "Problem_Statement": "Intrusion detection systems in fog computing and IoT suffer from single points of failure and trust issues due to their centralized architectures. Sharing intrusion data among fog nodes is limited by security concerns and lack of trusted coordination, resulting in delayed or partial detection of sophisticated cyber-attacks.",
+    "Motivation": "This idea addresses the external novel gap in the research landscape: the unexplored potential of blockchain-enabled decentralized frameworks to provide data integrity, trusted anomaly sharing, and robust coordination among fog nodes, which helps operationalize IDS in a distributed resource-constrained setting with enhanced trustworthiness and fault tolerance.",
+    "Proposed_Method": "We propose a novel blockchain-enabled collaborative trust layer (CT-Layer) integrated with fog-based IDS. CT-Layer acts as a decentralized ledger recording intrusion alerts, node behaviors, and reputation scores shared among fog nodes and IoT devices without centralized intermediaries. Smart contracts automatically verify alert authenticity, coordinate joint defense strategies, and enforce policy updates. The ledger design employs lightweight consensus mechanisms tailored for fog constraints (e.g., proof-of-authority). This integration ensures tamper-proof, auditable IDS data sharing, boosting coordination and overall network resilience without violating privacy constraints by storing only metadata and anonymized hashes on-chain.",
+    "Step_by_Step_Experiment_Plan": "1. Dataset: Simulate multi-fog-node IoT environments with attack scenarios including coordinated multi-point intrusions. 2. Implement baseline distributed IDS without blockchain for comparison. 3. Develop blockchain infrastructure with fog-compatible consensus, smart contracts for IDS alert validation and reputation management. 4. Interface IDS modules with CT-Layer for real-time alert publication and cross-node trust evaluation. 5. Evaluate detection efficacy, latency, and network overhead. 6. Assess blockchain scalability and security under attack simulations.",
+    "Test_Case_Examples": "Input: Multiple fog nodes report suspicious activity hashes and metadata. Output: CT-Layer records and verifies these events on-chain, updates node reputation scores, triggers alarms if coordinated threats detected. This prevents malicious nodes from injecting fake alerts and empowers network-wide timely defense.",
+    "Fallback_Plan": "If blockchain transaction costs or latency prove too high for real-time IDS, explore off-chain solutions or layer-2 scaling (channels). Alternatively, replace blockchain with distributed hash tables combined with cryptographic proofs to assure data integrity and trust."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Enhanced Blockchain-Enabled Collaborative Trust Layer with Formal Mechanisms for Fog-Based IDS in Resource-Constrained IoT Environments",
+        "Problem_Statement": "Intrusion detection systems (IDS) in fog computing and IoT environments face critical challenges including single points of failure, trust management weaknesses, and privacy concerns due to centralized approaches. Existing decentralized proposals often lack formalized mechanisms for authenticating intrusion alerts, reputation management, and privacy-preserving data sharing tailored for resource-constrained fog nodes. This results in vulnerability to false alerts, Sybil attacks, and latency issues, undermining timely detection and coordinated defense against sophisticated, multi-point cyber-attacks.",
+        "Motivation": "While blockchain-enabled decentralized IDS frameworks have been proposed, their practical deployment in fog-IoT settings remains limited by insufficiently detailed mechanisms that ensure trustworthiness, privacy, and performance under real-time constraints and adversarial behaviors. Given the novelty verdict as competitive, our research bridges this gap by providing a rigorously defined, auditable trust layer incorporating smart contracts with formal validation algorithms, adaptive reputation scoring, and GDPR-compliant privacy-preserving protocols suited for fog nodes' computational limits. We leverage advances in lightweight consensus (e.g., proof-of-authority tailored to fog), federated learning for anomaly detection enhancement, and blockchain-based self-sovereign identity to robustly manage node identities and thwart Sybil attacks. This integrated multi-layered security approach offers a novel, practical, and scalable solution for IDS coordination in critical cyber-physical and IoMT infrastructures, surpassing traditional and prior blockchain methods by combining formal mechanisms with contextual operational constraints and privacy assurances.",
+        "Proposed_Method": "We propose a blockchain-enabled Collaborative Trust Layer (CT-Layer) designed for fog-based IDS that integrates the following core components with formal definitions and algorithms:\n\n1. **Node Identity Management via Blockchain-Based Self-Sovereign Identity (SSI):** Each fog node and IoT device possesses a cryptographically verifiable SSI recorded on-chain, preventing Sybil attacks by enforcing unique, authenticated identities through a permissioned consortium governed by known authorities.\n\n2. **Intrusion Alert Authentication Smart Contracts:** Alerts generated by local IDS modules carry cryptographic proofs of anomaly detection confidence scores derived from federated learning-enhanced models. Smart contracts implement threshold-based validation algorithms to accept alerts only if confidence surpasses dynamic, reputation-weighted criteria. Conflicting alerts undergo a consensus sub-protocol among designated validator nodes, with deterministic resolution rules defined formally.\n\n3. **Adaptive Reputation Scoring Algorithm:** Reputation scores are calculated per node using a weighted moving average combining (i) historical alert accuracy, (ii) cross-node validation outcomes, and (iii) behavior metrics modeled as Markov Decision Processes. Scores decay with time to reflect recent behavior and penalize false or malicious alerts. Smart contracts update reputation states atomically on-chain.\n\n4. **Privacy-Preserving Data Storage:** Only anonymized metadata and salted cryptographic hashes of raw IDS data are stored on-chain, following GDPR guidelines. Off-chain encrypted repositories are referenced via secured pointers, ensuring confidentiality. Zero-knowledge proofs are employed to validate data integrity without revealing sensitive information.\n\n5. **Lightweight Consensus Protocol:** Utilizing a tailored Proof-of-Authority (PoA) consensus among a limited consortium of trusted fog node leaders, the system minimizes latency and resource consumption. Consensus parameters (e.g., block time, leader rotation) are dynamically adjusted based on network size and workload to meet real-time IDS alert propagation latency thresholds (target <200 ms end-to-end).\n\n6. **Dynamic Policy Update via Smart Contracts:** The CT-Layer facilitates cross-node updates of defense strategies and IDS policies triggered by joint detections, enforced instantly and logged immutably.\n\n7. **Security Against Adversarial Attacks:** Sybil, false alert injections, and collusion are mitigated via SSI, multi-factor reputation, and consensus validation. The system adapts policies in response to detected attack patterns leveraging ensemble learning anomaly detectors.\n\nWe will provide a detailed protocol flow diagram illustrating message exchanges, smart contract logic, consensus rounds, and reputation update computations to exemplify mechanism soundness and efficient operation within fog constraints. Blockchain overhead impact analyses and fallback options (e.g., layer-2 channels, distributed hash tables with cryptographic proofs) are detailed to ensure practical real-time operability.",
+        "Step_by_Step_Experiment_Plan": "1. **Simulation Environment Setup:** Emulate a multi-fog-node IoT environment using realistic datasets such as ToN-IoT, incorporating cyber-physical and IoMT scenarios with coordinated multi-point intrusion attempts including DDoS, malware injection, and greyhole attacks. Network parameters (node count: 10-50, latency: 10-100 ms) simulate operational conditions.\n\n2. **Baseline Implementation:** Deploy state-of-the-art distributed IDS without blockchain or trust layer integration for benchmark comparisons.\n\n3. **CT-Layer Development:** Implement the blockchain infrastructure with the tailored PoA consensus, smart contracts encoding alert validation, reputation management, and policy update. Leverage federated learning models across nodes for anomaly score generation.\n\n4. **Integration:** Interface IDS modules with the CT-Layer enabling real-time alert signing, publication, cross-node validation, and automated defense policy coordination.\n\n5. **Performance Metrics Collection:** Monitor and analyze key measures: IDS detection accuracy, false positive rates, end-to-end alert propagation latency (target <200 ms), consensus finality time, CPU/memory/network overheads on fog nodes, and throughput scalability (up to 50 nodes).\n\n6. **Privacy and Compliance Evaluation:** Employ formal tests to verify the efficacy of metadata anonymization and zero-knowledge proofs against known data leakage risks. Validate GDPR compliance through audit trails and data minimization effectiveness.\n\n7. **Robustness and Security Testing:** Simulate adversarial behaviors including Sybil attacks, false alert injections, colluding malicious nodes to test reputation resilience, alert validation integrity, and policy enforcement. Analyze system reaction and recovery.\n\n8. **Failure Mode and Scalability Analysis:** Conduct stress testing to evaluate fallback mechanisms (layer-2 channels, DHT with cryptographic proofs) for maintaining IDS operational performance under blockchain overhead spikes or network partitions.\n\n9. **Integration Feasibility Study:** Prototype interfacing with common IDS frameworks (e.g., Snort, Suricata) and evaluate adoption ease, extensibility, and developer feedback.\n\nDocumentation of experimental setups, protocol flows, and detailed parameter selections will assure scientific rigor and reproducibility.",
+        "Test_Case_Examples": "Input: Three fog nodes with validated SSI identities simultaneously report anomalies: Node A detects unusual TCP traffic with 0.85 confidence, Node B reports conflicting UDP anomalies with 0.60 confidence, and Node C reports no suspicious activity. These alerts are cryptographically signed and submitted on-chain.\n\nProcess: Smart contracts verify SSI, compute aggregate confidence scores weighted by reputation (Node A: 0.9, B: 0.6, C: 0.95). The alert from Node A passes threshold; Node B's is flagged for conflict resolution involving validator nodes executing consensus to discard or accept.\n\nReputation scores are updated after validation outcomes reflect Node B's false positives, decreasing its trustworthiness. Metadata and alert hashes are stored on-chain with ZK proofs confirming data integrity without revealing raw data.\n\nOutput: CT-Layer records authenticated alerts, updates reputations, triggers network-wide defensive policy updates, and prevents malicious injection by Node B due to lowered trustworthiness. Latency from alert detection to consensus is within 180 ms, meeting real-time requirements.",
+        "Fallback_Plan": "If blockchain transaction latency or resource overhead threatens real-time IDS operability beyond acceptable thresholds, we will pivot to off-chain layer-2 scaling techniques such as state channels or sidechains to handle alert validation and reputation updates efficiently while anchoring hashes periodically on-chain for immutability. Alternatively, we will implement distributed hash table (DHT) approaches with cryptographic proofs (e.g., Merkle trees) to maintain data integrity and trust without a full blockchain stack. These alternatives preserve core security properties with reduced overhead. Additionally, dynamic adaptation of consensus parameters and selective alert batching will be explored to optimize throughput and latency trade-offs for deployment in resource-constrained fog environments."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Blockchain",
+      "Fog Computing",
+      "Intrusion Detection Systems",
+      "Data Integrity",
+      "Decentralized Frameworks",
+      "Trust Management"
+    ],
+    "direct_cooccurrence_count": 10540,
+    "min_pmi_score_value": 3.204955068507341,
+    "avg_pmi_score_value": 4.750273818169723,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4604 Cybersecurity and Privacy",
+      "4606 Distributed Computing and Systems Software"
+    ],
+    "future_suggestions_concepts": [
+      "blockchain technology",
+      "Internet of Medical Things",
+      "intrusion detection system",
+      "federated learning",
+      "smart contracts",
+      "deep learning",
+      "unauthorized access",
+      "IoMT devices",
+      "intrusion detection",
+      "IoT traffic dataset",
+      "cyber-physical systems",
+      "advanced security mechanisms",
+      "taxonomy of security threats",
+      "ensemble learning",
+      "transfer learning",
+      "traditional security solutions",
+      "IoT security solutions",
+      "ToN-IoT dataset",
+      "cross-layer security",
+      "bidirectional long short-term memory",
+      "IoMT networks",
+      "convolutional neural network",
+      "bibliometric analysis",
+      "operational technology",
+      "multi-layered security approach",
+      "network-based intrusion detection system",
+      "conventional security techniques",
+      "dynamic policy update",
+      "susceptible to cyber-attacks",
+      "cybersecurity measures",
+      "architecture of IoT systems",
+      "security requirements",
+      "IIoT security",
+      "blockchain-based architecture",
+      "patient health records",
+      "resource-constrained devices",
+      "Algorand blockchain",
+      "IoMT data",
+      "intrusion detection system performance",
+      "development of intrusion detection systems",
+      "cross-layer design",
+      "anomaly detection performance",
+      "critical infrastructures",
+      "IIoT systems",
+      "edge of network",
+      "deep neural networks",
+      "smart healthcare system",
+      "self-sovereign identity",
+      "intelligent network intrusion detection system",
+      "blockchain-based Self-Sovereign Identity",
+      "network intrusion detection system",
+      "improving data privacy",
+      "decentralized learning systems",
+      "model poisoning attacks",
+      "greyhole attacks",
+      "healthcare cyber-physical systems",
+      "end-to-end delay",
+      "cybersecurity of cyber-physical systems",
+      "resilience of IoT systems",
+      "denial of service attacks",
+      "Distributed Denial",
+      "detection performance",
+      "malware injection",
+      "malicious activities",
+      "detection accuracy",
+      "Distributed Denial of Service (DDoS) attacks",
+      "Denial of Service (DDoS) attacks",
+      "rule-based intrusion detection system",
+      "data integration",
+      "real-time processing requirements",
+      "traditional security mechanisms",
+      "blockchain-based security",
+      "intelligent anomaly detection",
+      "blockchain security models",
+      "security model",
+      "AI mechanisms",
+      "General Data Protection Regulation"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a blockchain-enabled collaborative trust layer integrating smart contracts and lightweight consensus for fog-based IDS, a promising approach. However, the description lacks concrete technical details about how smart contracts will distinguish authentic intrusion alerts from false positives, how reputation scores are precisely calculated and updated, and how privacy is ensured beyond metadata hashing. Clarifying the mechanism with formal definitions or algorithms, and specifying how smart contracts handle conflicting alerts and prevent Sybil attacks, would strengthen the soundness and credibility of the method's operation in this resource-constrained, adversarial environment, ensuring it truly achieves tamper-proof, timely, and privacy-preserving coordination among fog nodes. This level of detail is crucial to convince reviewers that the proposed mechanism can effectively meet its security and scalability goals without prohibitive overhead or vulnerabilities inherent in fog-IoT settings. Consider augmenting the proposal with a protocol flow diagram and example computations of reputation updates and validation conditions in the blockchain context to solidify the core mechanism argumentation and trustworthiness assurances provided by the CT-Layer architecture in realistic complex scenarios with malicious insiders or colluding nodes. This will ultimately improve the foundational soundness of the research idea before experimental validation steps can be judged feasible and impactful. Target the Proposed_Method section for these clarifications, providing the architecture and workflow specifics of the blockchain trust layer in a fog IDS context, including consensus tuning, smart contract logic, and privacy guarantees for metadata storage and alert sharing, defining how these components collectively resolve the outlined problem safely and efficiently in practice. Please also address potential blockchain overhead impact in real-time IDS applications to clarify practical operability assumptions again in this section, connected with the fallback plan for scalability concerns if needed.  \n---\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is well-structured and covers dataset simulation, baseline comparison, blockchain development, interfacing, and evaluation metrics comprehensively. However, it lacks concrete details on how the proposed lightweight blockchain consensus and smart contracts will be experimentally benchmarked for performance under real-time constraints inherent in fog-IoT environments. Specifically, the experiment plan should explicitly detail which metrics will indicate acceptable latency thresholds for IDS alert propagation and consensus finality, and clarify approaches to quantitatively assess resource consumption of blockchain operations on fog nodes. Moreover, the plan does not specify how privacy-preserving measures (i.e., storing only metadata and anonymized hashes on-chain) will be evaluated for effectiveness and compliance, which is critical given the sensitive nature of IDS data and regulatory constraints like GDPR. It would be practical to include experiments assessing resistance to typical attack vectors against blockchain or collaborative IDS layers (e.g., Sybil attacks, false alert injection) to validate robustness claims, not just efficacy and overhead. Additionally, outlining simulation environment parameters (node counts, network delays, attack types and complexities), scalability testing ranges, and failure mode analyses would provide further feasibility confidence. Finally, direct integration with existing IDS tools or frameworks could be proposed or at least simulated to confirm applicability and ease of adoption in real fog-IoT deployments. Address these details by refining the Experiment_Plan section for improved scientific rigor and feasibility demonstration, assuring reviewers that the proposed system's promises are realistically testable and measurable within planned experiments, which impacts confidence in subsequent results and contribution value."
+        }
+      ]
+    }
+  }
+}

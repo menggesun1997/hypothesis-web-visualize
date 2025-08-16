@@ -1,0 +1,61 @@
+{
+  "original_idea": {
+    "title": "Grad-CAM for Transformer Models: Visualizing Legal Text Attention",
+    "Problem_Statement": "Current explainability techniques like Grad-CAM are effective in images but lack adaptation to transformer-based NLP models analyzing legal texts.",
+    "Motivation": "Fulfills a critical internal gap and a high-potential opportunity by translating powerful image explainability methods to legal NLP to boost transparency and trust in complex transformer decisions.",
+    "Proposed_Method": "Extend the Grad-CAM algorithm to work on transformer attention maps in LLMs by aggregating multi-head attentions and gradients to generate heatmaps over legal text tokens, highlighting influential words or phrases for predictions.",
+    "Step_by_Step_Experiment_Plan": "1) Select transformer models pretrained on legal corpora.\n2) Implement Grad-CAM adaptation for attention layers.\n3) Compare with existing textual explanation techniques.\n4) Evaluate explanation quality using human expert ranking and quantitative metrics.\n5) Perform case studies on real legal decision-making tasks.",
+    "Test_Case_Examples": "Input: Sentencing recommendation text.\nOutput: Heatmap showing which legal terms and statutes most contributed to the model’s output, aiding legal professionals' understanding.",
+    "Fallback_Plan": "If attention-based explanations are noisy, investigate integrating counterfactual reasoning or integrated gradients to combine multiple explanation modalities."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Grad-CAM",
+      "Transformer Models",
+      "Legal Text",
+      "Visualizing Attention",
+      "Explainability",
+      "NLP"
+    ],
+    "direct_cooccurrence_count": 761,
+    "min_pmi_score_value": 2.6859760816011624,
+    "avg_pmi_score_value": 5.058102612211685,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "3101 Biochemistry and Cell Biology"
+    ],
+    "future_suggestions_concepts": [
+      "deep neural networks",
+      "ML methods",
+      "omics data types",
+      "AI algorithms",
+      "gaze-based interaction",
+      "Local Interpretable Model-Agnostic Explanations",
+      "plant phenotyping",
+      "bioinformatics tools",
+      "omics data",
+      "DL models",
+      "electronic health records",
+      "state-of-the-art visualization",
+      "representation space",
+      "decision boundary",
+      "image similarity",
+      "Siamese network",
+      "layer-wise relevance propagation"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines adapting Grad-CAM to transformer attention maps by aggregating multi-head attentions and gradients to create heatmaps over legal text tokens. However, the description lacks sufficient detail on how Grad-CAM—originally designed for convolutional layers on images—will be robustly adapted to the fundamentally different architecture of multi-head self-attention in transformers. Without clear methodological elaboration or theoretical justification on handling attention heads, gradient aggregation, and token-level localization, the soundness of this adaptation is questionable. It is strongly recommended to include algorithmic details or preliminary validations demonstrating the validity of this approach within transformer models, specifically for legal NLP tasks, to strengthen the proposal's conceptual clarity and technical soundness in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is generally well structured but lacks discussion of potential pitfalls and controls needed to ensure results are interpretable and replicable, especially given the known noisiness of attention-based explanations. For instance, more explicit plans are needed for quantitative evaluation metrics beyond human expert rankings, such as faithfulness or robustness measures for explanation quality. Also, contingency plans to address attention noise are mentioned only as fallback options, but an integrated approach combining multiple explanation modalities upfront might be more feasible. Enhancement of this section to explicitly define evaluation criteria, baseline comparisons, and strategies for handling explanation noise will significantly increase the experiment plan's feasibility and scientific rigor."
+        }
+      ]
+    }
+  }
+}

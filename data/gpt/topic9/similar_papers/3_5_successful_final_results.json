@@ -1,0 +1,70 @@
+{
+  "before_idea": {
+    "title": "Multimodal Explainability for Legal AI Combining Text and Visual Evidence",
+    "Problem_Statement": "Explainability for legal AI models predominantly focuses on textual explanations, but many legal decisions rely on visual evidence (e.g., signatures, diagrams) which remains underexplored, limiting holistic interpretability.",
+    "Motivation": "Filling a novel cross-domain gap, this work synthesizes multimodal XAI techniques from biomedical informatics and cybersecurity (which integrate image-text explainability) to create hybrid explanation models that enhance understanding of complex legal documents combining text and visuals.",
+    "Proposed_Method": "Develop a multimodal explainability architecture that aligns textual explanations from legal LLMs with visual evidence highlighted via attention maps and concept attribution. Incorporate cross-modal explanation fusion modules that provide coherent, synchronized explanations. The system supports user-controlled interaction to explore explanations across modalities, improving legal reasoning transparency.",
+    "Step_by_Step_Experiment_Plan": "1) Gather multimodal legal datasets containing text and associated visual evidence (e.g., signed contracts with annotations). 2) Train joint multimodal legal LLMs with explanation capabilities. 3) Implement attention and attribution techniques for both modalities. 4) Develop fusion methods to integrate textual and visual explanation outputs. 5) Evaluate against unimodal baselines on user trust, explanation completeness, and decision support metrics with legal experts.",
+    "Test_Case_Examples": "Input: Contract clause alongside handwritten signature image. Output: Explanation highlighting key textual clauses and visual evidence authenticity concerns with aligned attention visuals and textual rationales for each modality.",
+    "Fallback_Plan": "If multimodal fusion reduces explanation clarity, offer separate modality explanations synchronized by time and content. Alternatively, integrate stepwise explanations where visual evidence explanation precedes textual rationale or vice versa. Experiment with different fusion architectures to optimize interpretability."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Semantically Grounded Multimodal Explainability for Legal AI via Advanced Concept Retrieval and Robust Fusion",
+        "Problem_Statement": "Explainability for legal AI models predominantly focuses on textual explanations, yet many legal decisions rely on multimodal evidence including visual artifacts such as signatures, stamps, and annotated diagrams, which remain underexplored. This limits the holistic interpretability and trustworthiness needed for critical legal reasoning.",
+        "Motivation": "While prior work has examined unimodal textual explanations and separate visual attention in specialized domains, integrating and semantically grounding textual and visual explanations in legal AI models remains lacking and competitively novel. Leveraging advanced concept retrieval aligned with established legal ontologies enhances semantic meaningfulness beyond low-level attention. Incorporating robust sanity checks addresses known concerns about spurious attributions in XAI. Drawing on multimodal data fusion techniques from biomedical informatics and multi-sensor fusion domains, this research aims to establish a novel, coherent explanation paradigm that advances legal AI transparency and expert trust.",
+        "Proposed_Method": "We propose a multimodal explainability architecture that: (1) employs advanced legal concept retrieval mechanisms to map textual and visual features to semantically relevant legal concepts, ensuring explanations are legally grounded and interpretable; (2) implements cross-modal fusion modules inspired by multi-sensor fusion techniques to coherently integrate textual and visual explanation signals; (3) embeds rigorous sanity checks (e.g., model parameter randomization tests and explanation perturbation analyses) within explanation modules to validate explanation reliability; (4) utilizes transfer learning from state-of-the-art pretrained multimodal models (e.g., CLIP-based legal domain adaptations) to address domain adaptation and computational feasibility; (5) supports user-interactive explanation exploration across synchronized modalities, enhancing practical transparency. This holistic integration of concept retrieval, robust evaluation, and multimodal fusion differentiates the approach in the competitive landscape.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Assembly: Source existing multimodal legal datasets, such as the DocBank dataset for document layout (text plus visual annotations) and the FUNSD dataset for form understanding, combined with publicly available signed contract corpora with visual signatures. Develop an annotation framework to label visual evidence (e.g., handwritten signatures, stamps) aligned with legal concepts, involving legal expert collaboration for high-quality annotations.\n2) Model Prototyping and Transfer Learning: Initialize joint multimodal models by fine-tuning pretrained architectures (e.g., CLIP variants) on assembled datasets for legal domain alignment. Modularize explanation modules to separately handle each modality while allowing cross-modal communication.\n3) Concept Retrieval Integration: Implement a legal ontology-based concept retrieval system that maps textual tokens and visual regions to corresponding legal concepts, integrating these into explanation layers.\n4) Explanation Fusion and Sanity Checks: Develop fusion techniques inspired by biomedical multi-sensor data fusion to merge textual and visual explanation outputs. Apply sanity checks such as randomization tests and input perturbations to verify explanation stability.\n5) User Study Design: Recruit practicing legal experts as participants. Design tasks involving document examination and decision support using generated multimodal explanations. Collect quantitative trust metrics (e.g., Likert scale ratings) and qualitative feedback via structured interviews to assess explanation completeness, clarity, and utility.\n6) Benchmarking: Compare against unimodal textual and visual baselines on metrics including explanation fidelity, trust, and decision support effectiveness.\n7) Iterative Refinement: Use study outcomes to refine fusion architectures and concept retrieval mappings.",
+        "Test_Case_Examples": "Input: A contract clause containing dense legal language accompanied by a handwritten signature image and a notarization stamp. Output: Explanations segmented by modality and fused coherently—textual explanations highlight critical legal clauses mapped to defined legal concepts; visual explanations emphasize signature authenticity signals and stamp validity with concept attribution; synchronized attention maps demonstrate cross-modal reasoning; all explanations pass sanity checks confirming reliability.",
+        "Fallback_Plan": "If joint multimodal fusion obscures explanation clarity, we will pivot to presenting parallel but semantically synchronized modality-specific explanations linked via legal concept indices and temporal alignment. Alternatively, a stepwise explanation approach will be explored, delivering visual evidence explanation prior to textual rationale or vice versa, enabling clearer cognitive processing. Different fusion architectures, including hierarchical and attention-based data fusion methods, will be experimented with to optimize interpretability. Extensive ablation studies will guide strategy refinement."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multimodal Explainability",
+      "Legal AI",
+      "Text and Visual Evidence",
+      "Hybrid Explanation Models",
+      "Cross-domain XAI Techniques",
+      "Holistic Interpretability"
+    ],
+    "direct_cooccurrence_count": 1665,
+    "min_pmi_score_value": 4.70442698135102,
+    "avg_pmi_score_value": 6.369413334575019,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "deep neural networks",
+      "multimodal data fusion",
+      "data fusion",
+      "Local Interpretable Model-Agnostic Explanations",
+      "multi-sensor fusion",
+      "generative adversarial network",
+      "concept retrieval",
+      "sanity checks",
+      "biodiversity research",
+      "analysis of artificial intelligence",
+      "skin cancer detection",
+      "high-quality datasets",
+      "Pima Indians Diabetes Database"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan requires refinement to better assure feasibility and reproducibility. Specifically, gathering multimodal legal datasets with high-quality annotations combining text and visual evidence (e.g., handwritten signatures, diagrams) is a nontrivial challenge that needs clearer sourcing or creation strategy. The proposal should specify concrete dataset candidates or a detailed annotation framework to ensure availability and suitability. Moreover, training joint multimodal legal LLMs with explanation capabilities demands significant computational resources and may face domain adaptation hurdles; the plan should mention preliminary steps like model selection, transfer learning from existing multimodal models, or modular prototyping. Lastly, the evaluation protocol should be expanded beyond high-level metrics to include concrete user study designs with legal experts, detailing participant selection, tasks, and quantitative and qualitative assessment methods to robustly measure trust and explanation completeness. These enhancements will improve experimental soundness and practical feasibility substantially.\n\n---\n\nTarget Section: Step_by_Step_Experiment_Plan"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty verdict (NOV-COMPETITIVE) and the idea's ambition to fuse textual and visual explainability in legal AI, a promising direction is to integrate advanced concept retrieval techniques and rigorously apply sanity checks within the explanation modules. Leveraging concept retrieval could yield more semantically meaningful and legally grounded explanations by aligning explanations with established legal concepts rather than only low-level features. Similarly, embedding sanity check protocols will improve explanation reliability, addressing concerns in XAI about spurious attention or artifact-driven explanations. Additionally, exploring joint training with data fusion methods from related domains like biomedical informatics and multi-sensor fusion could enrich the fusion module, enhancing coherent cross-modal reasoning. This strategic global integration promises to elevate both novelty and impact, differentiating the model in this competitive area.\n\n---\n\nTarget Section: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

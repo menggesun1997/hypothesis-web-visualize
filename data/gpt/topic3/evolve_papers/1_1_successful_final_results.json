@@ -1,0 +1,63 @@
+{
+  "before_idea": {
+    "title": "Hybrid NLI and Noisy Channel Model for Domain-Adapted Factual Consistency Assessment",
+    "Problem_Statement": "Existing factual consistency models in domain-specific NLP largely rely on NLI or neural sequence modeling independently, failing to leverage the complementary strengths of probabilistic error modeling from noisy channel approaches. This limits robustness in detecting hallucinations in specialized domains.",
+    "Motivation": "This idea targets the critical internal gap of model brittleness and the external gap of underexplored synergy between NLI and noisy channel models (high-potential innovation opportunity 2), proposing their principled integration to better model domain-specific inconsistency.",
+    "Proposed_Method": "We design a hybrid framework combining an NLI-based entailment system with a probabilistic noisy channel model that explicitly models possible error transformations (e.g., paraphrasing, omission, hallucination). The noisy channel component estimates likelihoods of observed outputs under diverse error hypotheses conditioned on the input. NLI scores provide entailment judgments that modulate the noisy channel probabilities, producing a domain-adaptive factual consistency score that reflects both semantic entailment and error likelihood. The model is trained end-to-end on synthesized noisy examples generated from domain corpora to capture distributional shifts.",
+    "Step_by_Step_Experiment_Plan": "1) Collect domain-specific corpora from biomedical and clinical sources. 2) Generate synthetic noisy outputs simulating hallucination patterns. 3) Train the hybrid model and baselines (pure NLI and pure channel models). 4) Evaluate on human curated factual consistency datasets with domain-specific annotations. 5) Analyze robustness on out-of-distribution examples and domain shift scenarios.",
+    "Test_Case_Examples": "Input: Domain-specific claim and generated summary segment. Output: A grounded factual consistency score distinguishing subtle contradictions and hallucinations missed by standard NLI or channel-only methods.",
+    "Fallback_Plan": "If training end-to-end is challenging, implement modular post hoc fusion of NLI and channel scores via learned gating or calibration models. Explore alternate channel error models informed by domain ontologies."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Explicitly Fused Hybrid NLI and Noisy Channel Model with Domain-Specific Error Taxonomy for Robust Factual Consistency Assessment",
+        "Problem_Statement": "Current factual consistency assessment methods in domain-specific NLP either rely solely on Natural Language Inference (NLI) or on probabilistic noisy channel models, missing out on their complementary strengths. Moreover, existing hybrid approaches lack explicit mechanisms to fuse semantic entailment signals with error likelihood estimations, reducing interpretability and robustness—especially when detecting nuanced hallucinations across diverse biomedical and clinical texts. Additionally, synthetic data generation to train such models often inadequately simulates realistic hallucination patterns, limiting model generalization and robustness under domain shift.",
+        "Motivation": "Although prior works propose combining NLI and noisy channel modeling for factuality evaluation, they often overlook the need for an explicit, interpretable fusion mechanism and rigorous synthetic data grounded on expert-validated error taxonomies, which are critical for tackling the brittleness of existing models in highly specialized domains. Addressing this internal gap with a principled fusion approach and the external gap related to realistic error synthesis and robust evaluation distinguishes our proposal. By integrating insights from human-computer interaction on gating mechanisms and software engineering best practices for modular design, our hybrid model aims to surpass baseline approaches, ensuring practical applicability and superior domain-adaptive factual consistency assessment.",
+        "Proposed_Method": "We propose an explicit fusion framework where NLI entailment scores and noisy channel probabilities interact via a learnable gating mechanism modeled as a sigmoid-activated neural network component. Formally, given input claim c and generated summary s, the noisy channel model computes P(s|c,e) conditioned on error hypotheses e (e.g., paraphrase, omission, hallucination) derived from a domain-specific error taxonomy. Concurrently, an NLI model provides entailment score E(c,s). We define the fused factual consistency score F(c,s) as:\n\nF(c,s) = G(E(c,s)) * P(s|c,e) + (1 - G(E(c,s))) * (P(s|c,e))\n\nwhere G() is the learned gating function modulating the contribution of each component, ensuring interpretable, adaptive integration. The noisy channel's error hypotheses are informed by structured ontologies specific to biomedical and clinical domains. \n\nTraining proceeds end-to-end on synthesized data generated from carefully curated domain corpora, where synthetic noisy outputs are produced using error simulation functions parametrized from an expert-validated hallucination taxonomy, balancing frequency across error modes to avoid bias. Supervision uses a combination of known error mode labels and factual consistency annotations, enabling multi-task learning to stabilize training. This modular design facilitates human-computer interaction for model interpretability and debugging via software engineering best practices.",
+        "Step_by_Step_Experiment_Plan": "1) Gather large biomedical and clinical corpora with expert-curated factual consistency annotations, alongside ontologies defining typical hallucination and error types.\n2) Collaborate with domain experts to create and validate a taxonomy of hallucination error modes and map these to synthetic noise generation functions.\n3) Implement the hybrid model with explicit gating fusion as described, and develop modular components for NLI, noisy channel modeling, and fusion.\n4) Generate synthetic noisy examples following the validated taxonomy, ensuring balanced representation across error modes.\n5) Train the model end-to-end with multi-task objectives incorporating entailment supervision and error mode classification.\n6) Evaluate on held-out human-annotated domain datasets, measuring standard metrics and robustness criteria such as cross-domain generalization via transfer learning experiments.\n7) Conduct ablation studies to assess the impact of gating fusion, taxonomy-informed noise synthesis, and multi-task training.\n8) Report detailed benchmark comparisons with state-of-the-art baselines, including standard NLI, channel-only, and naive score fusion methods.",
+        "Test_Case_Examples": "Input: Biomedical claim 'Patient with rheumatoid arthritis was treated with methotrexate.' and generated summary segment 'The patient received methotrexate to manage arthritis symptoms.'\nOutput: Factual consistency score blending an NLI entailment score (e.g., 0.85) and noisy channel probability adjusted by the gating network (e.g., 0.80), yielding a final fused score (e.g., 0.83). This score discriminates subtle hallucination cases such as omission (missing patient context) or factual distortion (wrong medication), which standalone models may misclassify.",
+        "Fallback_Plan": "If end-to-end training proves unstable, we will employ a staged training approach: separately train NLI and noisy channel models, then learn the gating function post hoc using calibration datasets. We will also explore simpler fusion methods such as weighted linear interpolation with weights learned via domain-adaptive regression. Alternative error model induction using semi-supervised clustering aligned with domain ontologies will be tested to produce diversified synthetic noise."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Hybrid NLI",
+      "Noisy Channel Model",
+      "Domain-Adapted",
+      "Factual Consistency",
+      "Model Brittleness",
+      "Neural Sequence Modeling"
+    ],
+    "direct_cooccurrence_count": 32,
+    "min_pmi_score_value": 3.2216822865076953,
+    "avg_pmi_score_value": 4.612938031574541,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "human-computer interaction",
+      "pattern recognition",
+      "Computing and Information Technology",
+      "customer relationship management",
+      "software engineering",
+      "International Conference on Software Engineering"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposed hybrid framework combines NLI and noisy channel models to leverage their complementary strengths, the method description lacks clarity on how the integration of NLI entailment scores and noisy channel probabilities is operationalized in practice. For example, it is unclear how the modulation of noisy channel probabilities by NLI scores is implemented: is this via multiplication, learned gating, or another fusion technique? Also, the approach to training end-to-end on synthesized data needs clarification on the supervision signals used and how error modes are balanced to avoid bias towards common patterns. Enhancing the description with a more detailed formal mechanism and illustrative equations or diagrams would strengthen the soundness and reproducibility of the method proposal. This clarity is critical given the complexity of combining probabilistic models with entailment judgments in domain-adaptive factual consistency assessment, ensuring the approach is well-founded and interpretable by peers in this competitive area. Targeting Proposed_Method section for elaboration is recommended to make the mechanism more explicit and theoretically grounded."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experiment plan proposes a reasonable sequential approach from data collection to evaluation on human-annotated datasets and robustness assessments. However, feasibility concerns arise related to the generation of sufficiently realistic synthetic noisy outputs that effectively simulate domain-specific hallucination patterns. Since hallucinations can be subtle and diverse, the synthetic data generation strategy needs to be carefully designed and validated, possibly including expert input or usage of existing error taxonomies. Additionally, the plan lacks explicit strategies to address potential domain shift and out-of-distribution generalization, such as cross-validation between domains or transfer learning protocols. Clear metrics for robustness and detailed criteria for benchmark comparisons against strong baselines should also be specified. Strengthening the experimental design with these considerations would enhance reproducibility and result interpretability, ensuring the feasibility and scientific soundness of the validation pipeline, particularly in challenging biomedical and clinical domains."
+        }
+      ]
+    }
+  }
+}

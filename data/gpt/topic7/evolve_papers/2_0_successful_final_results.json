@@ -1,0 +1,66 @@
+{
+  "before_idea": {
+    "title": "Multiobjective Genetic Optimization for Replicable LLM Fine-Tuning and Prompting",
+    "Problem_Statement": "Current replicability research on LLMs overlooks multi-dimensional evaluation that balances performance, robustness, and reproducibility when using fine-tuning versus prompt engineering. This single-objective focus limits reliable deployment.",
+    "Motivation": "Addresses the internal gap on lacking explicit multiobjective replicability criteria and the first high-potential innovation opportunity by developing a comprehensive framework integrating NSGA-II-inspired optimization into LLM pipelines for replicability.",
+    "Proposed_Method": "We propose a multiobjective optimization framework embedding a NSGA-II genetic algorithm to jointly optimize fine-tuning hyperparameters and prompt templates. The framework evaluates candidate solutions on accuracy, robustness to distribution shifts, and replicability metrics (e.g., experimental variance). It maintains a Pareto front of optimal trade-offs, guiding users toward configurations maximizing multi-dimensional replicability.",
+    "Step_by_Step_Experiment_Plan": "1. Select datasets from natural language understanding benchmarks (e.g., GLUE, SuperGLUE). 2. Use open-source LLMs (e.g., GPT-2, T5). 3. Compare fine-tuning and prompt engineering individually and combined. 4. Implement NSGA-II optimization framework to generate hyperparameter and prompt sets. 5. Baselines include standard single-objective tuning and manual prompt engineering. 6. Metrics: accuracy, robustness (e.g., adversarial and out-of-distribution tests), replicability (variance over multiple runs).",
+    "Test_Case_Examples": "Input: The prompt \"Summarize the following article\" optimized for joint objectives; Dataset: CNN/Daily Mail summarization; Expected Output: A summary with high ROUGE score, consistent quality across multiple runs, and stable performance under phrasing variations in prompts.",
+    "Fallback_Plan": "If multiobjective optimization does not converge or yields trivial solutions, fallback includes simplifying objectives or applying surrogate models for fitness estimation. Debugging involves ablation studies to evaluate objective importance and redesigning mutation strategies for genetic diversity."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Multiobjective Genetic Optimization for Replicable LLM Fine-Tuning and Prompting with Software Engineering Integration and Scalability Enhancements",
+        "Problem_Statement": "Existing replicability research on large language models (LLMs) predominantly targets singular performance metrics, neglecting a holistic multiobjective perspective that encompasses not only accuracy, robustness, and reproducibility, but also software engineering-centric attributes crucial for real-world deployment such as maintainability, interpretability, and deployment efficiency. Moreover, current multiobjective optimization approaches, like NSGA-II, face practical limitations when scaling over the expansive hyperparameter and prompt template spaces of large, resource-intensive LLMs. This gap impedes reliable, resource-conscious tuning and prompt engineering for replicable LLM applications in production environments.",
+        "Motivation": "While multiobjective genetic algorithms have been applied in LLM tuning, their isolated focus lacks integration with software engineering concerns that define deployment success in industry contexts. This results in NOV-COMPETITIVE approaches with limited impact. To transcend this, we propose a novel confluence of Search-Based Software Engineering (SBSE) principles and multiobjective genetic optimization tailored for LLM fine-tuning and prompting. This fusion expands the optimization criteria beyond accuracy, robustness, and replicability to include software lifecycle dimensions such as maintainability, interpretability, and computational resource efficiency. Additionally, we address computational feasibility challenges inherent in NSGA-II over large search spaces via surrogate modeling, adaptive pruning, and runtime estimation strategies. This enables practical, scalable exploration within constrained budgets, providing a replicability framework that is both methodologically rigorous and deployment-aware, primed for venues emphasizing AI-for-software engineering advances.",
+        "Proposed_Method": "We develop a multiobjective optimization framework embedding an enhanced NSGA-II genetic algorithm guided by Search-Based Software Engineering (SBSE) principles that jointly optimize fine-tuning hyperparameters, prompt templates, and software engineering metrics. Objectives include: (1) predictive accuracy; (2) robustness to predefined distribution shifts and adversarial perturbations; (3) replicability measured by experimental variance across repeated runs; (4) software maintainability via modular configuration complexity metrics; (5) interpretability assessed by prompt simplicity and generated model explanation fidelity; and (6) computational efficiency quantified by estimated training and inference costs. To surmount computationally prohibitive evaluations over large hyperparameter and prompt template spaces on resource-intensive models like T5, we incorporate surrogate modeling to estimate objective scores, adaptive pruning to discard low-potential candidates early, and runtime prediction modules to manage resource budgets dynamically. This hybrid approach balances exhaustive search quality and practical feasibility. Evaluations utilize established NLU benchmarks (GLUE, SuperGLUE) with standardized distribution shift scenarios, while software engineering metrics derive from established SBSE quantitative frameworks. The method outputs a Pareto front of diverse, deployment-ready, multi-criteria optimal configurations, enabling practitioners to navigate trade-offs aligned with operational constraints and lifecycle goals.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Selection: Use natural language understanding benchmarks (GLUE, SuperGLUE) and summarization datasets (CNN/Daily Mail). 2. Model Selection: Employ open-source LLMs including GPT-2 and resource-intensive T5 to test scalability. 3. Objective Specification: Define concrete metrics for accuracy, robustness (including adversarial attacks like TextFooler, and distribution shifts such as domain transfer), replicability (variance over 5+ repeated runs), maintainability (using configuration complexity scores from SBSE literature), interpretability (quantitative prompt simplicity and explanation metrics), and computational cost (GPU hours, memory footprint). 4. Framework Implementation: Build the NSGA-II based optimization with surrogate models (e.g., Gaussian Processes) trained on a small set of true evaluations, adaptive pruning strategies to remove dominated or resource-inefficient candidates early, and runtime estimation modules to keep experiments within a specified computational budget. 5. Baselines: Compare against standard single-objective tuning, manual prompt engineering, and multiobjective optimization without software engineering metrics or scalability enhancements. 6. Evaluation: Report Pareto fronts, detailed metric breakdowns, robustness validation under defined shifts and adversarial scenarios, and thorough computational resource utilization and runtime analyses, showcasing feasibility and replicability under realistic constraints.",
+        "Test_Case_Examples": "Input: Prompt configuration \"Summarize the following article\" optimized jointly for accuracy, robustness, replicability, maintainability, interpretability, and computational efficiency. Dataset: CNN/Daily Mail summarization set. Expected Output: Summaries scoring high on ROUGE metrics, demonstrating stable quality across repeated runs, sustaining performance under paraphrased prompt variants and adversarial perturbations, generated via configurations with low complexity scores for maintainability and prompt interpretability, while respecting defined computational budgets (e.g., no more than 24 GPU hours per optimization run). Additional test inputs include domain-shifted texts and adversarial samples to validate robustness claims.",
+        "Fallback_Plan": "If the multiobjective NSGA-II optimization struggles to converge or yields dominated/trivial solutions due to the complexity of software engineering metrics or surrogate inaccuracies, fallback strategies include: (a) simplifying the objective set by prioritizing core metrics and iteratively adding software engineering objectives in a phased manner; (b) enhancing surrogate model fidelity with active learning and incremental retraining; (c) applying alternative search-based SE metaheuristics, such as Bayesian optimization or differential evolution, known for faster convergence; (d) modularizing the pipeline to separate hyperparameter tuning from prompt optimization for independent study; and (e) performing ablation studies and sensitivity analyses to identify and refine critical objectives and mutation strategies for diversity and exploration efficiency."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multiobjective Genetic Optimization",
+      "LLM Fine-Tuning",
+      "Prompting",
+      "Replicability",
+      "NSGA-II",
+      "Performance-Robustness-Reproducibility Balance"
+    ],
+    "direct_cooccurrence_count": 18,
+    "min_pmi_score_value": 2.033839536022618,
+    "avg_pmi_score_value": 4.888239468970649,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4606 Distributed Computing and Systems Software",
+      "40 Engineering"
+    ],
+    "future_suggestions_concepts": [
+      "Search-Based Software Engineering",
+      "International Conference on Software Engineering",
+      "intelligent computing",
+      "application of AI",
+      "communication techniques",
+      "information networks",
+      "low-power wireless communication",
+      "next-generation wireless systems",
+      "application of computer network"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan effectively outlines datasets, models, and metrics that align with the multiobjective optimization goals. However, it lacks clarity on the computational feasibility and complexity of implementing NSGA-II over large hyperparameter and prompt template spaces, especially for resource-intensive LLMs like T5. The plan should concretely address resource requirements, expected runtime, and strategies to scale or approximate the search (e.g., surrogate modeling, pruning) to ensure practical feasibility of experiments within typical project timelines and computational budgets. Additionally, details on robustness evaluation (types of distribution shifts and adversarial methods) could be better specified for reproducibility and clarity of claims. Strengthening these aspects will improve confidence in the proposed experimental validation's completeness and robustness under real-world constraints, which is critical for replicability research focused on multiobjective dimensions. This refinement fits under [FEA-EXPERIMENT]."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty assessment identifies the idea as NOV-COMPETITIVE due to strong overlaps between multiobjective genetic optimization and LLM tuning/prompting literature, integrating concepts from the 'Search-Based Software Engineering' (SBSE) field could provide distinctive novelty and impact. For instance, framing the NSGA-II optimization within an SBSE perspective that emphasizes software engineering metrics related to model deployment, maintainability, or interpretability could expand the multiobjective criteria beyond purely performance, robustness, and replicability metrics. This integration can foster cross-disciplinary insights and align fine-tuning and prompting optimizations with software process improvements valued at venues like ICSE or related AI-for-SE workshops. Adding such software lifecycle-aware objectives and evaluation methods would broaden impact, enhance novelty, and increase relevance for both AI and software engineering communities. This suggestion corresponds to [SUG-GLOBAL_INTEGRATION]."
+        }
+      ]
+    }
+  }
+}

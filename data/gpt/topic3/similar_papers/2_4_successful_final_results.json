@@ -1,0 +1,87 @@
+{
+  "before_idea": {
+    "title": "Cross-Disciplinary Cognitive Semantic Filtering for Retrieval-Augmented Generation",
+    "Problem_Statement": "Current retrieval filtering does not leverage cognitive science-inspired semantic filters, limiting interpretability and relevance in medical NLP applications.",
+    "Motivation": "Exploits the hidden bridge linking cognitive science and retrieval mechanisms by integrating cognitive semantic filtering layers based on human concept categorization and memory models to enhance retrieval precision and reduce irrelevant or hallucinated content.",
+    "Proposed_Method": "Design a cognitive semantic filter module that scores candidate retrievals by semantic congruence with the prompt, guided by models of human semantic memory (e.g., spreading activation, semantic networks). Integrate this filtering step before generation in RAG pipelines for medical queries.",
+    "Step_by_Step_Experiment_Plan": "1. Select behavioral therapy and medical Q&A datasets. 2. Implement semantic memory-inspired filter using graph traversal and embedding similarities. 3. Compare RAG with and without cognitive filtering. 4. Use metrics: retrieval precision, clinical relevance, hallucination rate. 5. Conduct user studies measuring interpretability and trust.",
+    "Test_Case_Examples": "Input: \"Explain usage of CBT techniques in anxiety.\" Output: Generation based only on tightly semantically filtered, relevant documents improving factuality and alignment with therapeutic concepts.",
+    "Fallback_Plan": "If filter is too restrictive, tune semantic thresholds or augment with learned similarity functions trained on expert annotations."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Graph Neural Network-Enhanced Cognitive Semantic Filtering for Multi-Modal Retrieval-Augmented Generation in Medical NLP",
+        "Problem_Statement": "Current retrieval filtering methods in medical NLP often fall short in interpretability and precision because they insufficiently incorporate human cognitive semantic mechanisms, and rely on brittle heuristic or text-only similarity filters that do not generalize well across diverse terminologies and synonyms prevalent in clinical texts.",
+        "Motivation": "To overcome limitations of existing retrieval-augmented generation (RAG) pipelines, this work bridges cognitive science insights with cutting-edge graph neural networks (GNNs) and multi-modal representation learning. By integrating semantic memory-inspired cognitive models with end-to-end learned graph filters operating over medical knowledge graphs enriched with textual and structured concept embeddings, the proposed method aims to significantly improve semantic congruence scoring, retrieval precision, and ultimately generation factuality in clinical contexts. This synergistic fusion addresses competitive novelty gaps by advancing from fixed heuristic filters to a scalable, interpretable, and differentiable framework leveraging joint latent spaces for multi-modal concept representation and retrieval filtering.",
+        "Proposed_Method": "We propose a cognitive semantic filtering module at the retrieval stage of RAG pipelines that combines established cognitive semantic memory frameworks with contemporary graph neural network architectures and multi-modal embedding techniques. \n\nAlgorithmically, the approach constructs a comprehensive medical knowledge graph (KG) incorporating nodes representing clinical concepts, documents, and terminologies extracted from medical ontologies and semantic networks (e.g., UMLS, SNOMED CT). Each node is endowed with multi-modal embeddings, jointly learned to capture textual features (via pretrained language models) and structured domain knowledge embeddings, creating a unified latent space.\n\nA GNN-based semantic filter operates over this KG, propagating activation signals analogous to cognitive spreading activation mechanisms, but learned end-to-end to optimize relevance scoring. Messages passed along edges dynamically weigh semantic relations and synonyms, addressing diverse terminology without hard exclusion. The filter outputs a semantic congruence score for each retrieved candidate based on its graph-embedded context relative to the query prompt embedding, balancing cognitive plausibility and computational tractability.\n\nThis module integrates seamlessly before the generation step, filtering candidate documents by learned thresholds, refined through training on expert-annotated clinical Q&A pairs optimizing retrieval precision and hallucination reduction.\n\nPseudocode (high-level):\n\n1. Construct KG with nodes = {concepts, documents}; edges = {semantic relations, document-concept links}\n2. Embed nodes with joint textual+structured embeddings\n3. For each query:\n    a. Compute query embedding in joint latent space\n    b. Initialize query activation signal on relevant KG nodes\n    c. Apply GNN message passing for K layers to spread activation\n    d. Score candidate retrievals by their node activation levels + embedding similarity\n    e. Filter candidates exceeding threshold for downstream generation\n\nA diagram illustrating KG construction, embedding integration, GNN propagation, and filtering decision complements this explanation.\n\nThis design explicitly tackles vocabulary variability by learned propagation over semantic relations and synonym links, avoiding overly restrictive filtering. The model adapts both its filtering strictness and representational alignment through end-to-end training, enhancing trust and safety in clinical NLP.",
+        "Step_by_Step_Experiment_Plan": "1. Collect and preprocess datasets: clinical Q&A corpora and behavioral therapy dialogue data; construct aligned medical knowledge graphs with ontology integration.\n2. Implement multi-modal embedding pipelines combining pretrained clinical language models and structured concept embedding learning.\n3. Develop the GNN-based cognitive semantic filter, including spreading activation inspired message passing layers.\n4. Train the filtering module end-to-end on expert-curated relevance annotations to optimize semantic congruence scoring.\n5. Integrate filter into RAG pipeline and benchmark against baseline filters (heuristic, embedding-only) across retrieval precision, clinical relevance, hallucination reduction.\n6. Conduct human evaluation studies assessing interpretability, trust, and practical utility with clinical experts.\n7. Perform ablations isolating GNN components, multi-modal embeddings, and cognitive modeling contributions.",
+        "Test_Case_Examples": "Input: \"Explain evidence-based CBT approaches for post-traumatic stress disorder management.\"\n\nExpected output: Generation grounded in documents tightly filtered through the learned KG-based GNN semantics that accurately reference pertinent therapeutic techniques, minimizing hallucinated or irrelevant content. The filter effectively bridges terminologies like 'trauma-focused therapy' and 'CBT' through learned synonym propagation in the medical KG embeddings.",
+        "Fallback_Plan": "If the learned GNN filter exhibits unexpected overly restrictive behavior or computational inefficiencies, fallback strategies include:\n- Adjusting activation thresholds and propagation steps to balance recall and precision.\n- Incorporating additional training data or expert annotations to better capture terminological variability.\n- Implementing hybrid filtering combining GNN semantic scores with complementary embedding similarity metrics.\n- Simplifying the KG structure or edge types to reduce model complexity.\nThese measures ensure robust and adaptable filtering while preserving the core novelty of cognitive-inspired, multi-modal graph neural semantic filtering."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Cognitive Semantic Filtering",
+      "Retrieval-Augmented Generation",
+      "Human Concept Categorization",
+      "Memory Models",
+      "Medical NLP",
+      "Retrieval Precision"
+    ],
+    "direct_cooccurrence_count": 13944,
+    "min_pmi_score_value": 3.7572385955702927,
+    "avg_pmi_score_value": 5.748300914968791,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "40 Engineering",
+      "46 Information and Computing Sciences",
+      "32 Biomedical and Clinical Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "convolutional neural network",
+      "few-shot learning",
+      "graph neural networks",
+      "sentic computing",
+      "convolutional neural network components",
+      "natural language understanding",
+      "artificial neural network",
+      "data challenge",
+      "kernel learning",
+      "gradient boosted trees",
+      "support vector machine",
+      "generative adversarial network",
+      "long short-term memory",
+      "small-data challenge",
+      "automatic generation of features",
+      "intelligent decision-making",
+      "vision-language models",
+      "multi-modal representation learning",
+      "FSL methods",
+      "learning models",
+      "word embeddings",
+      "deep learning models",
+      "vision-language pre-training",
+      "manual annotation",
+      "latent space",
+      "downstream tasks",
+      "multi-modal representation",
+      "joint latent space",
+      "traditional machine learning techniques"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines integrating a cognitive semantic filter inspired by human semantic memory models (e.g., spreading activation, semantic networks), but it lacks sufficient detail about how these cognitive principles will concretely translate into computational procedures within the RAG pipeline. Clarify the precise algorithmic implementation (e.g., how graph traversal will be combined with embedding similarity scores) and how semantic congruence scoring balances between cognitive plausibility and computational efficiency. This clarity is needed to assess the method’s soundness and reproducibility reliably, especially in the medical domain where precision is critical and interpretability claims are made. Consider providing pseudocode or a diagram to strengthen the methodological exposition in the main proposal section 'Proposed_Method'. Also, explain how the filter avoids overly restrictive exclusion of relevant documents that may use varied terminologies or synonyms common in medical texts rather than only exact semantic fits, beyond just the Fallback_Plan tuning strategy. This mechanistic transparency is key for peer reviewers and practitioners assessing feasibility and impact potential in clinical NLP contexts, where filtering precision impacts trust and safety directly.  \n\nTarget section: Proposed_Method"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty verdict of NOV-COMPETITIVE, the idea can gain stronger impact and novelty by integrating recent advances in graph neural networks (GNNs) and multi-modal representation learning to enhance the cognitive semantic filter. Specifically, reformulate the semantic memory-inspired filter using graph neural networks operating over knowledge graphs constructed from medical ontologies and semantic networks. This allows learned, end-to-end optimized filtering rather than rule-based or fixed heuristic filtering. Additionally, incorporate joint latent spaces combining textual embeddings and structured domain knowledge (e.g., clinical concept embeddings), which leverages multi-modal representation learning paradigms to improve semantic congruence scoring beyond text-only similarity measures. These integrations would align with globally trending concepts like 'graph neural networks', 'multi-modal representation learning', and 'joint latent space'. Such refinement will boost the feasibility, interpretability, and precision of the filtering mechanism, improve downstream generation factuality, and distinguish the work from existing RAG filtering approaches, addressing the competitive novelty landscape effectively.\n\nTarget section: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

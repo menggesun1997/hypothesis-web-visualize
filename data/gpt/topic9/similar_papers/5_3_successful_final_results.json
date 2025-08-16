@@ -1,0 +1,75 @@
+{
+  "before_idea": {
+    "title": "Supervised Contrastive Learning for Explainable Social Bias Detection",
+    "Problem_Statement": "Detecting subtle and context-dependent biases in social media text requires models that not only perform well but also provide explainable rationale for decisions, which current methods lack sufficiently.",
+    "Motivation": "Targets the internal gap of subtle bias detection and opacity by expanding on Opportunity 1 to specifically utilize supervised contrastive learning to enhance decision boundaries while maintaining interpretability through attention mechanisms, a novel combination as per the research map.",
+    "Proposed_Method": "Train large transformer-based LLM encoders with supervised contrastive loss to cluster biased and non-biased examples separately in embedding space, improving sensitivity. Integrate attention visualization to output human-readable feature importance for bias indications. Incorporate a bias explanation module that summarizes detected bias types in natural language based on salient features.",
+    "Step_by_Step_Experiment_Plan": "1. Prepare bias-labeled social media datasets with diverse bias categories. 2. Fine-tune pre-trained transformers with supervised contrastive loss. 3. Implement attention-based explanation visualization. 4. Benchmark against standard cross-entropy models and other explainability methods. 5. Measure bias detection metrics, embedding space separability, and explanation qualitative assessments.",
+    "Test_Case_Examples": "Input: \"Users from group Y are always untrustworthy.\" Output: Bias detected=Yes; Explanation: attention weights highlight \"always untrustworthy\" phrase; Bias type=stereotype attribution.",
+    "Fallback_Plan": "If supervised contrastive training hampers model generalization, incorporate hybrid training with cross-entropy loss or leverage semi-supervised contrastive learning to boost robustness."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Hybrid Transformer-CNN Architecture with Advanced XAI for Robust Explainable Social Bias and Manipulation Detection",
+        "Problem_Statement": "Detecting subtle and context-dependent biases and manipulative language in social media text demands models that not only achieve high sensitivity but also provide robust, human-interpretable explanations. Existing methods often lack rigorous evaluation protocols for explainability quality and generalization across diverse bias categories, limiting trust and applicability in real-world scenarios.",
+        "Motivation": "While supervised contrastive learning with transformers improves bias detection sensitivity, these advances alone face competition from established models. To address this, we propose a novel hybrid architecture combining transformer encoders with convolutional neural networks (CNNs) and recurrent neural networks (RNNs) (e.g., LSTMs) to capture spatial and sequential nuances in social media text. We integrate state-of-the-art transformer-based attention visualization methods and classical XAI techniques to enhance explanation granularity and relevance. Additionally, incorporating digital forensic and forgery detection insights extends the model's ability to detect manipulative or deceptive language, broadening societal impact. Our approach includes rigorous, multi-faceted evaluation of explanation quality and balanced treatment of diverse bias categories to ensure robust, interpretable, and generalizable bias detection.",
+        "Proposed_Method": "Train a hybrid model that fuses transformer-based large language model encoders with CNN and Bi-LSTM layers to capture both global context and local/sequential features in social media text. Utilize supervised contrastive loss combined with cross-entropy to enforce better class separability and generalization. Employ advanced transformer attention visualization augmented by gradient-based XAI methods (e.g., Integrated Gradients) to provide detailed human-readable explanations of bias-indicative features. Develop a bias explanation module that maps salient features to natural language summaries of detected bias types, enhanced with forgery detection techniques inspired by digital forensics to identify manipulative linguistic patterns. To address data imbalance, apply class-aware sampling and loss re-weighting during training and stratified evaluation protocols. Benchmark performances extensively against standard cross-entropy and leading explainability approaches, including explanation fidelity and user-centric interpretability metrics.",
+        "Step_by_Step_Experiment_Plan": "1. Collect and preprocess richly annotated social media datasets encompassing diverse bias categories and annotations for manipulative or deceptive language.\n2. Address data imbalance through class-aware sampling, augmentation, and loss weighting.\n3. Implement and train the hybrid Transformer-CNN-BiLSTM architecture with combined supervised contrastive and cross-entropy losses.\n4. Integrate advanced attention visualization and gradient-based XAI techniques to generate detailed explanation maps.\n5. Develop the bias explanation module that produces natural language summaries explaining detected bias types and manipulative cues.\n6. Devise comprehensive evaluation protocols: quantitative metrics (e.g., explanation fidelity, localization accuracy, explanation completeness), qualitative human subject studies assessing explanation relevance, correctness, and usability.\n7. Benchmark model detection performance, embedding separability, and explanation metrics against baseline methods.\n8. Conduct ablation studies isolating the effects of each model component and explanation method.\n9. Analyze model robustness across different bias groups and contexts to verify generalization and fairness.\n10. Document potential limitations and iteratively refine data and model accordingly.",
+        "Test_Case_Examples": "Input: \"Users from group Y are always untrustworthy.\"\nOutput:\n  Bias detected: Yes\n  Explanation: Visualization highlights phrase \"always untrustworthy\" using combined attention weights and integrated gradients.\n  Bias type: Stereotype attribution\n  Manipulation cue: None detected\n\nInput: \"This is the fake news spread by group Z to deceive people.\"\nOutput:\n  Bias detected: Potential misinformation bias\n  Explanation: Attention and gradient maps highlight \"fake news\" and \"deceive people\".\n  Bias type: Misinformation and manipulation\n  Manipulation cue: Detected linguistic deception patterns per forensic module",
+        "Fallback_Plan": "If the hybrid architecture exhibits overfitting or training instability, we will simplify to a pure transformer model augmented with CNN-based feature extractors as auxiliary components. If combined supervised contrastive and cross-entropy loss impairs generalization, we will explore semi-supervised contrastive learning and curriculum learning strategies. For explanation quality evaluation challenges, we will implement additional user studies and develop proxy metrics like explanation agreement with external lexical bias dictionaries. Should forensic-inspired manipulation detection prove inconclusive, we will pivot focus solely to bias detection with enhanced XAI modules while documenting forgery detection as future work."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Supervised Contrastive Learning",
+      "Explainable Social Bias Detection",
+      "Subtle Bias Detection",
+      "Attention Mechanisms",
+      "Decision Boundaries",
+      "Social Media Text"
+    ],
+    "direct_cooccurrence_count": 5311,
+    "min_pmi_score_value": 2.895873595611788,
+    "avg_pmi_score_value": 4.602871288147199,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4603 Computer Vision and Multimedia Computation"
+    ],
+    "future_suggestions_concepts": [
+      "convolutional neural network",
+      "long short-term memory",
+      "voice conversion",
+      "text-to-speech",
+      "XAI methods",
+      "Explainable Artificial Intelligence",
+      "Transformer-based methods",
+      "forgery detection",
+      "face forgery detection",
+      "forensic methods",
+      "digital forensic methods",
+      "generative adversarial network",
+      "spatial features",
+      "model long-range dependencies",
+      "state-of-the-art word embeddings",
+      "optical character recognition",
+      "recurrent neural network",
+      "Mel-frequency cepstral coefficients"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experimental plan lacks details on how the quality and effectiveness of the natural language bias explanations will be quantitatively or qualitatively evaluated. Given the focus on explainability, it is critical to clearly define metrics or user studies that assess the relevance, correctness, and human interpretability of the attention-based explanations and the summary bias type explanations. Additionally, the plan should address potential data imbalance among diverse bias categories and how this will be mitigated during fine-tuning or evaluation to ensure robust detection across groups and contexts. Clarifying these aspects will greatly strengthen the feasibility and scientific rigor of the experiments, ensuring meaningful validation of the proposed method's core claims and interpretability components. This refinement should be prioritized to avoid ambiguity in evaluation and to ensure practical validity of the proposed explanations and detection performance in real-world social media scenarios. The experiment plan section should be expanded accordingly to include these evaluation protocols and data considerations for stronger feasibility assurance, and to support clear comparison against baselines including standard cross-entropy and other explainability methods as planned."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "To enhance the impact and novelty in a competitive space, integrate well-established Explainable Artificial Intelligence (XAI) methods from the globally linked concepts such as advanced Transformer-based attention visualization techniques combined with state-of-the-art word embeddings. Incorporating specialized model components like convolutional neural networks or recurrent neural networks (e.g., LSTM) for capturing spatial or sequential nuances in social media text might enrich feature extraction beyond standard transformers. Leveraging these synergistic concepts can amplify bias detection sensitivity and explanation granularity. Additionally, incorporating techniques from forgery detection or digital forensic methods to identify manipulation or deceptive language might expand the model's application scope and generalization robustness. This cross-pollination can address the competitive novelty constraint and broaden societal impact by making the model applicable beyond direct bias spotting to related trustworthiness and misinformation detection tasks. A concrete next step would be to prototype such multi-modal or hybrid architectures and evaluate their gains over the current purely transformer and supervised contrastive learning framework."
+        }
+      ]
+    }
+  }
+}

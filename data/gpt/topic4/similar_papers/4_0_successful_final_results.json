@@ -1,0 +1,69 @@
+{
+  "before_idea": {
+    "title": "Federated Cross-Lingual Adapter Fusion for Biomedical LLMs",
+    "Problem_Statement": "Decentralized training of foundation language models (FMs) on biomedical data faces severe challenges managing high linguistic diversity across clients, limiting performance due to linguistic heterogeneity and data privacy constraints.",
+    "Motivation": "Addresses the gap of limited exploration of cross-lingual transfer in federated learning setups identified in the map, integrating a 'hidden bridge' from multilingual NLP to enable linguistically-aware adaptation in FL systems.",
+    "Proposed_Method": "Develop a federated adapter fusion framework where each client trains lightweight, language-specific adapters integrated into a shared FM backbone. On the server, adapters are aggregated via a multi-headed attention fusion enabling cross-lingual knowledge sharing without exposing raw data. The method combines parameter-efficient fine-tuning with privacy preservation and linguistic personalization by dynamically weighting adapters per client.",
+    "Step_by_Step_Experiment_Plan": "Use multilingual biomedical corpora spanning multiple languages (e.g., English, Spanish, Amharic, Hindi). Employ LLaMa as the FM backbone. Baselines include standard FL fine-tuning and multilingual centralized fine-tuning. Evaluate with clinical NER, relation extraction, and diagnosis prediction using metrics like F1 and accuracy; assess communication efficiency and privacy leakage through membership inference attacks.",
+    "Test_Case_Examples": "Input: Patient clinical notes in Amharic describing symptoms; Expected Output: Correctly extracted entities (disease, medication) and diagnosis prediction in the local language without data sharing.",
+    "Fallback_Plan": "If adapter fusion hampers convergence, alternatively explore meta-learning techniques for rapid cross-lingual adaptation in FL. Incorporate personalized FL approaches with local language embeddings as backup."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Ontology-Guided Heterogeneous Transfer with Federated Adapter Fusion for Cross-Lingual Biomedical LLMs",
+        "Problem_Statement": "Federated training of foundation language models (FMs) on biomedical data across linguistically diverse clients faces significant challenges. Linguistic heterogeneity, highly disparate and limited language resources, strict data privacy constraints, and semantic discrepancies in biomedical terminologies impede effective cross-lingual knowledge sharing and model personalization. Standard federated fine-tuning methods struggle with these issues, often leading to negative model interference, suboptimal convergence, and poor generalization across languages with limited shared vocabulary or annotation conventions.",
+        "Motivation": "To address the NOV-COMPETITIVE novelty challenges in federated cross-lingual biomedical LLMs, we propose to integrate heterogeneous transfer learning and semantic interoperability principles into the federated adapter fusion framework. By leveraging ontology-guided adapter initialization and language-agnostic embedding spaces, our approach explicitly reconciles semantic discrepancies across diverse languages and clinical coding standards. This enhances cross-lingual knowledge transfer and personalization in a privacy-preserving manner, overcoming limitations of conventional federated NLP methods. Incorporating these concepts expands the impact and innovation by unifying diverse linguistic and semantic resources under strict privacy regulations, advancing real-world clinical utility in multilingual biomedical NLP.",
+        "Proposed_Method": "We present a novel federated learning framework combining ontology-guided heterogeneous transfer learning with multi-headed attention-based adapter fusion for multilingual biomedical LLMs: \n\n1. **Ontology-Guided Adapter Initialization**: Clients initialize lightweight language- and ontology-specific adapters informed by aligned biomedical ontologies (e.g., UMLS), creating semantically consistent adapter parameters despite linguistic diversity. This aligns adapters with shared concepts, enabling semantic interoperability.\n\n2. **Language-Agnostic Embedding Projection**: Employ pretrained multilingual language models augmented with language-neutral and clinical code embeddings, projecting heterogeneous textual inputs into a unified embedding space to further bridge linguistic gaps.\n\n3. **Federated Multi-Headed Attention Fusion on Server**: The server aggregates client adapters using a carefully designed multi-headed attention mechanism:\n   - Each attention head focuses on different linguistic or semantic alignment factors derived from adapters' ontology annotations.\n   - Attention scores dynamically weight adapters to balance cross-lingual knowledge sharing and client-specific personalization.\n   - The fusion respects adapter sizes (~1-2% of FM parameters), with update frequencies synchronized to communication rounds (e.g., every 5 rounds), limiting communication overhead.\n\n4. **Theoretical and Empirical Grounding**: We provide convergence analysis supporting stable multi-head fusion under non-iid, heterogeneous data distributions, and simulate communication costs showing practical efficiency.\n\n5. **Privacy Preservation**: Raw client data remains local; only adapter parameters and attention scores are exchanged, minimizing privacy risks. We assess privacy leakage with membership inference attacks.\n\n6. **Multimodal Personalized Signals**: Incorporate structured clinical codes alongside text to enhance adapter training and fusion, further improving semantic consistency and client adaptation.\n\nThis integrated method innovatively unifies heterogeneous transfer learning, semantic interoperability, and federated adaptation to advance scalable, privacy-preserving cross-lingual biomedical LLM training, surpassing standard adapter fusion or conventional multilingual FL.",
+        "Step_by_Step_Experiment_Plan": "1. **Dataset Preparation**: Curate a multilingual biomedical corpus with aligned ontologies and clinical codes across languages (English, Spanish, Amharic, Hindi).\n\n2. **Baseline Models**: Train federated FL without adapters, standard adapter-based FL, and centralized multilingual fine-tuning.\n\n3. **Implementation of Proposed Method**:\n   - Integrate ontology and clinical code embeddings.\n   - Initialize language- and ontology-aware adapters.\n   - Implement multi-headed attention fusion with detailed hyperparameters.\n\n4. **Evaluation Metrics**:\n   - Task performance: clinical NER, relation extraction, diagnosis prediction (F1, accuracy).\n   - Communication efficiency: bytes exchanged, adapter parameter size, update frequency.\n   - Privacy: membership inference attack success rates.\n   - Convergence behavior: stability and training time.\n\n5. **Ablation Studies**:\n   - Without ontology guidance.\n   - Without multimodal signals.\n   - Different attention head configurations.\n\n6. **Analysis**:\n   - Impact on clients with scarce data or low-resource languages.\n   - Cross-lingual transfer gains and semantic interoperability effects.\n\n7. **Visualization**:\n   - Attention weights across clients showing personalized and shared knowledge patterns.\n\n8. **Robustness Checks**:\n   - Simulate clients with diverse data distributions and varying clinical code availability.",
+        "Test_Case_Examples": "Input: Patient clinical notes in Amharic containing symptom descriptions and clinical codes.\nExpected Output: Accurate recognition of diseases and medications aligned with UMLS semantic concepts, relation extraction, and diagnosis prediction in local language, achieved without raw data sharing, demonstrating improved performance compared to baseline federated and multilingual fine-tuning methods.",
+        "Fallback_Plan": "If multi-headed attention fusion does not demonstrate stable convergence or practical communication overhead is prohibitive, pivot to meta-learning-based heterogeneous transfer for adapter initialization combined with local fine-tuning using ontology embeddings. Additionally, employ personalized FL methods incorporating local language embeddings and ontology alignment as interim solutions to maintain semantic interoperability and client adaptation under privacy constraints."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Federated Learning",
+      "Cross-Lingual Transfer",
+      "Biomedical Language Models",
+      "Adapter Fusion",
+      "Multilingual NLP",
+      "Data Privacy"
+    ],
+    "direct_cooccurrence_count": 915,
+    "min_pmi_score_value": 3.358981267959902,
+    "avg_pmi_score_value": 5.604579732839126,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "automatic speech recognition",
+      "speech recognition",
+      "transfer learning",
+      "large-scale training datasets",
+      "deep transfer learning",
+      "computational resources",
+      "visual question answering",
+      "vision-language models",
+      "recommender systems",
+      "semantic interoperability",
+      "heterogeneous transfer learning",
+      "heterogeneous transfer learning method"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section outlines the federated adapter fusion framework, yet the mechanism details require further clarification and justification to ensure soundness. Specifically, how the multi-headed attention fusion on the server dynamically weights and aggregates language-specific adapters remains underspecified. Clarify the attention design, how it balances between linguistic personalization and cross-lingual knowledge transfer, and its potential impact on convergence stability and model capacity. Providing theoretical or empirical grounding for the adapter fusion approach within federated learning contexts would strengthen confidence that it can achieve both privacy preservation and effective knowledge sharing without raw data exposure or negative interference between languages. Additionally, precise definitions on adapter sizes, update frequencies, and communication overhead will help evaluate the mechanism's soundness more rigorously and address possible challenges arising from linguistic heterogeneity among biomedical clients with varying data distributions and language resources. Incorporating these details or preliminary results would greatly enhance the credibility and viability of the proposed fusion approach as a novel federated learning solution for multilingual biomedical LLMs.  This is critical given the complexity of federated multi-lingual fine-tuning with strict privacy constraints stated in the Problem_Statement and Motivation sections, and the novelty-related risks flagged by the NOV-COMPETITIVE verdict."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty assessment and the cross-lingual federated adapter fusion focus, consider integrating ideas from heterogeneous transfer learning and semantic interoperability to boost impact and innovation. Specifically, exploring heterogeneous transfer learning methods could help leverage language-agnostic representations or embeddings that allow more effective sharing of knowledge across clients speaking vastly different languages with limited shared vocabulary or annotation conventions. Furthermore, integrating semantic interoperability concepts could facilitate alignment of biomedical ontologies and terminologies cross-lingually without compromising local data privacy, enhancing the federated system’s real-world utility in clinical settings. Such a combination would distinguish this work from standard federated cross-lingual fine-tuning, potentially improving adaptation across highly disparate data distributions and client languages, while addressing a critical bottleneck in biomedical NLP—harmonizing diverse linguistic and semantic resources under strict privacy regulations. Concretely, the authors might incorporate ontology-guided adapter initialization or multi-modal signals (e.g., clinical codes or structured data alongside text) to further personalize and unify client models dynamically. This would both increase the novelty and broaden the impact, addressing the invitation of cross-fertilizing globally-linked concepts listed in the instructions."
+        }
+      ]
+    }
+  }
+}

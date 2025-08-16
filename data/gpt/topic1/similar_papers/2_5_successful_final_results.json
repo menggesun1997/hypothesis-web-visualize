@@ -1,0 +1,58 @@
+{
+  "before_idea": {
+    "title": "Cognitive Effort-Aware Prompt Scheduling for Enhanced LLM Learning Efficiency",
+    "Problem_Statement": "Few-shot learning in LLMs lacks mechanisms to dynamically adjust prompt exposure based on modeled cognitive effort, limiting learning efficiency and robustness.",
+    "Motivation": "Capitalizes on external novel gaps by incorporating cognitive effort indices from behavioral and physiological data into prompt scheduling algorithms, an innovation beyond current static prompt exposure methods.",
+    "Proposed_Method": "Develop an adaptive prompt scheduler conditioned on modeled cognitive effort signals that modulate the frequency, complexity, and spacing of fine-tuning prompts during few-shot learning. This scheduler organizes prompt delivery to simulate human-like spaced repetition and cognitive load management, promoting better knowledge retention and transfer in LLMs.",
+    "Step_by_Step_Experiment_Plan": "1) Formalize cognitive effort metrics from datasets. 2) Implement scheduler controlling prompt batch composition and timing during fine-tuning. 3) Fine-tune LLMs on benchmark tasks with adaptive vs. uniform prompt exposure. 4) Evaluate in terms of learning speed, final accuracy, and generalization. 5) Analyze effects of different cognitive effort thresholds on performance.",
+    "Test_Case_Examples": "Input: Mapping science concepts with scheduling modulated by effort estimations. Expected output: Faster convergence and comparable or superior accuracy compared to baseline without adaptive scheduling.",
+    "Fallback_Plan": "Fallback to fixed spaced repetition schedules inspired by psychology literature. Alternatively, employ reinforcement learning to optimize prompt scheduling policies."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Cognitive Effort-Aware Prompt Scheduling for Enhanced LLM Learning Efficiency with Quantitative Modeling and Clinical Collaboration",
+        "Problem_Statement": "Few-shot learning in large language models (LLMs) typically employs static prompt exposure without adjusting dynamically based on underlying cognitive effort signals. This limits the efficiency, robustness, and generalization capabilities of LLM fine-tuning, as current methods do not model or exploit temporal variations in cognitive load analogous to human cognitive processes.",
+        "Motivation": "Although prior works explore prompt engineering and spaced repetition, none precisely integrate quantitatively modeled cognitive effort metrics derived from behavioral and physiological data to adapt prompt scheduling during LLM training. By grounding the scheduler in rigorous computational models of cognitive effort and incorporating real-world physiological insights, such as those studied in collaboration with clinical institutions like the University Clinics of Kinshasa, our approach transcends analogy-driven designs. It introduces a validated, interpretable mechanism that adaptively controls prompt complexity, frequency, and spacing, promising superior learning speed, retention, and generalization compared to uniform or heuristic schedules.",
+        "Proposed_Method": "We propose a formal framework that (1) computationally models cognitive effort as a continuous scalar metric integrating behavioral indicators (e.g., response time, error rates) and physiological signals (e.g., pupil dilation, heart rate variability) derived from curated multimodal datasets collected in partnership with the University Clinics of Kinshasa, where controlled cognitive load experiments have been conducted. These metrics are normalized and denoised using signal processing and statistical filtering techniques to yield reliable, real-time cognitive effort estimates.\n\n(2) An adaptive prompt scheduler algorithm that modulates prompt exposure during LLM fine-tuning by dynamically adjusting three parameters — frequency (how often prompts are shown), complexity (intrinsic difficulty level of prompts), and spacing (intervals between prompt exposures) — as a function of the modeled cognitive effort signal.\n\nExplicitly, the scheduler is formulated as:\n\nLet E_t denote the cognitive effort at training step t.\n\n- Frequency f_t = f_base * sigmoid(α*(E_t - E_thresh)) where f_base is baseline prompt frequency, α controls sensitivity, and E_thresh is an effort threshold.\n- Complexity c_t selected from a prompt complexity bank guided by effort: lower complexity prompts when E_t > E_thresh to reduce overload, higher complexity when E_t < E_thresh to maximize learning.\n- Spacing s_t adjusted inversely proportional to effort: longer intervals if E_t is high to allow consolidation, shorter intervals if effort is low to leverage readiness.\n\nThe algorithm pseudocode:\n\n```\nfor training_step t in total_steps:\n    E_t = compute_cognitive_effort(behavioral_data_t, physiological_data_t)\n    f_t = f_base * sigmoid(α*(E_t - E_thresh))\n    c_t = select_prompt_complexity(E_t)\n    s_t = adjust_spacing(E_t)\n    schedule_prompts(frequency=f_t, complexity=c_t, spacing=s_t)\n    fine_tune_LLM_with_scheduled_prompts()\n```\n\nThis formalization ensures a replicable, data-driven mechanism beyond heuristic or analogy-only methods. The scheduler is integrated into the fine-tuning pipeline, allowing end-to-end experiments on benchmark datasets.",
+        "Step_by_Step_Experiment_Plan": "1) Data Acquisition & Preprocessing: Collaborate with University Clinics of Kinshasa to access existing datasets containing synchronized behavioral and physiological recordings during cognitive tasks (e.g., working memory, attention challenges). Ensure datasets have sufficient size (>500 participants, multiple sessions) and metadata linking to cognitive effort.\n\n2) Cognitive Effort Modeling: Develop preprocessing pipelines to denoise physiological signals (pupilometry, heart rate variability) using established signal processing (e.g., band-pass filters, artifact removal). Derive behavioral metrics (reaction times, accuracy). Fuse multichannel data using a weighted model validated via cross-validation for stability and interpretability.\n\n3) Scheduler Implementation: Implement the adaptive prompt scheduler within the LLM fine-tuning framework (e.g., PyTorch), coding the effort-based frequency, complexity, and spacing adjustments per the formalized model.\n\n4) Benchmark Setup: Select standardized few-shot learning datasets in science concept mapping and reasoning (e.g., SciQ, ARC Challenge). Define baseline uniform prompt exposure schedules and reinforcement learning-based adaptive schedulers as comparative baselines.\n\n5) Training & Evaluation: Fine-tune medium-scale LLMs (e.g., GPT-2 medium) under three conditions: a) uniform, b) RL-optimized, c) cognitive effort-aware scheduling. Measure training speed (epochs to convergence), final accuracy, and zero-shot generalization.\n\n6) Robustness & Sensitivity Analysis: Systematically vary effort thresholds (E_thresh), sensitivity α, and noise levels to assess scheduler robustness.\n\n7) Resource & Feasibility Assessment: Monitor computational budget and training time (target ≤72 hours on 8 GPUs). Use profiling tools to ensure scalability.\n\n8) Replicability: Document code and protocols, release model and scheduler implementations publicly for validation.",
+        "Test_Case_Examples": "Example 1:\nInput: Science concept mapping tasks scheduled with cognitive effort-aware prompt frequency and complexity modulation.\nExpected Outcome: LLM exhibits 20-30% faster convergence to target accuracy versus uniform scheduling, with equal or superior final task performance.\n\nExample 2:\nInput: Reasoning prompts spaced inversely with cognitive effort signals recorded from behavioral/physiological fusion.\nExpected Outcome: Improved zero-shot generalization to novel related tasks compared to baselines.\n\nExample 3:\nInput: Variability testing by adding synthetic noise to cognitive effort signals during scheduling.\nExpected Outcome: Scheduler maintains stable learning performance up to moderate noise, demonstrating robustness.",
+        "Fallback_Plan": "If real physiological datasets prove insufficient or data alignment challenges arise, fallback to synthetic cognitive effort proxies derived from task difficulty estimations and response time modeling calibrated on publicly available cognitive load datasets.\n\nAlternatively, integrate reinforcement learning algorithms to learn prompt scheduling policies directly from LLM feedback signals, using reward functions approximating cognitive effort impact implicitly. This will serve as an empirical baseline and complement to the interpretable, theory-driven scheduler.\n\nFurther, seek expanded clinical collaboration or data-sharing partnerships beyond University Clinics of Kinshasa if needed to enhance physiological data availability and diversity."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Cognitive Effort",
+      "Prompt Scheduling",
+      "LLM Learning Efficiency",
+      "Behavioral Data",
+      "Physiological Data",
+      "Few-Shot Learning"
+    ],
+    "direct_cooccurrence_count": 1858,
+    "min_pmi_score_value": 1.5170967178150885,
+    "avg_pmi_score_value": 4.019211173835964,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "3215 Reproductive Medicine",
+      "32 Biomedical and Clinical Sciences",
+      "3202 Clinical Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "University Clinics of Kinshasa"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines an adaptive prompt scheduler modulated by cognitive effort signals, yet it lacks a precise description of how these signals will be quantitatively modeled and integrated into the scheduling algorithm. Clarify the computational representation of cognitive effort derived from behavioral and physiological data, and explicitly detail the scheduler's mechanism — e.g., how prompt complexity, frequency, and spacing decisions are algorithmically determined based on effort metrics. This clarity is essential to assess the soundness and replicability of the approach reliably, ensuring the mechanism's validity beyond analogy to human cognition alone, which can be quite complex and noisy in practice. Consider providing pseudo-code or a formal model to concretize this key aspect within the Proposed_Method section to strengthen soundness and credibility of the approach before experimentation begins."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experiment plan is broadly reasonable but under-specifies critical practical considerations that affect feasibility. Step 1 mentions formalizing cognitive effort metrics from datasets, but these datasets, their size, type, and availability are not elucidated, especially for combined behavioral and physiological data that may be rare or difficult to align with prompt scheduling in LLM fine-tuning tasks. Additionally, the plan doesn’t address how the noise or variability in cognitive effort signals will be handled during training. Provide more concrete details on data sources, preprocessing pipelines, and validation protocols for cognitive effort modeling. Also, clarify the computational budget, expected training time, and baseline models to ensure the experimental workload is achievable within typical research resource constraints. Strengthening these elements will improve confidence in the practical execution and reproducibility of the study."
+        }
+      ]
+    }
+  }
+}

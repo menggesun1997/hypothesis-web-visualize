@@ -1,0 +1,69 @@
+{
+  "before_idea": {
+    "title": "Dynamic Prompt Engineering for Bias Mitigation and Evaluation",
+    "Problem_Statement": "LLM evaluations are sensitive to minor design perturbations, causing inconsistency in bias measurement and task performance outcomes.",
+    "Motivation": "Addresses internal gaps of evaluation inconsistency and bias detection reliability by introducing dynamically adaptive prompts that systematically control for and reveal biases and decision-making stability.",
+    "Proposed_Method": "Design an automated prompt engineering system generating controlled perturbations and bias-contextual variants. The system evaluates LLM output variability under these perturbations to quantify robustness, bias strengths, and hallucination tendencies, feeding into a meta-evaluation layer for performance reliability assessment.",
+    "Step_by_Step_Experiment_Plan": "1) Develop prompt transformation rules encoding political/personality bias contexts; 2) Test on multiple LLMs across classification and reasoning tasks; 3) Measure output variance, bias shifts, and hallucination rates; 4) Validate reliability scores against human annotations; 5) Iterate prompt generation to maximize diagnostic value.",
+    "Test_Case_Examples": "Input prompt about a politically charged topic is rephrased dynamically; output sentiment and bias scores compared across prompt versions to quantify stability.",
+    "Fallback_Plan": "If dynamic prompts induce too much noise, refine perturbation parameters and limit scope to critical bias-sensitive contexts only."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Dynamic Prompt Engineering with Meta-Evaluation and GUI for Robust Bias and Hallucination Assessment in LLMs",
+        "Problem_Statement": "Current evaluations of large language models (LLMs) exhibit sensitivity to minimal prompt design variations, leading to inconsistent and unreliable measurements of bias and hallucination tendencies across tasks and contexts.",
+        "Motivation": "While prior research has explored prompt perturbations for bias detection, there remains a critical gap in building a systematic, interpretable, and reproducible framework that can algorithmically generate controlled prompt variants embedding diverse bias contexts and reliably aggregate output variability for comprehensive bias and hallucination quantification. Addressing this gap is crucial especially given the competitive nature of novelty in prompt-centric evaluations, demanding a principled integration of meta-evaluation and user-centric tools to enhance diagnostic precision, reproducibility, and practical utility across LLMs of varying scales.",
+        "Proposed_Method": "We propose an end-to-end Dynamic Prompt Engineering framework featuring three core components: (1) a hybrid prompt perturbation generator utilizing both rule-based linguistic templates and learned transformation models fine-tuned on bias-laden corpora to produce systematic, parameterized bias-contextual prompt variants—embedding political, personality, and social biases explicitly encoded via interpretable control tokens; (2) a meta-evaluation module that employs statistical measures such as Jensen-Shannon divergence and calibration error on LLM outputs to quantify robustness, bias strength, and hallucination rates by comparing probabilistic outputs across prompt variants, while hallucination detection leverages known factuality benchmarks combined with calibrated confidence thresholds; and (3) an interactive graphical user interface (GUI) inspired by intelligent decision-making systems that allows researchers to visualize variance patterns, configure perturbation scopes, and iteratively refine prompt generation driven by quantitative diagnostic scores. This modular design facilitates reproducibility through open algorithmic specifications and APIs compatible with varied LLM platforms, ranging from moderate (e.g., GPT-3 Ada) to large-scale models (e.g., GPT-4), enabling consistent bias and hallucination evaluation with improved task completion rates and interpretability.",
+        "Step_by_Step_Experiment_Plan": "1) Select diverse LLMs: GPT-3 Ada, GPT-3 Davinci, GPT-4 via OpenAI API, and open-source LLaMA 2 (7B and 13B) using Hugging Face pipelines to ensure broad architecture coverage. 2) Construct bias-contextual prompt transformation rules including substitution, negation, and style shift templates, augmented by a learned paraphrase generator trained on identified biased/unbiased sentence pairs to create controlled perturbations embedding political and personality bias tokens. 3) Define metrics: output variance assessed by semantic embedding cosine distances and Jensen-Shannon divergence on token distributions; bias shifts quantified using preset lexicon-based sentiment scores and political leaning classifiers; hallucination rates measured via factuality comparison on established knowledge benchmarks (e.g., FEVER) and cross-checked with confidence calibration errors. 4) Deploy human annotation studies with 30 expert annotators specialized in sociolinguistics and ethics, labeling a stratified 1000-output sample subset for bias presence and hallucination validity, using inter-annotator agreement (Cohen’s kappa > 0.75) to ensure consistency. 5) Integrate observational data into meta-evaluation module via a weighted aggregation algorithm prioritizing stable diagnostic signals iteratively enhancing prompt perturbation parameters via Bayesian optimization until convergence in bias variance reduction or hallucination detection improvement, defined as a >10% increase in detection accuracy from baseline. 6) Conduct pilot studies to calibrate perturbation intensity thresholds to balance diagnostic noise and signal across tasks including multi-class classification and commonsense reasoning. 7) Utilize the GUI for visualizing experiment progress, enabling hypothesis-driven prompt refinements and downstream evaluation of improved task completion rates. 8) Document failures and refine fallback protocols, including backoff to minimal perturbation templates when noise overwhelms signal per quantitative criteria.",
+        "Test_Case_Examples": "A politically charged prompt about climate policy is transformed into variants embedding left-leaning, right-leaning, and neutral bias tokens via the hybrid perturbation system, with the LLM outputs analyzed for sentiment polarity shifts measured against baseline responses. Another example involves injecting personality style shifts (e.g., authoritative vs. empathetic tone) into customer service queries, assessing hallucination continuity across response variants using FEVER factual benchmarks. The GUI enables visualization of output distributions, highlighting variance spikes correlating with bias injection points and providing interactive filtering by prompt type and model scale.",
+        "Fallback_Plan": "If dynamic prompt perturbations generate excessive noise compromising interpretability, implement a controlled reduction of perturbation scope by constraining parameter space via reinforcement learning with reward signals tied to diagnostic signal-to-noise ratio metrics obtained in pilot phases. If hallucination detection accuracy remains insufficient, incorporate complementary approaches such as external knowledge retrievers or ensemble factuality verifiers. Additionally, introduce thresholds for prompt variant acceptance based on calibrated variance limits triggering automated fallback to conservative prompt sets. Throughout, user feedback collected via the GUI will guide manual overrides and prompt refinement cycles, ensuring practical robustness and adherence to evaluation objectives."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Prompt Engineering",
+      "Bias Mitigation",
+      "Evaluation Consistency",
+      "Bias Detection Reliability",
+      "LLM Evaluations",
+      "Decision-Making Stability"
+    ],
+    "direct_cooccurrence_count": 4324,
+    "min_pmi_score_value": 3.672792211108018,
+    "avg_pmi_score_value": 4.832250931171815,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "Critical Infrastructure Protection",
+      "graphical user interface",
+      "improved task completion rates",
+      "complex graphical user interfaces",
+      "convolutional neural network",
+      "vision-language models",
+      "health data science",
+      "intelligent decision-making",
+      "automatic speech recognition",
+      "text-to-speech",
+      "computer graphics",
+      "emotional text-to-speech"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method lacks detailed clarity on how the automated prompt engineering system will algorithmically generate the controlled perturbations and bias-contextual variants. It is important to specify the mechanisms or models used to create these perturbations, how they ensure systematic control over biases, and how the meta-evaluation layer will aggregate and interpret output variability to yield reliable bias and hallucination metrics. Providing concrete algorithmic or architectural details will strengthen the soundness of the approach and the credibility of the bias quantification claims, facilitating reproducibility and understanding of the system’s workings and limitations.\n\nRecommendation: Elaborate on the generation process for dynamic prompts (e.g., rule-based, learned transformations, or hybrid), describe how bias contexts are embedded or parameterized, and explain the design and computation within the meta-evaluation layer for robustness quantification and bias strength measurement. Clarify how hallucination tendencies are detected and connected to prompt variations within this pipeline."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the Step_by_Step_Experiment_Plan outlines logical stages, it lacks sufficient practical detail and contingency planning to ensure feasibility. Critical aspects needing refinement include:\n\n- Specification of which LLMs will be tested, their sizes, and APIs or platforms used.\n- Definitions and metrics for measuring output variance, bias shifts, and hallucination rates, including ground truth or annotation protocols.\n- Design of human annotation studies: scale, annotator expertise, agreement metrics.\n- Quantitative criteria for iterating prompt generation to maximize diagnostic value.\n\nFurthermore, the fallback plan is vague, suggesting only reducing noise and narrowing focus without concrete criteria or procedures. To improve feasibility, incorporating preliminary small-scale experiments or pilot studies to calibrate perturbation parameters and assess noise impact should be included.\n\nRecommendation: Augment the experiment plan with detailed operational protocols, metrics, LLM selections, annotation methodologies, and explicit iteration cycles. Provide success criteria and risk mitigation strategies beyond general fallback suggestions to enhance execution confidence."
+        }
+      ]
+    }
+  }
+}

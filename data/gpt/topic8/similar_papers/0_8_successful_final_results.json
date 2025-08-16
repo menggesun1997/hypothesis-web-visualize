@@ -1,0 +1,91 @@
+{
+  "before_idea": {
+    "title": "Prompt Engineering Meets Graph Neural Logic for Enhanced Open-Domain QA",
+    "Problem_Statement": "Current prompting strategies lack formal logical structure to guide abductive commonsense inference in LLMs for open-domain QA.",
+    "Motivation": "Building on Opportunity 3, this project integrates explicit logical formulae derived from graph neural logic representations into prompt engineering pipelines to enrich LLM reasoning and explanation generation, addressing internal gaps in implicit knowledge reasoning.",
+    "Proposed_Method": "Develop prompts automatically generated from graph neural logic outputs representing commonsense relations and abductive hypotheses. These prompts encode logical constraints and inference patterns, steering LLMs toward logically consistent and abductively plausible answers with traceable justifications.",
+    "Step_by_Step_Experiment_Plan": "Use abductive QA datasets. Baselines include manual prompt strategies. Evaluate answer consistency, logical soundness, and explanation quality. Human judges assess abductive plausibility and trustworthiness.",
+    "Test_Case_Examples": "Input: 'If the lawn is wet, why?' Prompt includes logical constraints about watering systems and weather conditions to guide LLM toward abductive inferences with stepwise explanations.",
+    "Fallback_Plan": "If automatic prompt generation is ineffective, explore fine-tuning LLMs on graph-logic annotated corpora or adopt reinforcement learning to reward logical consistency."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Neuro-Symbolic Prompt Engineering and Knowledge Graph Reasoning for Explainable Abductive Inference in Open-Domain QA",
+        "Problem_Statement": "Contemporary prompting techniques for large language models (LLMs) inadequately capture formal logical structures required to guide abductive commonsense inference in open-domain question answering (QA), leading to inconsistent, unstructured, and less trustworthy explanations.",
+        "Motivation": "While previous work has integrated symbolic logic loosely into prompt designs, these approaches often fail to operationalize formal abductive reasoning with robust logical constraints, limiting the logical soundness and explainability of LLM outputs. Building on these foundations, our project proposes a novel neuro-symbolic framework combining graph neural logic representations with structured knowledge graphs, enabling the automatic generation of logically constrained, abductively guided prompts. This integration enhances the interpretability, logical consistency, and trustworthiness of LLM reasoning pathways. Moreover, by extending to multi-domain tasks such as math word problems and visual question answering (VQA), we demonstrate broad applicability and robustness of abductive reasoning across modalities and domains, addressing key gaps in current open-domain QA and advancing state-of-the-art neuro-symbolic AI techniques in the deep learning era.",
+        "Proposed_Method": "We propose a three-tiered neuro-symbolic pipeline designed to translate structured logical and relational representations into effective prompt sequences for LLMs: (1) Knowledge Graph Reasoning & Logical Abduction — Use knowledge graphs augmented with graph neural logic to derive abductive hypotheses and logical constraints capturing commonsense relations and domain knowledge. Logical formulae are represented internally via first-order logic expressions annotated with axiomatic fuzzy set truth values to encode uncertainty and graded plausibility. (2) Neuro-Symbolic Prompt Generation — Transform these structured logical and abductive representations systematically into natural language prompts by constructing carefully tokenized textual templates that embed logical constraints and inference steps explicitly. For example, abductive hypotheses are translated into conditional statements with explanatory sub-queries, preserving formal structure and interpretability. We use a controlled natural language subset enriched with domain-specific ontology terms from knowledge bases to maintain clarity without overwhelming LLM token embeddings. (3) Multi-Domain LLM Reasoning & Reinforcement Learning — Feed generated prompts into large pre-trained LLMs for abductive QA and explanation generation across diverse datasets (commonsense QA, math word problems, VQA). To overcome LLM limitations in enforcing symbolic constraints, we incorporate reinforcement learning (RL) that rewards logical consistency, abductive plausibility, and faithful explanation generation aligned with axiomatic principles. This hybrid approach balances symbolic rigor with neural flexibility, enabling robust, explainable AI reasoning. We further integrate human-in-the-loop assessments to iteratively refine prompt templates and RL reward functions. Overall, this method transcends prior neuro-symbolic prompting by tightly integrating abductive logical formulae, structured knowledge graphs, and learning-based alignment mechanisms to produce traceable, trustworthy explanatory answers.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Collection & Preparation: Gather benchmark abductive QA datasets (e.g., Abductive Natural Language Inference), math word problems, and VQA datasets requiring abductive reasoning. 2. Baseline Implementation: Implement manual prompt engineering and prior neuro-symbolic prompting methods for comparison. 3. Pipeline Development: Construct the logic-to-prompt translation modules with knowledge graph integration and fuzzy logic encoding. 4. LLM Integration & RL Setup: Connect prompts to pretrained LLMs; implement reinforcement learning with axiomatic reward signals for logical consistency. 5. Evaluation Metrics: Quantitatively assess answer accuracy, abductive plausibility, logical soundness (measured via consistency checks of generated explanations), explanation quality (using automated metrics and human judgments), and trustworthiness scores. 6. Multi-Domain Robustness Testing: Evaluate performance and explanation quality across all task domains. 7. Ablation Studies: Analyze contributions of knowledge graph reasoning, neuro-symbolic prompt design, and RL components. 8. Human-in-the-Loop Refinement: Incorporate expert feedback to refine prompts and reward functions iteratively. This plan highlights feasibility and potential for improved state-of-the-art results in abductive open-domain QA and beyond.",
+        "Test_Case_Examples": "Input: 'If the lawn is wet, why?' Pipeline Actions: (a) Knowledge graph retrieval identifies relevant commonsense relations (e.g., watering systems, recent rain, sprinkler schedules). (b) Graph neural logic generates abductive hypotheses such as 'It rained recently' or 'The sprinkler was activated.' Logical constraints encode temporal relations and causal precedence. (c) Prompt generation translates these into structured natural language prompts with conditional statements (e.g., 'Given that the lawn is wet, is it because it rained recently or because the sprinkler was activated? Explain stepwise how this leads to the wet lawn.'). (d) The prompted LLM outputs abductively plausible answers with stepwise explanations referencing knowledge graph relations. Similar pipelines apply for math word problems, e.g., inferring missing quantities with logical steps, and VQA tasks, e.g., hypothesizing causes for observed visual scenes. This multi-modal example shows clear traceability from neuro-symbolic representation to natural language explanation.",
+        "Fallback_Plan": "Should neuro-symbolic prompt generation prove insufficient in steering large-scale LLMs due to token limits or intrinsic model constraints, we will pivot to a hybrid training approach: (1) Fine-tune LLMs on graph-logic annotated corpora enriched with abductive and axiomatic fuzzy logic labels to instill structured reasoning biases directly internally. (2) Develop a multi-agent system combining a symbolic reasoner with an LLM where symbolic modules handle formal abductive inferences and logical consistency checks, while the LLM performs natural language generation guided by symbolic feedback. (3) Extend reinforcement learning with human-in-the-loop oracle feedback to iteratively adapt models to better align with abductive logic principles. We will implement concrete criteria to monitor logical consistency and explanation trustworthiness metrics to trigger these fallback strategies, ensuring methodical risk mitigation and scalable deployment."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Prompt Engineering",
+      "Graph Neural Logic",
+      "Open-Domain QA",
+      "Logical Formulae",
+      "LLM Reasoning",
+      "Commonsense Inference"
+    ],
+    "direct_cooccurrence_count": 456,
+    "min_pmi_score_value": 4.70161497401698,
+    "avg_pmi_score_value": 6.218368889402419,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "artificial intelligence",
+      "state-of-the-art results",
+      "natural language processing",
+      "graph reasoning",
+      "knowledge graph",
+      "knowledge graph reasoning",
+      "reasoning paths",
+      "neural symbols",
+      "knowledge bases",
+      "agent reasoning",
+      "model reasoning",
+      "math word problems",
+      "visual question answering",
+      "neuro-symbolic artificial intelligence",
+      "field of natural language processing",
+      "textual entailment task",
+      "natural language processing tasks",
+      "natural language processing research",
+      "domain knowledge of experts",
+      "first-order logic",
+      "axiomatic fuzzy set",
+      "generative AI",
+      "mobile networks",
+      "reinforcement learning",
+      "learning era",
+      "neural computation",
+      "artificial general intelligence",
+      "AI reasoning",
+      "deep learning era",
+      "matching accuracy",
+      "question-answering system",
+      "axiomatic fuzzy set theory",
+      "visual question answering task",
+      "knowledge graph reasoning method"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposal describes integrating graph neural logic outputs into prompts for LLMs to enforce logical constraints and abductive reasoning. However, the mechanism for translating logic representations into effective prompts is underspecified and may be nontrivial given LLMs' token-based input formats. Clarify how graph neural logic outputs will be encoded as natural language or token sequences that maintain formal logical structure without confusing the LLM. Detail how logical constraints will be operationalized to steer generation and how abductive hypotheses are generated and integrated. Providing an example pipeline with intermediate representations would strengthen confidence in the method's soundness and novelty beyond prior neuro-symbolic prompting approaches, which have only loosely integrated symbolic logic into prompts without formal abductive guidance. Consider also potential challenges due to large-scale LLMs' limited ability to follow complex symbolic constraints solely via prompting, motivating the fallback plans further with more concrete criteria for switching methods or combining approaches within a hybrid framework. This clarity will mitigate risks around the approach's core assumptions and mechanisms, supporting stronger claims of soundness and feasibility. Clarify and expand the methodological details accordingly in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty is competitive but not groundbreaking, the project could substantially increase its impact and distinctiveness by leveraging neuro-symbolic artificial intelligence techniques from the global concepts list. Specifically, integrating knowledge graph reasoning with the graph neural logic component can enrich the abductive inference with structured knowledge bases, enabling reasoning paths that are both neurally plausible and symbolically interpretable. This could also enhance explainability and trustworthiness of explanations, tying closely with the motivation for logical consistency and abductive plausibility. Moreover, linking the approach to math word problems or visual question answering tasks can provide diverse benchmarks and showcase broader applicability beyond commonsense QA, demonstrating scalability across modalities or task types. Reinforcing the experiment plan with multi-domain datasets from the field of natural language processing research involving textual entailment or domain knowledge of experts can highlight the model's robustness. Incorporating reinforcement learning for model reasoning aligned with axiomatic principles could differentiate the approach from existing static prompt engineering methods, maximizing impact in the current deep learning era. Suggest expanding the project scope in these directions to boost novelty, feasibility, and real-world impact."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "before_idea": {
+    "title": "Neuro-Symbolic Commonsense Fusion for Medical LLMs in HRI",
+    "Problem_Statement": "Current LLMs in human-robot interaction (HRI) for healthcare lack robust integration of explicit commonsense and domain expert knowledge, limiting their ethical transparency, context-awareness, and trustworthiness.",
+    "Motivation": "Addresses the critical internal gap of missing explicit commonsense knowledge integration and the absence of bridge nodes between language-focused NLP and expert healthcare knowledge. This innovation fuses symbolic knowledge graphs with foundation models, therefore enriching context embedding and enhancing decision support accuracy.",
+    "Proposed_Method": "Develop a hybrid neuro-symbolic architecture that combines large language models with symbolic commonsense knowledge graphs constructed via automatic knowledge extraction from electronic health records (EHRs). The system dynamically queries the knowledge graph during dialogue to supplement LLM reasoning, enabling transparent, explainable decision-making guided by expert healthcare ontologies and commonsense reasoning modules.",
+    "Step_by_Step_Experiment_Plan": "1) Extract structured knowledge graphs from EHR datasets using named entity recognition (NER) and relation extraction. 2) Pretrain/fine-tune LLMs (e.g., GPT, T5) with multi-task objectives incorporating query-answering over the knowledge graph. 3) Implement a neuro-symbolic interface that adaptively queries the graph during generation. 4) Evaluate on patient-robot dialogue datasets for accuracy, contextual coherence, and explainability against standard LLM baselines. 5) Measure trust and transparency via user studies with healthcare professionals.",
+    "Test_Case_Examples": "Input: Patient description ‘‘I’ve been feeling dizzy after my medication.” Expected Output: LLM consults the underlying knowledge graph indicating the medication’s side effects and responds, ‘‘Dizziness can be a side effect of your medication; would you like me to notify your doctor or adjust your dose?’’ The explanation traces back to the knowledge graph nodes on the medication and symptoms.",
+    "Fallback_Plan": "If dynamic graph querying proves computationally expensive or ineffective, implement a knowledge distillation phase to inject commonsense embeddings directly into the LLM weights. Alternatively, use prompt engineering to incorporate graph summaries in context windows."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Adaptive Neuro-Symbolic Commonsense Fusion for Privacy-Aware Medical LLMs in Human-Robot Interaction",
+        "Problem_Statement": "Current large language models (LLMs) deployed in healthcare human-robot interaction (HRI) often lack robust, privacy-preserving integration of explicit commonsense and domain expert knowledge. This limits their ethical transparency, context-awareness, and trustworthiness, especially under real-time constraints and stringent data privacy regulations. Additionally, existing approaches fall short in adapting explanation delivery dynamically to diverse users and neglect multi-agent collaboration essential for cooperative clinical decision support.",
+        "Motivation": "While prior efforts integrate symbolic knowledge graphs with large language models, they do not sufficiently address the critical challenges of constructing high-quality, privacy-compliant biomedical knowledge graphs from noisy EHR data, nor the computational and latency demands of real-time HRI contexts. Moreover, static explainability limits user trust across heterogeneous healthcare stakeholders. By introducing adaptive user interface mechanisms, privacy-preserving neuro-symbolic integration, and multi-agent cooperation between robots and clinicians, this work substantially extends the state-of-the-art. It offers a novel holistic solution that fuses neuro-symbolic learning with human-computer interaction principles and federated privacy techniques, targeting ethical, practical, and interactive dimensions in medical HRI environments.",
+        "Proposed_Method": "We propose a comprehensive, adaptive neuro-symbolic framework that: 1) employs advanced EHR data preprocessing, including state-of-the-art de-identification, domain adaptation, and noise-correction methods to construct high-fidelity, privacy-preserving symbolic commonsense healthcare knowledge graphs using federated learning techniques; 2) integrates these graphs with foundation LLMs via a dynamic neuro-symbolic interface optimized for low-latency querying suitable for real-time HRI; 3) incorporates an adaptive user interface layer guided by human-computer interaction research to provide personalized, context-aware, and multilayered explainability tailored to clinicians or patients; and 4) extends to multi-agent architectures enabling cooperative decision support between autonomous AI agents embedded in healthcare robots and clinician systems. These innovations collectively deliver robust, trustworthy, and ethically compliant LLM-powered HRI solutions with scalable performance and improved user trust.",
+        "Step_by_Step_Experiment_Plan": "1) Data Preprocessing & KG Construction: Implement advanced EHR cleaning pipelines with automated de-identification and domain-specific error correction, applying federated learning to enable privacy-preserving, distributed knowledge graph learning. Validate graph quality via intrinsic metrics (completeness, accuracy) and expert review.\n2) LLM Fine-Tuning & Neuro-Symbolic Integration: Fine-tune LLMs with multi-task objectives combining standard language modeling and graph query-answering tasks. Develop a latency-optimized neuro-symbolic querying interface with caching and approximate retrieval techniques.\n3) Adaptive Explanation Interface: Design and integrate user-adaptive interface modules that customize explanation granularity and modality (text, visuals) based on stakeholder profiling via HCI methods.\n4) Multi-Agent Collaboration: Prototype a cooperative multi-agent system where AI-powered robots and clinician agents share graph-informed information to enhance joint decision-making.\n5) Evaluation: Conduct comprehensive experiments on benchmark patient-robot dialogue datasets to assess accuracy, contextual coherence, and latency. Perform user studies with healthcare professionals and patients to evaluate trust, transparency, and usability. Compare fallback strategies—knowledge distillation and prompt engineering—by benchmarking runtime performance and degradation metrics under resource constraints.",
+        "Test_Case_Examples": "Input: Patient states, \"I've been feeling dizzy after my medication.\" \nExpected Output: The LLM dynamically queries the privacy-preserving knowledge graph, identifies dizziness as a known side effect via de-identified, validated data, and responds adaptively through the user interface: \n- To a clinician: \"Dizziness is documented as a side effect of this medication in multiple cases; monitor and consider dose adjustment. Detailed patient statistics and references are available upon request.\" \n- To a patient: \"Dizziness can be a side effect of your medication. Would you like me to notify your doctor or adjust your dose?\"\nExplanation paths trace to graph nodes constructed from federated EHR sources with privacy guarantees. Multi-agent cooperation can trigger a robotic agent alert to the clinician's decision system accordingly.",
+        "Fallback_Plan": "Should dynamic neuro-symbolic querying introduce prohibitive latency in real-time HRI, we will deploy a two-tier fallback: firstly, knowledge distillation techniques will embed key commonsense information directly into LLM weights to enable offline inference without graph access, evaluated for accuracy drop and response time improvements. Secondly, prompt engineering methods will incorporate concise, up-to-date graph summaries within LLM context windows, with benchmarks to quantify trade-offs in explainability and trust. Performance targets and degradation thresholds will be established upfront to ensure graceful fallback transitions preserving clinical utility and ethical transparency."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Neuro-Symbolic Commonsense Fusion",
+      "Medical LLMs",
+      "Human-Robot Interaction (HRI)",
+      "Commonsense Knowledge Integration",
+      "Healthcare Knowledge Graphs",
+      "Decision Support Accuracy"
+    ],
+    "direct_cooccurrence_count": 51,
+    "min_pmi_score_value": 4.130093933200475,
+    "avg_pmi_score_value": 6.279155931895961,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "adversarial robustness",
+      "multi-agent systems",
+      "Human-Computer",
+      "artificial general intelligence",
+      "human-computer interaction",
+      "generative artificial intelligence",
+      "tumor segmentation",
+      "creation of intelligent environments",
+      "design interactions",
+      "human-computer interaction research",
+      "smart cities",
+      "interface adaptation",
+      "AI research",
+      "intelligent environments",
+      "user interface adaptation",
+      "DL methods",
+      "design of intelligent environments",
+      "neuro-symbolic learning",
+      "brain tumor segmentation",
+      "neuro-symbolic AI",
+      "multiagent systems",
+      "autonomous agents",
+      "AI agents",
+      "data privacy"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed Step_by_Step_Experiment_Plan outlines a solid multi-phase workflow integrating knowledge extraction, LLM fine-tuning, and neuro-symbolic querying, but it lacks clarity on addressing critical practical challenges: the automatic construction of high-quality, accurate, and comprehensive knowledge graphs from noisy, privacy-sensitive EHR data is highly nontrivial and may require advanced de-identification, domain adaptation, and error correction strategies which are not discussed. Additionally, the plan does not address computational overhead and latency constraints of dynamic querying within real-time HRI settings, especially in healthcare contexts where prompt responsiveness is crucial. It would strengthen feasibility to explicitly incorporate intermediate validation steps for knowledge graph quality and scaling considerations for the neuro-symbolic interface, as well as fallback evaluation metrics for the distillation or prompt-engineering alternatives to ensure graceful degradation if runtime performance bottlenecks emerge. Including such operational contingencies will better demonstrate the experiment plan’s robustness and practical viability in complex healthcare HRI environments.\n\nRecommendation: Detail data preprocessing and knowledge graph validation procedures, benchmark real-time query latencies, and outline performance targets for fallback mechanisms to enhance feasibility confidence in the experiment plan."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty assessment marking this work as NOV-COMPETITIVE, I suggest leveraging related globally-linked concepts to significantly enhance the proposal's impact and differentiate its contribution. Incorporating 'user interface adaptation' and 'human-computer interaction research' perspectives could enable dynamic, personalized explanation delivery to healthcare professionals and patients, thus improving trust and transparency beyond static explainability. Integration of 'data privacy' considerations into the neuro-symbolic framework will address critical ethical constraints in healthcare data usage, offering a compelling, distinctive angle given regulatory pressures. Finally, exploring multi-agent systems or autonomous AI agents for cooperative decision support between robots and clinicians could elevate the applied impact in HRI medical contexts. These global integrations would position the approach not only as a technical neuro-symbolic advance but as a holistic HRI solution addressing practical deployment, user experience, and ethical compliance challenges in healthcare AI environments.\n\nRecommendation: Embed adaptive user interface mechanisms, privacy-preserving knowledge extraction and querying approaches, and multi-agent collaboration scenarios into the research aims to expand novelty and broader applicability."
+        }
+      ]
+    }
+  }
+}

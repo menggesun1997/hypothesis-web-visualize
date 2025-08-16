@@ -1,0 +1,57 @@
+{
+  "original_idea": {
+    "title": "Integrating Biomedical Ontologies for Bias-Stable Medical LLMs",
+    "Problem_Statement": "Medical LLMs suffer from latent biases and lack stable fairness enforcement mechanisms tailored to domain knowledge, risking harmful outputs.",
+    "Motivation": "Addresses the critical external gap of leveraging biomedical ontologies to guide bias stabilization in domain-sensitive applications, protecting real-world ethical impacts.",
+    "Proposed_Method": "Embed biomedical ontologies directly into LLM training via constrained decoding and embedding regularization. Introduce ontology-aware fairness constraints that ensure semantic consistency and bias control respecting medical ethics. Combine this with replicability checks to monitor bias stability across model iterations.",
+    "Step_by_Step_Experiment_Plan": "1) Use medical dialogue, clinical notes datasets paired with biomedical ontologies. 2) Design constrained decoding algorithms informed by ontology relations. 3) Train LLMs with fairness constraints based on ontology semantics. 4) Evaluate bias measures, medical correctness, and fairness stability across redeployments.",
+    "Test_Case_Examples": "Input: Medical advice query about symptoms from diverse demographics. Expected output: Fair, accurate, and unbiased medical explanation that respects biomedical ontology constraints.",
+    "Fallback_Plan": "In case of excessive constraint-induced performance drop, relax ontology constraints or shift to post-hoc output filtering."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Biomedical Ontologies",
+      "Bias Stabilization",
+      "Medical LLMs",
+      "Ethical Impacts",
+      "Domain Knowledge",
+      "Fairness Enforcement"
+    ],
+    "direct_cooccurrence_count": 524,
+    "min_pmi_score_value": 2.8629884209386205,
+    "avg_pmi_score_value": 4.430215085730978,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4701 Communication and Media Studies",
+      "36 Creative Arts and Writing"
+    ],
+    "future_suggestions_concepts": [
+      "artificial general intelligence",
+      "Web intelligence",
+      "Systems Conference",
+      "generative AI",
+      "social informatics perspective",
+      "digital technologies",
+      "social informatics",
+      "sociology of communication",
+      "social media platforms",
+      "Annual Review of Information Science and Technology",
+      "data management",
+      "trustworthy machine learning",
+      "graph data management"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section presents embedding biomedical ontologies via constrained decoding and embedding regularization combined with ontology-aware fairness constraints. However, the mechanism by which these constraints are integrated into training is under-specified. How the model balances competing objectives—such as accuracy versus fairness—and operationalizes semantic consistency within constrained decoding algorithms remains unclear. Further, details on how replicability checks quantitatively monitor bias stability across deployments need elaboration. Clarifying these mechanisms is critical to establish soundness and avoid conceptual ambiguity or feasibility pitfalls in implementation and evaluation phases, especially given the complex interplay of ontologies and LLM training dynamics in a medical setting. Please provide a more detailed algorithmic or architectural framework describing how ontology semantics concretely guide model behavior and bias mitigation enforcement throughout training and decoding phases as well as the replicability methodology employed to assess fairness stability over iterations. This will strengthen both clarity and scientific rigor of the approach, facilitating reproducibility and evaluation in downstream experiments and potential real-world deployment contexts. Targeting soundness here will also better justify the connection between biomedical ontology incorporation and stable bias control tailored to domain ethics, a nontrivial challenge with high practical stakes in medical LLM applications.  Addressing this will increase reviewer confidence in the validity and operational feasibility of your method's core assumptions and mechanisms. \n\n-- Suggestions include pseudo-code or schematic figures of the constrained decoding pipeline, formal definitions of ontology-aware fairness constraints, and descriptions of replicability check metrics and protocols acquired from literature in bias stability or trustworthy machine learning. This might also situate the work more clearly within existing bias mitigation formulations, clarifying novelty boundaries while establishing solid footing for sound methodology claims.\n\n(Section: Proposed_Method) "
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experiment plan outlines leveraging clinical and medical dialogue datasets with biomedical ontologies, designing constrained decoding informed by ontology relations, training with ontology-aware fairness constraints, and evaluating bias and fairness stability across redeployments. While conceptually reasonable, the plan would benefit from more concrete details ensuring scientific rigor and practical feasibility, especially in dataset selection, metrics, and evaluation protocols.\n\nFor instance, clarifications on which biomedical ontologies will be used (e.g., UMLS, SNOMED CT) and their alignment with datasets, steps for ontology integration into model inputs or constraints, and baseline model comparisons are necessary. Details on bias measurement methods specific to medical fairness, evaluation criteria for medical correctness (potentially involving expert annotation or clinical validation), and how fairness stability is quantified over iterative model retraining or deployment cycles would improve reproducibility and impact. Also consider specifying how constrained decoding algorithms will be validated in terms of computational efficiency and accuracy tradeoffs.\n\nFurthermore, fallback plans mention relaxing constraints or post-hoc filtering but do not propose experimental analysis or decision criteria for choosing among these, which is crucial for feasibility in case of degradation. Prior work on bias mitigation in medical NLP or trustworthy machine learning can inform experimental protocols.\n\nEnhancing this section with clearer, stepwise experimental designs including dataset statistics, evaluation metrics, baseline models, and ablation studies will convincingly demonstrate feasibility and address practical challenges inherent in the proposed approach, substantiating claims about bias stabilization through ontology integration.\n\n(Section: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

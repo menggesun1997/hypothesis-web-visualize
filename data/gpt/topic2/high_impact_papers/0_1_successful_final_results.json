@@ -1,0 +1,66 @@
+{
+  "before_idea": {
+    "title": "Hybrid Discourse-XAI Evaluation: Mapping Failure Modes of Conversational Agents",
+    "Problem_Statement": "Existing failure mode analyses of language models rely either on AI-centric explainability tools or communication research methods separately, limiting a cohesive understanding of failure in dialogue.",
+    "Motivation": "Targets the internal gap of insufficient domain-specific interpretability approaches by bridging discourse analysis (communication research) with advanced XAI techniques into a hybrid evaluation methodology. The innovation lies in jointly mapping linguistic discourse phenomena with explanation traces from models.",
+    "Proposed_Method": "Develop a pipeline combining scenario-based discourse analysis (e.g., identifying coherence breaks, turnaround errors) with layer-wise relevance propagation and saliency maps from language models. This hybrid approach annotates dialogues with discourse errors tagged alongside XAI-generated reasoning patterns to pinpoint root causes.",
+    "Step_by_Step_Experiment_Plan": "1) Create scenario-based dialogue datasets with annotated discourse errors. 2) Fine-tune language models on these scenarios. 3) Apply XAI techniques (LRP, Integrated Gradients) to generate explanations. 4) Integrate discourse annotations with XAI maps to identify failure clusters. 5) Evaluate against baseline interpretability methods on error detection and explanation clarity.",
+    "Test_Case_Examples": "Input: Customer support chatbot dialogue where the agent contradicts previous answers. Output: Discourse analysis flags contradiction; XAI techniques highlight input tokens leading to incoherent response. Expected: The hybrid method offers clear interpretability on both linguistic and model-level failure causes.",
+    "Fallback_Plan": "If integration is too noisy, employ hierarchical evaluation—first assess discourse errors, then independently evaluate XAI explanations, later combine findings manually or via feature selection techniques."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Hybrid Discourse-XAI Evaluation: Mapping Failure Modes of Conversational Agents via Granular Multi-Modal Fusion",
+        "Problem_Statement": "Existing failure mode analyses of conversational agents largely apply AI-centric explainability or discourse analytic methods in isolation, leading to fragmented and limited understanding of dialogue failures. There is a pressing need for a scientifically robust, integrated framework that cohesively combines linguistic discourse phenomena with model-internal explanation data to systematically and granularly identify failure modes in dialogue systems.",
+        "Motivation": "While prior works separately explore discourse analysis or explainable AI (XAI) for dialogue errors, their isolated use constrains interpretability and limits actionable insights. To achieve a truly human-centered and practically valuable interpretability framework for conversational agents, this work bridges discourse tree structures from communication research with granular computing inspired multi-modal fusion of XAI saliency maps and error annotations. This hybrid evaluation pipeline fills the methodological gap by enabling fine-grained, joint representation and clustering of heterogeneous symbolic and continuous explanatory data, fostering deeper, more trustworthy failure mode discovery—not mere juxtaposition—thus advancing state-of-the-art in explainable conversational AI beyond competitive baselines.",
+        "Proposed_Method": "We propose a novel, algorithmically precise fusion framework that aligns scenario-based discourse annotations—structured as discourse trees representing coherence breaks, contradictions, and error tags—with model-derived layer-wise relevance propagation (LRP) and integrated gradients saliency heatmaps via a hierarchical multi-modal embedding space. The method encodes discourse structures symbolically, and translates saliency maps into token-level continuous vectors. Fusion leverages a joint representation learning model employing modality-specific encoders with contrastive learning to align discourse error embeddings with XAI token importances in a shared latent space. Subsequent multi-view clustering of these fused embeddings yields interpretable failure mode clusters. This granular computing inspired alignment facilitates interpretable, reproducible, and scalable failure mapping, surpassing naive sequential or manual combinations. Algorithmic details, including contrastive loss formulations, fusion architecture, and integration with discourse tree parsing, are explicitly defined to ensure scientific rigor and reproducibility. This approach uniquely operationalizes discourse phenomena and XAI explanations jointly, empowering fine-grained and reliable failure detection in dialogue agents.",
+        "Step_by_Step_Experiment_Plan": "1) Pilot Study: Develop comprehensive annotation guidelines for discourse phenomena focusing on coherence breaks and turnaround errors, involving expert linguists and computational annotators. Conduct a pilot annotation on a small dialogue corpus to validate consistency and iteratively refine operational guidelines.\n2) Data Scaling: Employ a semi-automatic annotation pipeline leveraging weak supervision and multi-instance active learning to efficiently extend annotated scenario-based dialogue datasets while maintaining high annotation quality.\n3) Model Fine-tuning: Fine-tune state-of-the-art pre-trained conversational language models on annotated dialogue scenarios, monitoring for overfitting and diversity within limited datasets.\n4) XAI Application: Apply multiple XAI methods (LRP, Integrated Gradients) across model layers; process saliency maps into continuous token-level embeddings.\n5) Fusion Implementation: Train joint multi-modal embedding models with modality-specific encoders and contrastive loss to align discourse tree-based symbolic embeddings with XAI saliency embeddings.\n6) Clustering & Failure Mode Identification: Use multi-view clustering algorithms on fused embeddings to reveal coherent failure clusters.\n7) Evaluation: Quantitatively evaluate the hybrid method against established baselines using precision, recall, and interpretability scores on error detection and explanation clarity. Incorporate robustness checks including ablation studies and modular evaluation of each fusion component.\n8) Human-Centered Validation: Conduct user studies with dialogue system developers and technical communicators to assess practical trustworthiness and utility of hybrid failure explanations.\nThis phased plan balances methodological innovation with operational feasibility and resource constraints, integrating robustness safeguards and modular evaluation to reduce risk while ensuring scientific validity.",
+        "Test_Case_Examples": "Input: A customer support chatbot dialogue where the agent contradicts previous answers within a multi-turn conversation.\nOutput: 1) Discourse analysis represents dialogue as a discourse tree tagging the contradiction node and coherence disruptions.\n2) XAI techniques generate token-level saliency heatmaps highlighting influential user and system utterance segments driving incoherent responses.\n3) The fusion model aligns discourse tree embeddings with saliency embeddings to cluster this failure instance distinctly.\nExpected: The hybrid method precisely localizes the contradiction discourse failure and maps it to model-internal reasoning patterns, offering clear, interpretable, and jointly validated explanations surpassing those from standalone discourse or XAI methods. This enables targeted debugging of dialogue agent failures with enhanced granularity and practical insight.",
+        "Fallback_Plan": "If the multi-modal embedding fusion proves overly noisy or fails to converge meaningfully, we will adopt a modular hierarchical evaluation approach: first, perform automated discourse error detection and clustering independently using discourse tree parsing and symbolic methods; second, independently analyze XAI explanations applying quantitative alignment metrics with salient tokens; finally, manually or semi-automatically triangulate failure evidence through feature selection and alignment heuristics to combine insights. This staged fallback preserves interpretability and analytical value but avoids reliance on complex joint embedding training in case of dataset or computational limitations, ensuring incremental progress while maintaining scientific rigor."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Hybrid Discourse-XAI Evaluation",
+      "Conversational Agents",
+      "Failure Modes",
+      "Discourse Analysis",
+      "Explainable AI (XAI)",
+      "Linguistic Discourse Phenomena"
+    ],
+    "direct_cooccurrence_count": 1342,
+    "min_pmi_score_value": 2.9658279169078194,
+    "avg_pmi_score_value": 5.638442739737164,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "human-centered artificial intelligence",
+      "granular computing",
+      "discourse tree",
+      "technical communication",
+      "augmentation technology",
+      "multi-agent systems",
+      "autonomous agents",
+      "future of AI"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines combining discourse error annotations with XAI outputs (LRP, Integrated Gradients) to jointly identify failure clusters, but lacks clarity on the precise integration mechanism—how the linguistic discourse phenomena maps will align and be fused with layer-wise relevance or saliency maps. Without a well-articulated fusion model or algorithmic framework, the hybrid pipeline risks being ad hoc or noisy. You should explicitly define the method for integrating discourse tags (symbolic/error-based) with continuous, model-derived explanation heatmaps—for example, via multi-modal embedding alignment, joint clustering, or other interpretable fusion techniques—to enhance method clarity and reproducibility, thus strengthening soundness and reducing ambiguity in key assumptions about combining these heterogeneous data types effectively within the pipeline. This will also facilitate more reliable failure mode mapping, essential to supporting the core claim of bridging discourse and XAI insights cohesively in dialogue analysis methods, beyond simple juxtaposition or sequential evaluations as in your fallback plan proposal (which should be a last resort). Without this, the approach risks remaining a suggestive but under-specified framework limiting practical uptake and interpretability trustworthiness in NLP research and applications involving conversational agents’ failure analysis. This refinement would make your methodological contribution more compelling and scientifically robust for a top-tier venue targeting explainable conversational AI research advances.  (Target Section: Proposed_Method)  \n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan lacks important feasibility details and potential bottleneck considerations. For example, step 1 requires creating scenario-based dialogue datasets with annotated discourse errors—a task that is known to be very labor-intensive and requires expert annotators or strong operational guidelines to ensure annotation consistency, especially for nuanced linguistic phenomena like coherence breaks or turnaround errors. Moreover, fine-tuning language models on these narrowly scoped scenarios (step 2) and applying multiple XAI methods (step 3) may lead to significant computational overhead and noise if the dataset size or annotation quality is insufficient. You should plan detailed pilot studies or semi-automatic annotation strategies leveraging active learning or weak supervision to scale data preparation reliably. Also, the evaluation metrics and baselines in step 5 need explicit specification to scientifically validate that your hybrid method improves upon existing interpretability and error detection approaches. Without clarifying these operational details, the experiment may be high-risk given resource constraints and the complexity of integrating discourse and XAI outputs. Consider robustness checks or modular evaluation protocols as prerequisites before attempting full pipeline integration to mitigate failure risks, complementing your fallback plan more systematically. Addressing these experimental design and resource feasibility gaps is critical to make your contributions practical and realizable. (Target Section: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

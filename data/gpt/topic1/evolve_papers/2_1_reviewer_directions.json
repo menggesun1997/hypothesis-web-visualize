@@ -1,0 +1,44 @@
+{
+  "original_idea": {
+    "title": "Automated Biomedical Prompt Rule Induction via Knowledge Graph Embeddings",
+    "Problem_Statement": "Manual prompt engineering for biomedical few-shot learning is time-consuming and not scalable across diverse biomedical subdomains due to heavy expert involvement.",
+    "Motivation": "This proposal directly addresses internal gap (2) on expert-driven prompt design limitations and external gap (d) about utilizing knowledge graph retrieval in prompt tuning. Automating rule induction via knowledge graph embeddings is a transformative step in prompt engineering.",
+    "Proposed_Method": "Construct an automated rule induction framework that uses node and edge embeddings from biomedical knowledge graphs (e.g., UMLS, SNOMED) to generate candidate prompt templates and label words. These are scored and optimized using reinforcement learning and retrieval-augmented LLM feedback loops to select effective prompts for few-shot biomedical relation extraction and classification without manual heuristics.",
+    "Step_by_Step_Experiment_Plan": "1. Obtain biomedical knowledge graphs and preprocess them into embedding spaces. 2. Build a generation module to produce prompt candidates from embeddings. 3. Use RL-based optimization guided by few-shot task performance on biomedical relation extraction datasets like TACRED. 4. Baselines: manual prompt engineering, PTR, KnowPrompt. 5. Metrics: accuracy/F1 on downstream tasks, prompt efficiency (manual effort/time), adaptability across biomedical subdomains.",
+    "Test_Case_Examples": "Input: Relation extraction task between symptoms and diseases. Generated prompt: \"Identify if the sentence implies a symptom indicating a disease relationship.\" Expected output: High classification accuracy comparable or superior to manual prompts with less expert input.",
+    "Fallback_Plan": "If RL optimization is unstable, switch to evolutionary or gradient-free search methods for prompt rule selection. If embedding-driven rules are sparse, enrich graph with external databases or couple with textual semantic similarity."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Automated Biomedical Prompt",
+      "Rule Induction",
+      "Knowledge Graph Embeddings",
+      "Prompt Engineering",
+      "Few-shot Learning",
+      "Biomedical Subdomains"
+    ],
+    "direct_cooccurrence_count": 2688,
+    "min_pmi_score_value": 4.316101749383288,
+    "avg_pmi_score_value": 5.855238646587114,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "5204 Cognitive and Computational Psychology",
+      "52 Psychology"
+    ],
+    "future_suggestions_concepts": [
+      "consequences of bilingualism"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experiment plan relies heavily on reinforcement learning (RL) to optimize prompt templates using few-shot task performance but does not address potential challenges like reward sparsity and sample inefficiency in biomedical domains. It is important to clarify how you will stabilize RL training given limited labeled data and high dimensionality of embedding-driven prompts. Further, the fallback plans to use evolutionary or gradient-free methods should be elaborated with concrete protocols. Without these specifications, the feasibility of the approach under real-world constraints remains uncertain. Consider adding concrete pilot studies or simulated experiments to validate optimization stability and convergence before full-scale evaluation on biomedical datasets like TACRED."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "To enhance both novelty and impact in this already competitive area, consider integrating insights from the 'consequences of bilingualism' as a metaphor or inspiration. For example, explore incorporating multilingual biomedical knowledge graphs or cross-lingual embeddings to induce prompt rules that generalize across languages and biomedical subdomains. This cross-lingual and cognitive-inspired angle could differentiate your method by tackling linguistic diversity in biomedical data, thereby expanding applicability and addressing internal prompt tuning limitations in multilingual or multicultural biomedical contexts. Such integration can strengthen the broader significance and novelty of the approach beyond existing embedding-based prompt methods."
+        }
+      ]
+    }
+  }
+}

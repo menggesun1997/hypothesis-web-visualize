@@ -1,0 +1,59 @@
+{
+  "original_idea": {
+    "title": "Discourse-Move-Aware Perplexity Adjustments for Evaluating LLM Generated Social Support Texts",
+    "Problem_Statement": "Traditional perplexity treats all generated text equally and ignores discourse function, limiting evaluation fidelity for socially impactful texts like support messages in online communities.",
+    "Motivation": "Based on Opportunity 1 and internal gaps around discourse integration, this idea innovates on perplexity calculation by factoring discourse moves, enhancing evaluation of LLM outputs under social science frameworks.",
+    "Proposed_Method": "Implement a modified perplexity metric where each token’s perplexity contribution is weighted by its discourse function (e.g., question, affirmation, empathy). Discourse functions are identified via a pretrained discourse tagger. This produces an adjusted perplexity score that rewards model output aligned with valued discourse moves in social support contexts.",
+    "Step_by_Step_Experiment_Plan": "1. Annotate dataset texts from online support groups with discourse move tags.\n2. Train or fine-tune discourse function taggers.\n3. Generate LLM outputs to social support prompts.\n4. Calculate baseline perplexity and discourse-weighted perplexity.\n5. Compare correlations with human assessments of social support quality.\n6. Analyze sensitivity to discourse function distribution changes.\n7. Test across domains and languages.",
+    "Test_Case_Examples": "Input: \"I’m struggling with my mental health lately.\"\nExpected Output: Lower adjusted perplexity when model responses include high-weight empathy discourse moves compared to generic informational responses.",
+    "Fallback_Plan": "Fallback to simpler sentence-level discourse classification if token-level tagging is noisy. Experiment with different weighting schemes or discourse taxonomies to optimize metric performance."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Discourse Moves",
+      "Perplexity Adjustments",
+      "LLM Evaluation",
+      "Social Support Texts",
+      "Discourse Integration",
+      "Social Science Frameworks"
+    ],
+    "direct_cooccurrence_count": 842,
+    "min_pmi_score_value": 3.056780742650132,
+    "avg_pmi_score_value": 4.667896223759759,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "3901 Curriculum and Pedagogy",
+      "39 Education"
+    ],
+    "future_suggestions_concepts": [
+      "analytic hierarchy process",
+      "Cognitive Construction Grammar",
+      "Korean language teaching",
+      "language teaching",
+      "Korean language education",
+      "misinformation detection systems",
+      "detection system",
+      "attack agents",
+      "comparison module",
+      "automatic question generation",
+      "question generation",
+      "digital pedagogy",
+      "hybrid model of education",
+      "model of education",
+      "aims of education"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed step-by-step experiment plan, while conceptually logical, could be more thoroughly detailed to ensure feasibility and scientific rigor. For example, it is unclear how the discourse move weights will be quantitatively determined or validated, which is crucial for adjusting perplexity effectively. The plan should also specify the size and diversity of the annotated datasets, evaluation metrics for both discourse tagger performance and adjusted perplexity correlation with human assessments, and contingency steps if discourse taggers fail to generalize well across domains or languages. Clarifying these points will improve the experiment's practicality and reproducibility, as well as allow better estimation of resource and time requirements for each step. Consider incorporating iterative validation cycles to refine discourse weightings based on experimental feedback rather than static preset weights from external frameworks alone, to enhance effectiveness and reliability of the adjusted perplexity metric in the social support context. This detailed scientific protocol will bolster confidence in feasibility and soundness of the research plan overall, facilitating adoption by the community and improving subsequent impact potential in evaluating LLMs’ socially aware text generation robustly and transparently at scale in diverse settings, including multilingual ones where discourse function realizations may differ significantly from English-centric pretrained discourse taggers used initially.  Hence, provide more concrete experimental design, evaluation criteria, and fallback procedures beyond generic notions to strengthen feasibility and soundness of the method’s validation pathway sharply, addressing both linguistic and technical challenges of discourse-aware evaluation metrics for social support texts generated by large language models promptly and convincingly.  (Target: Step_by_Step_Experiment_Plan)  (Code: FEA-EXPERIMENT)"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "To elevate both the impact and novelty of the work in a competitive area as indicated by the novelty screening, consider integrating relevant concepts from the linked global ideas to broaden applicability and deepen theoretical grounding. For instance, incorporating frameworks from 'Cognitive Construction Grammar' could provide a richer linguistic basis for identifying and weighting discourse moves, potentially improving the interpretability and generalizability of the discourse tagging mechanism beyond simple classification. Additionally, exploring synergies with 'automatic question generation' or 'digital pedagogy' concepts could open novel application scenarios for the adjusted perplexity metric, such as assessing educational support dialogue quality or detecting misinformation in socially sensitive contexts. This could also help extend the approach beyond narrowly framed social support texts to broader domains requiring nuanced discourse-aware evaluation. Lastly, introducing techniques like the 'analytic hierarchy process' might systematically calibrate discourse function weights based on expert input, optimizing weighting schemes in a principled manner rather than trial-and-error. These suggestions would increase the methodological rigor and create cross-disciplinary bridges, thereby strengthening both the scientific novelty and the real-world relevance of the research. Reflecting on these integrative possibilities will allow the authors to sharpen their framing, experiments, and potential impact, making a compelling case for publication at premier venues. (Target: Proposed_Method and Experiment_Plan) (Code: SUG-GLOBAL_INTEGRATION)"
+        }
+      ]
+    }
+  }
+}

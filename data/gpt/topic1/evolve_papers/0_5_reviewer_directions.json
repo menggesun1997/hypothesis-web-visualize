@@ -1,0 +1,52 @@
+{
+  "original_idea": {
+    "title": "Click-Driven Conversational Coreference Resolution via Latent Semantic Retrieval",
+    "Problem_Statement": "Conversational QA systems exhibit poor coreference resolution, affecting context understanding and retrieval relevance in multi-turn settings, and existing retrieval models do not utilize user interaction signals like clicks to improve this.",
+    "Motivation": "Addressing critical internal gaps in coreference and pragmatic reasoning and external underuse of clickthrough data, this work proposes click-driven adaptive retrieval models that enhance coreference resolution dynamically in dialogues.",
+    "Proposed_Method": "Design a retrieval module that integrates coreference-aware latent semantic embeddings updated via implicit user clicks indicating reference correctness or error. The system will use these signals to adapt embedding spaces emphasizing correct entity linking and pragmatic context. Jointly train retriever and generator to reinforce coreference understanding, enabling more precise retrieval of contextually appropriate documents in multi-turn dialogues.",
+    "Step_by_Step_Experiment_Plan": "1. Use conversational QA datasets with annotated coreference chains (CoQA). 2. Collect or simulate clickthrough signals aligned to coreference correctness. 3. Train coreference-aware latent semantic models with click-driven supervision. 4. Evaluate on coreference resolution metrics, retrieval precision, and conversational QA accuracy. 5. Compare against baselines without click integration.",
+    "Test_Case_Examples": "Input: Dialogue: 'Who wrote Hamlet?' [retrieved document], next turn: 'When was he born?' with clicks confirming correct document entities. Expected Output: Generator correctly resolves 'he' to Shakespeare, outputting birth date with relevant retrieved context.",
+    "Fallback_Plan": "If actual click data unavailable, use simulated click signals or proxy feedback such as query reformulation patterns. Alternatively, incorporate external coreference models for pre-processing and rescoring."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "conversational coreference resolution",
+      "click-driven retrieval",
+      "latent semantic retrieval",
+      "pragmatic reasoning",
+      "clickthrough data",
+      "multi-turn dialogues"
+    ],
+    "direct_cooccurrence_count": 86,
+    "min_pmi_score_value": 5.6952714504313695,
+    "avg_pmi_score_value": 7.342669266031595,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "4904 Pure Mathematics",
+      "49 Mathematical Sciences",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "deep learning",
+      "natural language processing tasks",
+      "architecture of deep learning",
+      "resolution algorithm",
+      "state-of-the-art approaches",
+      "digital traces",
+      "intersection of information retrieval"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section outlines a compelling high-level approach, but the details on how the click-driven latent semantic embeddings will be updated during user interaction remain underspecified. For example, it is unclear what model architecture will integrate click signals with coreference embeddings, how noise and ambiguity in clicks are handled, and whether clicks serve as direct supervision or as reinforcement signals within training. Clarifying the mechanism for click integration, latency considerations for online updating, and the joint training procedure for retriever and generator will substantially strengthen soundness and reproducibility of the approach. Additionally, more explicit connections between coreference resolution improvements and retrieval quality gains will improve clarity of the mechanism's causal effects. Please expand this section with architectural diagrams or pseudocode illustrating how click feedback refines the embedding space and influences retrieval and generation outputs at runtime and training time, ensuring the approach is rigorously defined and plausibly effective in practice. This will mitigate risk of oversimplification assumptions about click utility and model adaptability, enhancing internal consistency and confidence in the feasibility claims within the methodology itself (Proposed_Method). The assumption that click signals reliably and sufficiently inform coreference disambiguation is plausible but requires explicit model-level operationalization and discussion of potential failure modes (e.g., noisy or sparse clicks). This refinement is critical given the novelty and competitive nature of the area and will clarify the exact innovation and contribution within coreference-aware retrieval research. Note that as this is a novel combination of coreference and click-driven latent space adaptation, rigorous model design exposition is essential for a top-tier venue review acceptance and impact assessment. Target: Proposed_Method"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan thoughtfully covers dataset selection, signal simulation, training, and evaluation metrics, but the feasibility of collecting true user clickthrough signals aligned explicitly to coreference correctness is likely quite challenging. The plan relies heavily on either collecting new large-scale interactive data or simulating proxy signals (e.g., query reformulation) that may imperfectly reflect true coreference feedback. This gap introduces a key feasibility risk that should be addressed more concretely. For example, please delineate the data collection protocol (crowdsourcing, live user studies, or log mining), the scale necessary for statistical power, and the strategy to ensure that click signals actually correlate with correct/incorrect coreference decisions. Additionally, clarifying how simulation fidelity will be validated against real signals is important. The fallback plans to leverage external coreference models for rescoring are promising but require further detail on integration and evaluation conditions. Strengthening the experiment plan to explicitly incorporate risk mitigation strategies for gathering and validating click data and to robustly simulate user clicks will enhance feasibility credibility. Explicit benchmark baselines and ablation studies isolating the click-driven component from coreference modeling alone will improve interpretability and confidence in derived conclusions. This detail is crucial because the method's claimed impact hinges on effectively exploiting interactive click feedback, so demonstrating feasible pathways to obtaining and validating such feedback is imperative. Target: Step_by_Step_Experiment_Plan"
+        }
+      ]
+    }
+  }
+}

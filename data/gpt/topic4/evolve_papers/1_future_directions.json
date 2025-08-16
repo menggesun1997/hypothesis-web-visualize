@@ -1,0 +1,97 @@
+{
+  "topic_title": "Incorporating Linguistic Typology into LLM Training to Enhance Diversity Representation",
+  "prediction": {
+    "ideas": [
+      {
+        "title": "Typology-Infused Prompt Tuning for Low-Resource Languages",
+        "Problem_Statement": "Current multilingual large language models (LLMs) inadequately incorporate deep linguistic typological features, especially for typologically distant low-resource languages, limiting their performance and diversity representation.",
+        "Motivation": "This project addresses the internal critical gap of insufficient integration of linguistic typology beyond family-based transfer, explicitly targeting non-Indo-European languages with unique morphosyntactic traits.",
+        "Proposed_Method": "We propose a Typology-Infused Prompt Tuning (TIPT) framework where typological features (e.g., morphological richness indices, dominant word orders) are encoded into continuous prompts that guide frozen LLMs during fine-tuning on downstream tasks. This modular approach injects typological inductive biases directly into models without requiring full retraining, enhancing adaptability to typologically diverse languages.",
+        "Step_by_Step_Experiment_Plan": "1) Collect typological feature data from WALS for a diverse set of languages including low-resource ones; 2) Pre-encode these features as continuous prompt vectors; 3) Apply TIPT on pre-trained multilingual models like XLM-R during fine-tuning on sentiment analysis and NER tasks for typologically distant languages; 4) Baselines are vanilla fine-tuning and adapter-based methods; 5) Evaluate with accuracy, F1 scores, and cross-lingual transferability measures; 6) Analyze representation diversity improvements via probing.",
+        "Test_Case_Examples": "Input: Sentiment classification in a low-resource Niger-Congo language, with the prompt incorporating morphological complexity and SVO order typological vectors. Expected output: Enhanced sentiment prediction accuracy compared to baseline, showing better recognition of morphological variants.",
+        "Fallback_Plan": "If prompt tuning yields limited gains, incorporate typological features as adapter layers augmenting the transformer architecture, or experiment with multitask learning with typology prediction tasks to reinforce feature integration."
+      },
+      {
+        "title": "Blockchain-Enabled Privacy-Preserving Linguistic Data Marketplace",
+        "Problem_Statement": "Linguistic datasets of minority and indigenous languages are scarce due to privacy concerns and lack of secure data governance, impeding the creation of typologically diverse language models.",
+        "Motivation": "This addresses the external gap and opportunity in leveraging blockchain and Ethereum smart contracts for secure linguistic data sharing and governance, ensuring rights preservation and incentivizing community contributions.",
+        "Proposed_Method": "Design a decentralized marketplace platform underpinned by Ethereum smart contracts enabling linguists, native speakers, and institutions to share datasets securely with encrypted provenance records. Smart contracts enforce usage policies and facilitate micropayments or tokenized rewards for dataset contributions. Privacy-preserving functionalities such as zero-knowledge proofs protect sensitive content while enabling aggregate learning.",
+        "Step_by_Step_Experiment_Plan": "1) Prototype blockchain-based data registry and access control smart contracts; 2) Integrate standard NLP dataset formats with on-chain metadata; 3) Simulate data sharing, auditing, and reward flows; 4) Test privacy-preserving protocols with synthetic linguistic data; 5) Pilot participation with minority language communities; 6) Measure scalability, cost, security guarantees and uptake.",
+        "Test_Case_Examples": "Example: An indigenous language community uploads an annotated corpus with smart contract-enforced restrictions requiring academic usage only. A researcher queries the platform, gains authorized access with data usage logs recorded on-chain, and the community receives micropayments automatically, ensuring transparency and trust.",
+        "Fallback_Plan": "If blockchain scalability or costs become prohibitive, explore hybrid off-chain/on-chain approaches or federated data-sharing frameworks with smart contract mediated audit trails as alternatives."
+      },
+      {
+        "title": "Typology-Guided Multilingual Curriculum Learning",
+        "Problem_Statement": "Standard multilingual training treats languages uniformly or clusters them by language family, ignoring fine-grained typological differences that could optimize transfer and reduce negative transfer effects.",
+        "Motivation": "Targets internal gaps on typology integration in transfer learning to improve model generalization and bias, moving beyond English-centric and family-based clustering approaches.",
+        "Proposed_Method": "Develop a curriculum learning strategy that dynamically organizes training batches based on sliding typological similarity measures, such as word order, morphological complexity, and phonological inventories. The curriculum guides model focus from close typological neighbors to more distant languages progressively, improving robustness and typology-aware representation learning.",
+        "Step_by_Step_Experiment_Plan": "1) Extract typological feature vectors for languages from WALS and URIEL; 2) Define typology distance functions; 3) Construct training curricula reflecting incremental typological divergence; 4) Train multilingual transformers on token-level language modeling and downstream tasks; 5) Compare to random, family-based, and no-curriculum baselines; 6) Evaluate performance, representation diversity, and bias metrics.",
+        "Test_Case_Examples": "Input: Training sequence starts with Spanish, Italian (close to English typology), then progressively includes more distant languages like Basque and Georgian. Expected Output: Improved cross-lingual transfer performance on distant languages, reduced bias on typologically unique constructs.",
+        "Fallback_Plan": "If curriculum learning yields marginal gains, combine with auxiliary typology prediction tasks or contrastive loss terms emphasizing typological distinctions in representations."
+      },
+      {
+        "title": "Typology-Constrained Embedding Space Regularization",
+        "Problem_Statement": "Embeddings in multilingual LLMs often cluster languages by family or script rather than typological features, limiting typology-aware generalization and bias mitigation.",
+        "Motivation": "Addresses the internal gap by explicitly constraining learned embeddings via typological distances, enhancing typology representation diversity beyond traditional family-centric grouping.",
+        "Proposed_Method": "Introduce a novel embedding regularization loss that penalizes divergence from a typology-derived embedding manifold during training or fine-tuning. Typological distances computed from databases like WALS guide the embedding proximity constraints, encouraging embeddings of typologically similar languages to cluster while preserving meaningful task-specific distances.",
+        "Step_by_Step_Experiment_Plan": "1) Compute pairwise typology distances between languages; 2) Implement embedding regularization loss integrated into fine-tuning objective; 3) Fine-tune multilingual LLMs on diverse downstream tasks; 4) Evaluate on typology-diverse benchmarks; 5) Analyze embedding spaces with PCA/t-SNE and measure bias mitigations.",
+        "Test_Case_Examples": "Input: Multilingual embedding matrix including Turkish and Finnish. Expected outcome: Embeddings reflect typological similarities (e.g., agglutinative morphology) more accurately than mere language family membership, improving downstream task generalization.",
+        "Fallback_Plan": "If regularization destabilizes training, relax constraints via weighting schedules or combine with multitask objectives predicting typological properties directly."
+      },
+      {
+        "title": "Cross-Domain Typological Adaptation in Healthcare NLP Systems",
+        "Problem_Statement": "Healthcare NLP tools predominantly developed for English or related languages struggle to generalize to typologically diverse, low-resource languages, limiting equitable access and care.",
+        "Motivation": "Fills the external gap by linking typology-aware NLP model development with healthcare application demands, addressing socio-cultural needs via specialized datasets and benchmarks.",
+        "Proposed_Method": "Develop adaptation techniques embedding typological features of target languages into domain-adaptive transfer learning frameworks. Construct typology-informed synthetic healthcare dialogues and clinical note datasets in underrepresented languages using controlled data augmentation respecting morphological and syntactic features.",
+        "Step_by_Step_Experiment_Plan": "1) Gather healthcare NLP datasets in English; 2) Identify key typological challenges in target languages; 3) Generate synthetic data augmenting English datasets with typologically-preserving transformations; 4) Fine-tune multilingual models with synthetic plus limited real data; 5) Evaluate on clinical concept recognition, sentiment, and summarization benchmarks; 6) Compare against non-typology-informed baselines.",
+        "Test_Case_Examples": "Input: Clinical note summarization in Amharic augmented with morphological variation preserving medical term meaning. Expected output: Higher accuracy and factual consistency compared to baseline models ignoring typology.",
+        "Fallback_Plan": "If synthetic augmentation is insufficient, collaborate with native speakers for small high-quality annotations or incorporate unsupervised pretraining on raw typologically rich corpora."
+      },
+      {
+        "title": "Integrating Ethereum Smart Contracts for Federated Learning in Indigenous Language Models",
+        "Problem_Statement": "Federated learning on sensitive indigenous linguistic data lacks transparent governance and incentives, hampering collaborative model training respecting community data rights.",
+        "Motivation": "Leverages the external multi-disciplinary gap exploiting blockchain-enabled privacy and governance to facilitate secure federated learning for typologically diverse, low-resource languages.",
+        "Proposed_Method": "Create a federated learning protocol where participation, data usage, and model update transactions are enforced and audited via Ethereum smart contracts. Participants retain control over their data while benefiting from shared model improvements, with cryptographic proofs ensuring data integrity and model provenance.",
+        "Step_by_Step_Experiment_Plan": "1) Design federated learning setup compatible with blockchain transactions; 2) Develop smart contracts enforcing contribution and update policies; 3) Simulate multi-party collaborative training on linguistic datasets; 4) Evaluate model performance improvements alongside privacy and audit compliance; 5) Pilot with indigenous language datasets or simulated ones.",
+        "Test_Case_Examples": "Input: Multiple speakers of a minority language collaboratively train an ASR model without sharing raw data; smart contracts track contribution and distribute incentives transparently. Expected output: Improved ASR with provable privacy guarantees and equitable reward distribution.",
+        "Fallback_Plan": "If blockchain overhead is high, explore lightweight sidechains or permissioned blockchains adjusted for linguistic federated learning scenarios."
+      },
+      {
+        "title": "Morpho-Syntactic Typology Embeddings for Enhanced Multilingual Knowledge Graphs",
+        "Problem_Statement": "Current multilingual knowledge graphs lack typological information, limiting their use in linguistically diverse applications and cross-language reasoning.",
+        "Motivation": "Addresses internal gaps by embedding deep morpho-syntactic typology directly into knowledge graph node and edge representations, enriching semantic connections across typologically diverse languages.",
+        "Proposed_Method": "Develop embeddings for linguistic units enriched with typological signatures derived from aligned typology resources. Integrate these into knowledge graph construction and completion methods to improve semantic link prediction and multilingual query resolution in typologically diverse contexts.",
+        "Step_by_Step_Experiment_Plan": "1) Extract morpho-syntactic typology features from WALS and URIEL; 2) Map typological vectors to knowledge graph nodes; 3) Train typology-aware graph embedding models (e.g., graph neural networks); 4) Evaluate knowledge graph completion and multilingual question answering; 5) Contrast with standard graph embedding baselines; 6) Analyze semantic cluster coherence influenced by typology.",
+        "Test_Case_Examples": "Input: Querying a multilingual knowledge graph for concept equivalences considering word order and morphological variants in Turkish and Japanese nodes. Expected output: Improved alignment and retrieval results respecting typological variation.",
+        "Fallback_Plan": "If direct embedding integration underperforms, explore multi-view learning with separate typology and semantic embeddings fused during downstream tasks."
+      },
+      {
+        "title": "Typology-Aware Data Augmentation for Low-Resource Language Pretraining",
+        "Problem_Statement": "Low-resource languages are underrepresented in large-scale pretraining corpora, leading to poor model performance, especially when typological features are unique and complex.",
+        "Motivation": "This tackles internal gaps in data scarcity and inadequate typology representation by creating augmentation strategies reflecting true typological phenomena during training data synthesis.",
+        "Proposed_Method": "Design typology-guided data augmentation pipelines that apply morphological templating, syntactic reordering, and phonological variation reflecting the target language's typological characteristics, generating diverse synthetic corpora enhancing pretraining efficacy for LLMs.",
+        "Step_by_Step_Experiment_Plan": "1) Identify key typological traits for target low-resource languages; 2) Develop augmentation operations (e.g., agglutination simulation, word order permutations); 3) Generate synthetic textual data augmenting limited existing corpora; 4) Use this synthetic data for pretraining or continual pretraining of multilingual LLMs; 5) Evaluate downstream task performance and representation richness versus no-augmentation baselines.",
+        "Test_Case_Examples": "Input: Generating morphologically rich synthetic sentences in Quechua exhibiting suffix complexation and free word order. Expected output: Improved masked language modeling loss and downstream task performance in Quechua vs. naive augmentation.",
+        "Fallback_Plan": "If augmentation reduces data quality, introduce quality control filters based on linguistic acceptability heuristics or human-in-the-loop feedback."
+      },
+      {
+        "title": "Typology-Driven Meta-Learning for Rapid Adaptation to Novel Languages",
+        "Problem_Statement": "Multilingual LLMs often require extensive fine-tuning to adapt to novel, typologically distinct low-resource languages, limiting practical usability.",
+        "Motivation": "Addresses internal gaps concerning model generalization and bias by integrating typological priors into meta-learning schemes enabling rapid efficient adaptation.",
+        "Proposed_Method": "Implement a typology-driven model-agnostic meta-learning approach where each training episode conditions on typological descriptors enabling the model to learn how typology affects language structure. New languages with known typology can thus be rapidly adapted with minimal data by conditioning on their typological profile.",
+        "Step_by_Step_Experiment_Plan": "1) Collate a typologically annotated multilingual dataset; 2) Design meta-learning episodes with typology-conditioned tasks; 3) Train models with gradient-based meta-learning methods (e.g., MAML) integrating typology embeddings; 4) Evaluate rapid adaptation on unseen typologically diverse languages; 5) Compare sample efficiency and final performance against standard fine-tuning.",
+        "Test_Case_Examples": "Input: Few-shot adaptation to an under-resourced ergative language with morphological complexity given typological vectors. Expected output: Faster convergence and improved task accuracy than standard methods.",
+        "Fallback_Plan": "If meta-learning is unstable, incorporate curriculum learning or multi-task learning with typology prediction auxiliary tasks to stabilize gradients."
+      },
+      {
+        "title": "Ethical Framework for Linguistic Data Sovereignty via Decentralized Governance",
+        "Problem_Statement": "Indigenous and minority language data are vulnerable to misuse, with limited practical frameworks for enforcing data sovereignty and ethical sharing in large-scale NLP research.",
+        "Motivation": "Targets the external gap relating to ethical and socio-cultural dimensions of linguistic data governance, integrating blockchain technology with community-driven ethical frameworks.",
+        "Proposed_Method": "Design a decentralized governance protocol codified in smart contracts where linguistic communities define data use policies, consent frameworks, and auditing processes. Develop tools enabling transparent tracking of data provenance, usage compliance, and collective decision-making on data sharing.",
+        "Step_by_Step_Experiment_Plan": "1) Collaborate with indigenous communities to specify ethical requirements; 2) Formalize policies into smart contract logic; 3) Implement tools for data usage tracking and policy enforcement; 4) Simulate community participation and data sharing scenarios; 5) Assess compliance, community satisfaction, and impact on linguistic data availability; 6) Propose scalability improvements as needed.",
+        "Test_Case_Examples": "Scenario: A community restricts data use to non-commercial research; queries for data usage early warn unauthorized attempts recorded and publicly auditable on blockchain. Expected outcome: Transparent governance strengthening trust and ethical compliance.",
+        "Fallback_Plan": "If smart contract complexity limits adoption, develop hybrid human-smart contract governance frameworks or off-chain dispute resolution mechanisms."
+      }
+    ]
+  }
+}

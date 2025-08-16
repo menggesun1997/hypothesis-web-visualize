@@ -1,0 +1,84 @@
+{
+  "before_idea": {
+    "title": "Multimodal Knowledge Graph Convolution for Open-Domain Explanation",
+    "Problem_Statement": "Existing XAI methods for LLMs are primarily unimodal, failing to leverage visual commonsense knowledge to improve semantic encoding and explanations in open-domain QA.",
+    "Motivation": "There is a hidden bridge opportunity to integrate CNN-extracted visual knowledge with commonsense KGs via graph convolution for richer semantic understanding and explanation generation, directly addressing external multimodal gaps.",
+    "Proposed_Method": "Construct multimodal knowledge graphs combining visual entity features extracted via CNNs and semantic nodes from commonsense KGs. Use graph convolutional networks to propagate information across modalities and conditions the LLM's response and explanations on these integrated embeddings to foster grounded, visually informed answers.",
+    "Step_by_Step_Experiment_Plan": "Use multimodal QA datasets (e.g. TextVQA), integrate with ConceptNet. Baselines: pure LLM QA, LLM+vision without KG. Evaluate for answer accuracy, explanation multimodality, and user trust with human studies.",
+    "Test_Case_Examples": "Input: Image of a kitchen scene, question: 'Why is the oven hot?' The output links visual evidence (oven glowing) with knowledge about ovens heating food and explains accordingly.",
+    "Fallback_Plan": "If joint multimodal KG is challenging, fall back to separate visual and semantic processing pipelines fused by attention. Alternatively, simplify visual features to detected objects for graph nodes."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Neuro-Symbolic Multimodal Knowledge Graph Convolution for Explainable Open-Domain QA",
+        "Problem_Statement": "Current explainable AI (XAI) methods for large language models (LLMs) in open-domain question answering (QA) largely rely on unimodal textual data, overlooking the synergy between visual commonsense knowledge and structured semantic information. This unimodality limits the richness and explanatory power of generated responses, especially in scenarios requiring grounded visual reasoning.",
+        "Motivation": "While integrating visual features and commonsense knowledge graphs (KGs) holds promise for richer semantic representation, existing works lack rigorous mechanisms to effectively fuse heterogeneous modalities and incorporate structured symbolic reasoning to improve explanation quality. By leveraging vision-language pre-trained models for semantic alignment and infusing neuro-symbolic learning constraints through logic tensor networks atop multimodal KG embeddings, our approach aims to transcend current unimodal and heuristic fusion paradigms. This integration promises state-of-the-art grounded explanations, enhanced commonsense consistency, and interpretability, pushing boundaries beyond incremental advances in explainable open-domain QA.",
+        "Proposed_Method": "Our method constructs a unified multimodal knowledge graph that merges visual entity representations extracted using a vision-language pre-trained model (e.g., CLIP or Flamingo) and semantic nodes from commonsense KGs like ConceptNet. Specifically, we first generate aligned joint embeddings by projecting visual patches and semantic concepts into a shared embedding space supported by pretrained vision-language models, reducing modality gap. A graph convolutional network (GCN) is then employed over this multimodal graph, with dedicated relation- and modality-aware message-passing layers that explicitly handle heterogeneity by learning separate transformation matrices for visual and semantic node types and their cross-modal edges. To enforce commonsense and neuro-symbolic consistency, we integrate a Logic Tensor Network (LTN) module atop the GCN embeddings, imposing soft logic constraints derived from KG relations during training. Finally, the refined multimodal embeddings condition the LLM via adapter modules inserted into the transformer layers for efficient and modular fusion without full model fine-tuning. The adapters receive multimodal KG embeddings as auxiliary inputs concatenated with textual tokens, enabling the LLM to generate answers and explanations grounded in visual and symbolic knowledge with enhanced robustness and interpretability.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Preparation: Use multimodal QA datasets such as TextVQA and OK-VQA, integrating images with commonsense knowledge graphs (ConceptNet). 2) Visual-Semantic Embedding Alignment: Extract visual features using CLIP/Flamingo and map KG nodes into the same embedding space via pretrained knowledge graph embeddings. 3) Multimodal KG Construction and GCN Training: Build graphs with heterogeneous nodes and edges; train the modality-aware GCN with LTN constraints to produce enhanced embeddings. 4) LLM Conditioning: Insert adapter modules into a pretrained LLM; train adapters conditioned on KG embeddings to generate answers and explanations. 5) Baselines: Compare against pure LLM QA, LLM plus vision without KG integration, and unimodal KG-augmented LLMs. 6) Evaluation: Quantitative metrics for answer accuracy and explanation quality; human studies evaluating multimodal explanation richness, commonsense consistency, and user trust. 7) Ablation: Assess the contribution of vision-language pretraining embedding alignment, neuro-symbolic constraints, and adapter modules to final performance.",
+        "Test_Case_Examples": "Input: An image depicting a kitchen with a glowing oven, question: 'Why is the oven hot?'\nOutput: The system visually detects the glowing oven via CLIP features, links the visual entity to symbolic KG nodes about ovens and heating processes, reasons symbolically that the oven generates heat to cook food, and produces an explanation referencing both image evidence (glowing oven) and commonsense knowledge (ovens heat food), e.g., 'The oven is hot because it is on and heating up to cook food, as indicated by the glowing coils visible in the image.'",
+        "Fallback_Plan": "If integrating neuro-symbolic constraints proves computationally prohibitive, simplify by using only modality-aware GCN layers with vision-language embeddings and omit the Logic Tensor Network module, relying instead on post-hoc symbolic consistency checks. Alternatively, replace adapter modules with prompt-based augmentation using serialized graph embeddings to condition the LLM, trading off some modularity for implementation simplicity."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multimodal Knowledge Graph",
+      "Graph Convolution",
+      "Visual Commonsense Knowledge",
+      "Open-Domain Explanation",
+      "Explainable AI (XAI)",
+      "Large Language Models (LLMs)"
+    ],
+    "direct_cooccurrence_count": 231,
+    "min_pmi_score_value": 3.6997286106965253,
+    "avg_pmi_score_value": 5.8069986742681765,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "computer vision",
+      "visual question answering",
+      "question answering",
+      "adversarial robustness",
+      "collection of natural images",
+      "visual question answering datasets",
+      "visual question answering architectures",
+      "visual question answering approaches",
+      "task of visual question answering",
+      "language pre-training",
+      "vision-language pre-training",
+      "neuro-symbolic AI",
+      "DL methods",
+      "Logic Tensor Networks",
+      "neuro-symbolic systems",
+      "recommender systems",
+      "tumor segmentation",
+      "brain tumor segmentation",
+      "neuro-symbolic learning",
+      "HCI International",
+      "learning methods",
+      "affective computing",
+      "deep learning methods",
+      "knowledge representation",
+      "flexibility of neural networks",
+      "pre-trained language models"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed method's mechanism, while conceptually appealing, lacks sufficient clarity and specificity on key technical details. For example, it is not clear how the graph convolutional network will effectively fuse visual features extracted by CNNs with semantic nodes from commonsense knowledge graphs, considering their different modalities and representations. Additionally, the approach to conditioning the LLM's response on these integrated embeddings requires elaboration—e.g., how embeddings are incorporated into the LLM pipeline (prompt augmentation, fine-tuning, adapter modules). Concrete architectural details or preliminary formalism would strengthen the soundness and reproducibility of the method. I recommend the authors provide a detailed schematic or algorithm description clarifying the interaction between multi-modal KGs, GCN layers, and LLM conditioning steps to demonstrate the feasibility and plausibility of the approach in practice within the paper body or appendix if space constrained, especially in a competitive research area where incremental novelty requires strong methodological rigor and innovation in integration mechanisms (Proposed_Method)."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the originality has been pre-assessed as competitive but not outstanding, a promising direction to enhance impact and novelty is to integrate relevant advances in vision-language pre-training and neuro-symbolic AI. Specifically, incorporating vision-language pre-trained models (e.g., CLIP, Flamingo) as the basis for visual feature extraction or joint embedding spaces could provide stronger, more semantically aligned embeddings prior to KG graph convolution. Additionally, neuro-symbolic learning techniques or logic tensor networks could be employed to impose symbolic reasoning constraints atop the multimodal KG embeddings to better enforce commonsense consistency in explanations. This direction would align well with ongoing advances in neuro-symbolic systems in NLP and vision, potentially improving not only the quality of explanations but also robustness and interpretability, thereby broadening the idea’s impact beyond QA into neuro-symbolic AI and knowledge representation communities (referencing Globally-Linked Concepts such as vision-language pre-training, neuro-symbolic AI, neuro-symbolic systems, Logic Tensor Networks, knowledge representation). This would also strategically strengthen the novelty profile in a crowded field."
+        }
+      ]
+    }
+  }
+}

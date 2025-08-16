@@ -1,0 +1,70 @@
+{
+  "before_idea": {
+    "title": "Multimodal Urban Data Fusion for LLM Robustness Analysis",
+    "Problem_Statement": "LLMs are primarily tested on text-only data, ignoring the multimodal nature of real-world production data and undermining replicability under multimodal input variations.",
+    "Motivation": "Targets the external gap of poor cross-disciplinary fusion, specifically leveraging multimodal urban digital twin data (Opportunity 2), to evaluate LLM robustness and replicability under different modality influences.",
+    "Proposed_Method": "Develop a multimodal fusion framework integrating urban textual data, geospatial maps, sensor readings, and social media posts as a combined input for LLMs enhanced with modality-aware embeddings. Through ablation and perturbation studies across modalities, assess replicability and robustness using novel cross-modal consistency metrics.",
+    "Step_by_Step_Experiment_Plan": "1) Assemble urban multimodal datasets from sensors, social media, and text archives. 2) Extend LLM input pipelines for multimodal encodings. 3) Define output stability metrics across modality-specific noise injections. 4) Benchmark multimodal LLMs versus unimodal baselines. 5) Investigate modality transfer impacts on performance replicability.",
+    "Test_Case_Examples": "Input: Combined weather sensor data, traffic reports, and urban event announcements given to an LLM for emergency response recommendations. Expected output: Stable, accurate cross-modal synthesis and advisories consistent across slight modality perturbations.",
+    "Fallback_Plan": "If multimodal integration proves too unstable, fallback includes focusing on pairwise modality evaluations or employing separate modality-specific models with late fusion and evaluating replicability per modality before full integration."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Human-Centered Multimodal Urban Data Fusion for Robustness and Interpretability in LLMs",
+        "Problem_Statement": "Current LLM evaluation frameworks primarily focus on unimodal textual data, neglecting the inherent multimodal complexity of real-world urban environments. This limitation reduces the replicability and robustness of LLM predictions when exposed to heterogeneous, temporally and spatially misaligned multimodal inputs such as sensor data, geospatial maps, social media posts, and urban textual archives. Furthermore, existing robustness metrics often lack grounding in human-centric interpretability and real-world application contexts, impeding actionable insights for resilient urban systems.",
+        "Motivation": "While prior efforts explore multimodal fusion, they seldom address the nuanced challenges of aligning diverse urban data modalities at scale or integrate human-in-the-loop feedback to assess LLM robustness in practice. Leveraging multimodal urban digital twin data not only to evaluate but also to enhance LLM robustness through explainability and interactive human evaluation sets this work apart. By explicitly connecting robustness analysis to practical use cases in resilient transportation systems and urban planning, and embedding human-computer interaction paradigms, our approach addresses a critical cross-disciplinary gap. This strategically enhances novelty beyond current competitive baselines by fusing scalable multimodal data alignment, human-centered evaluation, and domain-relevant application.",
+        "Proposed_Method": "We propose a comprehensive, modular multimodal fusion framework that integrates diverse urban data streams—including temporally and spatially aligned sensor networks, geospatial imagery, social media text, and city archives—into LLM inputs through modality-aware embeddings enhanced by state-of-the-art deep learning techniques in image representation and NLP. To address data heterogeneity and alignment challenges, we employ advanced spatiotemporal synchronization algorithms combined with dynamic noise modeling varying per modality, reflecting realistic urban data imperfections. We incorporate human-in-the-loop evaluation cycles with domain experts in resilient transportation and urban planning sectors, using explainable AI tools to interpret LLM outputs and collect nuanced robustness feedback. This enables iterative refinement of robustness metrics to align with human interpretability and acceptability criteria. Finally, our framework integrates interactive visualization dashboards facilitating scenario-based analyses to bridge data-driven insights with human expertise, thereby advancing human-computer interaction theory within multimodal LLM applications.",
+        "Step_by_Step_Experiment_Plan": "1) Data Acquisition and Preprocessing: Collect large-scale urban multimodal datasets comprising synchronous sensor streams (e.g., traffic and weather sensors), geospatial imagery, social media feeds, and official urban text archives. Perform detailed preprocessing including temporal resampling, geospatial coordinate normalization, content filtering, and noise characterization per modality. Document dataset scale (targeting millions of data points over multiple months) and computational resource needs (estimating GPU clusters with multi-node parallelism).\n\n2) Multimodal Alignment and Fusion: Apply state-of-the-art spatiotemporal alignment algorithms (e.g., dynamic time warping adapted for sensor-social media fusion, geospatial co-registration) to synchronize modalities despite differing sampling rates and missing data. Develop realistic noise injection models for each modality reflecting sensor errors, social media misinformation, and OCR/text archive inaccuracies.\n\n3) Extended LLM Pipeline Development: Integrate modality-aware embeddings generated via specialized encoders (CNNs for imagery, transformers for text, graph neural networks for sensor networks) into a unified multimodal input representation fed into the LLM. Implement late-fusion layers allowing flexible modality contributions.\n\n4) Robustness and Replicability Metrics: Define quantitative stability measures capturing output consistency under controlled modality perturbations alongside qualitative human-centered interpretability scores obtained through expert feedback on output explanations.\n\n5) Human-In-The-Loop Evaluation: Conduct iterative sessions with urban planning and transportation domain experts who will interact with LLM outputs via explainable AI interfaces, providing robustness feedback and validating advisories.\n\n6) Benchmarking and Comparative Analysis: Compare multimodal fused LLM performance against unimodal and pairwise modality baselines across multiple urban scenarios, evaluating robustness improvements, interpretability, and decision-support efficacy.\n\n7) Risk Assessment and Mitigation: Proactively address risks including data misalignment, computational bottlenecks, and integration instability via modular pipeline design, scalable cloud computing, and incremental fusion testing. Define clear fallback schemes—starting with pairwise modality fusion and individualized training where needed to ensure project milestones remain attainable.",
+        "Test_Case_Examples": "Scenario 1: Emergency Response Advisory — Given fused inputs of real-time weather sensor data (temperature, wind), traffic sensor readings (vehicle counts, speeds), geospatial maps highlighting urban topology, and social media announcements about local events, the LLM generates recommendations for emergency response teams. Robustness is demonstrated by maintaining stable advisories despite simulated noise in sensor inputs and delayed social media updates.\n\nScenario 2: Transportation Planning Support — Utilizing historical and current multimodal urban data, the system outputs interpretable insights on traffic flow optimizations and infrastructure resiliency, with domain experts assessing the explainability and reliability of outputs under modality-specific perturbations.\n\nExpected outputs for both scenarios include coherent cross-modal knowledge synthesis, human-trustworthy explanations, and consistent recommendations resilient to minor data inconsistencies.",
+        "Fallback_Plan": "If full multimodal integration proves computationally prohibitive or synchronization challenges cannot be resolved at scale, the fallback involves first focusing on robust pairwise modality fusion (e.g., sensor-text or imagery-text combinations) with isolated noise injection models, evaluating replicability and interpretability in these reduced settings. Parallel efforts will develop modality-specific LLM modules whose outputs are combined through explainable late fusion techniques overseen by human evaluators. This staged approach preserves core goals of robustness and human-centered evaluation while managing practical feasibility. Additional mitigation includes leveraging transfer learning from pretrained modality encoders and employing cloud-based scalable infrastructure to alleviate integration instability and resource constraints."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multimodal Urban Data Fusion",
+      "LLM Robustness",
+      "Urban Digital Twin",
+      "Cross-disciplinary Fusion",
+      "Multimodal Input",
+      "Replicability"
+    ],
+    "direct_cooccurrence_count": 185,
+    "min_pmi_score_value": 4.784251515798051,
+    "avg_pmi_score_value": 6.5088184159225495,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4603 Computer Vision and Multimedia Computation"
+    ],
+    "future_suggestions_concepts": [
+      "image representation",
+      "deep learning",
+      "information technology",
+      "image processing",
+      "information retrieval",
+      "human-computer interaction",
+      "Human-Computer",
+      "human-computer interaction theory",
+      "human-friendly robot",
+      "human-friendly",
+      "natural language processing",
+      "resilient transportation systems",
+      "transport system"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan, while logically structured, lacks explicit detail on how multimodal data heterogeneity and alignment challenges will be addressed. Specifically, it should clarify methods for synchronizing temporal and spatial discrepancies across sensor readings, social media, and textual archives, and how noise injection will be realistically modeled per modality. Additionally, more detail on dataset scale, preprocessing needs, and computational resource estimates would strengthen confidence in feasibility, especially given the complexity of urban digital twin data fusion at scale. Providing a more detailed risk assessment and mitigation strategies in the experiment plan would improve clarity and practicality of execution, mitigating integration instability and ensuring measurable outcomes are attainable within resource constraints and timelines.\n\nPlease expand this section to include these aspects for a robust feasibility assessment and successful experimental validation of the multimodal fusion framework. This will also guide reproducibility efforts and evaluation consistency across modalities, which are core to your study goals (Proposed_Method, Test_Case_Examples)."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty assessment as NOV-COMPETITIVE and the globally linked concepts highlighting areas like human-computer interaction, resilient transportation systems, and information retrieval, the idea’s impact and novelty could be enhanced by explicitly integrating human-in-the-loop evaluation or interaction paradigms. For example, coupling the multimodal LLM robustness analysis with human feedback loops or explainable AI techniques would ground robustness metrics in real user interpretability and acceptance criteria.\n\nAlso, linking the framework to practical applications in resilient transportation systems or transportation-science-informed urban planning could broaden impact and interdisciplinary appeal. Incorporating concepts from human-friendly robotics or natural language processing advancements in multimodal context understanding would deepen mechanistic insights and novelty. Thus, extending the framework to incorporate these interdisciplinary feedback or application layers can elevate both its scientific contribution and appeal to premier conferences in NLP and AI for urban computing."
+        }
+      ]
+    }
+  }
+}

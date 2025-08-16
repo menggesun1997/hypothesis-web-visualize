@@ -1,0 +1,66 @@
+{
+  "before_idea": {
+    "title": "Healthcare System-Aware Domain Disentanglement for Fairness Robustness under Data Heterogeneity",
+    "Problem_Statement": "Existing domain adversarial approaches insufficiently leverage healthcare system operational characteristics when disentangling domain-specific bias features, reducing fairness robustness against heterogeneous and evolving clinical data sources.",
+    "Motivation": "Addresses the overlooked intersection between domain adversarial networks and healthcare system knowledge frameworks, innovating in the way domain disentanglement incorporates explicit system-level contextual features to improve bias mitigation.",
+    "Proposed_Method": "Introduce a domain disentanglement network that jointly encodes patient features and healthcare system metrics (e.g., resource availability, institutional protocols), learning bias-invariant representations shaped by system-aware constraints. This approach prevents confounding between clinical features and systemic biases, enabling more reliable fairness across institutions and time.",
+    "Step_by_Step_Experiment_Plan": "1) Gather multisite datasets with linked healthcare system metadata. 2) Build a disentanglement model with dual encoders for patient and system context data along with domain adversarial training. 3) Compare to classic disentanglement ignoring system features regarding fairness and diagnostic accuracy. 4) Evaluate in domain shift scenarios reflecting hospital workflow changes and resource fluctuations. 5) Perform feature importance analyses to interpret model behavior.",
+    "Test_Case_Examples": "Input: Patient demographics and clinical tests from hospitals with varying ICU bed availability. Expected Output: Disease prediction results invariant to institutional resource disparities, reflected in reduced disparity metrics across hospitals.",
+    "Fallback_Plan": "If healthcare system features are sparse or inconsistent, fallback to proxy system context variables such as temporal indicators or care level tags. Explore transfer learning approaches to leverage knowledge from well-characterized institutions."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Contrastive Self-Supervised Healthcare System-Aware Domain Disentanglement for Robust Fairness under Data Heterogeneity",
+        "Problem_Statement": "Current domain adversarial methods inadequately incorporate nuanced healthcare system operational metadata when disentangling domain-specific bias features, limiting fairness robustness and generalization across heterogeneous and evolving clinical data sources. Moreover, reliance on labeled data and simplistic disentanglement strategies impedes adaptability to unseen institutional workflows and resource variations.",
+        "Motivation": "While existing domain adversarial and fairness approaches tackle distribution shifts, they often overlook the integration of rich healthcare system context and the harnessing of recent advances in contrastive self-supervised learning (CSSL). By combining healthcare system-aware disentanglement with CSSL, it is possible to learn more invariant and bias-robust patient representations that generalize effectively to new institutions without heavy dependence on labeled data. This dual innovation not only enriches bias mitigation strategies but also bridges clinical domain needs with state-of-the-art machine learning advances, overcoming the competitive novelty barrier and broadening impact.",
+        "Proposed_Method": "We propose a novel hybrid framework integrating healthcare system-aware domain disentanglement with contrastive self-supervised learning objectives. The model employs dual encoders: one encoding patient clinical features, the other capturing standardized healthcare system context metrics (e.g., resource availability, institutional protocols, workflow changes). Using contrastive losses, the framework separates invariant patient representations from variant system-conditioned factors without requiring extensive labels. Domain adversarial training is combined with CSSL to enforce bias-invariant embeddings robust to institutional and temporal domain shifts. To address heterogeneity and missingness in system metadata, we standardize features via harmonization protocols and leverage masking and imputation within the contrastive framework, ensuring stability. State-of-the-art deep learning architectures validated on fairness benchmarks underpin the model backbone, facilitating rigorous evaluation and comparison. This approach advances beyond prior work by tightly integrating explicit system context with cutting-edge representation learning, enabling enhanced fairness robustness and diagnostic reliability.",
+        "Step_by_Step_Experiment_Plan": "1) Data Collection and Preprocessing: Aggregate multisite clinical datasets enriched with heterogeneous healthcare system metadata (e.g., ICU bed counts, staffing ratios, protocol changes, temporal indicators). Develop standardized schema and harmonization procedures to unify disparate system-level features; apply masking and imputation strategies for missingness.\n2) Model Development: Implement dual-encoder architecture with patient and system context inputs. Integrate contrastive self-supervised learning objectives alongside domain adversarial losses to disentangle invariant and variant features.\n3) Training Stability Protocols: Employ curriculum learning and adaptive weighting of CSSL and adversarial losses to ensure stable optimization.\n4) Evaluation Metrics: Define comprehensive fairness metrics (e.g., group fairness disparity, equalized odds difference), diagnostic accuracy measures (AUC, sensitivity, specificity), and robustness metrics under domain shifts (e.g., performance drops when transferring across time and institutions).\n5) Comparative Analysis: Benchmark against classic domain adversarial disentanglement models without system features and those without CSSL integration.\n6) Domain Shift Scenarios: Simulate realistic workflow changes and resource fluctuations to evaluate model robustness and adaptability.\n7) Model Interpretability: Perform feature importance and embedding space analyses to understand system feature influence and disentanglement efficacy.\n8) Reproducibility: Document preprocessing pipelines, hyperparameters, and validation protocols thoroughly for scientific rigor and practical feasibility in complex clinical environments.",
+        "Test_Case_Examples": "Input: Patient demographic and clinical laboratory data from diverse hospitals with varying ICU bed availability and protocol amendments over time.\nExpected Output: Disease risk predictions demonstrating minimal disparity across institutions with divergent resource levels, reflected in low fairness metric gaps and consistent diagnostic accuracy. Representations exhibit clear separation between patient-intrinsic features and system-induced variability, validated through embedding visualizations and feature attributions.",
+        "Fallback_Plan": "If healthcare system metadata remains sparse, inconsistent, or granularly unavailable despite harmonization efforts, we will (1) engineer proxy contextual variables such as temporal indices, care intensity tags, or regional resource aggregates, and incorporate these into the system encoder; (2) leverage transfer learning from well-characterized institutions by pretraining encoders with CSSL objectives and fine-tuning on limited context data; (3) explore robust imputation and adversarial augmentation techniques to mitigate data gaps. These alternatives preserve the core disentanglement aims while maintaining method applicability across diverse healthcare data environments."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Healthcare System",
+      "Domain Disentanglement",
+      "Fairness Robustness",
+      "Data Heterogeneity",
+      "Domain Adversarial Networks",
+      "Bias Mitigation"
+    ],
+    "direct_cooccurrence_count": 654,
+    "min_pmi_score_value": 2.5785725462444216,
+    "avg_pmi_score_value": 4.559317163822135,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4608 Human-Centred Computing"
+    ],
+    "future_suggestions_concepts": [
+      "machine unlearning",
+      "vision-language models",
+      "group fairness",
+      "image representation",
+      "state-of-the-art baselines",
+      "contrastive self-supervised learning",
+      "deep learning models",
+      "robustness of deep learning models",
+      "machine learning methods"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The proposed Step_by_Step_Experiment_Plan, while conceptually comprehensive, lacks critical detail on the exact nature and availability of healthcare system metadata and how it will be standardized across multisite datasets. The plan should clarify strategies for handling heterogeneity and missingness in system-level features, particularly since such data often vary widely across institutions and time. Additionally, more specifics on evaluation metrics for fairness and diagnostic accuracy under domain shifts would strengthen experiment feasibility and reproducibility. Detailed protocols for data preprocessing, domain adversarial training stability, and validation setups are needed to confirm the experimental approach is practical and scientifically rigorous in real-world healthcare contexts, where data complexity and bias are challenging to model reliably. Targeted improvements here will prevent potential roadblocks in implementation and validation phases, ensuring the methodology's assumptions hold true in heterogeneous clinical environments and guaranteeing meaningful conclusions can be drawn from the experiments."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty verdict of NOV-COMPETITIVE and the presence of well-established domain adversarial and fairness literature, incorporating the globally-linked concept of 'contrastive self-supervised learning' could notably boost the impact and distinctiveness of this work. Specifically, integrating contrastive self-supervised objectives alongside the dual encoders for patient and system context data could more robustly separate invariant and variant features across domains without heavy reliance on labeled data. This hybrid approach might enhance bias disentanglement and improve the learned representations' generalization and robustness to unseen hospital workflows or resource fluctuations. Moreover, coupling this with state-of-the-art deep learning models validated on fairness benchmarks can position this work as not only healthcare-system aware but also leveraging cutting-edge representation learning innovations, broadening its relevance beyond a narrow clinical audience to the wider machine learning and fairness research communities."
+        }
+      ]
+    }
+  }
+}

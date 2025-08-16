@@ -1,0 +1,77 @@
+{
+  "before_idea": {
+    "title": "Self-Supervised Semantic Annotation for Legal Explanation Generation",
+    "Problem_Statement": "Lack of annotated legal explanation datasets and costly expert supervision impede scalable legal AI explanation development.",
+    "Motivation": "Addresses the minimal supervision scarcity gap by adapting self-supervised learning strategies from biomedical and image annotation AI to legal text explanation generation, enabling scalable, low-cost semantic annotation and explanation training without extensive labeled data.",
+    "Proposed_Method": "Create a self-supervised pretraining framework for legal LLMs using proxy tasks like masked legal entity prediction, legal argument structure reconstruction, and cross-document entailment. Use these tasks to induce semantic representations that capture legal concepts and logical dependencies. Then fine-tune for explainability by generating semantic explanations grounded in learned representations, requiring minimal expert labeling for calibration.",
+    "Step_by_Step_Experiment_Plan": "1. Collect large-scale unlabeled legal corpora including statutes, case law, and contracts. 2. Design and train self-supervised proxy tasks that enforce semantic understanding. 3. Fine-tune models on small expert-labelled datasets for explanation generation. 4. Benchmark explainability quality against fully supervised baselines and assess scalability gains.",
+    "Test_Case_Examples": "Input: Court judgment text. Output: Explanation highlighting legal entities and argument flows reconstructed from self-supervised semantic embeddings, illustrating inferred legal reasoning steps sans extensive annotations.",
+    "Fallback_Plan": "If proxy tasks insufficiently capture semantics, incorporate weak supervision from related domains (biomedical or general NLP). Alternatively, use semi-supervised active learning cycles to incrementally improve annotation quality."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Robust Self-Supervised Legal Semantic Representation for Explainable AI with Adaptive Proxy Tasks",
+        "Problem_Statement": "The development of scalable legal AI explanation systems is hindered by the scarcity of annotated explanation datasets and the high cost of expert supervision, compounded by the complexity and domain-specific ambiguities inherent in diverse legal texts.",
+        "Motivation": "Existing work in legal NLP and explanation generation often depends on extensive expert annotations, limiting scalability. This proposal introduces a novel self-supervised learning method uniquely tailored to the legal domain that synergistically integrates multiple carefully designed and adaptive proxy tasks, enabling robust semantic representation learning capturing complex legal semantics and logical dependencies across heterogeneous legal text genres. By explicitly modeling domain ambiguities and leveraging graph-structured representations, our method advances beyond prior biomedical or general NLP approaches, setting a new standard in low-resource, explainability-focused legal NLP. This approach strategically balances model expressiveness and annotation cost, aiming to surpass fully supervised baselines in both scalability and explanation quality.",
+        "Proposed_Method": "We propose a multi-faceted self-supervised framework for legal language models combining: (1) Masked Legal Entity and Relation Prediction — extending traditional masked token prediction by utilizing a custom-designed legal entity and relation taxonomy to force the model to learn domain-specific entity semantics and legal concept dependencies, supported by a legal ontology; (2) Legal Argument Graph Reconstruction — leveraging graph-structured data extraction from legal text to frame argument structure reconstruction as a graph-to-text proxy task, enforcing learning of logical and argumentative flow across sentence boundaries; (3) Cross-Document Entailment with Ambiguity Augmentation — training the model to detect entailment and contradictions across documents (e.g., case law precedents), incorporating ambiguity-aware perturbations mimicking legal language vagueness to improve robustness. These proxy tasks are implemented through transformer-based architectures enhanced by graph neural network modules to represent complex dependencies explicitly. Proxy task design draws on prior NLP and legal AI studies that show the efficacy of semantic graph modeling in legal representation learning (e.g., Chalkidis et al., 2021; Zhong et al., 2020). We further incorporate generative adversarial training to distinguish meaningful semantic representations from superficial pattern extraction, increasing representation fidelity. For fine-tuning, we adopt a semi-supervised active learning approach leveraging a small, cost-efficient expert-labeled explanation dataset augmented with synthetic annotations generated via zero-shot prompting from large pretrained LLMs specialized in legal reasoning. This combination ensures minimal expert dependence while maximizing explanation quality. By tying these components together, our method mechanistically and explicitly addresses the legal domain's complexity, ambiguity, and diversity, setting it apart from prior self-supervised attempts to date.",
+        "Step_by_Step_Experiment_Plan": "1. Data Curation: Compile a large, diverse, and ethically vetted legal corpus from publicly available sources such as court rulings, statutes, and contracts while strictly anonymizing and filtering to remove personally identifiable information (PII) to comply with confidentiality and ethical standards. We will employ automated PII detection tools and partner with legal data providers for data usage compliance.\n\n2. Proxy Task Development & Validation: Design the three proxy tasks with detailed operationalization: define a custom legal entity-relation taxonomy via domain expert consultation; implement argument graph extraction using state-of-the-art information extraction and graph construction methods; construct a cross-document entailment dataset with ambiguity augmentation by applying controlled perturbations to legal texts. Pilot studies will validate task feasibility and learning signals measured by proxy task performance metrics such as masked entity recovery accuracy and graph reconstruction F1.\n\n3. Model Architecture & Training: Develop a hybrid transformer-graph neural network model capable of handling textual and graph inputs. Train the model on proxy tasks iteratively, incorporating generative adversarial objectives to enhance semantic representation quality.\n\n4. Fine-Tuning with Semi-Supervised Active Learning: Assemble a small expert-labeled explanation dataset using efficient annotation protocols guided by annotation guidelines developed in collaboration with legal experts to ensure high quality and consistency. Incorporate synthetic dataset augmentation generated by zero-shot prompting from pretrained legal LLMs to expand fine-tuning data. Use active learning iterations to select most informative samples for expert annotation, optimizing resource usage.\n\n5. Benchmarking and Evaluation: Evaluate explanation quality on held-out test sets against fully supervised baselines using multidimensional explainability metrics, including fidelity (how well explanations reflect model reasoning), plausibility (alignment with human expert rationale), and comprehensibility. Metrics will combine automatic scoring (e.g., BLEU, ROUGE for explanations) with human expert assessments. Additionally, assess scalability benefits by measuring annotation cost savings and performance trade-offs.\n\n6. Reproducibility & Ethical Considerations: Release all datasets (within ethical and legal constraints), annotation guidelines, and codebase. Document data privacy measures and annotation protocols to ensure replicability and compliance.",
+        "Test_Case_Examples": "Input: Text of a complex court judgment with multi-faceted legal reasoning and cross-references to precedent.\nOutput: A structured semantic explanation reconstructing the argument graph that highlights legal entities, their relations, and logical dependencies as learned from adapted proxy tasks; explanation text generated demonstrating inferred legal reasoning steps, clearly exposing the model's internal semantic representation. Ambiguities in wording are annotated with confidence scores reflecting uncertainty modeled during training, providing calibrated, interpretable insight into reasoning under domain-specific linguistic vagueness.",
+        "Fallback_Plan": "If initial proxy tasks do not sufficiently capture deep semantic dependencies, we will iterate on proxy task design by incorporating additional graph-based contrastive learning objectives to enhance representation discrimination. Alternatively, increase reliance on semi-supervised active learning cycles, progressively expanding expert-labeled data guided by model uncertainty, and augment synthetic data generation using domain-adapted zero-shot and few-shot prompting methods. In parallel, we will explore transfer learning from related domains such as biomedical NLP where semantic graph-based methods have succeeded, adapting their best practices. Additionally, we will investigate incorporating Explainable AI (XAI) methods to interpret and refine model reasoning, thereby improving explanation quality independent of proxy task performance."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Self-Supervised Learning",
+      "Semantic Annotation",
+      "Legal Explanation Generation",
+      "Minimal Supervision",
+      "Scalable AI",
+      "Legal Text"
+    ],
+    "direct_cooccurrence_count": 15424,
+    "min_pmi_score_value": 3.559679215236345,
+    "avg_pmi_score_value": 4.7110878160206395,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "vision-language models",
+      "generative adversarial network",
+      "application of machine learning",
+      "image feature extraction module",
+      "zero-shot learning task",
+      "representation learning",
+      "deep active learning",
+      "self-supervised learning method",
+      "healthcare data",
+      "graph-structured data",
+      "self-supervised learning",
+      "synthetic datasets",
+      "personally identifiable information",
+      "semi-supervised learning algorithm",
+      "text-to-image generation",
+      "XAI methods",
+      "Explainable Artificial Intelligence",
+      "Transformer-based methods",
+      "intelligent decision-making"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed method involves multiple proxy tasks (masked legal entity prediction, legal argument structure reconstruction, and cross-document entailment) to induce semantic representations. However, the proposal lacks a detailed explanation of how these specific tasks will effectively enforce capturing complex legal semantics and logical dependencies, particularly across diverse legal text genres. Clarify the underlying reasoning or prior evidence supporting the suitability and synergy of these tasks in the legal domain, and consider how ambiguities and domain-specific language will be addressed mechanistically within each proxy task to ensure meaningful semantic learning rather than superficial patterns extraction. This will strengthen the soundness of the method's conceptual foundation and better justify the proposed approach to the problem statement's assumptions about semantic understanding needs in legal AI explanation generation. Please provide a more detailed mechanism description and, if possible, preliminary evidence or citations indicating the plausibility of these proxy tasks for legal semantic representation learning. This will increase confidence in the approach's validity and reproducibility at scale, given the legal domain complexities and limited expert annotation resources described in the problem statement and motivation sections. Target section: Proposed_Method."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan outlines a standard pipeline from data collection to fine-tuning and benchmarking but lacks concrete details on key feasibility aspects. In particular, more precise descriptions are needed on how (1) the large-scale legal corpus will be curated to ensure representativeness and legal domain coverage without violating confidentiality or ethical constraints, (2) the design of proxy tasks will be operationalized and validated before large-scale training, and (3) the small expert-labeled dataset for fine-tuning will be annotated in a cost-effective yet high-quality manner given the resource constraints. Additionally, benchmark design and evaluation metrics for 'explainability quality' require further specification to ensure reproducibility and meaningful comparison against fully supervised baselines. Addressing these points will ensure the experiment plan is practically executable and scientifically rigorous. Consider incorporating pilot studies or iterative validation steps early in the pipeline, and outline resource, ethical, and annotation constraints and mitigations explicitly. Target section: Step_by_Step_Experiment_Plan."
+        }
+      ]
+    }
+  }
+}

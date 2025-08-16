@@ -1,0 +1,91 @@
+{
+  "before_idea": {
+    "title": "Unified Prompt Tuning with Semantic Graph Tokens for Scalable Low-Resource Multi-Task NLP",
+    "Problem_Statement": "Existing prompt tuning techniques for low-resource languages rely on generic tokens and function separately across tasks, leading to scalability and transfer limitations.",
+    "Motivation": "Responds directly to the internal gaps about random tokens lacking semantic meaning and siloed prompt tuning by introducing a unified prompt tuning approach leveraging semantic graph tokens shared across multiple NLP tasks for better data efficiency and transfer.",
+    "Proposed_Method": "We propose Unified Semantic Graph Token (USGT) prompt tuning where a shared vocabulary of linguistically meaningful tokens derived from semantic graphs is used as prompt embeddings across multiple tasks (e.g., stance detection, misinformation classification). These tokens capture universal semantic concepts in the target low-resource languages. The USGT module is dynamically composed per task and fed into a foundation model via a prompt tuning interface, enabling multi-task learning with a common interpretable semantic foundation able to transfer knowledge between tasks efficiently.",
+    "Step_by_Step_Experiment_Plan": "1) Build semantic graphs from corpora in low-resource languages. 2) Extract universal semantic tokens and create a token vocabulary. 3) Implement USGT prompt tuning replacing random tokens in prompts. 4) Train on multiple low-resource NLP tasks jointly with limited annotated data. 5) Compare with task-specific prompt tuning and zero-shot baselines. 6) Evaluate transfer learning ability, accuracy, and robustness metrics across tasks.",
+    "Test_Case_Examples": "Input: Multi-task prompt with stance detection and misinformation tasks in Yoruba involving semantic tokens like 'news', 'stance', 'opinion'. Expected output: Improved joint task performance and prompt token interpretability versus baseline.",
+    "Fallback_Plan": "In case of limited shared semantic tokens, iteratively expand the token vocabulary or allow task-specific token additions. If multi-task training destabilizes models, employ task-specific adapters in conjunction with USGT."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Unified Semantic Graph Token Prompt Tuning with Cross-Modal and Multilingual Adaptation for Robust Low-Resource Multi-Task NLP",
+        "Problem_Statement": "Current prompt tuning approaches for low-resource languages often employ generic or random soft tokens tailored independently per task, lacking semantic grounding and limiting effective transfer learning and multi-task synergy. Moreover, there is insufficient integration of semantic structures in prompt design, and existing methods rarely extend beyond unimodal, monolingual contexts, restricting scalability and robustness.",
+        "Motivation": "Addressing the competitive and crowded space of prompt tuning, our work innovates by embedding explicit semantic graph tokens derived from universal linguistic representations into prompt tuning architectures. This not only surmounts the semantic vacuity and siloing of prior methods but also extends adaptability across multiple tasks, languages, and modalities. By grounding prompt tokens in semantically interpretable units and integrating these within Transformer-based multilingual pre-trained models (e.g., XLM-RoBERTa), synergized with soft prompt tuning and vision-language alignment, our approach promises enhanced data efficiency, stronger generalization in few-shot and zero-shot settings, and broader applicability. This positions our method as a novel, semantically transparent, and scalable alternative to traditional soft prompt or adapter-based multi-task learning solutions.",
+        "Proposed_Method": "We propose USGT-X: Unified Semantic Graph Token Prompt Tuning with Cross-Modal and Multilingual Extension. The approach is composed of the following components and mechanisms:\n\n1) Semantic Graph Construction & Token Extraction: We construct language-agnostic semantic graphs from raw corpora in low-resource languages by applying state-of-the-art multilingual dependency parsers and semantic role labeling tools enhanced via cross-lingual transfer. Nodes correspond to semantic units such as concepts, predicates, and entities, from which we extract a shared vocabulary of universal semantic graph tokens (USGTs), each representing a distinct semantic concept or relation.\n\n2) Embedding Initialization and Numerical Representation: Each USGT is assigned an initial embedding vector by projecting pretrained multilingual lexical embeddings (e.g., from XLM-RoBERTa's embedding space) averaged and refined through graph neural networks capturing local graph structure context. This produces semantically meaningful and topology-aware token embeddings instead of random initialization.\n\n3) Dynamic Prompt Composition Mechanism: For multi-task prompt tuning, task-specific prompt templates dynamically select and combine USGT tokens relevant to each task's semantic needs using a learned gating mechanism conditioned on the task identity and input context embeddings. This gating is implemented via a lightweight Transformer module that attends over token embeddings to compose a task-tailored semantic prompt embedding sequence.\n\n4) Integration with Transformer Foundation Models: The composed USGT prompt sequence is prepended to the input embeddings and fed into a frozen multilingual Transformer-based foundation model (e.g., XLM-RoBERTa), enabling efficient soft prompt tuning where only the USGT embeddings and gating parameters are trained. This preserves the foundation model's capabilities while injecting semantically interpretable, reusable knowledge.\n\n5) Cross-Modal and Multi-Task Extension: To enhance universality, USGT embeddings are further aligned with visual semantic embeddings from pre-trained vision-language models via contrastive learning on multimodal corpora, supporting vision-language tasks. Moreover, the method is extended to code-related tasks by mapping code tokens to semantic graph tokens derived from abstract syntax trees and code graphs, demonstrating applicability across modalities.\n\nThis method markedly differs from standard learned soft prompts or adapter modules by explicitly grounding prompt tokens in interpretable semantic graphs with dynamic, context-sensitive composition, facilitating robust transfer and synergy in multilingual, multi-task, and multimodal scenarios.",
+        "Step_by_Step_Experiment_Plan": "1) Semantic Graph Pipeline: Construct multilingual semantic graphs using state-of-the-art parsers and semantic role labelers applied to corpora from low-resource languages such as Yoruba, Hausa, and Amharic.\n2) Token Vocabulary Creation: Extract and curate a shared universal semantic token vocabulary; initialize embeddings via graph neural networks combined with pretrained multilingual embeddings.\n3) Implement USGT-X Prompt Tuning: Develop the dynamic gating module and integrate USGT embeddings as soft prompt inputs into XLM-RoBERTa-based models.\n4) Multimodal Alignment: Train contrastive alignment objectives between USGT embeddings and vision-language model embeddings using public image-caption and video-caption datasets.\n5) Multi-Task Training: Jointly fine-tune USGT prompt tuning on multiple low-resource NLP tasks (stance detection, misinformation classification, sentiment analysis) and vision-language tasks.\n6) Few-Shot/Zero-Shot Evaluation: Assess performance in low-annotation regimes and cross-lingual transfer, comparing with baselines like conventional soft prompt tuning, adapter tuning, and non-semantic random prompt tokens.\n7) Robustness and Interpretability Analysis: Evaluate prompt token interpretability and robustness to adversarial inputs or domain shifts.\n8) Extension to Code Tasks: Adapt semantic graph extraction to code graphs and evaluate on code classification or bug detection tasks to validate cross-modality generality.",
+        "Test_Case_Examples": "Input: Prompt for joint stance detection and misinformation classification in Yoruba, dynamically composed of USGT tokens such as ['news', 'claim', 'source', 'sentiment', 'truthfulness'], prepended to an input sentence.\nExpected Output: Improved classification accuracy compared to task-specific random soft tokens, with tokens interpretable in terms of semantic concepts, and strong robustness in few-shot settings.\n\nInput: Vision-language task linking images with low-resource language captions, utilizing aligned USGT embeddings to support semantic grounding.\nExpected Output: Enhanced cross-modal retrieval or classification performance compared to baselines without semantic prompt tokens.\n\nInput: Code-related classification with semantic tokens derived from code AST graphs.\nExpected Output: Demonstration of the USGT-X framework applicability beyond text, validating universality.",
+        "Fallback_Plan": "If the extraction of universally shared semantic tokens is limited by parser accuracy or linguistic diversity, we will augment the token vocabulary with task-specific semantic units learned via clustering and embedding refinement to balance semantics and flexibility. If multi-task or cross-modal training destabilizes prompt tuning, we will incorporate modular adapter layers activated per task or modality, retaining the USGT prompt framework while improving training stability and modularity. Additionally, if vision-language or code modalities do not yield gains, the method will focus on enhanced multilingual multi-task NLP performance with interpretable semantic prompts leveraging the foundational XLM-RoBERTa model."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Unified Prompt Tuning",
+      "Semantic Graph Tokens",
+      "Low-Resource NLP",
+      "Multi-Task Learning",
+      "Data Efficiency",
+      "Transfer Learning"
+    ],
+    "direct_cooccurrence_count": 12347,
+    "min_pmi_score_value": 2.651526422305534,
+    "avg_pmi_score_value": 4.928130237335138,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "pre-trained models",
+      "deep neural networks",
+      "vision-language models",
+      "pre-trained language models",
+      "attack surface",
+      "relation extraction",
+      "extraction task",
+      "state-of-the-art performance",
+      "few-shot scenarios",
+      "multi-task learning",
+      "text summarization",
+      "vision-language tasks",
+      "cross-modal knowledge",
+      "semantic alignment",
+      "code-related tasks",
+      "transformer-based models",
+      "bug fixes",
+      "attack capability",
+      "large-scale training data",
+      "backdoor attacks",
+      "efficient transfer learning",
+      "soft prompt",
+      "traditional deep neural networks",
+      "recognition task",
+      "visual recognition tasks",
+      "XLM-RoBERTa",
+      "machine learning approach",
+      "support vector machine",
+      "sentiment analysis",
+      "convolutional neural network",
+      "long short-term memory",
+      "large-scale labeled training data",
+      "transfer learning",
+      "generation task"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method briefly states the use of a Unified Semantic Graph Token (USGT) approach but lacks clarity on how semantic graphs are constructed, how semantic tokens are extracted and represented numerically for prompt tuning, and how the dynamic composition mechanism operates technically within the prompt tuning interface. Detailing these mechanisms with algorithmic or architectural clarity would strengthen the soundness of the approach and improve reproducibility and trust in the proposed innovation, especially since semantic graph integration in prompt tuning is complex and requires careful design choices around token selection, embedding initialization, and task conditioning within the foundation model framework. Providing a more explicit description of how USGT achieves transfer and multi-task synergy is critical to assess soundness fully and to convince reviewers of the approach’s novelty beyond popular multi-task or semantic embeddings literature realms. This could be addressed by elaborating on the semantic graph to token pipeline and how this differs or improves over usual learned soft prompt tokens or adapter modules implementations in multi-task contexts, referencing relevant prior work to contextualize contributions effectively within the strong competitive area indicated by the novelty assessment."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty verdict as NOV-COMPETITIVE and the rich globally-linked concepts like 'pre-trained language models', 'semantic alignment', 'efficient transfer learning', and 'multi-task learning', the project could enhance impact and novelty by integrating semantic graph tokens within a Transformer-based foundation model that supports cross-modal semantic alignment. For example, extending USGT prompt tuning to jointly leverage multilingual pre-trained models such as XLM-RoBERTa and incorporating vision-language tasks or code-related tasks could broaden applicability and demonstrate universality of semantic tokens beyond textual inputs. Another concrete suggestion is to explore soft prompt tuning combined with semantic graph tokens to improve few-shot and zero-shot robustness across a wider range of low-resource languages and tasks. This integration would align the method with state-of-the-art techniques and highlight contributions on efficient semantic transfer learning rather than solely relying on low-resource NLP tasks, thereby addressing potential impact limitations and giving a clear path to standing out in the competitive landscape."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "before_idea": {
+    "title": "Multi-Relational Graph-Driven Prompt Engineering for Domain-Specific LLMs",
+    "Problem_Statement": "Current prompt tuning techniques do not explicitly leverage structured relational knowledge, limiting LLMs’ capability to reason over complex domain data such as biological networks.",
+    "Motivation": "Targets the gap of underexploited network data in prompt tuning by developing a relational graph-driven prompt generation system that dynamically constructs instruction prompts enriched with domain network context for enhanced factual recall and reasoning.",
+    "Proposed_Method": "Build a system that queries domain-specific relational graphs to extract relevant subgraphs for a given task and translates these into structured, natural language prompt augmentations. Integrate this with instruction prompt tuning of LLMs to inject contextual relational knowledge at inference time without full model retraining.",
+    "Step_by_Step_Experiment_Plan": "1. Develop graph query modules for domain knowledge graphs.\n2. Design natural language templates to verbalize graph substructures.\n3. Compose dynamic prompts combining user queries with graph-contextualized augmentations.\n4. Fine-tune LLMs on instruction prompts including such context.\n5. Evaluate on domain QA and reasoning tasks.\n6. Perform user studies for prompt interpretability and effectiveness.",
+    "Test_Case_Examples": "Input: \"What pathways involve protein D relevant to disease Z?\"\nGenerated Prompt: \"Considering the interactions of protein D with proteins E and F involved in apoptosis and inflammation pathways impacting disease Z, please explain...\"\nExpected Output: A detailed explanation embedding relational context from the prompt.",
+    "Fallback_Plan": "If hand-crafted templates fail to capture knowledge effectively, switch to neural prompt generation conditioned on graph embeddings. Alternatively, employ retrieval-augmented generation combining explicit graph facts with prompt tuning."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Hybrid Graph-Embedding and Neural Prompt Generation for Enhanced Domain-Specific LLM Reasoning",
+        "Problem_Statement": "Existing prompt tuning approaches inadequately exploit structured relational knowledge from domain-specific graphs, especially in complex biomedical domains. Current methods rely heavily on hand-crafted natural language templates to verbalize graph context, which often fail to capture nuanced relational semantics, leading to information overload and suboptimal utilization of graph knowledge within LLM inference under token constraints.",
+        "Motivation": "To overcome the limitations of template-based prompt augmentations and improve prompt tuning with richer, scalable integration of relational graph knowledge, this work proposes a hybrid framework that dynamically transforms domain-specific graph substructures into continuous graph embeddings. By leveraging state-of-the-art knowledge graph embedding and biomedical relation extraction techniques, these embeddings drive a neural prompt generator that produces semantically precise, context-aware prompt augmentations. This approach enables effective incorporation of complex relational semantics during inference without retraining entire LLM models, thereby enhancing factual recall and reasoning capabilities for biomedical question answering and decision-making tasks. This innovation advances beyond prior competitive methods by uniting symbolic graph structure with neural prompt engineering, offering a novel mechanism ensuring interpretability, scalability, and robust use of domain knowledge within large language models.",
+        "Proposed_Method": "The system architecture includes the following components:\n\n1. Domain Knowledge Graph Query Module: For a given query, extract relevant subgraphs containing nodes and edges pertinent to the biomedical question. Queries leverage biomedical relation extraction models to identify essential entities and relations.\n\n2. Knowledge Graph Embedding Module: Apply advanced knowledge graph embedding algorithms (e.g., RotatE, ComplEx) to convert extracted subgraphs into continuous vector representations that preserve complex relational semantics and interactions.\n\n3. Neural Prompt Generator: Conditioned on graph embeddings and the original user query, a transformer-based neural prompt generator synthesizes dynamic, natural language prompt augmentations. This generator is trained to balance informativeness and brevity, mitigating token overload and ambiguity.\n\n4. Instruction Tuning Module: Fine-tune the LLM with augmented instruction prompts that include neural-generated graph context, aligning the model to utilize embedded relational knowledge effectively without requiring full model retraining.\n\n5. Inference Pipeline: At runtime, the system dynamically generates graph-informed prompts based on incoming queries, combining neural prompt augmentation and instruction-tuned LLM inference to produce precise, context-enriched answers.\n\nA detailed architectural diagram illustrates data flow and component interactions, highlighting mechanisms for preserving nuanced relations, managing token budgets, and ensuring consistent graph-context utilization across tuning and inference stages.",
+        "Step_by_Step_Experiment_Plan": "1. Collect and preprocess biomedical knowledge graphs and datasets with annotated relations.\n2. Implement biomedical relation extraction for precise entity and relation identification.\n3. Develop graph query modules to retrieve relevant subgraphs per query.\n4. Train and evaluate knowledge graph embeddings preserving semantic nuances.\n5. Design and train the neural prompt generator conditioned on embeddings and queries.\n6. Fine-tune the LLM via instruction tuning incorporating neural graph-context prompts.\n7. Perform intrinsic evaluation on biomedical QA benchmarks to assess factual recall and reasoning improvements.\n8. Conduct user studies to evaluate prompt interpretability, clarity, and effectiveness.\n9. Analyze token efficiency and ambiguity reduction capabilities of the neural prompt method relative to baseline template methods.\n10. Ablation studies to quantify contributions of embedding-based prompt generation and instruction tuning integration.",
+        "Test_Case_Examples": "Input Query: \"What molecular pathways involve protein D relevant to disease Z?\"\n\nProcess:\n- Extract subgraph from biomedical KG centered on protein D, including related proteins (E, F) and pathways (apoptosis, inflammation).\n- Embed the subgraph preserving relational semantics.\n- Neural prompt generator produces: \"Considering the interactions of protein D with proteins E and F involved in the apoptosis and inflammation pathways influencing disease Z, please elaborate on the molecular mechanisms.\"\n\nExpected Output: A detailed explanation that integrates the relational context of protein D's network and pathways, demonstrating enhanced factual grounding and reasoning compared to baseline prompt tuning.",
+        "Fallback_Plan": "If training the neural prompt generator with graph embeddings encounters challenges such as overfitting or instability, fallback to a hybrid approach combining learned template selection guided by embedding similarity scores with minimal neural generation. Alternatively, incorporate a retrieval-augmented generation mechanism that explicitly injects graph facts as retrieved text snippets in prompts, combined with lightweight instruction tuning to maintain factual accuracy and coherence without complete model retraining."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multi-Relational Graph",
+      "Prompt Engineering",
+      "Domain-Specific LLMs",
+      "Relational Graph-Driven Prompt Generation",
+      "Factual Recall",
+      "Biological Networks"
+    ],
+    "direct_cooccurrence_count": 1558,
+    "min_pmi_score_value": 2.7952082510952243,
+    "avg_pmi_score_value": 5.827259726197576,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "question answering",
+      "concept unique identifiers",
+      "task splitting",
+      "domain-specific knowledge graph",
+      "graph embedding",
+      "knowledge graph embedding",
+      "relation extraction",
+      "biomedical relation extraction",
+      "knowledge graph question answering",
+      "natural language processing",
+      "medical knowledge graph",
+      "artificial general intelligence",
+      "Open Research Knowledge Graph",
+      "intelligent decision-making",
+      "Named Entity Recognition",
+      "advancement of artificial intelligence",
+      "symbolic abstractions"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method outlines a conceptually appealing approach to integrate relational graph knowledge into prompts but lacks details on how graph substructures are reliably transformed into natural language in a manner that preserves nuanced relational semantics. Clarify how the system handles ambiguity and potential information overload in the prompt, especially given LLM token limits. Also, better explain the interaction between the instruction tuning stage and the dynamic prompt augmentation at inference to ensure consistent utilization of the embedded graph context without retraining the entire model, as this interaction is central to the approach's soundness and novelty claims. Providing a conceptual or architectural diagram with detailed data flow would strengthen clarity significantly, enabling reviewers to assess the mechanism's validity more robustly without speculative assumptions about implementation specifics. This is critical to avoid hidden pitfalls that might undermine the approach's effectiveness in complex domain-specific reasoning tasks like biomedical networks where relational nuance matters greatly. Target Section: Proposed_Method"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty assessment, the idea can gain stronger impact and distinction by integrating knowledge graph embedding techniques or biomedical relation extraction methods from the globally-linked concepts list. Specifically, consider leveraging recent advances in knowledge graph embeddings to generate continuous vector representations of the extracted subgraphs, which can be fed into a neural prompt generator rather than relying solely on hand-crafted or template-based natural language verbalizations. This would enhance scalability and generalize better across domains. Additionally, integrating techniques from biomedical relation extraction and knowledge graph question answering could enrich the system's ability to retrieve and verbalize more precise and semantically rich relational facts. Such integration will elevate the system beyond manual template approaches and position it competitively with leading retrieval-augmented LLM prompt engineering methods, thereby boosting innovation, feasibility, and applicability in high-impact biomedical NLP and AI for intelligent decision-making domains. Target Section: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

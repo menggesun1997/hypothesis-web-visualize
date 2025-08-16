@@ -1,0 +1,67 @@
+{
+  "original_idea": {
+    "title": "Graph-Guided Semantic Stability in Continual LLM Updates",
+    "Problem_Statement": "Large Language Models updating world knowledge increasingly suffer from forgetting previously learned useful information, especially when no stored data is used for rehearsal. The inability to leverage the semantic and hierarchical structure of world knowledge prevents efficient retention and integration of new information without degradation.",
+    "Motivation": "Addresses internal critical gap (3) concerning bias in incremental classifiers and insufficient use of semantic/hierarchical knowledge structures for reducing forgetting. Builds on high-potential innovation opportunity (1) by embedding graph convolutional networks in continual learning for LLMs to improve stability-plasticity balance via structured knowledge representation.",
+    "Proposed_Method": "Develop a continual learning framework for LLMs that overlays a semantic knowledge graph representing entity relationships relevant to the model’s domain. Employ graph convolutional networks (GCNs) or graph transformers to encode hierarchical knowledge features that inform incremental parameter updates. This graph-guided regularization constrains learning to preserve critical semantic relationships. The system dynamically updates the graph with new entities/concepts as knowledge evolves, integrating graph-based embeddings into transformer layers through specialized adapters facilitating efficient forward-only updates without accessing prior data.",
+    "Step_by_Step_Experiment_Plan": "1) Benchmark on continual knowledge update tasks (e.g., temporal QA datasets). 2) Use baseline LLM continual learning frameworks (rehearsal-free) for comparison. 3) Evaluate with/without graph-guided stabilization layer.  4) Metrics: forgetting rate, forward transfer, knowledge update accuracy, semantic consistency (graph alignment). 5) Ablate parts of graph architecture to assess contribution. 6) Test scalability across hierarchical depths and knowledge domains.",
+    "Test_Case_Examples": "Input: \"As of 2024, what is the capital of the newly formed country X?\" Output: Correct capital named; prior knowledge about country Y not degraded (stability); semantic graph relationships ensure entity X linked correctly in knowledge base to prevent confusion with similar entities.",
+    "Fallback_Plan": "If graph integration proves unstable, fallback to simplified knowledge embedding with hierarchical clustering features to approximate semantic structure. Alternatively, use knowledge distillation from graph-enhanced teacher models to student LLMs to imprint semantic consistency without explicit graph convolutions."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Continual Learning",
+      "Large Language Models",
+      "Graph Convolutional Networks",
+      "Semantic Stability",
+      "Forgetting Mitigation",
+      "Hierarchical Knowledge Structures"
+    ],
+    "direct_cooccurrence_count": 2118,
+    "min_pmi_score_value": 3.6399068967187045,
+    "avg_pmi_score_value": 5.065925283338282,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "class-incremental learning",
+      "Few-shot class-incremental learning",
+      "few-shot learning",
+      "generative adversarial network",
+      "recurrent neural network",
+      "artificial intelligence",
+      "multimodal learning",
+      "information bottleneck",
+      "sub-networks",
+      "clustering method",
+      "end-to-end framework",
+      "citation graph",
+      "variational autoencoder",
+      "graph neural networks",
+      "speech enhancement",
+      "convolutional neural network",
+      "empirical evaluation",
+      "sequential data processing",
+      "voice conversion",
+      "text-to-speech",
+      "gene expression profiles",
+      "cell type annotation",
+      "semantic hierarchy"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed mechanism involves integrating graph convolutional networks or graph transformers as a guidance signal within continual LLM updates to preserve semantic relationships. However, the method lacks clarity on several key technical aspects: How exactly are graph-based embeddings integrated into transformer layers via adapters to balance stability and plasticity? What specific regularization terms or training objectives enforce semantic preservation during incremental updates? Additionally, the process for dynamically updating the semantic graph with new entities and ensuring consistency without catastrophic interference is underspecified. Elaboration on these mechanisms, possibly with pseudocode or architectural diagrams, is essential to assess soundness thoroughly and to operationalize the approach effectively in practice. Clearer specification of how graph signals influence parameter updates, especially in a rehearsal-free setup, will strengthen confidence in the proposed method’s feasibility and novelty. This will also help clarify how semantic relationships concretely constrain and guide learning within the large-scale LLM parameter space without access to past data, addressing the core challenge of semantic stability in continual updates. Please detail these components more rigorously in the Proposed_Method section to solidify the conceptual foundation and facilitate reproducibility and validation by peers and practitioners alike.\n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the experimental plan outlines a sensible evaluation pipeline benchmarking on continual knowledge update tasks and comparing graph-guided versus baseline rehearsal-free LLM continual learners, key feasibility questions remain: Have appropriate temporal QA datasets been identified or curated that reflect realistic and challenging continual knowledge update scenarios for LLMs? How will the metrics, especially 'semantic consistency (graph alignment)', be quantitatively measured—does a robust evaluation protocol exist to correlate graph preservation with linguistic or factual accuracy? Moreover, the scalability tests across hierarchical depths and knowledge domains require significant computational resources and problem-specific tailoring, which might be prohibitive. Clarification on the dataset choices, metric implementations, expected computational costs, and contingency plans to address potential lack of suitable benchmarks will enhance the rigor and practical feasibility of the experimental validation. Providing more detailed experimental design—including baseline architectures, hyperparameters, and statistical validation methods—will also reinforce confidence in empirical findings and facilitate future reproduction and extension by the community."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "original_idea": {
+    "title": "Graph-Based Visual Explanation for LLM Decisions in Biomedical Texts",
+    "Problem_Statement": "Biomedical LLM decisions are opaque, limiting trust and adoption due to lack of visual, interpretable explanations connected to domain knowledge graphs.",
+    "Motivation": "Addresses gap in integrating graphical visualizations with LLM outputs for domain-specific interpretability, enhancing clinicians’ ability to understand and trust model decisions.",
+    "Proposed_Method": "Create a pipeline that maps LLM attention distributions to biomedical knowledge graphs, generating interactive graph visualizations highlighting concept relations influencing decisions, embedded in user-friendly interfaces.",
+    "Step_by_Step_Experiment_Plan": "Use biomedical QA datasets and ontologies like MeSH. Baseline: raw attention visualizations. Metrics: explanation fidelity, user trust surveys, decision accuracy.",
+    "Test_Case_Examples": "Input: Biomedical question about disease symptoms. Output: Graph showing relevant symptom-disease-drug connections with highlighted node importance explaining answer.",
+    "Fallback_Plan": "If graph explanations are too complex, simplify graphs via clustering or focus explanations on top-k concepts with visual summaries."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Graph-Based Visual Explanation",
+      "LLM Decisions",
+      "Biomedical Texts",
+      "Interpretability",
+      "Domain Knowledge Graphs",
+      "Clinician Trust"
+    ],
+    "direct_cooccurrence_count": 1470,
+    "min_pmi_score_value": 4.027279345053238,
+    "avg_pmi_score_value": 5.00506669825474,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "32 Biomedical and Clinical Sciences",
+      "46 Information and Computing Sciences",
+      "3211 Oncology and Carcinogenesis"
+    ],
+    "future_suggestions_concepts": [
+      "natural language processing",
+      "medical visual question answering",
+      "visual question answering",
+      "state-of-the-art",
+      "attention mechanism",
+      "vision-language models",
+      "visual question answering challenge",
+      "end-to-end",
+      "XAI methods",
+      "intelligent decision-making"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method lacks clarity on how exactly the LLM attention distributions will be reliably mapped to biomedical knowledge graph structures, which can be complex and heterogeneous. More detail is needed on the methodology for linking attention weights to graph nodes/edges, and how interactive visualizations will faithfully reflect model reasoning rather than just attention heatmaps, to avoid misleading interpretations. Without a clear, principled mechanism, the soundness of the approach is under question, especially given challenges in attention interpretability in prior work. Consider specifying algorithms or mapping criteria explicitly in the method section to strengthen soundness evidence and guard against superficial or spurious explanations that may hamper user trust rather than improve it.\n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is promising but underspecified regarding the experimental setup and metrics. For example, explanation fidelity is mentioned but not how it will be quantitatively measured or validated. User trust surveys are proposed but the design, sample size, or domain expert involvement is unclear, which is critical in healthcare contexts. Also, the selection of baseline methods is limited to raw attention visualizations, which may not be a strong enough baseline compared to more advanced XAI techniques. To ensure feasibility, the plan should elaborate on precise evaluation protocols, user study design details, and comparative baselines to convincingly demonstrate the effectiveness and clinical utility of the proposed visualization pipeline."
+        }
+      ]
+    }
+  }
+}

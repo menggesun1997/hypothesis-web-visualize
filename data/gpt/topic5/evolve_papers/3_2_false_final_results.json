@@ -1,0 +1,12 @@
+{
+  "before_idea": {
+    "title": "Boundary-Enhanced Diffusion Models for Fine-Grained Scientific Entity Segmentation",
+    "Problem_Statement": "Current approaches for fine-grained entity recognition and relation extraction in scientific literature struggle to accurately demarcate entity boundaries and differentiate overlapping or nested entities, especially with limited computational resources.",
+    "Motivation": "This idea exploits the external gap of applying boundary enhancement and diffusion probabilistic models from medical imaging to scientific text domains, providing a novel means to enhance precision in extraction tasks while controlling computational complexity.",
+    "Proposed_Method": "Design a diffusion probabilistic model adapted for sequence data that models the progressive refinement of entity boundaries in text. Augment it with a boundary enhancement module inspired by edge detection filters in vision, applied on intermediate representations to sharpen entity limits. The combined model uses iterative denoising steps to improve boundary localization and uncertainty quantification for ambiguous regions, enabling better extraction at lower compute cost.",
+    "Step_by_Step_Experiment_Plan": "1) Prepare nested entity-labeled scientific corpora (e.g., GENIA). 2) Implement conventional sequence tagging baselines and transformer-based segmentation models. 3) Build diffusion-based boundary-enhanced entity segmentation model. 4) Evaluate segmentation accuracy (precision, recall, IoU), compute efficiency, and calibration of uncertainty estimates. 5) Perform case studies on extremely ambiguous or overlapping entities.",
+    "Test_Case_Examples": "Input: Sentence with overlapping mentions like 'human T-cell leukemia virus' vs 'T-cell'. Expected Output: Distinct span boundaries for each entity with confidence scores, accurately segregating overlapping segments.",
+    "Fallback_Plan": "If diffusion modeling on sequences proves unstable or slow, explore hybrid architectures integrating CNN-based boundary detectors with transformer taggers, or replace diffusion steps with learned residual refinement modules."
+  },
+  "novelty": "NOV-REJECT"
+}

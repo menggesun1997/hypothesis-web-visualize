@@ -1,0 +1,39 @@
+{
+  "original_idea": {
+    "title": "CognitiveFair: Embedding Prefrontal Cortex-Inspired Mechanisms for Stable Fairness in LLMs",
+    "Problem_Statement": "Current LLMs lack stable fairness across deployment contexts due to missing integration of cognitive mechanisms that humans use to process fairness and reduce bias. This results in performance-fairness tradeoffs that vary unpredictably when models encounter real-world data shifts.",
+    "Motivation": "Addresses the internal gap of bridging model performance and stable fairness by leveraging the hidden bridge between 'language model' and 'human-level performance' through cognitive psychology lenses, specifically mimicking prefrontal cortex executive functions to modulate bias dynamically.",
+    "Proposed_Method": "Design a novel attention-modulation architecture module inspired by prefrontal cortex inhibitory control to regulate bias signals in the model's internal representations. This module dynamically suppresses learned biases when generating responses, conditioned on context fairness cues detected via multimodal inputs. Integrate this with a multilayer fairness feedback loop informed by cognitive conflict detection models, creating a continuous fairness regulation system embedded in the LLM's forward pass.",
+    "Step_by_Step_Experiment_Plan": "1. Collect datasets that include multimodal inputs (text+image) with known bias attributes. 2. Implement a standard transformer LLM baseline (e.g., GPT variant). 3. Develop the cognitive-inspired inhibitory control module and integrate it. 4. Evaluate bias stability on in-distribution and out-of-distribution prompts using fairness metrics (equalized odds, subgroup calibration) over time. 5. Compare against standard fine-tuning bias mitigation baselines. 6. Analyze internal activations for interpretability, relating to cognitive conflict signals.",
+    "Test_Case_Examples": "Input: A news snippet describing gender roles with subtle stereotypical language. Expected output: A balanced, non-stereotypical paraphrase that maintains the factual content without reinforcing bias, validated by subgroup fairness metrics showing low disparity.",
+    "Fallback_Plan": "If dynamic inhibitory control is ineffective, fallback to a hybrid approach where static bias filters trained via cognitive conflict signals post-process LLM outputs. Alternatively, use human-in-the-loop feedback to tune control thresholds iteratively."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "CognitiveFair",
+      "Prefrontal Cortex",
+      "Stable Fairness",
+      "Large Language Models",
+      "Bias Modulation",
+      "Cognitive Psychology"
+    ],
+    "direct_cooccurrence_count": 0,
+    "min_pmi_score_value": 2.9554058273397854,
+    "avg_pmi_score_value": 4.077169732007316,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [],
+    "future_suggestions_concepts": [],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method ambitiously integrates intricate cognitive neuroscience concepts—such as prefrontal cortex inhibitory control and multilayer fairness feedback loops—into an LLM architecture. However, the mechanism lacks sufficient technical specificity and clarity on how these biological-inspired functions are concretely realized in model components and training regimes. To advance soundness, the authors should elucidate precise architectural designs, algorithmic instantiations, and computational modeling of the inhibitory control module and conflict detection, ensuring the approach is workable and interpretable by the ML community rather than remaining at a high-level analogy with cognitive functions. This clarification will strengthen confidence in the method’s validity and facilitate reproduction and extension by others in the field, ensuring the proposal moves beyond a conceptual metaphor toward a rigorously engineering-amenable solution framework targeting fairness stability in LLMs under distribution shifts."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "While the Step_by_Step_Experiment_Plan is broadly reasonable, it requires greater consideration of practical challenges and validation breadth to establish feasibility. Specifically, the plan depends critically on multimodal datasets with annotated bias attributes—such resources are scarce, often limited in scale, and may constrain generalization. The authors should detail dataset selection or creation strategies, including bias attribute annotation protocols and cross-domain coverage. Further, evaluation focuses on fairness metrics over time on in-/out-of-distribution data but would benefit from concrete OOD shift scenarios and clear benchmarking baselines. In addition, analyzing internal activations for cognitive conflict signals needs methodological precision and validation criteria. Strengthening the experimental plan with contingency strategies for dataset limitations, clearer operationalization of cognitive signal analyses, and expanded evaluation protocols will reinforce the approach’s feasibility and increase confidence that the method can demonstrate stable fairness improvements in realistic deployment contexts."
+        }
+      ]
+    }
+  }
+}

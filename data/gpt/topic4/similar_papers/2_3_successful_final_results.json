@@ -1,0 +1,65 @@
+{
+  "before_idea": {
+    "title": "Multi-Scale Attention Models for Bias-Resilient Narrative Segmentation in Low-Resource Languages",
+    "Problem_Statement": "Keyword-based and traditional text segmentation methods perform poorly and propagate bias in multilingual low-resource settings, particularly with narrative data rich in cultural and linguistic nuances.",
+    "Motivation": "This idea addresses the brittleness and bias propagation in early structured data extraction stages (internal gap) by adapting multi-scale self-attention mechanisms from advanced computer vision and biomedical image segmentation (external bridge), enhancing contextual understanding in multilingual narrative segmentation.",
+    "Proposed_Method": "We develop a novel hierarchical multi-scale attention LLM architecture that segments narratives at multiple granularities, leveraging cross-lingual transfer learning and context-aware representation to minimize bias propagation. This architecture integrates positional embeddings with modality-inspired attention patterns to capture linguistic and cultural subtleties across languages.",
+    "Step_by_Step_Experiment_Plan": "1) Assemble multilingual narrative datasets from child protective services and similar sensitive domains. 2) Implement baseline segmentation models using keyword and conventional methods. 3) Develop and train multi-scale attention segmentation models with transfer learning. 4) Evaluate segmentation quality, bias metrics, and downstream fairness in structured data extraction.",
+    "Test_Case_Examples": "Input: Narrative text describing social service case in low-resource language (e.g., Amharic). Output: Accurate segmented fields reflecting unbiased representation versus keyword baseline.",
+    "Fallback_Plan": "If multi-scale attention doesn't sufficiently improve segmentation, fallback to ensemble models combining rule-based and neural approaches with human review integration."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Federated Multi-Scale Attention Models for Bias-Resilient Narrative Segmentation in Low-Resource Multilingual Settings",
+        "Problem_Statement": "Keyword-based and traditional text segmentation approaches inadequately capture the rich cultural and linguistic nuances inherent in multilingual narrative data from low-resource languages. These methods often propagate biases during structured data extraction, especially in sensitive domains such as child protective services. The challenges are compounded by limited labeled datasets and ethical constraints around data access, impeding fair and accurate narrative segmentation.",
+        "Motivation": "Addressing the brittleness and bias propagation at early data extraction stages requires a more sophisticated modeling approach tailored for complex narrative data in low-resource languages. By innovatively adapting multi-scale attention mechanisms—originally effective in computer vision and biomedical image segmentation—to textual narrative segmentation, and integrating cross-lingual transfer learning with federated learning, we uniquely combine hierarchical contextual understanding with privacy-preserving and inclusive training paradigms. This approach not only reduces bias propagation and enhances segmentation quality but also enables wider data collaboration while respecting ethical and legal constraints, positioning our work as a novel leap beyond straightforward methodological adaptations.",
+        "Proposed_Method": "We propose a federated hierarchical multi-scale attention architecture designed specifically for low-resource multilingual narrative segmentation. The model features: 1) Multi-scale self-attention layers that process narrative inputs at different granularities — from sentence fragments to entire paragraphs — inspired by computer vision's feature pyramids and biomedical segmentation’s spatial context modeling. Unlike direct adaptations, we redefine these mechanisms for sequential text by incorporating hierarchical positional embeddings reflecting linguistic discourse structures (e.g., clause, sentence, paragraph levels).\n\n2) Cross-lingual transfer learning leveraging multilingual pretrained language models fine-tuned with task-specific adapters aligned with cultural and linguistic metadata, allowing the model to adjust attention patterns based on language and cultural context.\n\n3) Cultural and linguistic nuances are explicitly encoded through modality-inspired attention masks that emphasize culturally salient tokens and syntactic features, learned via auxiliary supervised signals such as emotion recognition and discourse markers.\n\n4) Federated learning implementation enables training on decentralized, ethically sourced local datasets across organizations without sharing sensitive raw narrative data, improving model generalizability and inclusivity while preserving privacy.\n\nTogether, these components form a rigorously designed architecture whose novelty lies in the principled fusion of multi-scale attention mechanisms, cross-lingual cultural adaptation, and federated learning tailored to bias mitigation in narrative segmentation.",
+        "Step_by_Step_Experiment_Plan": "1) Data Sourcing and Ethical Compliance: Collaborate with NGOs and social service agencies across multiple regions to federate access to anonymized narrative text datasets in low-resource languages (e.g., Amharic, Wolof). Each site retains local data, enabling model training via federated learning. Acquire IRB approvals and ensure data anonymization per GDPR and institutional standards.\n\n2) Annotation Methodology: Develop annotation guidelines with domain experts focusing on narrative segmentation and bias indicators; use active learning and human-in-the-loop processes to enhance annotation efficiency and quality at local sites.\n\n3) Baseline Implementation: Establish baseline models including keyword-based segmentation, conventional neural models without multi-scale attention, and naïve multilingual fine-tuning.\n\n4) Model Development: Implement the federated multi-scale attention model with hierarchical positional embeddings, task adapters, and cultural attention masks. Integrate auxiliary emotion recognition modules to reinforce nuance encoding.\n\n5) Training and Evaluation: Train models under federated settings; evaluate segmentation quality with metrics such as Precision, Recall, and F1 at multiple granularity levels. Measure bias propagation using fairness metrics like demographic parity differences and equality of opportunity aligned with frameworks from IBM AI Fairness 360.\n\n6) Downstream Impact Assessment: Analyze effects of segmentation quality on structured data extraction and decision-support fairness.\n\n7) Resource and Timeline Projection: Over 18 months, allocate first 6 months for partnerships and data annotation setup, months 7–12 for baseline and model development, months 13–18 for federated training, evaluation, and dissemination.",
+        "Test_Case_Examples": "Input: A narrative text describing a child protective service case written in Amharic, containing culturally specific references, idioms, and emotion-laden expressions.\nOutput: Segmented narrative fields accurately reflecting discourse boundaries and thematic elements with minimal bias, for example, correctly distinguishing events from caregiver sentiments, contrasted with overgeneralized output from keyword-based baselines. Additional outputs include auxiliary annotations on emotional tone and discourse markers that enhance interpretability and bias mitigation.",
+        "Fallback_Plan": "If the federated multi-scale attention model fails to improve segmentation or encounters prohibitive system constraints, we will revert to an ensemble approach combining rule-based and neural models enhanced with interactive human-computer collaboration. This includes active human-in-the-loop feedback mechanisms supporting iterative model refinement, especially where automated segmentation is uncertain or potentially biased."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Multi-Scale Attention Models",
+      "Bias-Resilient",
+      "Narrative Segmentation",
+      "Low-Resource Languages",
+      "Multilingual Contextual Understanding",
+      "Self-Attention Mechanisms"
+    ],
+    "direct_cooccurrence_count": 9507,
+    "min_pmi_score_value": 3.6114025480593854,
+    "avg_pmi_score_value": 5.017321041039696,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "49 Mathematical Sciences",
+      "51 Physical Sciences",
+      "46 Information and Computing Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "federated learning",
+      "multimodal emotion recognition",
+      "human-computer interaction",
+      "multimodal dataset",
+      "emotion recognition",
+      "progress of deep learning technology",
+      "adoption of artificial intelligence",
+      "fast ML"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposal describes a hierarchical multi-scale attention LLM architecture that integrates positional embeddings and modality-inspired attention patterns, the methodological details are insufficiently clarified. Specifically, how the multi-scale attention mechanism is adapted from computer vision and biomedical segmentation domains to narrative text segmentation in low-resource, multilingual contexts needs deeper exposition. Clarify the architecture's components, how cross-lingual transfer learning is incorporated, and how cultural and linguistic nuances are explicitly modeled within the attention mechanisms to justify soundness and novelty of the method beyond a straightforward adaptation. This will strengthen confidence in the proposed mechanism's rigor and validity.  Targeting this clarification will also aid reproducibility and evaluation of core assumptions in bias mitigation via the architecture's design strategies in narrative segmentation tasks.\n\n\n---\n\nTarget section: Proposed_Method"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The experiment plan outlines assembling multilingual narrative datasets from sensitive domains, implementing baselines, developing the model, and evaluation. However, the feasibility is threatened by challenges in sourcing sufficiently large, ethically accessible, and annotated multilingual narrative datasets in low-resource languages, especially from child protective services or similar domains. Please specify data sourcing strategies, annotation methodologies, and ethical compliance considerations to bolster practical feasibility. Additionally, clarify the bias metrics and downstream fairness measures with references to measurable standards or frameworks. Including a timeline or resource assessment would further demonstrate realism. Addressing these points will ensure the experimental plan is actionable and scientifically sound in the given challenging context.\n\n\n---\n\nTarget section: Step_by_Step_Experiment_Plan"
+        }
+      ]
+    }
+  }
+}

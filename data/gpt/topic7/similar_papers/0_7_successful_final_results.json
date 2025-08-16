@@ -1,0 +1,71 @@
+{
+  "before_idea": {
+    "title": "Ontology-Enriched LLM for Dynamic Eligibility Criteria Interpretation",
+    "Problem_Statement": "Inconsistent interpretations of complex eligibility criteria reduce replicability and generalizability of LLM performance across clinical NLP benchmarks.",
+    "Motivation": "Targets internal interpretability gaps and builds on the hidden bridge linking ontology-based clinical knowledge with LLM technical advances to augment model reasoning about eligibility criteria dynamically.",
+    "Proposed_Method": "Augment LLMs with domain ontologies representing medical concepts, relationships, and eligibility constraints. Implement a hybrid symbolic-neural reasoning framework to interpret, normalize, and adapt eligibility criteria across varying clinical contexts to improve replicability of NLP benchmark results.",
+    "Step_by_Step_Experiment_Plan": "1) Integrate major biomedical ontologies (e.g., SNOMED CT) into LLM architectures; 2) Fine-tune models on clinical trial eligibility text datasets; 3) Conduct reasoning tests on complex eligibility cases; 4) Evaluate replicability improvements on benchmark tasks with ontology-augmented vs vanilla models; 5) Analyze error cases and ontology coverage; 6) Iterate on ontology mappings and reasoning heuristics.",
+    "Test_Case_Examples": "Input: Eligibility statement 'Patients with recent myocardial infarction within 6 months.' Output: LLM outputs normalized interpretation using ontology terms with temporal constraints explicitly represented, improving cohort selection accuracy.",
+    "Fallback_Plan": "If ontology integration introduces complexity or overhead, fallback to embedding ontology-based features as soft constraints or use hybrid pipeline with rule-based filters."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Ontology-Enriched Hybrid LLM Framework for Trustworthy and Context-Aware Eligibility Criteria Interpretation",
+        "Problem_Statement": "Variability and ambiguity in interpreting complex clinical trial eligibility criteria hinder reproducibility and generalizability of LLM-based NLP solutions across diverse clinical settings, limiting trust and practical adoption in biomedical applications.",
+        "Motivation": "Despite advances in LLMs for clinical NLP, interpretations of nuanced eligibility constraints remain inconsistent due to insufficient integration of structured domain knowledge and rigorous reasoning capabilities. This work aims to bridge ontology-based semantic precision with neural language understanding through a novel hybrid framework, extending beyond typical embedding techniques toward dynamic, interpretable reasoning. By enhancing semantic interoperability, incorporating trustworthy machine learning principles, and enabling transparent auditability, this approach targets critical gaps in model interpretability, clinical trustworthiness, and user-centric system acceptance in real-world biomedical NLP deployments.",
+        "Proposed_Method": "We propose a modular hybrid symbolic-neural architecture that tightly couples LLMs with comprehensive biomedical ontologies (e.g., SNOMED CT, UMLS) through a dynamic reasoning component. Specifically, the system entails: 1) a symbolic reasoning engine that encodes ontology semantics as knowledge graphs supporting constraint propagation, conflict resolution, and context adaptation; 2) a neural module (fine-tuned LLM) that processes raw eligibility text and generates candidate interpretations; 3) an integration layer implementing a bidirectional communication protocol where the symbolic engine validates, refines, or augments neural outputs using ontology-driven heuristics and conflict detection mechanisms; 4) an adaptability mechanism dynamically tuning reasoning heuristics based on clinical context metadata and feedback; 5) an audit and explanation module generating human-interpretable justifications of interpretation steps and potential ambiguities. Additionally, leveraging graph data management and Web intelligence methods facilitates scalable querying and semantic interoperability of eligibility criteria as interconnected knowledge graphs. This combined approach enforces interpretative rigor, supports trustworthy outcomes, and enhances user transparency beyond naïve ontology embedding or end-to-end learning solutions.",
+        "Step_by_Step_Experiment_Plan": "1) Curate and preprocess comprehensive biomedical ontologies and clinical trial eligibility datasets. 2) Develop the symbolic reasoning engine incorporating ontology-driven constraint propagation and conflict resolution protocols. 3) Fine-tune LLM components on eligibility criteria text with supervision aligned to ontology concepts. 4) Implement the integration layer enabling dynamic communication and refinement between symbolic and neural modules. 5) Build the audit and explanation interface rooted in trustworthy ML to provide transparent interpretation trails. 6) Evaluate system performance on benchmark clinical NLP tasks measuring replicability, interpretation fidelity, and semantic interoperability compared to baseline LLMs and ontology-embedding approaches. 7) Conduct user-centric evaluations employing technology acceptance models with clinicians and trial designers to assess trustworthiness, transparency, and real-life usability. 8) Analyze errors, update ontology mappings, optimize adaptability heuristics, and iterate accordingly.",
+        "Test_Case_Examples": "Input: \"Patients with recent myocardial infarction within 6 months.\" Output: The system produces a normalized eligibility interpretation linking 'myocardial infarction' to SNOMED CT codes, explicitly representing the temporal constraint via ontology-driven temporal relations, highlights any ambiguities, and provides an explanation tree illustrating how symbolic and neural components resolved conflicting interpretations. This facilitates precise cohort selection and builds clinical user trust through transparent audit trails.",
+        "Fallback_Plan": "If tightly coupled symbolic-neural integration incurs prohibitive complexity or latency, fallback to a hybrid pipeline where ontology-driven symbolic filters preprocess or postprocess LLM outputs as soft constraints. Additionally, employ embedding of ontology-derived features to enrich neural input representations without full symbolic reasoning. Incorporate progressive explanation modules for auditing to maintain transparency even under reduced symbolic integration."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Ontology-Enriched LLM",
+      "Eligibility Criteria Interpretation",
+      "Internal Interpretability",
+      "Clinical Knowledge Ontology",
+      "Model Reasoning",
+      "Clinical NLP Benchmarks"
+    ],
+    "direct_cooccurrence_count": 283,
+    "min_pmi_score_value": 3.723809788189279,
+    "avg_pmi_score_value": 6.3474369755065005,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "information systems engineering",
+      "semantic interoperability",
+      "deep learning algorithms",
+      "learning algorithms",
+      "biomedical NLP",
+      "application of natural language processing",
+      "real-life use cases",
+      "Web intelligence",
+      "data management",
+      "trustworthy machine learning",
+      "graph data management",
+      "technology acceptance model",
+      "AI assistance",
+      "leverage natural language processing"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section lacks clarity on how exactly the hybrid symbolic-neural reasoning framework will function within the LLM architecture. The paper should concretely specify the integration strategy—how ontological knowledge bases will interact dynamically with neural components to interpret and normalize eligibility criteria in varied contexts. Details on the reasoning heuristics, adaptability mechanisms, and conflict resolution between symbolic and neural outputs are needed to validate soundness and mechanistic viability of the approach, especially given the complexity of eligibility criteria semantics in clinical texts. Elucidating these points will strengthen the argument for this method’s effectiveness and interpretability enhancements beyond naïve ontology embedding or pure end-to-end learning approaches. This should be addressed first to establish the soundness of the approach's core mechanism and assumptions about model interpretability and reasoning advancements inherent in the hybrid framework, thereby supporting subsequent feasibility and impact claims. Target section: Proposed_Method."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty verdict, the idea’s impact and novelty could be substantially enhanced by exploring integration with related globally linked concepts such as trustworthy machine learning and semantic interoperability. For example, the proposal can extend to dynamically auditing and explaining eligibility criteria interpretations to clinicians or trial designers, improving model transparency and clinical trustworthiness. Leveraging Web intelligence techniques or graph data management could enable richer representation and querying of eligibility constraints as interconnected knowledge graphs. Incorporating technology acceptance models could guide user-centric evaluations of the ontology-enriched LLM system in real-life clinical NLP deployments. This broader framing and integration with these concepts will boost both novelty and practical impact beyond benchmark replicability, positioning it as a more transformative tool for biomedical NLP practice. Addressing this suggestion can create high-leverage gains in the research’s relevance and system adoption potential. Target section: Overall conceptual framing and future work."
+        }
+      ]
+    }
+  }
+}

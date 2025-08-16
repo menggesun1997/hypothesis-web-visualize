@@ -1,0 +1,81 @@
+{
+  "before_idea": {
+    "title": "Morpho-Syntactic Typology Embeddings for Enhanced Multilingual Knowledge Graphs",
+    "Problem_Statement": "Current multilingual knowledge graphs lack typological information, limiting their use in linguistically diverse applications and cross-language reasoning.",
+    "Motivation": "Addresses internal gaps by embedding deep morpho-syntactic typology directly into knowledge graph node and edge representations, enriching semantic connections across typologically diverse languages.",
+    "Proposed_Method": "Develop embeddings for linguistic units enriched with typological signatures derived from aligned typology resources. Integrate these into knowledge graph construction and completion methods to improve semantic link prediction and multilingual query resolution in typologically diverse contexts.",
+    "Step_by_Step_Experiment_Plan": "1) Extract morpho-syntactic typology features from WALS and URIEL; 2) Map typological vectors to knowledge graph nodes; 3) Train typology-aware graph embedding models (e.g., graph neural networks); 4) Evaluate knowledge graph completion and multilingual question answering; 5) Contrast with standard graph embedding baselines; 6) Analyze semantic cluster coherence influenced by typology.",
+    "Test_Case_Examples": "Input: Querying a multilingual knowledge graph for concept equivalences considering word order and morphological variants in Turkish and Japanese nodes. Expected output: Improved alignment and retrieval results respecting typological variation.",
+    "Fallback_Plan": "If direct embedding integration underperforms, explore multi-view learning with separate typology and semantic embeddings fused during downstream tasks."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Dynamic Morpho-Syntactic Typology Embeddings Informed by Language Acquisition for Enhanced Multilingual Knowledge Graphs",
+        "Problem_Statement": "Current multilingual knowledge graphs often omit detailed morpho-syntactic typological information, limiting their ability to accurately model semantic relationships and perform robust cross-lingual reasoning, especially for typologically diverse languages with complex grammatical cues and word order variations.",
+        "Motivation": "While embedding morpho-syntactic typology into knowledge graphs holds promise, prior methods largely treat typological features as static attributes, disregarding dynamic language processing constraints and cognitive principles such as the Now-or-Never bottleneck and language acquisition mechanisms. By integrating insights from language acquisition and real-time processing, we can design typology embeddings that not only capture static linguistic variation but also reflect dynamic, usage-driven grammatical cue learning processes. This enriched representation fundamentally advances the semantic coherence and cross-lingual reasoning capabilities of multilingual knowledge graphs, enabling them to better mirror human language understanding and support linguistically nuanced tasks across diverse languages.",
+        "Proposed_Method": "We propose a novel embedding framework that fuses morpho-syntactic typological vectors from typological databases (e.g., WALS, URIEL) with dynamically learned embeddings inspired by language acquisition processes and the Now-or-Never bottleneck. Specifically, we model typological features as latent grammatical cues that are continuously updated based on linguistic input patterns and short-term memory constraints, emulating cognitive cue learning and information processing bottlenecks. Our method leverages multi-view graph neural networks where one view encodes static typological signatures and the other models dynamic, usage-driven embeddings reflecting real-time language processing. A principled fusion layer integrates these views, ensuring preservation of critical linguistic distinctions while enabling downstream semantic tasks to benefit from cognitively plausible, adaptive typology representations. This approach enhances semantic link prediction and multilingual query resolution by more accurately reflecting core properties of language such as word order rules, transitivity patterns, and morpho-syntactic structures, thus improving robustness and interpretability across typologically varied languages.",
+        "Step_by_Step_Experiment_Plan": "1) Curate morpho-syntactic typology features from WALS and URIEL, emphasizing core linguistic properties relevant to grammatical cues and word order;\n2) Develop a dynamic typology embedding learner that simulates language acquisition-inspired cue learning, incorporating constraints from the Now-or-Never bottleneck to model real-time processing limitations and short-term memory effects;\n3) Construct a multi-view graph neural network framework: one view with static typology embeddings, another with dynamic usage-driven embeddings;\n4) Design and implement a fusion mechanism that integrates these embeddings to maintain semantic and linguistic fidelity without redundancy or dilution;\n5) Train the model on multilingual knowledge graphs covering typologically diverse languages, evaluating tasks including semantic link prediction, typology-informed knowledge graph completion, and multilingual question answering;\n6) Conduct ablation studies to isolate the contribution of dynamic vs. static typology embeddings;\n7) Analyze embedding space to assess semantic cluster coherence, typological interpretability, and alignment with known cognitive and linguistic principles.",
+        "Test_Case_Examples": "Input: A multilingual knowledge graph query seeking concept equivalences between Turkish and Japanese entries, each exhibiting distinct word order patterns and morphological inflectional systems.\nExpected output: Enhanced retrieval accuracy and alignment that respects morpho-syntactic and processing-driven typological variations, outperforming baselines lacking dynamic typology embedding or cognitive processing constraints.\nAdditional tests: Cross-lingual reasoning tasks involving transitive clause disambiguation and grammatical cue-driven semantic inference, demonstrating improved interpretability and robustness.",
+        "Fallback_Plan": "Should the dynamic embedding approach introduce instability or fail to outperform, we will revert to a robust multi-view learning strategy maintaining separate static typological and semantic embeddings, with late fusion during downstream tasks optimized for minimal information loss. We will also explore enhanced regularization to prevent typology signal dilution and consider enriching the typology corpus to address coverage gaps."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Morpho-Syntactic Typology",
+      "Embeddings",
+      "Multilingual Knowledge Graphs",
+      "Semantic Connections",
+      "Typologically Diverse Languages",
+      "Cross-Language Reasoning"
+    ],
+    "direct_cooccurrence_count": 643,
+    "min_pmi_score_value": 4.11201827631414,
+    "avg_pmi_score_value": 6.225108641795413,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "5204 Cognitive and Computational Psychology",
+      "52 Psychology",
+      "5202 Biological Psychology"
+    ],
+    "future_suggestions_concepts": [
+      "language acquisition",
+      "Now-or-Never bottleneck",
+      "language system",
+      "grammatical cues",
+      "core properties of language",
+      "structure of language",
+      "nature of language",
+      "production of language",
+      "study of language acquisition",
+      "internal speech",
+      "duality of patterning",
+      "properties of language",
+      "nature of language processing",
+      "language change",
+      "word order",
+      "linguistic input",
+      "short-term memory",
+      "conceptual short-term memory",
+      "typologically diverse languages",
+      "evolution of grammar",
+      "word order rules",
+      "description of human interactions",
+      "transitive clauses",
+      "information processing bottlenecks"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposed method aims to enrich knowledge graph embeddings with morpho-syntactic typological features from resources like WALS and URIEL, the integration mechanism remains underspecified. It is unclear how typological vectors will be effectively fused with traditional semantic embeddings within graph neural networks and whether this fusion preserves meaningful linguistic distinctions. Further, the pathway by which these enriched embeddings concretely improve semantic link prediction and multilingual query resolution needs stronger theoretical grounding and algorithmic description to ensure soundness and interpretability of results. Consider clarifying the embedding architecture, fusion strategy, and how typological signals directly influence downstream tasks to solidify your method’s core mechanism and validity in diverse linguistic settings, especially given typological complexity and potential noise in typology data sources (e.g., WALS coverage gaps). This would also help mitigate risks of embedding redundancy or dilution of semantic signals under typological augmentation, keeping the framework robust and theoretically justified. Targeting the Proposed_Method section is critical for improving the submission’s clarity and methodological soundness."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the novelty verdict NOV-COMPETITIVE and focus on morpho-syntactic typology embeddings primarily targeting knowledge graphs, consider expanding the impact and novelty by integrating insights from the 'Now-or-Never bottleneck' and 'language acquisition' concepts. Specifically, explore how real-time processing constraints (Now-or-Never bottleneck) and grammatical cue learning from language acquisition research can inform the design of typology embeddings and graph updates, potentially moving beyond static typological features to dynamic, usage-driven representations. This integration could foster embeddings that better capture on-the-fly language processing patterns and cognitive constraints across typologically diverse languages, enhancing the knowledge graph's real-world utility in modeling language understanding and generation. Additionally, linking properties like 'word order rules' and 'grammatical cues' closer to the embeddings could make semantic connections more cognitively plausible and enhance cross-lingual reasoning capabilities. This suggestion targets enhancing both the approach's theoretical foundation and broadening its impact, directly relevant to the Proposed_Method and Motivation sections."
+        }
+      ]
+    }
+  }
+}

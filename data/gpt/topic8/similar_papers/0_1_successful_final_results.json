@@ -1,0 +1,81 @@
+{
+  "before_idea": {
+    "title": "Iterative Theory-of-Mind Explanation Dialogue for LLM QA",
+    "Problem_Statement": "Existing Explainable AI techniques for LLMs primarily produce shallow, single-turn explanations that fail to build sustained human trust and do not capture iterative, theory-of-mind-driven explanatory dynamics needed for nuanced open-domain QA.",
+    "Motivation": "Addresses the critical internal gap where XAI methods lack multi-turn, interactive explanations. Inspired by theory-of-mind frameworks from vision models and CX-ToM, this method brings iterative, user-adaptive explanation dialogues to large-scale language models.",
+    "Proposed_Method": "Design an interactive system where after each LLM answer, a theory-of-mind-enabled explanation module simulates possible user misconceptions and generates personalized counterfactual explanations. Users can ask follow-up 'why' or 'what-if' questions, and the system iteratively refines explanations in a dialogue until satisfactory understanding is achieved. This module employs meta-reasoning over the LLM's internal states, past interaction context, and counterfactual analysis to produce explanations adapting to user beliefs.",
+    "Step_by_Step_Experiment_Plan": "Use Open-Domain QA datasets enhanced with human explanation dialogues (or collect via crowdworkers). Baseline is static XAI outputs like attention heatmaps. Implement the iterative explanation dialogue with multi-turn user simulation and real human trials. Metrics include user trust/satisfaction, explanation completeness, and response latency. Test generalization across question types and knowledge domains.",
+    "Test_Case_Examples": "Input question: \"Why is the sky blue?\" User receives initial answer plus explanation. User asks \"What if it had different gases?\" System generates a counterfactual explanation about atmospheric composition affecting scattering. The interaction continues until the user signals understanding.",
+    "Fallback_Plan": "If multi-turn explanations overly degrade response time or confuse users, experiment with summarizing iterative explanations into concise, multi-aspect single messages or adding interactive visual explanation aids. Alternatively, limit iteration depth to optimize performance."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Iterative Theory-of-Mind Explanation Dialogue for LLM QA with Explicit Computational User Modeling and Rigorous Evaluation",
+        "Problem_Statement": "Current Explainable AI (XAI) methods for Large Language Models (LLMs) predominantly generate single-turn, static explanations that inadequately capture iterative, user-adaptive explanatory processes informed by Theory-of-Mind. This limitation restricts sustained human trust and fails to address evolving user misconceptions in open-domain QA contexts.",
+        "Motivation": "Despite advances in XAI, there remains a critical gap for scalable, transparent, multi-turn, user-centric explanation mechanisms that dynamically model and adapt to the user's evolving mental state and misconceptions. Grounded in Theory-of-Mind principles and leveraging state-of-the-art deep active learning and visual analytics methods, our approach advances beyond existing single-turn or heuristic-based explanations. By integrating systematic user misconception detection and iterative counterfactual explanation generation, our method offers a novel, interactive dialogue framework for LLMs unlike prior static or rule-based systems, positioning itself competitively and innovatively within the XAI landscape.",
+        "Proposed_Method": "We propose a computational framework comprising three tightly integrated components: (1) **User Misconception Detection Module (UMDM)**: leveraging multi-modal interaction data (user queries, follow-ups, and implicit feedback), this module employs a Bayesian user belief-tracking model combined with a representation learning approach that maps user inputs onto conceptual spaces derived from the LLM’s latent internal states. Misconceptions are detected through deviations between expected user understanding distributions and observed queries. (2) **Counterfactual Explanation Generator (CEG)**: given detected misconceptions, the CEG uses automated causal intervention techniques, inspired by counterfactual visual representation learning and multimodal reasoning, to systematically generate explanation hypotheses by altering key semantic or factual elements in the LLM’s reasoning path. This is algorithmically realized via constrained sampling in latent spaces and selective activation of reasoning submodules. (3) **Interactive Explanation Dialogue Manager (IEDM)**: orchestrates the dialogue using a reinforcement learning policy trained with deep active learning to maximize explanation completeness, user satisfaction, and trust, while balancing response latency. The IEDM updates a user belief model iteratively to adapt explanations, employing visual analytics, such as dynamically generated visualized explanation summaries, to aid comprehension. The entire pipeline interfaces seamlessly with the LLM's internal attention and hidden-state representations to enable meta-reasoning, thus operationalizing Theory-of-Mind in explanation dialogue. Explicit algorithmic details and pseudocode will be provided to ensure reproducibility and clarity of the mechanism.",
+        "Step_by_Step_Experiment_Plan": "1. **Data Collection:** Curate and extend existing Open-Domain QA datasets, enriching them with multi-turn explanation dialogues collected via crowdworker interfaces designed to simulate realistic user misconceptions and follow-up questions, verified through annotation cross-checks and inter-rater reliability metrics. 2. **User Simulator Design:** Develop a multi-faceted user simulator based on probabilistic user belief models mimicking common misconception patterns observed in step 1, validated against real human dialogue data using statistical similarity measures (e.g., KL divergence). 3. **Baseline and System Implementation:** Implement the iterative explanation dialogue system with UMDM, CEG, and IEDM modules; compare against static XAI baselines such as attention heatmaps and standard single-turn text explanations. 4. **Evaluation Metrics:** Quantitatively evaluate improvements in user trust, explanation completeness, and satisfaction using validated psychometric scales and real-time behavioral measures; latency and computational cost will be monitored. 5. **Human Trials:** Conduct controlled user studies with diverse participants to measure system effectiveness in realistic settings, ensuring statistical power with sufficient sample size and diversity across question types and knowledge domains. 6. **Generalization Analysis:** Test cross-domain robustness and out-of-distribution generalization by evaluating performance on unseen question formats and topics, analyzing failure modes with the aid of visual analytics tools. 7. **Statistical Analysis:** Employ rigorous hypothesis testing (e.g., ANOVA, mixed-effect models) to confirm significance of improvements and validate assumptions, ensuring reproducibility and transparency.",
+        "Test_Case_Examples": "Example scenario: Input question - \"Why is the sky blue?\" The system provides an initial LLM answer with explanation. The User Simulator detects user confusion related to atmospheric physics and asks \"What if the atmosphere had a different gas composition?\" The CEG module generates a counterfactual explanation visualizing how altered gaseous molecules affect light scattering, using a dynamic graphical summary to enhance understanding. The explanation dialogue iterates with follow-ups on scattering wavelengths, concluding once the user belief model scores comprehension above a threshold. Similar multi-turn dialogues are tested over legal reasoning questions, leveraging concepts from judicial model explanations and multimodal learning to ensure broad applicability.",
+        "Fallback_Plan": "Should multi-turn interactions incur unacceptable latency or user overload, we will (a) implement adaptive iteration capping with dynamic threshold-based stopping criteria, (b) develop multi-aspect summary explanations combining iterative insights into concise visual and textual formats via visual analytics solutions, and (c) explore incorporating multi-agent system architectures to distribute explanation generation efficiently. Additionally, we will conduct A/B testing to identify optimum balance between explanation depth and user cognitive load, ensuring practical deployment feasibility."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Iterative Explanation Dialogue",
+      "Theory of Mind",
+      "Explainable AI",
+      "Large Language Models",
+      "User-Adaptive Explanations",
+      "Open-Domain Question Answering"
+    ],
+    "direct_cooccurrence_count": 9774,
+    "min_pmi_score_value": 3.1561574973340956,
+    "avg_pmi_score_value": 5.0778389214746955,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "visual analytics",
+      "mental health professionals",
+      "open multi-agent systems",
+      "computer vision",
+      "deep active learning",
+      "out-of-distribution generalization",
+      "visual representation learning method",
+      "reasoning method",
+      "representation learning",
+      "visual representation learning",
+      "intelligent decision-making",
+      "multi-agent systems",
+      "visual analytics solution",
+      "judicial model",
+      "visual design",
+      "human trust",
+      "counterfactual explanations",
+      "state-of-the-art",
+      "convolutional neural network",
+      "process of legal reasoning",
+      "nature of legal relations",
+      "legal reasoning",
+      "legal prediction",
+      "multimodal learning"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the proposed iterative Theory-of-Mind-enabled explanation module is compelling, the mechanism by which it performs meta-reasoning over the LLM's internal states, past interactions, and counterfactual analyses is described at a high level without sufficient clarity or rigor. For example, it is unclear how user misconceptions are detected and modeled, how counterfactual scenarios are generated systematically, or how the system dynamically adapts explanations based on evolving user beliefs. Providing a detailed and concrete computational framework or algorithmic approach would strengthen the soundness of the method. Consider elaborating on the architecture or processes that operationalize these meta-reasoning and theory-of-mind components to ensure reproducibility and clear rationale for expected performance gains and user trust improvements. This will also help clarify assumptions and validate that the method can deliver on its promises rather than relying on conceptual inspiration alone. Thus, please expand the Proposed_Method section with a rigorous, unambiguous description of the explanation dialogue mechanism and how it integrates with LLM internals and user modeling in practice."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan proposes multi-turn human-in-the-loop evaluations with metrics like trust, satisfaction, completeness, and latency, which is appropriate. However, the plan lacks detail on how user misconception simulations and real human dialogues will be reliably conducted and validated. Critical challenges include collecting high-quality explanation dialogues that reflect real user thought processes, designing robust multi-turn user simulators, and balancing latency trade-offs inherent in iterative explanations. Additionally, the plan does not sufficiently discuss statistical power, participant diversity, or how generalization across question types and domains will be operationalized and measured beyond anecdotal examples. Clarify concrete experimental protocols, data collection methods, user simulator design, evaluation criteria, and contingency plans. Also, ensure that quantitative metrics (e.g., statistical significance of trust improvements) will be rigorously used to judge success. Addressing these will bolster feasibility and scientific soundness of the evaluation."
+        }
+      ]
+    }
+  }
+}

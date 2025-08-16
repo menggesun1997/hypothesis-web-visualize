@@ -1,0 +1,68 @@
+{
+  "before_idea": {
+    "title": "Human-in-the-Loop Graph-Augmented LLM Framework for Reducing Scientific Text Hallucinations",
+    "Problem_Statement": "Scientific LLMs hallucinate inaccurate facts when generating complex scientific text due to knowledge gaps and lack of real-time expert feedback.",
+    "Motivation": "Addresses internal gaps of hallucination and poor knowledge recall by combining human expert interactions with graph-based knowledge grounding to effectively detect and mitigate inaccuracies during generation.",
+    "Proposed_Method": "Create an interactive AI framework where LLMs generate scientific hypotheses or text conditioned on knowledge graphs and present uncertain segments for expert validation. The system incorporates human feedback to dynamically update the knowledge graph and refine generation on-the-fly, closing the loop between AI reasoning and expert oversight.",
+    "Step_by_Step_Experiment_Plan": "1) Build a pipeline integrating LLM generation with interpretable graph evidence presentation. 2) Develop interfaces enabling expert feedback input. 3) Conduct studies involving domain scientists to evaluate accuracy improvements and usability. 4) Measure hallucination frequency before and after expert-in-the-loop intervention.",
+    "Test_Case_Examples": "Input: Draft explanation of a novel polymer property. System highlights uncertain claims for expert verification or correction. Output: Revised text with confidence scores and knowledge graph citations reflecting expert input.",
+    "Fallback_Plan": "If real-time expert feedback is impractical, implement simulated expert feedback using curated datasets for offline refinement. Incorporate uncertainty estimation modules to autonomously trigger feedback requests selectively."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Adaptive Human-in-the-Loop Graph-Augmented LLM Framework Leveraging Named Entity Recognition and Intelligent Decision-Making for Scientific Text Hallucination Reduction",
+        "Problem_Statement": "Large Language Models (LLMs) for scientific text generation frequently hallucinate inaccurate or unverifiable facts due to incomplete knowledge representations and insufficient real-time expert validation, which undermines trust and reliability in complex scientific domains.",
+        "Motivation": "While prior work integrates human feedback with graph-based knowledge to mitigate hallucinations, our approach addresses the NOV-COMPETITIVE novelty gap by deeply combining advanced Named Entity Recognition (NER) techniques for fine-grained uncertainty detection, large-scale training data-driven uncertainty estimation modules, and intelligent decision-making paradigms that dynamically prioritize expert queries. This integration enhances both the precision of hallucination detection and the efficiency of expert interaction, fundamentally improving knowledge integrity, scalability, and user trust in scientific LLM outputs.",
+        "Proposed_Method": "We propose a modular interactive framework integrating (1) state-of-the-art NER models trained on large-scale scientific corpora to pinpoint domain-specific entities and their confidence levels, (2) an uncertainty quantification module combining Bayesian neural networks and calibrated confidence metrics to assign probabilistic uncertainty scores to generated claims, (3) a knowledge graph (KG) dynamically aligned with these entities, where expert corrections trigger automatic real-time updates using graph embedding fine-tuning and incremental graph database transaction protocols, and (4) an intelligent decision-making engine employing reinforcement learning agents to prioritize and schedule expert queries based on expected impact and expert cognitive load metrics.\n\nThe generation pipeline begins with an LLM producing scientific text hypotheses conditioned on the current KG. The NER and uncertainty modules detect low-confidence or potentially hallucinated entities and statements, which the decision engine selects and presents via an intuitive interface for expert validation. Expert feedback seamlessly updates the KG, which is then used for immediate LLM re-generation refined by updated graph embeddings. System architecture includes asynchronous modules linked by a message bus ensuring low-latency interactive response (<500ms) and comprehensive logging for auditability and reproducibility.\n\nThis method revolutionizes human-in-the-loop systems by embedding fine-grained entity-level uncertainty with adaptive expert querying, enabling scalable, transparent, and precise scientific text generation.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset Preparation: curate large-scale scientific corpora with annotated named entities and verified claims to train and validate NER and uncertainty modules.\n2) Module Development: implement and integrate NER, uncertainty quantification, KG update mechanisms, and the reinforcement learning-based decision engine.\n3) Interface Design: create ergonomic expert feedback interfaces capturing accuracy, correction speed, and satisfaction.\n4) Expert Selection: recruit domain scientists with minimum 5 years specialized expertise; evaluate baseline knowledge and calibrate training.\n5) Experimental Protocol: conduct controlled sessions comparing text generation accuracy, hallucination precision/recall, user workload, and satisfaction between baseline LLM, graph-grounded LLM without human loop, and full adaptive framework.\n6) Metrics: measure hallucination frequency, precision/recall of detected inaccuracies, expert time per correction, system latency, and user satisfaction (via SUS and custom Likert scales).\n7) Fallback Validation: if real-time expert feedback is limited, simulate feedback using expert-validated datasets with protocol identical to live sessions; validate that simulated feedback results statistically correlate with live outcomes.\n8) Statistical Analysis: perform significance testing (e.g., paired t-tests, ANOVA) to confirm improvements.\n9) Iterative Refinement: incorporate expert feedback to optimize decision engine reward functions and interface usability.",
+        "Test_Case_Examples": "Input: Draft explanation discussing a novel CRISPR gene-editing mechanism. The system uses NER to identify entities such as 'Cas9 protein', 'PAM sequence', and detects uncertain claims like 'PAM specificity extends to noncanonical sequences'. The uncertainty module assigns high uncertainty scores to this claim.\n\nOutput: The interface highlights this claim, requesting expert validation. The expert corrects the claim, triggering an automatic KG update representing accurate PAM specificity information. The LLM regenerates the paragraph incorporating the revised KG data, providing an updated explanation with confidence annotations and graph citations.\n\nAdditional tests include complex polymer chemistry descriptions, astrophysics phenomenon predictions, and pharmacological mechanism summaries, demonstrating the system's adaptability across scientific domains.",
+        "Fallback_Plan": "If continuous real-time expert feedback proves impractical due to resource constraints, we will deploy a fallback strategy using simulated expert feedback. This involves leveraging curated, expert-validated datasets to train a feedback simulator modeled as a probabilistic agent that emulates expert corrections with controlled noise levels. This simulator will be integrated to retrain uncertainty and decision-making modules offline to approximate real expert interaction dynamics.\n\nMoreover, we will incorporate advanced uncertainty estimation to autonomously trigger selective feedback requests only when uncertainty surpasses adaptive thresholds, minimizing expert burden. System performance under fallback conditions will be rigorously evaluated against live feedback benchmarks to ensure robustness and generalizability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Human-in-the-Loop",
+      "Graph-Augmented",
+      "Large Language Models",
+      "Scientific Text Hallucinations",
+      "Knowledge Grounding",
+      "Expert Feedback"
+    ],
+    "direct_cooccurrence_count": 7822,
+    "min_pmi_score_value": 2.7092460903009727,
+    "avg_pmi_score_value": 4.4398430001043465,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4602 Artificial Intelligence",
+      "3214 Pharmacology and Pharmaceutical Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "advancement of artificial intelligence",
+      "Named Entity Recognition",
+      "specialized use cases",
+      "large-scale training data",
+      "intelligent decision-making",
+      "vision-language models",
+      "next generation of AI"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method section outlines an interactive framework integrating LLMs with graph-based knowledge and human expert feedback, but the mechanism lacks detailed clarity on how uncertainty is quantified and communicated, how expert corrections dynamically update the knowledge graph in real-time, and how the LLM incorporates those updates during generation. Clarifying the technical pipeline and specifying algorithmic strategies for uncertainty estimation, graph updates, and generation refinement would greatly strengthen the soundness and reproducibility of the approach. Consider providing a system architecture or conceptual flow to concretize these elements for reviewers and later implementers in the community. This will also clarify assumptions about real-time integration capabilities and system latency effects during interaction with experts (Proposed_Method)."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan is broadly appropriate but needs augmentation to ensure scientific rigor and feasibility. Specifically, details are missing about the criteria for selecting domain scientists, how expert feedback sessions will be structured, and quantitative metrics beyond hallucination frequency—such as precision/recall of inaccuracies corrected, time overhead for experts, and user satisfaction ratings—to robustly evaluate usability and improvements. Moreover, fallback simulations of expert feedback should be precisely defined, including dataset selection and validation protocols to ensure that results extrapolate well to real expert-in-the-loop scenarios. Providing a more detailed experimental protocol and success criteria would improve feasibility and credibility of the evaluation."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty rating and the existing substantial research on human-in-the-loop and graph-augmented LLM systems, the proposal would benefit by integrating advances from 'Named Entity Recognition' for more fine-grained detection of uncertain or hallucinated scientific entities, and by leveraging 'large-scale training data' to build better uncertainty estimation modules. Additionally, aligning the framework with emerging 'intelligent decision-making' paradigms can enhance expert interactions by prioritizing queries dynamically. These integrations could make the system more adaptive, reduce expert burden, and broaden applicability toward the 'next generation of AI' systems targeting scientific knowledge integrity and scalability."
+        }
+      ]
+    }
+  }
+}

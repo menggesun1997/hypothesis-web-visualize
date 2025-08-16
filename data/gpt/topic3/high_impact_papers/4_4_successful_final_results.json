@@ -1,0 +1,73 @@
+{
+  "before_idea": {
+    "title": "Markovian Arrival Process Guided Attention Mechanism for Sequence Fidelity in LLMs",
+    "Problem_Statement": "Current attention mechanisms in LLMs do not explicitly model the stochastic temporal dependencies and arrival dynamics in input sequences, limiting their ability to maintain sequence fidelity under computational efficiency constraints.",
+    "Motivation": "Addressing the external novel gap, this proposal integrates Markovian arrival processes (MAPs) modeling from biomedical sequencing into Transformer attention to better capture timing and reliability in sequence modeling, offering a fundamentally new probabilistic approach.",
+    "Proposed_Method": "Incorporate a MAP-guided attention mechanism that parameterizes attention weights as stochastic arrival rates modulated by Markovian states encoding context-dependent sequence dynamics. This probabilistic attentional layer replaces fixed-point attention scoring with a dynamic process controlling focus distribution according to modeled arrival likelihoods, enabling efficient pruning of low-frequency dependencies during inference for computational savings.",
+    "Step_by_Step_Experiment_Plan": "1) Formalize MAP-based attention layer and implement as PyTorch module.\n2) Train standard LLM architectures augmented with MAP attention on NLP benchmarks emphasizing sequence fidelity.\n3) Compare performance and efficiency against conventional self-attention.\n4) Evaluate noise robustness and ability to maintain sequence order information.\n5) Analyze distribution of learned arrival process states.\n6) Extend to domain-specific datasets (e.g., financial sequence prediction).",
+    "Test_Case_Examples": "Input: Time-series financial news headlines with varying temporal dependencies.\nExpected output: Accurate next-step prediction and classification with fewer computations by ignoring low-probability attention arrivals, maintaining sequence fidelity.",
+    "Fallback_Plan": "If training instability arises, hybridize MAP attention with conventional self-attention in an ensemble or implement warm-start training from pretrained conventional attention models. Alternatively, explore simpler semi-Markov approximations."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Markovian Arrival Process Guided Attention Mechanism for Enhanced Sequence Fidelity and Efficiency in Large Language Models",
+        "Problem_Statement": "Current Transformer-based large language models (LLMs) employ deterministic attention mechanisms that inadequately capture the underlying stochastic temporal dependencies and arrival dynamics inherent in sequential data. This limitation hampers their ability to maintain sequence fidelity and adaptively allocate computational resources, especially under efficiency constraints and noise perturbations.",
+        "Motivation": "While existing LLM attention mechanisms focus on static similarity scoring, they do not explicitly model temporal stochasticity in input sequences, a gap palpable in domains like biomedical sequencing and financial time series. By integrating Markovian Arrival Processes (MAPs), a probabilistic framework traditionally used in modeling event arrivals in stochastic systems, into Transformer attention, we introduce a novel, dynamic, and theoretically grounded attention mechanism. This approach offers a fundamentally new probabilistic interpretation and control of attention distributions, facilitating both improved sequence fidelity and computational efficiency. Furthermore, by blending concepts from semantic extraction and neural ordinary differential equations, our method enriches the model's temporal and semantic context awareness, distinguishing it from prior competitive approaches.",
+        "Proposed_Method": "We propose a MAP-guided attention mechanism that parameterizes attention weights as stochastic arrival rates modulated by learned Markovian states representing context-dependent sequence dynamics. Formally, at each attention head, the unnormalized attention score between query q_i and key k_j is defined as S_{ij} = \\lambda_{ij} \\cdot \\exp( (q_i \\cdot k_j^T) / \\sqrt{d_k} ), where \\lambda_{ij} is the MAP-derived stochastic arrival rate defined by the current Markovian state transitions. The MAP is modeled as a continuous-time Markov chain with states representing latent arrival intensities; its transition probability matrix and state-dependent arrival rates are parameterized as differentiable neural modules trained end-to-end via backpropagation. We normalize attention weights using a MAP-modulated softmax: \\alpha_{ij} = \\frac{\\lambda_{ij} \\exp( (q_i \\cdot k_j^T) / \\sqrt{d_k} )}{\\sum_{m} \\lambda_{im} \\exp( (q_i \\cdot k_m^T) / \\sqrt{d_k} )}. Furthermore, to enforce computational efficiency, we define a dynamic inference-time pruning threshold \\tau based on the MAP arrival probabilities; attention weights below \\tau are pruned, effectively ignoring low-probability dependencies. This threshold can be adaptively learned or scheduled during inference. The entire MAP layer integrates gradient flow through stochastic states using the reparameterization trick combined with neural ordinary differential equations to model continuous state dynamics, ensuring stable training. Pseudocode (high-level):\n\n1. Initialize MAP states and transition parameters.\n2. For each input sequence and attention head:\n   a. Compute raw attention scores (scaled dot-product).\n   b. Compute MAP arrival rates \\lambda_{ij} from current Markov states and sequence features.\n   c. Modulate attention scores by \\lambda_{ij}.\n   d. Normalize scores with MAP-modulated softmax.\n   e. Prune weights below threshold \\tau.\n3. Update MAP parameters and Markov states via backpropagation through stochastic dynamics modeled by neural ODEs.\n\nThis method can be seamlessly incorporated into standard Transformer architectures and extended with semantic embeddings extracted via pretrained speech embedding techniques for multimodal tasks, enhancing semantic communication within the model.",
+        "Step_by_Step_Experiment_Plan": "1) Develop and release a PyTorch module implementing the MAP-guided attention layer with detailed documentation and pseudocode.\n2) Train small-to-medium scale Transformer models augmented with MAP attention on synthetic datasets designed to test stochastic temporal dependencies and sequence fidelity.\n3) Perform ablation studies isolating the impact of MAP arrival rate modeling and inference pruning threshold \\tau on noise robustness, sequence order retention, and computational overhead.\n4) Benchmark against baseline Transformers balancing additional parameters by matching overall model size and FLOPs.\n5) Extend experiments to standard NLP benchmarks (e.g., GLUE, Long Range Arena) focusing on tasks sensitive to temporal dependencies.\n6) Fine-tune pre-trained LLMs with the MAP attention layer, monitoring convergence stability with defined criteria (e.g., validation loss thresholds, gradient variance) to trigger fallback strategies if necessary.\n7) Evaluate on domain-specific datasets such as financial time-series headlines and biomedical event sequences, quantifying predictive accuracy and efficiency gains.\n8) Report expected computational resources (e.g., GPU-hours) and training durations; optimize implementation by leveraging PyTorch’s efficient ODE solvers and backpropagation techniques.\n\nFallback criteria and transition plan:\n- If training instability occurs (e.g., validation loss plateau, gradient explosions), immediately switch to a hybrid attention model combining MAP attention with classical self-attention.\n- If stability issues persist, implement semi-Markov approximations reducing transition complexity.\n- Document and share optimization challenges and solutions for community reproducibility.",
+        "Test_Case_Examples": "Input: A time-series of financial news headlines with complex and variable temporal dependencies.\nExpected output: Predict next-step classifications and sequence continuations with higher accuracy than standard attention, while dynamically pruning low-probability attention links, resulting in reduced computation without sequence fidelity loss.\n\nInput: Synthetic sequences with controlled noise and inter-arrival times generated by a known MAP to validate learned arrival rates' fidelity.\nExpected output: Recovery of underlying Markovian state transitions and attention patterns that reflect the true stochastic dynamics, validated via metrics such as log-likelihood and sequence alignment.\n\nInput: Biomedical event sequence data incorporating semantic embeddings from speech signal processing modules.\nExpected output: Improved event prediction accuracy and robustness to noisy inputs, demonstrating synergy from semantic contextualization and MAP-guided attention.",
+        "Fallback_Plan": "We define explicit quantitative criteria to detect training issues: e.g., if validation loss stagnates or gradient norms exceed a chosen threshold for N consecutive epochs.\n\nUpon detecting instability, we propose:\n- Switching to a hybrid model that ensembles MAP attention with conventional self-attention, allowing gradual warm-starting from pretrained weights.\n- Simplifying the Markov model by employing semi-Markov approximations with fixed or reduced transition states to lower complexity.\n- Incrementally reducing the MAP parameter space by tying or pruning some transition probabilities based on learned importance.\n\nAdditionally, we plan to construct prototype experiments on synthetic MAP-governed datasets before scaling to full LLMs, assessing integration feasibility and tuning optimization strategies (e.g., tuning neural ODE solver parameters).\n\nWe anticipate usage of advanced optimization libraries and hardware acceleration to address backpropagation through stochastic MAP states. If these prove insufficient, fallback to deterministic approximations with learned gating mechanisms will be explored to retain stochastic benefits while improving stability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Markovian Arrival Process",
+      "Attention Mechanism",
+      "Sequence Fidelity",
+      "Large Language Models",
+      "Stochastic Temporal Dependencies",
+      "Transformer"
+    ],
+    "direct_cooccurrence_count": 1541,
+    "min_pmi_score_value": 2.600462396643708,
+    "avg_pmi_score_value": 3.8664396918575274,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "semantic extraction",
+      "speech signal processing",
+      "speech embeddings",
+      "semantic communication",
+      "reconfigurable intelligent surface",
+      "unmanned aerial vehicles",
+      "wireless networks",
+      "G networks",
+      "basics of neural networks",
+      "language model",
+      "computer vision",
+      "graph neural networks",
+      "popularity prediction",
+      "information diffusion",
+      "neural ordinary differential equations",
+      "implementation of neural networks"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed MAP-guided attention mechanism is conceptually promising, but the description lacks clarity on how Markovian arrival rates quantitatively integrate with the existing attention scoring framework in Transformers. Specifically, the mathematical formulation of the stochastic arrival rates modulating attention weights and the inference-time pruning strategy need concrete elaboration to assess soundness. Clarify how the transition probabilities and states from the MAP are learned and updated within backpropagation, and how these probabilistic parameters interplay with usual attention score normalization and masking conventions. This clarification is essential for reproducibility and assessing the core innovation's validity and applicability across different LLM architectures and sequence types, especially given the complexity of integrating a stochastic temporal process into standard attention   mechanisms. Provide a detailed algorithmic or pseudocode description to strengthen this section's rigor and enable peer reviewers to fully grasp the methodological novelty and its implications on sequence fidelity and computational efficiency trade-offs.  This should address the critical gap in understanding the actual mechanism's function and feasibility at an implementation and optimization level.  (Target section: Proposed_Method)  \n\n"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The outlined experiment plan is comprehensive but ambitious, especially regarding the integration of MAP into large pretrained LLMs and domain-specific fine-tuning in step 6. There is no mention of baseline controlling for additional parameter and computational overhead introduced by the MAP layer, which is vital for a fair comparison. Consider adding ablation studies to isolate the impact of MAP attention on noise robustness and sequence fidelity. Moreover, the fallback plan is sound but would benefit from more detailed contingency procedures, such as criteria for transitioning to hybrid models or semi-Markov approximations based on specific training metrics (e.g., convergence stability, validation loss). Also, clarify expected computational resource needs and training duration estimates to verify feasibility. Providing prototype experiments or synthetic dataset benchmarks prior to full LLM-scale training would increase confidence in practical deployment. Strengthen feasibility by discussing optimization challenges or anticipated bottlenecks in PyTorch implementation, especially regarding gradient backpropagation through stochastic MAP states. (Target section: Step_by_Step_Experiment_Plan)"
+        }
+      ]
+    }
+  }
+}

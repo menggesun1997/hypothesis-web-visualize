@@ -1,0 +1,70 @@
+{
+  "before_idea": {
+    "title": "Few-shot Explainable Legal Reasoning via Siamese-Enhanced LLMs",
+    "Problem_Statement": "Legal text analysis often suffers from scarce annotated data and opaque model decisions, limiting trust and applicability in real-world scenarios.",
+    "Motivation": "Addresses internal gaps of dataset scarcity and limited explainability in LLMs by integrating few-shot learning with Siamese networks, leveraging the hidden bridge between similarity learning and low-data environments specific to legal texts.",
+    "Proposed_Method": "Develop a hybrid framework combining a transformer-based LLM fine-tuned with a Siamese network for similarity learning, enabling few-shot adaptation to new legal cases. Alongside, implement an explainability module that uses attention-based alignment and case similarity visualization to justify decisions.",
+    "Step_by_Step_Experiment_Plan": "1) Curate a legal dataset with few-shot annotated subsets.\n2) Implement baseline LLM models (e.g., GPT) and Siamese architectures.\n3) Train the hybrid few-shot model and generate explanations.\n4) Evaluate on metrics like accuracy, F1, and explanation faithfulness.\n5) Conduct user studies with legal experts assessing trustworthiness.",
+    "Test_Case_Examples": "Input: A new contract clause regarding data privacy.\nOutput: The model identifies relevant precedents with similarity scores and highlights key phrases influencing its reasoning, mapping them to legal concepts.",
+    "Fallback_Plan": "If few-shot learning fails, explore data augmentation with synthetic legal text generation. If explanations lack clarity, integrate counterfactual explanation techniques for better interpretability."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Few-shot Explainable Legal Reasoning via Jointly Optimized Siamese-Enhanced LLMs with Structured Explainability",
+        "Problem_Statement": "Legal text analysis is hindered by a scarcity of annotated data and the opaque decision-making processes of large language models (LLMs), which severely limits user trust and practical deployment in sensitive legal contexts requiring interpretability and adaptability to new cases with minimal supervision.",
+        "Motivation": "While previous works have separately applied few-shot learning or explainability modules to legal NLP, our approach innovates through a principled, jointly-optimized integration of Siamese networks with transformer-based LLM embeddings. This synergistic fusion harnesses similarity learning at the case-level to enable robust few-shot adaptation. Furthermore, we embed an advanced explainability mechanism that aligns similarity scores with token- and sentence-level attention maps within the legal domain, thereby addressing challenges in interpretability that remain largely unresolved despite incremental prior work. Leveraging convolutional neural networks (CNNs) in the Siamese branches to capture effective receptive fields over sentence embeddings enhances semantic segmentation of legal texts, representing a novel fusion of techniques from natural language understanding and computer vision applied to legal reasoning. This methodological novelty positions the proposal beyond conventional component combinations and targets high trustworthiness and domain-specific adaptability crucial for adoption in computational legal assistance.",
+        "Proposed_Method": "Our proposed framework unites a pre-trained transformer-based LLM with a dedicated Siamese network operating at the case-level for enhanced similarity learning. The Siamese network utilizes CNN layers to process sentence embeddings extracted from the LLM’s intermediate layers, capturing semantic segmentation and relevant receptive fields within legal texts. During training, we jointly optimize the LLM’s weights and the Siamese CNN via a multi-task learning objective that balances case similarity classification with legal reasoning prediction. The LLM encodes input legal cases into contextual embeddings, which feed into the Siamese CNN branch; parallel inputs correspond to a query case and candidate precedents. The network learns to produce similarity scores reflecting case law relevance. For interpretability, an attention-based explainability module aggregates attention weights from the transformer and intermediate Siamese layers, mapping token- and sentence-level contributions to the similarity score and final legal predictions. This produces aligned visualizations and text highlights satisfying faithfulness criteria. The inference workflow: 1) The query and database cases are encoded by the LLM; 2) Siamese CNN extracts comparative similarity scores; 3) Attention weights are aggregated for explanation; 4) A ranked list of precedent cases is output with accompanying explanations linking decisions to legal concepts and textual evidence. The architecture and training pipeline are diagrammed and detailed with explicit loss functions and hyperparameters for reproducibility.",
+        "Step_by_Step_Experiment_Plan": "1) Dataset curation: Collect a diverse corpus of approximately 10,000 legal documents spanning multiple domains (contracts, torts, intellectual property), with 1,000 cases manually annotated for few-shot fine-tuning following standard legal taxonomies. 2) Baseline implementation: Fine-tune open-source transformer LLMs (e.g., Legal-BERT, GPT-2) on the dataset as competitive baselines, employing established hyperparameter sweeps and domain adaptation techniques. 3) Siamese framework setup: Implement Siamese CNN modules integrated with the LLM embeddings. Joint training follows multi-task objectives combining similarity classification and legal label prediction; optimize with AdamW, learning rates between 1e-5–1e-4, early stopping, and ablation on CNN kernel sizes to maximize effective receptive field. 4) Explanation evaluation: Quantify explanation faithfulness using metrics such as Attention Norm, Feature Perturbation Impact, and Intersection over Union with expert-annotated rationale spans. Validate explanation coherence through legal expert annotations over a random 10% subset. 5) User studies: Recruit 15 practicing legal experts, stratified by specialization and experience, to interact with model outputs via tasks involving case relevance assessment and decision justification rating using Likert-scale questionnaires. Employ within-subject designs comparing baselines and our model, analyzing trustworthiness and interpretability via statistical tests (ANOVA, Wilcoxon). 6) Integrate fallback mechanisms proactively: Conduct ablation studies where synthetic legal text augmentation (generated by LLM prompting techniques) and counterfactual explanation modules are applied to subsets of data to measure performance gains and explanation clarity improvements under low-data or ambiguous reasoning conditions.",
+        "Test_Case_Examples": "Input: A contract clause concerning non-disclosure agreements with specific terms on data privacy enforcement.\nOutput: The model retrieves and ranks prior cases with similar clauses, providing similarity scores extracted by the jointly optimized Siamese CNN. It highlights key phrases such as 'confidential information', 'third-party sharing', and 'enforcement penalties' at token and sentence levels via attention maps, linking these to relevant legal concepts and statutes that influenced the reasoning and prediction, with an interactive visualization showing aligned text spans and precedent case summaries.",
+        "Fallback_Plan": "In parallel with main experiments, we will integrate synthetic data augmentation strategies through prompting the LLM to generate paraphrased and domain-specific legal texts, enhancing few-shot training subsets and evaluating their impact via ablation. For explainability, if attention-based visualizations prove insufficiently clear or faithful, we will implement and test counterfactual explanation techniques that identify minimal input modifications altering similarity or classification outcomes, providing lawyers with actionable insight into model reasoning boundaries. These fallback approaches will also be evaluated as complementary analyses to demonstrate robustness and reinforce trust beyond primary methodologies."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Few-shot learning",
+      "Explainable AI",
+      "Legal reasoning",
+      "Siamese networks",
+      "Large Language Models",
+      "Data scarcity"
+    ],
+    "direct_cooccurrence_count": 2222,
+    "min_pmi_score_value": 3.212103308767191,
+    "avg_pmi_score_value": 4.7152175945654164,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "convolutional neural network",
+      "few-shot learning",
+      "computer-aided drug design",
+      "low-contrast images",
+      "effective receptive field",
+      "semantic segmentation",
+      "authorship analysis",
+      "natural language understanding",
+      "language understanding",
+      "conversational AI",
+      "user-generated content",
+      "user model",
+      "natural language processing"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The core mechanism combining a transformer-based LLM fine-tuned with a Siamese network for few-shot legal reasoning needs clearer elaboration. Specifically, how the Siamese network integrates with the LLM embeddings and how the joint training or inference proceeds must be described in more detail to ensure the approach is sound and reproducible. Clarify whether the Siamese network operates at a token, sentence, or case level and how it interacts with attention-based explainability to justify decisions coherently. This clarity is essential for assessing the soundness of the proposed hybrid model and its explainability claims effectively within legal domain constraints, where interpretability is critical for trust and adoption. Please provide architectural diagrams, training objectives, and sample inference workflows in the next iteration of the proposal to solidify conceptual soundness and reproducibility within the competitive landscape noted in novelty assessment (NOV-COMPETITIVE). This will help reviewers and potential users understand the innovative integration and technical novelty clearly, beyond just combining known components superficially or sequentially without joint optimization or synergy. Without this, the core innovation and potential advantages remain underspecified and vulnerable to critiques about incremental contribution and limited practical soundness, risking rejection despite the motive and problem relevance. A more rigorous mechanism description will also strengthen feasibility and trustworthiness of the experiments and impact claims downstream in the proposal pipeline, notably the explanations' faithfulness and human user studies with legal experts, which depend heavily on how explanations are derived from the model's internal representations and similarity scores. Overall, this should be the immediate focus before proceeding with extensive experiments or expansion of scope or impact claims, to ensure the idea is built on a distinctly defined, viable foundation rather than an ill-clarified combination of components with unclear integration strategies or interpretability guarantees. This critical step will maximize the proposal's chance of acceptance and future adoption in real-world legal NLP applications, which are sensitive to reasoning transparency and technical rigor above all.—Target: Proposed_Method"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The current experiment plan requires expansion and greater specificity to ensure feasibility and rigor. It lacks critical details on dataset construction, including the size and sources of the 'few-shot annotated subsets' and how the legal dataset covers a sufficiently diverse range of cases to validate generalization claims. Precise information and justification are needed on how baseline models such as GPT or other LLMs will be adapted or fine-tuned in this legal context, benchmarking protocols, and hyperparameter optimization strategies. The plan should also clarify how explanation faithfulness will be quantified, e.g., which metrics or validation protocols will measure the accuracy or reliability of attention-based alignments and case similarity visualizations. Furthermore, the design and methodology of the user studies with legal experts must be detailed, including participant selection criteria, study tasks, evaluation questionnaires, and statistical analysis approaches to assess trustworthiness meaningfully. Without these specifications, it is challenging to determine if the experiments are practical, scientifically valid, and capable of demonstrating benefits convincingly. Providing more granularity and contingency plans for challenges during dataset curation, model training, and human evaluations will solidify the feasibility and reduce risks of inconclusive results or operational bottlenecks. In addition, the fallback plans outlined (synthetic data augmentation and counterfactual explanations) should be integrated more proactively into the experiment pipeline rather than only as fail-safes, possibly as ablation studies or complementary analyses. Addressing these feasibility points in the proposal's next iteration is critical for demonstrating sound experimental design and increasing confidence in reproducibility and practical impact beyond preliminary novelty screening.—Target: Step_by_Step_Experiment_Plan"
+        }
+      ]
+    }
+  }
+}

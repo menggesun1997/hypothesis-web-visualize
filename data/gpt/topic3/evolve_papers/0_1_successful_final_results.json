@@ -1,0 +1,65 @@
+{
+  "before_idea": {
+    "title": "LLM-Assisted Hybrid Annotation for Bias-Controlled Dataset Curation",
+    "Problem_Statement": "Crowdsourced annotations (e.g., MTurk) for NLP benchmarks suffer from quality decline and inconsistent political bias representation, limiting dataset reliability for model training and evaluation.",
+    "Motivation": "Targets the internal gap regarding declining annotation quality and bias issues, supporting the high-potential innovation of hybrid annotation pipelines combining LLM zero-shot annotation with human oversight and bias detection.",
+    "Proposed_Method": "Create a hybrid annotation pipeline where LLMs generate initial zero-shot annotations for large unlabeled datasets, followed by partial human verification and refinement focused on detecting and balancing political bias. Integrate bias detection models that flag potential skewed outputs and dynamically adjust LLM prompts for correction in iterative rounds.",
+    "Step_by_Step_Experiment_Plan": "1) Select politically sensitive NLP datasets (e.g., hate speech, opinion mining); 2) Use GPT-4 or similar LLMs for zero-shot annotation; 3) Develop bias detection classifiers for political leaning; 4) Conduct human verification on flagged items; 5) Retrain LLM annotator prompts accordingly; 6) Evaluate dataset quality and balance by downstream task performance and bias metrics.",
+    "Test_Case_Examples": "Input: A tweet expressing a contentious political opinion. Zero-shot LLM annotation labels sentiment and stance. Bias detection flags overly skewed or subjective labeling, triggering human review and balanced reassignment.",
+    "Fallback_Plan": "If LLM zero-shot annotations prove unreliable, fallback to semi-supervised active learning with crowd annotations prioritized only on ambiguous or biased flagged samples for cost efficiency."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "LLM-Guided Hybrid Annotation with Iterative Bias Calibration for Politically Sensitive NLP Datasets",
+        "Problem_Statement": "Crowdsourced annotations for politically sensitive NLP benchmarks often suffer from declining quality, inconsistent political bias representation, and high annotation costs, limiting dataset reliability and fairness in downstream model training and evaluation. While large language models (LLMs) can provide zero-shot annotations at scale, their application to politically loaded content risks propagating uncontrolled biases without systematic error and bias detection mechanisms, threatening dataset validity.",
+        "Motivation": "Addressing the critical limitations of existing annotation pipelines for politically sensitive NLP tasks, this work innovates by explicitly integrating empirical feasibility validation of LLM zero-shot annotation quality and bias error patterns, combined with iterative correction via human verification and prompt calibration. Unlike prior hybrid human-LLM pipelines, we introduce a structured feedback-driven loop that leverages advanced bias detection classifiers alongside a novel semantic interoperability framework for cross-cultural and political nuance awareness. By incorporating automatic evaluation protocols inspired by question-answering and document retrieval metrics, our approach offers superior scalability, cost-efficiency, and bias control, setting a new standard for dataset curation in politically charged NLP domains.",
+        "Proposed_Method": "We propose a multi-stage hybrid annotation pipeline starting with (1) an extensive preliminary evaluation of LLM zero-shot annotation quality and bias error profiles on a controlled political sentiment dataset to establish reliability baselines and identify common pitfalls; (2) development of bias detection classifiers leveraging semi-supervised learning on limited labeled political leaning data, augmented by cultural awareness embeddings to capture subtle biases and enhance classifier robustness, addressing low-resource language variations; (3) integration of an iterative human-in-the-loop verification system focusing on samples flagged as potentially biased or low confidence, with dynamic annotation budget management targeting approximately 15-20% human verification ratio; (4) a feedback mechanism that recalibrates LLM prompt templates and biases through precise prompt engineering informed by human corrections and bias classifier outputs; (5) deployment of automatic evaluation metrics adapted from question-answering and document retrieval domains (e.g., semantic retrieval accuracy, balanced stance coverage) to continuously monitor annotation quality and political bias distribution; and finally (6) fallback to a semi-supervised active learning framework prioritizing ambiguous and bias-flagged samples for crowd annotation if LLM zero-shot reliability falls below empirically defined thresholds. This pipeline emphasizes semantic interoperability and cultural awareness to improve annotation fairness across diverse political contexts.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Selection: Choose 3 politically sensitive NLP datasets (e.g., hate speech, opinion mining, political stance detection), each containing at least 10,000 unlabeled samples including sensitive content from multiple cultural and political contexts.\n2. Preliminary Feasibility Study: Perform zero-shot annotation on a representative subset (e.g., 2,000 samples) using GPT-4; conduct detailed error analysis stratifying types of annotation faults and bias patterns.\n3. Bias Classifier Development: Train semi-supervised political bias detection models using existing limited labeled data (around 1,000 samples) augmented with cultural awareness embeddings; validate classifier performance using cross-validation and external benchmarks.\n4. Hybrid Annotation Pipeline Execution:\n   a. Apply zero-shot LLM annotation on full dataset.\n   b. Flag samples with low confidence scores and bias classifier indications exceeding empirically defined thresholds (e.g., 0.7 probability).\n   c. Human experts verify approximately 15-20% of the dataset prioritized by these flags.\n   d. Collect human corrections and feedback.\n5. Prompt Calibration: Retrain and refine LLM prompt templates iteratively every 2 annotation rounds based on aggregated human feedback and bias detection outputs; continue for at least 3 iterations or until quality convergence.\n6. Automatic Evaluation: Employ semantic retrieval-based accuracy and balanced political stance coverage metrics at each iteration to quantitatively assess annotation improvements.\n7. Cost and Scalability Analysis: Measure annotation costs, time, and human workload; compare with traditional full human annotation baselines.\n8. Fallback Condition: If zero-shot annotation accuracy drops below 70% or bias metrics worsen, activate semi-supervised active learning with crowd-annotated labels focused on ambiguous or biased samples.\n9. Final Evaluation: Test downstream task performance and fairness metrics using resulting hybrid-annotated datasets.",
+        "Test_Case_Examples": "Input: A tweet expressing a divisive political sentiment in English and a less-resourced language (e.g., Spanish).\nProcess: \n- LLM zero-shot labels sentiment and stance.\n- Bias detection classifier flags if output shows potential partisan skew greater than threshold.\n- If flagged, human annotator revises sentiment and stance, noting points of cultural or semantic complexity.\n- Feedback used to adjust prompts to better handle cultural nuances and reduce systemic bias.\nExpected outcome: Balanced stance labels reflecting nuanced political positions, with reduced annotation errors on flagged samples and improved intercultural semantic consistency.",
+        "Fallback_Plan": "If LLM zero-shot annotations exhibit an overall accuracy below 70% or bias classifier false negatives exceed 15% after two prompt calibration iterations, we fallback to a semi-supervised active learning strategy. This strategy involves iterative human annotation prioritized exclusively on samples either flagged as biased or with ambiguous LLM confidence scores, thereby minimizing annotation expenses. Crowd annotators will be guided by detailed annotation guidelines enhanced with culturally-aware instructions to improve label consistency. Throughout, ongoing monitoring of annotation quality and bias metrics will determine when to resume or recalibrate LLM annotation, enabling a cost-effective and robust hybrid annotation alternative."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "LLM-assisted annotation",
+      "bias-controlled dataset",
+      "hybrid annotation pipeline",
+      "annotation quality",
+      "crowdsourced annotations",
+      "NLP benchmarks"
+    ],
+    "direct_cooccurrence_count": 529,
+    "min_pmi_score_value": 4.5056675588633155,
+    "avg_pmi_score_value": 7.164995421117746,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4605 Data Management and Data Science",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "question-answering system",
+      "matching accuracy",
+      "semantic interoperability",
+      "cultural awareness",
+      "low-resource languages",
+      "document retrieval",
+      "automatic evaluation method",
+      "red team"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The assumption that LLM zero-shot annotations can reliably generate large-scale initial labels with a manageable rate of bias and quality errors may be optimistic. Given the contentious nature of politically sensitive data, the current approach lacks a detailed error analysis strategy to validate this assumption upfront. Additionally, the proposal assumes that bias detection classifiers can effectively flag political skew without extensive labeled data or sophisticated debiasing techniques, which needs clearer justification or prior evidence to ensure soundness of the core approach. Strengthening this part with preliminary feasibility studies or referencing existing empirical results would enhance confidence in the foundational assumptions and overall soundness of the method's premise and pipeline design.  This is critical since the entire hybrid pipeline depends on trustable initial labeling and reliable bias detection to function effectively as proposed, and overlooking these risks may impair the method's viability or evaluation validity in practice.  Please clarify and support these assumptions explicitly in the proposal to improve soundness of the core idea and its technical foundation in the Proposed_Method and Problem_Statement sections.  "
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The step-by-step experiment plan currently lacks specificity on dataset sizes, annotation budget, and concrete evaluation protocols, making it difficult to assess practical feasibility. In particular, details regarding the calibration and iterative retraining of LLM prompts based on human verification are sparse and could benefit from clearer operationalization (e.g., how many iterations, which criteria trigger prompt adjustments, and quantitative thresholds for bias flags). Without this, it is unclear whether the hybrid pipeline will be practically scalable or cost-effective compared to traditional annotation methods. Including more precise experimental design elements such as defining success criteria, specifying human verification ratios, and outlining fallback integration steps (especially for the semi-supervised fallback) would improve the rigor and replicability of the experiments. Strengthening feasibility will help ensure the proposed method's claims can be empirically validated and adopted in real-world dataset curation contexts, especially given the potentially high costs involved in human-in-the-loop political bias-sensitive annotation tasks."
+        }
+      ]
+    }
+  }
+}

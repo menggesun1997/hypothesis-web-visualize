@@ -1,0 +1,66 @@
+{
+  "original_idea": {
+    "title": "Ethically Guided Few-Shot Prompting for Low-Resource Language Fairness",
+    "Problem_Statement": "There is a lack of practical approaches enabling LLMs to adapt fairness and bias mitigation with minimal annotated data in low-resource languages.",
+    "Motivation": "This idea targets the internal gap of low-resource bias adaptation, exploiting few-shot prompt engineering integrated with ethical frameworks drawn from health sciences and psychology, enabling lightweight bias mitigation easily deployable in practice.",
+    "Proposed_Method": "Design a prompt generation system that automatically crafts ethically-guided few-shot demonstrations embedding moral normativity principles contextualized for specific low-resource languages. The LLM uses these prompts to self-regulate outputs, balancing linguistic abilities with fairness constraints without retraining.",
+    "Step_by_Step_Experiment_Plan": "1) Extract ethical principles relevant to target languages from cross-disciplinary sources. 2) Create few-shot prompts embedding these principles via example-based prompting. 3) Test on multilingual fairness benchmarks focusing on low-resource languages. 4) Compare bias metrics of outputs with and without ethically guided prompts. 5) Analyze prompt generalization across languages and domains.",
+    "Test_Case_Examples": "Input: Prompt plus \"Generate customer service response to complaint about bias.\" Output: Polite, inclusive, and unbiased response contextualized for local cultural fairness norms.",
+    "Fallback_Plan": "If pure prompting leads to inconsistent mitigation, combine with parameter-efficient fine-tuning of adapters trained with ethical supervision or develop reinforcement learning from human feedback with few-shot prompts as guidance."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Few-Shot Prompting",
+      "Low-Resource Languages",
+      "Bias Mitigation",
+      "Fairness",
+      "Ethical Frameworks",
+      "Large Language Models (LLMs)"
+    ],
+    "direct_cooccurrence_count": 3040,
+    "min_pmi_score_value": 3.9382350196635816,
+    "avg_pmi_score_value": 5.0719146393120225,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "prompt tuning",
+      "human evaluation",
+      "data privacy concerns",
+      "human-robot interaction",
+      "AI adaptation",
+      "human-robot interaction scenarios",
+      "field of human-robot interaction",
+      "federated learning",
+      "clinical decision support systems",
+      "health coverage",
+      "universal health coverage",
+      "primary health care",
+      "health system",
+      "Generative Pre-trained Transformer",
+      "sensor-based human activity recognition",
+      "learning techniques",
+      "wearable sensor-based human activity recognition",
+      "activity recognition",
+      "sensor data",
+      "human activity recognition",
+      "wearable sensor data",
+      "human-computer interaction"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The Proposed_Method describes a prompt generation system embedding ethical principles into few-shot demonstrations for self-regulation by LLMs. However, the mechanism lacks clarity on how moral normativity from disparate fields (health sciences, psychology) will be operationalized concretely within prompts, and how the system ensures alignment with fairness constraints without retraining. Providing a detailed formalization or example pipeline illustrating prompt construction, context adaptation per language, and the feedback loop controlling bias mitigation would strengthen soundness significantly. Clarifying this is critical for assessing the method's validity and reproducibility in low-resource contexts where cultural fairness norms may diverge substantially from training data distributions. Consider explicitly addressing how ambiguous or conflicting ethical principles are reconciled within prompts to avoid inconsistent model behavior or harm in deployment contexts. This is essential to establish trustworthiness in self-regulation via prompting alone, especially since fallback plans admit pure prompting may be unstable, underscoring the method’s current incompleteness in soundness and rigor."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan outlines testing on multilingual fairness benchmarks and prompt generalization across languages and domains, which is a powerful evaluation framework. However, it lacks specifics on the chosen benchmarks’ suitability for low-resource languages, metrics to quantify fairness and bias mitigation, and protocols for human evaluation aligning with local cultural norms. Given the complexity of ethical principles across cultures, empirical feasibility demands a concrete plan for gathering or validating cross-disciplinary ethical knowledge, prompt annotation, and systematic error analysis—including fallback interventions if prompting alone fails. Clarify criteria for selecting target languages (e.g., typological diversity, data scarcity thresholds) and how to ensure reproducibility of the ethical prompting framework. Adding iterative human-in-the-loop feedback cycles or case studies will further bolster experimental robustness. Without these details, feasibility risks being overly optimistic given known challenges in aligning LLMs for fairness in multilingual, low-resource setups."
+        }
+      ]
+    }
+  }
+}

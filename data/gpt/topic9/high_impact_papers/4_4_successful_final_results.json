@@ -1,0 +1,85 @@
+{
+  "before_idea": {
+    "title": "Adaptive Edge LLMs with Federated Knowledge Distillation",
+    "Problem_Statement": "Personalized NLP tasks on edge IoT devices require efficient model adaptation while preserving privacy and computational budgets.",
+    "Motivation": "Bridges gaps in federated learning and knowledge distillation by integrating them into edge-tailored LLM optimization frameworks, responding to the siloed development gap and recognition of sociotechnical factors.",
+    "Proposed_Method": "Design an adaptive federated learning system where edge devices perform local knowledge distillation on compressed LLMs, sharing distilled knowledge (not data) to a central server to aggregate a global, efficient model. The system leverages semi-supervised learning for unlabeled local data to improve personalization and compression.",
+    "Step_by_Step_Experiment_Plan": "1) Simulate IoT edge network with heterogeneous devices and datasets. 2) Implement federated distillation protocol with local semi-supervised fine-tuning. 3) Monitor global model improvement over rounds, measuring accuracy, privacy (no raw data sharing), and inference efficiency. 4) Compare against centralized training and non-distilled federated setups.",
+    "Test_Case_Examples": "Input: Multiple edge smart devices with diverse user command datasets, some unlabeled. Expected Output: A shared compressed LLM model personalized for each edge device, demonstrating improved accuracy and efficiency without compromising privacy.",
+    "Fallback_Plan": "If federated distillation communication overhead is high, optimize message compression or utilize asynchronous update schemes. Alternatively, explore split learning methods for privacy and efficiency."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Adaptive Edge LLMs with Differentially Private Federated Knowledge Distillation and Semantic Communication",
+        "Problem_Statement": "Personalized natural language processing tasks on heterogeneous and resource-constrained edge IoT devices require efficient adaptation of large language models (LLMs) while ensuring strong privacy guarantees, minimal communication overhead, and optimized computational budgets.",
+        "Motivation": "While federated learning and knowledge distillation have each been explored individually, the integration of these techniques tailored to edge-deployed LLMs remains underdeveloped, particularly considering strict resource constraints and privacy requirements. Our approach advances the state of the art by architecting a federated knowledge distillation framework that incorporates rigorous differential privacy mechanisms and semantic communication principles to compress and transmit distilled knowledge efficiently. This holistic design responds to limitations in existing works by defining explicit mechanisms for distillation, aggregation, privacy preservation, and communication efficiency, thereby addressing the privacy-accuracy trade-off and enabling scalable, personalized LLM deployment on IoT edge devices.",
+        "Proposed_Method": "We propose an adaptive federated learning system where each edge device holds a compressed local LLM tailored by semi-supervised fine-tuning on unlabeled and labeled data, using a specifically designed knowledge distillation loss combining cross-entropy with a contrastive term to preserve personalized features. Locally, devices perform knowledge distillation by extracting soft-label embeddings and intermediate representations from compressed student models. These distilled knowledge components are encoded via semantic communication modules leveraging variational autoencoders (VAE) to generate compact latent representations that capture the essential predictive information while drastically reducing communication payloads. To ensure privacy, the latent representations and soft labels are perturbed with differential privacy noise calibrated under Rényi differential privacy to preserve user data confidentiality without sacrificing model utility. The central server aggregates the noisy latent embeddings using a novel federated aggregation algorithm based on attention-weighted averaging that accounts for device heterogeneity and data distribution disparities. The aggregated global model is reconstructed by a decoder network that decodes the semantic embeddings into a refined global compressed LLM, which is redistributed to edge devices for subsequent personalized adaptation. Compression strategies involve structured pruning and quantization-aware training to optimize model capacity and computational efficiency, with rigorous analysis on compression-personalization trade-offs documented through ablation studies. This integrated pipeline enables efficient and private knowledge sharing, reduces communication overhead significantly compared to traditional federated distillation, and maintains high model utility under realistic IoT constraints.",
+        "Step_by_Step_Experiment_Plan": "1) Construct a simulated heterogeneous IoT edge environment with devices varying in compute power and private NLP datasets including unlabeled user commands. 2) Implement the adaptive federated knowledge distillation pipeline, incorporating semi-supervised local tuning, semantic communication encoding/decoding modules, and differential privacy noise injection. 3) Evaluate local model personalization and global model convergence across multiple communication rounds while measuring accuracy, inference latency, communication overhead, and privacy leakage via differential privacy budget accounting. 4) Compare baseline approaches including centralized training, standard federated learning without distillation, and federated distillation without privacy or semantic communication. 5) Conduct ablation studies on the impact of compression techniques, differential privacy levels, and semantic communication encoding dimension on performance and trade-offs. 6) Analyze scalability and robustness under varying-device participation and network conditions.",
+        "Test_Case_Examples": "Input: A network of diverse edge smart devices capturing user commands in multiple languages and noisy environments, with datasets containing both labeled and unlabeled samples. Expected Output: Highly personalized, compressed LLM models on each device providing accurate command interpretation with minimal latency; a global model progressively refined via differentially private, semantically compressed knowledge sharing, demonstrating significantly reduced communication overhead relative to baselines while ensuring rigorous privacy guarantees and preserving or improving inference accuracy.",
+        "Fallback_Plan": "If the semantic communication encoding proves insufficient alone to meet stringent latency or compression needs, introduce hybrid compression by integrating lightweight quantization and pruning specifically optimized via meta-learning for device heterogeneity. Should differential privacy noise degrade model utility beyond acceptable limits, explore adaptive privacy budget allocation per device based on sensitivity and data value, or combine privacy-preserving mechanisms with secure multiparty computation protocols to complement privacy guarantees while maintaining accuracy."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Adaptive Edge LLMs",
+      "Federated Learning",
+      "Knowledge Distillation",
+      "Personalized NLP",
+      "Edge IoT Devices",
+      "Model Adaptation"
+    ],
+    "direct_cooccurrence_count": 986,
+    "min_pmi_score_value": 3.2479463557493027,
+    "avg_pmi_score_value": 5.78300249057818,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4611 Machine Learning",
+      "4605 Data Management and Data Science"
+    ],
+    "future_suggestions_concepts": [
+      "federated learning",
+      "natural language processing",
+      "machine unlearning",
+      "neural network",
+      "on-device personalization",
+      "resource-constrained computing platforms",
+      "AI applications",
+      "meta-computing",
+      "limitations of IoT devices",
+      "resource limitations of IoT devices",
+      "federated intelligence",
+      "artificial general intelligence",
+      "intelligent data analysis",
+      "computer vision",
+      "G networks",
+      "variational autoencoder",
+      "multimodal learning",
+      "speech enhancement",
+      "convolutional neural network",
+      "generative adversarial network",
+      "graph neural networks",
+      "semantic communication",
+      "Internet of Vehicles",
+      "electronic health records",
+      "privacy-accuracy trade-off",
+      "differential privacy",
+      "intelligent decision-making",
+      "data privacy preservation"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the high-level approach to federated knowledge distillation for adaptive edge LLMs is promising, the methodology lacks detailed clarification on key mechanisms. Specifically, it needs to define how local knowledge distillation operates on compressed LLMs with semi-supervised learning, how exactly distilled knowledge is represented and aggregated centrally, and how compression affects model capacity and personalization trade-offs. Elaborating these mechanisms will strengthen the soundness by demonstrating rigorous, plausible integration of federated learning with knowledge distillation under resource constraints and privacy guarantees, rather than remaining a conceptual proposal without operational specifics. Suggest inclusion of technical designs or algorithms for knowledge sharing, distillation loss functions, and compression strategies to clarify feasibility and innovation beyond incremental combinations of existing methods.\n\n--- Target Section: Proposed_Method"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given that the novelty assessment places this work as NOV-COMPETITIVE in a mature area, consider integrating concepts from the 'privacy-accuracy trade-off' and 'differential privacy' domains to augment privacy guarantees without compromising model utility. Embedding rigorous differential privacy mechanisms directly in the federated distillation pipeline can distinctly improve the work's originality and impact. Additionally, exploring 'semantic communication' techniques for compressing and transmitting distilled knowledge could further reduce communication overhead while preserving critical information fidelity. This globally informed integration will enhance the framework's practical viability on resource-constrained IoT devices and demonstrate cutting-edge contributions contextualized within broader AI and privacy-preserving trends, thus addressing competitive novelty concerns and augmenting overall impact.\n\n--- Target Section: Proposed_Method"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "before_idea": {
+    "title": "Bridging Trustworthy AI and Human-Robot Interaction through Cognitive Trust Modeling and Resource-Aware LLMs",
+    "Problem_Statement": "Current AI models in robotics insufficiently integrate cognitive trust considerations, resulting in disjointed trustworthy AI system designs and practical robotic applications.",
+    "Motivation": "Targets internal fragmentation between trustworthy AI and robotics by integrating cognitive trust models directly within resource-aware LLM-driven robotic AI agents, inspired by Innovation Opportunity 2’s hidden bridge between AI deployment and human-robot interaction.",
+    "Proposed_Method": "Create a unified framework embedding cognitive trust constructs (e.g., perceived competence, reliability) as latent states within resource-efficient LLM architectures controlling robots. The framework employs continuous user feedback to update trust estimations, which directly shape model behaviors such as explanations, error recovery, and adaptation. The design improves user trust and system robustness in real-world HRI.",
+    "Step_by_Step_Experiment_Plan": "1) Define cognitive trust metrics and collect HRI interaction datasets. 2) Develop trust state embedding mechanisms within transformer decoders. 3) Train LLM-robot controllers with multi-objective loss including trust consistency. 4) Simulate real-world interaction scenarios with human subjects evaluating trust dynamics, task success, and computational efficiency.",
+    "Test_Case_Examples": "Input: Robot delivering medication with occasional drops. Model uses trust embedding to modulate communication style and error explanations to maintain user confidence.",
+    "Fallback_Plan": "If trust embeddings are ineffective, incorporate external trust prediction modules feeding back into model. If resource constraints cause latency, optimize with model pruning and caching strategies."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Adaptive and Ethical Trust-Aware AI for Human-Robot Interaction via Deep Reinforcement Learning-Enhanced Resource-Efficient LLMs",
+        "Problem_Statement": "Existing AI models deployed in robotics insufficiently unify cognitive trust modeling with adaptive decision-making and ethical considerations, resulting in fragmented trustworthy AI system designs that lack dynamic real-time responsiveness and holistic societal impact in human-robot interaction (HRI).",
+        "Motivation": "To bridge the gap between trustworthy AI and practical robotic applications in HRI, this work proposes to integrate cognitive trust constructs directly within resource-aware large language models (LLMs), augmented by deep reinforcement learning (DRL) for adaptive trust-sensitive policy optimization. This interdisciplinary approach addresses the competitive novelty challenge by embedding continuous trust dynamics as latent states influencing both decision-making and communication strategies in real-time. Incorporating ethical decision-making principles enriches the framework's societal relevance and robustness. By doing so, the proposed method advances beyond static trust models and isolated trust-aware controls toward dynamically learned, ethically guided, and resource-efficient trust-aware AI agents, enhancing user confidence, interaction quality, and system robustness in complex, dynamic human-robot environments.",
+        "Proposed_Method": "We propose a unified framework combining cognitive trust modeling, resource-efficient LLM architectures, and a deep reinforcement learning decision-making layer to yield an adaptive trust-aware AI controller for robots in HRI. \n\n1) Cognitive trust constructs such as perceived competence, reliability, and transparency are represented as continuous latent trust states within the LLM's hidden layers via vector embeddings. These trust states are updated in real-time through a continuous user feedback loop, comprising explicit feedback (verbal or behavioral cues) and implicit signals (task performance, interaction patterns).\n\n2) The trust embeddings influence the LLM's output generation and decision pathways through attention modulation layers that dynamically weight trust factors, shaping the robot's explanations, error recovery strategies, and adaptive communication styles.\n\n3) The integrated model employs a multi-objective loss function combining task success, trust consistency, and ethical compliance metrics. Trust consistency is enforced by penalizing deviations between predicted trust states and updated empirical trust estimates, formulated as:\n\n  L_total = L_task + λ1 * L_trust + λ2 * L_ethics\n\n  where L_trust = || trust_predicted(t) - trust_empirical(t) ||^2 captures real-time alignment, and L_ethics encodes moral acceptability constraints.\n\n4) A deep reinforcement learning controller builds on the LLM-embedded trust states, using them as part of the state representation and incorporating trust metrics into the reward function to learn adaptive, trust-sensitive policies over interactions in dynamic environments. This enables the robot to optimize behavior that balances task efficiency, user trust, and ethical considerations.\n\n5) To address resource constraints without sacrificing responsiveness, we implement model pruning, quantization, and caching strategies alongside efficient transformer decoder architectures designed for embedded robotics platforms.\n\n6) The system is formalized with modular components including: (a) trust state encoder/update mechanism with mathematical specification, (b) trust-modulated LLM output layer, (c) DRL policy network integrating trust and ethical signals, and (d) feedback-driven trust estimator.\n\nSystem diagrams illustrating data flow from user feedback through trust updates, LLM modulation, DRL-based decision-making, and action execution will accompany the implementation for reproducibility and clarity.",
+        "Step_by_Step_Experiment_Plan": "1) Define a comprehensive set of cognitive trust metrics grounded in psychological literature and ethical decision-making principles.\n\n2) Collect and curate HRI datasets comprising rich continuous user feedback (verbal, behavioral, physiological) and task interaction logs in simulated and physical robot settings.\n\n3) Develop the trust embedding mechanism within resource-aware transformer decoder layers, implementing continuous feedback update functions.\n\n4) Design and integrate the multi-objective loss function enforcing trust consistency and ethical compliance during training.\n\n5) Construct and train the deep reinforcement learning agent using trust states as part of environment state and reward shaping in simulated dynamic environments replicating real-world HRI scenarios.\n\n6) Implement model optimization techniques (pruning, quantization) to meet embedded system latency and resource constraints.\n\n7) Conduct human-subject experiments involving tasks like medication delivery and social assistance with robots that exhibit trust-adaptive behavior and ethical decision-making.\n\n8) Evaluate performance on metrics including trust dynamics (quantitative trust scores and qualitative user feedback), task success rate, ethical compliance (e.g., fairness, transparency), computational efficiency, and robustness across variable environments.",
+        "Test_Case_Examples": "Scenario: A mobile robot delivering medication occasionally drops items. The trust-embedded LLM modulates interaction by dynamically adjusting explanation granularity and apologetic language based on current trust estimations.\n\nDynamic adaptation example: During low trust episodes detected via user hesitations or negative feedback, the DRL-driven policy selects more conservative navigation routes and more frequent status updates to rebuild confidence.\n\nEthical decision-making case: When encountering conflicting goals (e.g., expedite delivery vs. user privacy), the ethical loss guides the agent toward privacy-preserving communication even if slightly slower.\n\nUser study: Subjects interacting with the robot report perceived trustworthiness, system transparency, and overall satisfaction, validating the adaptive, ethical trust-aware approach.",
+        "Fallback_Plan": "If embedding trust states within the LLM proves inadequate, an external trust prediction module using dedicated sensor input and interpretable probabilistic models will feed trust estimates into the DRL agent for policy conditioning.\n\nIf resource constraints result in unacceptable latency, further model compression techniques (knowledge distillation, hardware-specific optimizations) will be pursued.\n\nIf reinforcement learning training converges slowly due to sparse rewards, curriculum learning or simulated human models will be introduced to accelerate policy learning.\n\nAs a last resort, simplified rule-based ethical constraints will replace learned policies to preserve societal acceptability."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Trustworthy AI",
+      "Human-Robot Interaction",
+      "Cognitive Trust Modeling",
+      "Resource-Aware LLMs",
+      "Robotic AI Agents"
+    ],
+    "direct_cooccurrence_count": 2783,
+    "min_pmi_score_value": 5.579602354915391,
+    "avg_pmi_score_value": 6.427495165791062,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4602 Artificial Intelligence"
+    ],
+    "future_suggestions_concepts": [
+      "human-robot interaction",
+      "dialogue systems",
+      "social humanoid robot",
+      "sim-to-real transfer",
+      "research challenges",
+      "Generative Pre-trained Transformer",
+      "functions of biological neural networks",
+      "enhance human-robot interaction",
+      "neural network",
+      "artificial neural network",
+      "user study",
+      "human learning",
+      "deep reinforcement learning algorithm",
+      "dynamic environment",
+      "robot navigation",
+      "mobile robot navigation",
+      "deep reinforcement learning",
+      "facial expressions",
+      "human-robot dialogue",
+      "novel human-robot interaction",
+      "card sorting game",
+      "behavior of robots",
+      "artificial general intelligence",
+      "intelligent decision-making",
+      "ethical decision-making"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the idea of embedding cognitive trust constructs as latent states within resource-aware LLM architectures is compelling, the current description lacks clarity on the exact mechanism by which continuous user feedback updates trust estimations and how these updates concretely influence the model's behavior in real time. More specifics on the model architecture, how trust states are represented, updated, and integrated into decision-making and communication strategies would enhance soundness and reproducibility. Clarify how the multi-objective loss enforces trust consistency and how that affects model predictions or actions dynamically during interaction phases, especially under resource constraints. Without these details, the core method risks being underspecified and difficult to validate or build upon reliably in practice. Please elaborate and formalize these components in the Proposed_Method section to ensure rigorous grounding and interpretability of the approach in trustworthy HRI contexts, including possible mathematical formulations or system diagrams if applicable.\"},"
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given the NOV-COMPETITIVE novelty screening and the strong links among core concepts, enhancing global integration can improve impact and distinctiveness. Specifically, consider incorporating 'deep reinforcement learning' or 'intelligent decision-making' paradigms from the globally-linked concepts to augment or adapt the trust-aware LLM controller. For example, embedding trust dynamics as a state or reward signal in a reinforcement learning framework could enable robots to learn adaptive trust-sensitive policies over time in complex, dynamic environments. Additionally, exploring 'ethical decision-making' aspects could broaden societal impact by addressing moral acceptability issues emerging from trust interactions. This integration could differentiate the work, lead to novel algorithmic designs, and attract wider interest from multiple communities within trustworthy AI, HRI, and ethical robotics. Update the motivation and proposed method accordingly with this broader, interdisciplinary framing and concrete integration pathways."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "topic_title": "Investigating Semantic Encoding of Encyclopedic World Knowledge in LLMs for Open-Domain Question Answering",
+  "prediction": {
+    "ideas": [
+      {
+        "title": "Neuro-Symbolic Semantic Bridge Networks",
+        "Problem_Statement": "Current LLMs struggle to transparently encode and ground encyclopedic knowledge in a way that bridges internal semantic representations with external knowledge bases, impeding robust and interpretable open-domain question answering.",
+        "Motivation": "This proposal directly tackles the internal gap of lacking bridge nodes between LLM semantic encodings and commonsense knowledge bases, leveraging graph neural networks (GNNs) (highlighted as a hidden bridge) to integrate sub-symbolic and symbolic representations explicitly.",
+        "Proposed_Method": "Develop a hybrid architecture where LLM-generated semantic embeddings are projected into a GNN overlaid on top of external knowledge base graphs. This 'Semantic Bridge Network' uses graph convolutional layers to refine node embeddings that combine LLM semantics and knowledge base structures. The network facilitates explainable reasoning traces by explicitly tracking how LLM internal representations correspond to nodes and relations in the commonsense graphs, enabling transparent open-domain QA with structured grounding.",
+        "Step_by_Step_Experiment_Plan": "1) Datasets: Use open-domain QA datasets like Natural Questions enriched with knowledge graphs such as ConceptNet and Wikidata. 2) Baselines: Standard prompt-tuned LLMs and LLM+KG fusion without graph structure. 3) Implement the semantic bridge network layering LLM embeddings over graph neural layers operating on KB graphs. 4) Evaluate on QA accuracy, explanation faithfulness (via human and automatic metrics), and semantic grounding robustness. 5) Conduct ablations removing GNN components to assess their impact.",
+        "Test_Case_Examples": "Example input: \"Who developed the theory of relativity?\" Expected output: The system answers 'Albert Einstein' while providing a semantic path tracing from the LLM embedding through a GNN node connected to 'Albert Einstein' in the knowledge base, explaining the reasoning steps.",
+        "Fallback_Plan": "If direct projection of LLM embeddings into GNN space proves unstable, explore intermediate discrete representations via clustering or entity linking before graph propagation. Alternatively, use attention-based fusion to softly integrate LLM and KG signals rather than strict GNN layers."
+      },
+      {
+        "title": "Iterative Theory-of-Mind Explanation Dialogue for LLM QA",
+        "Problem_Statement": "Existing Explainable AI techniques for LLMs primarily produce shallow, single-turn explanations that fail to build sustained human trust and do not capture iterative, theory-of-mind-driven explanatory dynamics needed for nuanced open-domain QA.",
+        "Motivation": "Addresses the critical internal gap where XAI methods lack multi-turn, interactive explanations. Inspired by theory-of-mind frameworks from vision models and CX-ToM, this method brings iterative, user-adaptive explanation dialogues to large-scale language models.",
+        "Proposed_Method": "Design an interactive system where after each LLM answer, a theory-of-mind-enabled explanation module simulates possible user misconceptions and generates personalized counterfactual explanations. Users can ask follow-up 'why' or 'what-if' questions, and the system iteratively refines explanations in a dialogue until satisfactory understanding is achieved. This module employs meta-reasoning over the LLM's internal states, past interaction context, and counterfactual analysis to produce explanations adapting to user beliefs.",
+        "Step_by_Step_Experiment_Plan": "Use Open-Domain QA datasets enhanced with human explanation dialogues (or collect via crowdworkers). Baseline is static XAI outputs like attention heatmaps. Implement the iterative explanation dialogue with multi-turn user simulation and real human trials. Metrics include user trust/satisfaction, explanation completeness, and response latency. Test generalization across question types and knowledge domains.",
+        "Test_Case_Examples": "Input question: \"Why is the sky blue?\" User receives initial answer plus explanation. User asks \"What if it had different gases?\" System generates a counterfactual explanation about atmospheric composition affecting scattering. The interaction continues until the user signals understanding.",
+        "Fallback_Plan": "If multi-turn explanations overly degrade response time or confuse users, experiment with summarizing iterative explanations into concise, multi-aspect single messages or adding interactive visual explanation aids. Alternatively, limit iteration depth to optimize performance."
+      },
+      {
+        "title": "Cross-Modal Graph Convolutional Commonsense Integration",
+        "Problem_Statement": "There is an underexplored opportunity to link convolutional neural networks (CNNs) with commonsense knowledge and XAI in multimodal semantic understanding for open-domain QA, especially in scenarios requiring visual context.",
+        "Motivation": "Filling the external gap that global co-occurrence analyses revealed, this approach unifies graphical commonsense reasoning with visual feature extraction to enhance LLMs' semantic knowledge encoding for multimodal question answering and explanations.",
+        "Proposed_Method": "Create a novel graph convolutional network that fuses visual features extracted by CNNs from images or videos with nodes representing commonsense knowledge from knowledge graphs. The fused graph embeddings inform a large language model conditioned on both text and visual context. This multimodal semantic grounding improves reasoning fidelity and produces explanations referencing visual and conceptual evidence.",
+        "Step_by_Step_Experiment_Plan": "Datasets: Visual QA datasets (e.g., VQA v2) combined with commonsense KG datasets. Baselines: LLMs with vision-language models without explicit graph fusion. Evaluate accuracy, explanation relevance, and multi-modal grounding. Use graph attention mechanisms to test interpretability and ablation on graph components.",
+        "Test_Case_Examples": "Input: Image showing a cat drinking water, question: \"Why is the cat drinking water now?\" Expected answer: 'Because the cat is thirsty.' Explanation references visual cues ('cat's tongue lapping') and commonsense nodes about animal thirst behavior.",
+        "Fallback_Plan": "If direct GCN fusion limits scalability, switch to modular late fusion combining separate visual and commonsense embeddings via cross-attention. Alternatively, simplify graph structures to domain-specific subgraphs to reduce complexity."
+      },
+      {
+        "title": "Abductive Commonsense Prompting with Legal Reasoning Frameworks",
+        "Problem_Statement": "LLMs struggle with implicit commonsense reasoning and managing incomplete or evolving knowledge bases, limiting robustness in open-domain QA and explainability.",
+        "Motivation": "Inspired by hidden bridges linking legal abductive logic frameworks with prompt engineering, this project injects abductive inference mechanisms into LLM prompting strategies to enhance reasoning on incomplete knowledge, targeting the internal gap in semantic encoding and abductive reasoning.",
+        "Proposed_Method": "Develop a prompt engineering paradigm that integrates abductive inference templates drawn from legal reasoning (case-based and logic-based argumentation) to guide LLMs to generate plausible hypotheses and fill knowledge gaps during QA. The approach incorporates logical constraint prompts to steer abductive commonsense reasoning and produce justifiable answers with inferred assumptions.",
+        "Step_by_Step_Experiment_Plan": "Use datasets requiring abductive reasoning (e.g., abductive NLI). Compare basic LLM prompt approaches vs abductive legal-style prompting. Metrics include correctness, abductive justification quality, and explanation relevance. Conduct human evaluation of reasoning plausibility and robustness under incomplete info. Experiment with dynamic prompt updating based on feedback.",
+        "Test_Case_Examples": "Input: 'The floor is wet. Why?' The model outputs: 'Because someone spilled water or it rained recently,' providing abductive reasoning filling incomplete info and explicit justifications.",
+        "Fallback_Plan": "If pure prompt engineering is insufficient, augment with a lightweight abductive reasoning module external to the LLM that proposes hypothesis candidates post-hoc. Alternatively, blend symbolic abductive solvers with LLM outputs to cross-validate answers."
+      },
+      {
+        "title": "Graph Transformer Interfaces for Semantic Knowledge Encoding",
+        "Problem_Statement": "The lack of explicit, interpretable bridge nodes linking LLM internal semantics and knowledge bases obstructs transparent reasoning and semantic encoding for open-domain QA.",
+        "Motivation": "This work innovates on Opportunity 1 by combining transformer architectures across graphs—transformer-augmented GNNs—that act as interface layers translating LLM embeddings into structured knowledge nodes for explainable semantic grounding.",
+        "Proposed_Method": "Build a 'Graph Transformer Interface' module that uses graph transformers to translate the distributional and contextual embeddings from LLMs into refined node and edge embeddings aligning with knowledge base schemas. This module enables end-to-end training to jointly optimize semantic alignment, reasoning accuracy, and explanation fidelity.",
+        "Step_by_Step_Experiment_Plan": "Datasets: QA with KG linkage (e.g., WebQSP). Baselines include traditional GNNs fusion. Perform experiments on different transformer configurations, measure QA accuracy, semantic alignment (using alignment metrics), and explanation transparency with human evaluation.",
+        "Test_Case_Examples": "Question: 'Who invented penicillin?' The system maps the query embedding into graph nodes through the transformer interfaces and returns both answer and explanation mapping nodes with evidence.",
+        "Fallback_Plan": "If transformer graph modules are computationally heavy or unstable, consider hierarchical or sparse attention mechanisms in graphs or pre-training the interface module on proxy tasks before joint fine-tuning."
+      },
+      {
+        "title": "Explainable Interactive QA with Theory-of-Mind Guided Query Refinement",
+        "Problem_Statement": "LLMs provide limited support for iterative clarification dialogues in open-domain QA, reducing explanation depth and trust.",
+        "Motivation": "Inspired by theory-of-mind inspired multi-turn explanations in vision models, this proposes an interactive system where the model elicits clarifying questions from users to refine answers and explanations iteratively, thereby addressing internal gaps in explanations and user engagement.",
+        "Proposed_Method": "Implement a meta-agent inside the LLM pipeline that models user knowledge state and expected misconceptions. It generates clarifying queries back to the user, receives responses, and updates explanations iteratively. This interactive loop uses theory-of-mind-driven counterfactual simulations to tailor explanations and improve understanding.",
+        "Step_by_Step_Experiment_Plan": "Collect or simulate multi-turn QA clarification dialogs with explanation interactions. Baselines: static explanations. Evaluate with human users on trust, satisfaction, and accuracy. Test ablations on user modeling fidelity and iteration limits.",
+        "Test_Case_Examples": "Input question: 'Why did the stock market crash in 1929?' User responds with confusion about 'crash.' System asks: 'Are you referring to the causes or the effects?' User clarifies, and the system refines answer and explanation accordingly.",
+        "Fallback_Plan": "If user interactions cause delays or complexity, allow optional clarification steps or fallback to a dynamic but single-turn explanation combining multiple facets."
+      },
+      {
+        "title": "Multimodal Knowledge Graph Convolution for Open-Domain Explanation",
+        "Problem_Statement": "Existing XAI methods for LLMs are primarily unimodal, failing to leverage visual commonsense knowledge to improve semantic encoding and explanations in open-domain QA.",
+        "Motivation": "There is a hidden bridge opportunity to integrate CNN-extracted visual knowledge with commonsense KGs via graph convolution for richer semantic understanding and explanation generation, directly addressing external multimodal gaps.",
+        "Proposed_Method": "Construct multimodal knowledge graphs combining visual entity features extracted via CNNs and semantic nodes from commonsense KGs. Use graph convolutional networks to propagate information across modalities and conditions the LLM's response and explanations on these integrated embeddings to foster grounded, visually informed answers.",
+        "Step_by_Step_Experiment_Plan": "Use multimodal QA datasets (e.g. TextVQA), integrate with ConceptNet. Baselines: pure LLM QA, LLM+vision without KG. Evaluate for answer accuracy, explanation multimodality, and user trust with human studies.",
+        "Test_Case_Examples": "Input: Image of a kitchen scene, question: 'Why is the oven hot?' The output links visual evidence (oven glowing) with knowledge about ovens heating food and explains accordingly.",
+        "Fallback_Plan": "If joint multimodal KG is challenging, fall back to separate visual and semantic processing pipelines fused by attention. Alternatively, simplify visual features to detected objects for graph nodes."
+      },
+      {
+        "title": "Dynamic Explanation Framework Combining Legal Abductive Logic and LLMs",
+        "Problem_Statement": "LLMs have limited capacity to reason abductively with incomplete information and provide evolving explanations in open-domain QA.",
+        "Motivation": "Inspired by cross-domain transfer of legal abductive logic frameworks, this approach develops a dynamic explanation system augmenting LLMs with abductive logic modules to handle incomplete knowledge and produce legal-style argumentation explanations, filling key internal gaps.",
+        "Proposed_Method": "Implement a pipeline where LLM answers are post-processed by an abductive reasoning engine modeled after legal argument frameworks. This engine generates abductive hypotheses and constructs reasoning chains as explanations. The system dynamically updates explanations in response to user feedback or new evidence, enabling iterative refinement.",
+        "Step_by_Step_Experiment_Plan": "Use QA datasets with incomplete context. Baselines are LLM explanations without abductive refinement. Measure improved answer robustness, explanation plausibility, and adaptive explanation quality with human evaluators.",
+        "Test_Case_Examples": "Question: 'Was the defendant negligent?' The system provides an answer supported by abductive assumptions and argument chains modeled on legal standards.",
+        "Fallback_Plan": "If hybrid systems prove cumbersome, integrate abductive logic rules directly into LLM prompt templates or fine-tune LLMs on abductive reasoning tasks using synthetic legal reasoning corpora."
+      },
+      {
+        "title": "Prompt Engineering Meets Graph Neural Logic for Enhanced Open-Domain QA",
+        "Problem_Statement": "Current prompting strategies lack formal logical structure to guide abductive commonsense inference in LLMs for open-domain QA.",
+        "Motivation": "Building on Opportunity 3, this project integrates explicit logical formulae derived from graph neural logic representations into prompt engineering pipelines to enrich LLM reasoning and explanation generation, addressing internal gaps in implicit knowledge reasoning.",
+        "Proposed_Method": "Develop prompts automatically generated from graph neural logic outputs representing commonsense relations and abductive hypotheses. These prompts encode logical constraints and inference patterns, steering LLMs toward logically consistent and abductively plausible answers with traceable justifications.",
+        "Step_by_Step_Experiment_Plan": "Use abductive QA datasets. Baselines include manual prompt strategies. Evaluate answer consistency, logical soundness, and explanation quality. Human judges assess abductive plausibility and trustworthiness.",
+        "Test_Case_Examples": "Input: 'If the lawn is wet, why?' Prompt includes logical constraints about watering systems and weather conditions to guide LLM toward abductive inferences with stepwise explanations.",
+        "Fallback_Plan": "If automatic prompt generation is ineffective, explore fine-tuning LLMs on graph-logic annotated corpora or adopt reinforcement learning to reward logical consistency."
+      }
+    ]
+  }
+}

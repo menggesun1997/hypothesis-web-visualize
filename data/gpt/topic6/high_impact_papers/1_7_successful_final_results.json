@@ -1,0 +1,57 @@
+{
+  "before_idea": {
+    "title": "Integrated Qualitative-Quantitative Framework for Evaluating LLM Response Sensitivity to Psychosocial Distress Indicators",
+    "Problem_Statement": "LLMs lack intrinsic evaluations sensitive to nuanced psychosocial distress signals embedded in online communications, hindering their socially aware deployment.",
+    "Motivation": "This framework addresses the internal methodological gap by fusing qualitative distress indicators coding with quantitative uncertainty metrics, thus creating interpretable intrinsic evaluation tools as per the high-potential integration opportunity.",
+    "Proposed_Method": "Develop a dual-channel evaluation system: (1) a qualitative distress indicator extractor trained on expert-labeled distress cues; (2) standard intrinsic LLM metrics (perplexity, self-consistency). Compute composite scores where high distress signals dynamically influence the interpretation and weighting of perplexity/self-consistency, capturing model sensitivity to human distress.",
+    "Step_by_Step_Experiment_Plan": "1. Collect distressed message datasets with expert distress annotations.\n2. Build distress cue extractors using linguistic and paralinguistic features.\n3. Generate LLM outputs on distress-related prompts.\n4. Calculate standard intrinsic metrics.\n5. Create composite evaluation weighing intrinsic metrics by detected distress levels.\n6. Validate against human distress sensitivity judgments.\n7. Test system in real-world distress detection and support scenarios.",
+    "Test_Case_Examples": "Input: \"I feel hopeless and overwhelmed by work pressure.\"\nExpected Output: The evaluation highlights low perplexity and high self-consistency only if LLM responses appropriately recognize distress and provide accurate supportive content.",
+    "Fallback_Plan": "If distress extraction underperforms, leverage rule-based distress lexicons and crisis keywords. Consider manual inspection or user feedback integration."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Integrated Qualitative-Quantitative Framework for Evaluating LLM Response Sensitivity to Psychosocial Distress Indicators",
+        "Problem_Statement": "LLMs currently lack intrinsic evaluation mechanisms that are sensitive to nuanced psychosocial distress signals within online communications, limiting their deployment in socially aware applications such as mental health support and crisis intervention.",
+        "Motivation": "Existing intrinsic evaluations of LLMs generally measure linguistic coherence and uncertainty but overlook sensitivity to the psychological state embedded in user inputs. By innovatively integrating expert-coded qualitative distress indicators with quantitative intrinsic metrics using a dynamic, interpretable composite scoring system, this framework advances evaluation beyond conventional metrics, addressing a critical yet underexplored gap. This approach not only enhances LLM social awareness evaluation but also aligns with multidisciplinary standards, inspired by international mental health assessment frameworks like those from the International Union of Nutritional Sciences that emphasize complex biopsychosocial stress evaluations.",
+        "Proposed_Method": "We propose a dual-stream evaluation framework composed of: (1) a qualitative distress indicator extractor trained on a rigorously annotated corpus capturing linguistic and paralinguistic distress features; (2) established intrinsic LLM metrics including perplexity and self-consistency scores. The core innovation lies in a novel composite scoring algorithm where distress level estimations dynamically modulate the weighting of intrinsic metrics. Formally, let D ∈ [0,1] represent normalized distress intensity from the extractor. The composite score C for an LLM response is computed as C = w(D)*P + (1 - w(D))*S, where P denotes perplexity, S denotes self-consistency, and w(D) is a non-linear weighting function that increases emphasis on self-consistency as distress intensifies (e.g., w(D) = sigmoid(α(D - β))) with empirically tuned parameters α, β. This design ensures model evaluation emphasizes consistent, supportive responses under high distress. To mitigate bias from subjective annotations, we incorporate weighted inter-annotator agreement scores as uncertainty margins and employ cross-validation on distress extraction. The framework’s modular architecture facilitates extensibility and reproducibility, enabling transparent interpretation by researchers and practitioners.",
+        "Step_by_Step_Experiment_Plan": "1. Dataset Preparation: Collect large-scale, diverse online communications annotated for psychosocial distress by a panel of 5 domain experts (clinical psychologists and linguists) following a detailed annotation schema derived from validated mental health instruments; measure inter-annotator agreement via Cohen's kappa aiming for >0.75. 2. Feature Engineering and Modeling: Extract linguistic (syntax, semantics) and paralinguistic features (sentiment, emojis, punctuation). Train distress cue extractors using supervised neural architectures (e.g., transformer-based classifiers) with data augmentation to enhance robustness. 3. LLM Output Generation: Generate multiple outputs from state-of-the-art LLMs for distress-labeled prompts designed to span intensity levels. 4. Intrinsic Metrics Computation: Calculate standard perplexity and self-consistency scores on generated responses. 5. Composite Scoring Development: Develop and calibrate the dynamic weighting function w(D) through grid search and sensitivity analysis, optimizing correlation with human distress sensitivity judgments. 6. Validation: Evaluate composite scores against independent human raters who assess LLM response sensitivity to distress using established evaluation metrics (Pearson correlation, F1-score), comparing against baselines that use intrinsic metrics alone. 7. Real-world Testing: Deployment in simulated support scenarios to assess practical utility and user perception. 8. Contingency Protocol: Activate fallback to a hybrid lexicon-rule based distress detection if distress extractor performance falls below 0.70 F1; escalate with iterative expert feedback and consider crowdsourced user validation.",
+        "Test_Case_Examples": "Input: \"I feel hopeless and overwhelmed by work pressure.\"\nExpected Outcome: Composite scoring highlights increased weight on self-consistency, leading to lower composite score only if LLM generates empathetic, relevant, and consistent supportive responses while maintaining acceptable perplexity. Benchmark: Composite score correlates ≥0.80 with human distress sensitivity ratings.\n\nInput: \"I'm just chatting about the weather.\"\nExpected Outcome: Low distress signal D causes composite score to primarily reflect perplexity, thereby validating typical language fluency and coherence without undue distortion.",
+        "Fallback_Plan": "Should the distress extraction pipeline underperform (F1 < 0.70), immediately activate a lexicon-based distress detection module using carefully curated crisis and psychosocial distress keyword lists, adjusted with weights derived from expert consensus and validated against a smaller annotated subset. Manual inspection and targeted user feedback loops will be incorporated to iteratively refine distress detection. If integration challenges arise, isolate evaluation components for incremental deployment, ensuring intrinsic metric computations remain operational and distress cues are progressively refined. Documentation and open-sourcing of all models and annotation protocols will foster community collaboration to overcome these limitations."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "LLM response sensitivity",
+      "psychosocial distress indicators",
+      "qualitative-quantitative framework",
+      "intrinsic evaluation",
+      "uncertainty metrics",
+      "socially aware deployment"
+    ],
+    "direct_cooccurrence_count": 1106,
+    "min_pmi_score_value": 3.724972098510042,
+    "avg_pmi_score_value": 4.985859528361402,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "32 Biomedical and Clinical Sciences",
+      "3210 Nutrition and Dietetics"
+    ],
+    "future_suggestions_concepts": [
+      "International Union of Nutritional Sciences"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "While the concept of combining qualitative distress indicators with quantitative intrinsic LLM metrics is promising, the proposed composite scoring mechanism lacks a clear, detailed description. Specifically, how dynamically weighting perplexity and self-consistency by distress levels will be operationalized, modeled, and validated remains ambiguous. This creates uncertainty about whether the method can reliably capture LLM sensitivity to psychosocial distress signals. Clarify the integration methodology, including equations or algorithms for combining signals and how the weighting adjusts with distress cues, to strengthen soundness and reproducibility of the method, especially given the novelty claims hinging on this fusion approach. Consider potential challenges like balancing subjective qualitative cues with objective intrinsic metrics and how to mitigate biases in distress annotation impacting evaluation scores in the composite metric design, as critical elements needing elaboration here. This will ensure the core mechanism is credible and evaluable by reviewers and practitioners alike, improving confidence in soundness and methodological rigor of the framework as a whole.  (Target: Proposed_Method)  (Code: SOU-MECHANISM)"
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The stepwise experiment plan is conceptually coherent but currently insufficiently detailed to fully establish feasibility. For example, it should specify how expert annotations for distress cues will be obtained — nature and number of experts, annotation schema, and inter-annotator agreement measures. Building distress cue extractors on linguistic and paralinguistic features requires more clarity about feature selection, modeling approaches (e.g., supervised classifiers, neural architectures), and data scale. Additionally, validation steps (step 6) need to define evaluation metrics and baselines for human distress sensitivity judgments clearly. The fallback plan is a good inclusion but lacks criteria for activation and escalation actions. Given the complexity and challenges of distress annotation and detection, these omissions risk experimental bottlenecks or gaps in replicability. To increase feasibility, provide concrete methodological and resource plans addressing annotation protocols, modeling pipelines, validation benchmarks, and contingency triggers, ideally supported by pilot study results or prior work references where possible. (Target: Step_by_Step_Experiment_Plan) (Code: FEA-EXPERIMENT)"
+        }
+      ]
+    }
+  }
+}

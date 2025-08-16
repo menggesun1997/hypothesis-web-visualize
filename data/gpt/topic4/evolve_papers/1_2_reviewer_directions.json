@@ -1,0 +1,64 @@
+{
+  "original_idea": {
+    "title": "Typology-Guided Multilingual Curriculum Learning",
+    "Problem_Statement": "Standard multilingual training treats languages uniformly or clusters them by language family, ignoring fine-grained typological differences that could optimize transfer and reduce negative transfer effects.",
+    "Motivation": "Targets internal gaps on typology integration in transfer learning to improve model generalization and bias, moving beyond English-centric and family-based clustering approaches.",
+    "Proposed_Method": "Develop a curriculum learning strategy that dynamically organizes training batches based on sliding typological similarity measures, such as word order, morphological complexity, and phonological inventories. The curriculum guides model focus from close typological neighbors to more distant languages progressively, improving robustness and typology-aware representation learning.",
+    "Step_by_Step_Experiment_Plan": "1) Extract typological feature vectors for languages from WALS and URIEL; 2) Define typology distance functions; 3) Construct training curricula reflecting incremental typological divergence; 4) Train multilingual transformers on token-level language modeling and downstream tasks; 5) Compare to random, family-based, and no-curriculum baselines; 6) Evaluate performance, representation diversity, and bias metrics.",
+    "Test_Case_Examples": "Input: Training sequence starts with Spanish, Italian (close to English typology), then progressively includes more distant languages like Basque and Georgian. Expected Output: Improved cross-lingual transfer performance on distant languages, reduced bias on typologically unique constructs.",
+    "Fallback_Plan": "If curriculum learning yields marginal gains, combine with auxiliary typology prediction tasks or contrastive loss terms emphasizing typological distinctions in representations."
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Typology",
+      "Multilingual Curriculum Learning",
+      "Transfer Learning",
+      "Model Generalization",
+      "Bias Reduction",
+      "Language Clustering"
+    ],
+    "direct_cooccurrence_count": 11848,
+    "min_pmi_score_value": 2.9805490883471215,
+    "avg_pmi_score_value": 3.9480021173249398,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "4203 Health Services and Systems",
+      "4206 Public Health",
+      "42 Health Sciences"
+    ],
+    "future_suggestions_concepts": [
+      "Second Language Acquisition",
+      "cognitive outcomes",
+      "public health professionals",
+      "health promotion programs",
+      "mental health promotion",
+      "health promotion interventions",
+      "health improvement initiatives",
+      "physical activity promotion",
+      "implementing health promotion programs",
+      "Health Promotion and Education",
+      "International Union for Health Promotion and Education",
+      "health promotion",
+      "language model",
+      "NLP tasks",
+      "natural language processing",
+      "pre-trained language models",
+      "socio-emotional processing",
+      "cognition in adulthood",
+      "functional brain network changes",
+      "students of public health"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-ASSUMPTION",
+          "feedback_content": "The fundamental assumption that fine-grained typological differences, beyond family-based clustering, provide consistent and significant benefits in multilingual transfer learning merits stronger theoretical justification or empirical precedent. While typology-informed curricula are intuitively promising, it remains unclear whether the chosen typological features (word order, morphology, phonology) equally impact neural representation learning or if some may introduce noise. Clarifying and supporting these assumptions with citations or pilot analyses will strengthen the soundness of the proposed approach and reduce risk of chasing spurious or marginal effects inherent in typological distances that are not strongly predictive of transfer interactions in deep models today. Consider explicitly discussing the robustness and validity of typology distance metrics vis-à-vis transfer gains in prior work or preliminary experiments to reinforce this assumption beyond the current intuition-based framing. This is critical because the entire methodology and curriculum hinge on the quality and predictive value of these typological distances and their effect on model learning dynamics.  Addressing this will increase confidence that the problem is well-posed and the method is justified as a novel improvement over language-family or random curricula. Target Section: Problem_Statement and Proposed_Method."
+        },
+        {
+          "feedback_code": "FEA-EXPERIMENT",
+          "feedback_content": "The Step_by_Step_Experiment_Plan lacks concrete detail regarding key experimental controls necessary to isolate the effect of the typology-guided curriculum. For feasibility and impact, it is essential to clarify critical aspects such as: (1) the size and diversity of the language set (number of languages, typological and script diversity) to ensure meaningful evaluation of gradual typological divergence; (2) the schedule and granularity of curriculum progression (step sizes or thresholds in typological distance that define curriculum stages); (3) concrete baselines including strong multilingual pretrained models with fine-tuning, family clusters, and random curriculum schedules; (4) metrics quantifying bias and fairness, their definitions, and how typologically unique constructs are operationalized and measured quantitatively; (5) computational resources and time estimates to evaluate feasibility on realistic multilingual transformer scales. Providing these details will ensure the experiments are practical, scientifically sound, and yield interpretable results, enabling clear attribution of performance gains or failures to the curriculum methodology rather than confounds. Without this, it is difficult to assess feasibility and replicability, which could impede the work’s acceptance and adoption. Target Section: Step_by_Step_Experiment_Plan."
+        }
+      ]
+    }
+  }
+}

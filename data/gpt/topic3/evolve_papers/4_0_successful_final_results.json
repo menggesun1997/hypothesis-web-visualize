@@ -1,0 +1,86 @@
+{
+  "before_idea": {
+    "title": "Dynamic Semantic Prompt Adaptation for Subjective NLP Tasks in Software Engineering",
+    "Problem_Statement": "Subjective NLP tasks like emotion recognition in software engineering outputs exhibit significant performance drops when LLMs are optimized for computational efficiency, leading to unreliable results. Achieving computational efficiency without sacrificing reliability in such subjective tasks remains a challenge.",
+    "Motivation": "Addresses the internal reliability gap of LLMs on complex and subjective tasks as identified in the critical gaps. This research introduces a dynamically adaptive prompt engineering framework tailored to semantic complexity and data representativeness, improving performance in low-resource, subjective NLP problems in software contexts.",
+    "Proposed_Method": "We propose a multi-layer adaptive prompt generation framework that analyzes input task complexity and semantic features in real-time to select and customize prompt patterns from an enriched catalog. The system incorporates imbalanced learning strategies to weight data samples dynamically and semantic augmentation tuned per instance. A feedback module estimates task difficulty to guide prompt adjustment iteratively, creating a 'smart prompt tuner' that balances efficiency and reliability.",
+    "Step_by_Step_Experiment_Plan": "1) Collect datasets on subjective NLP tasks in SE (e.g., emotion detection on commit messages). 2) Implement baseline LLM pipelines with static prompt patterns. 3) Develop the dynamic prompt adaptation module integrating semantic and complexity features. 4) Evaluate models with metrics like F1-score, accuracy, and computational resource usage. 5) Compare against baseline and analyze performance on balanced vs imbalanced subsets. 6) Conduct ablation studies on components of the adaptation process.",
+    "Test_Case_Examples": "Input: \"Fixes crashing issue when user inputs invalid credentials — really frustrated with the error handling here!\" Expected output: Emotion label \"Frustration\" with high confidence and reduced computation through targeted prompt augmentation.",
+    "Fallback_Plan": "If dynamic adaptation fails to improve reliability, fallback to hybrid ensemble approaches combining static semantic prompt catalog patterns with post-hoc calibration using lightweight classifiers. Additionally, conduct qualitative error analysis to refine complexity metrics guiding prompt adaptation."
+  },
+  "after_idea": {
+    "ideas": [
+      {
+        "title": "Dynamic Semantic Prompt Adaptation with Domain Generalization and User-Informed Feedback for Subjective NLP Tasks in Software Engineering",
+        "Problem_Statement": "Subjective NLP tasks such as emotion recognition in software engineering artifacts (e.g., commit messages, issue comments) suffer from significant reliability degradation, especially when large language models (LLMs) are optimized for computational efficiency. Existing prompt engineering approaches often assume static contexts and lack mechanisms to adapt dynamically to semantic complexity, data imbalance, and domain shifts typical in real-world software engineering scenarios. Achieving a balance between reliability, efficiency, and robustness under varying input distributions remains a critical challenge.",
+        "Motivation": "Building upon prior work identifying internal reliability gaps of LLMs on complex, subjective NLP tasks, this research advances the state-of-the-art by introducing a rigorously defined, dynamic prompt adaptation framework enriched with domain generalization techniques and user feedback integration. This comprehensive approach addresses key limitations of prior competitive methods by enhancing robustness against distribution shifts, reducing annotation bias effects via imbalanced learning, and introducing a self-regulated adaptation cycle fueled by real-world user signals. Our contributions include formalizing and operationalizing task difficulty quantification, making the framework interpretable and reproducible, and transcending purely NLP-centric approaches to embrace multi-modal potential for future expansion.",
+        "Proposed_Method": "We propose a technically detailed, multi-component framework called SMART-Prompt (Self-regulated Multi-layer Adaptive semantic pRompT optimization), consisting of:\n\n1. **Task Complexity and Semantic Feature Quantification Module:** Utilizing state-of-the-art word embeddings combined with recurrent neural networks (e.g., Bi-LSTM) to extract semantic representations and quantify task difficulty via entropy-based and confidence metrics. This module outputs a formalized task difficulty score.\n\n2. **Dynamic Prompt Selection and Augmentation Engine:** Based on the computed difficulty score and semantic features, this engine programmatically selects prompt templates from a curated catalog and applies semantic augmentation. Augmentations are instance-specific and weighted using imbalanced learning strategies to handle class imbalance, ensuring balanced semantic coverage.\n\n3. **Domain Generalization Layer:** Employs domain generalization methods such as feature augmentation and adversarial domain discriminators to improve prompt robustness across software engineering subdomains (e.g., different repositories, programming languages).\n\n4. **User Feedback Integration Module:** Incorporates real-time implicit and explicit user feedback (e.g., user corrections, satisfaction ratings) to refine prompt patterns via a self-regulated learning loop, enabling continuous adaptation and improving downstream reliability.\n\n5. **Iterative Feedback Module:** A feedback loop evaluates model output confidence and resource consumption metrics at runtime, guiding prompt pattern adjustments to balance computational efficiency and reliability effectively.\n\nThe entire system pipeline is described through formal pseudocode outlining input processing, prompt adaptation decision-making, and feedback integration. Computational overhead is monitored, and trade-offs between prompt complexity and inference cost are optimized dynamically, ensuring scalable and interpretable deployment.",
+        "Step_by_Step_Experiment_Plan": "1) Curate diverse datasets for subjective NLP tasks in software engineering, including emotion detection in commit messages, issue comments, and associated multimodal data (e.g., screenshots).\n2) Implement baseline LLM pipelines with static prompt templates for comparison.\n3) Develop and integrate the SMART-Prompt framework modules, including semantic feature extraction, domain generalization, and user feedback interfaces.\n4) Conduct rigorous quantitative evaluation using metrics such as F1-score, accuracy, calibration error, computational resource usage, and robustness to domain shifts.\n5) Perform ablation studies to assess contribution of each module, including domain generalization and self-regulated feedback.\n6) Test scalability and real-time adaptability using simulated and live user feedback streams.\n7) Explore preliminary extensions with vision-language models to analyze paired multimodal data for subjective emotional context.",
+        "Test_Case_Examples": "Input: \"Fixes crashing issue when user inputs invalid credentials — really frustrated with the error handling here!\"\nExpected Output: Emotion label \"Frustration\" with confidence >0.9, using an optimized prompt selected dynamically with semantic augmentation reducing inference time by 20% compared to static prompting.\n\nAdditional case: Paired commit message and screenshot showing error UI.\nExpected Output: Multi-modal emotion inference leveraging vision-language embeddings, enhancing recognition accuracy by 5% over text-only models.\n\nReal-time user feedback example: User flags misclassified emotion as \"Anger\".\nSystem updates prompt weighting and increases emphasis on anger semantic features in subsequent predictions, demonstrating self-regulated learning.",
+        "Fallback_Plan": "If the full SMART-Prompt dynamic adaptation framework fails to improve reliability or introduces prohibitive computational cost, fallback strategies include:\n\n- Employing a hybrid ensemble approach combining the best static prompt templates selected via cross-validation with a post-hoc lightweight calibration model to improve output confidence and reliability.\n- Conducting a detailed qualitative error analysis to refine the complexity quantification metrics and simplify the feedback loop design.\n- Gradually integrating individual components (e.g., domain generalization layer separate from feedback module) to isolate performance contributions and iteratively improve the system robustness and efficiency."
+      }
+    ]
+  },
+  "feedback_results": {
+    "keywords_query": [
+      "Dynamic Semantic Prompt Adaptation",
+      "Subjective NLP Tasks",
+      "Software Engineering",
+      "Large Language Models",
+      "Prompt Engineering Framework",
+      "Computational Efficiency"
+    ],
+    "direct_cooccurrence_count": 13505,
+    "min_pmi_score_value": 2.5379132497556505,
+    "avg_pmi_score_value": 4.671924867450196,
+    "novelty": "NOV-COMPETITIVE",
+    "future_suggestions_categories": [
+      "46 Information and Computing Sciences",
+      "4608 Human-Centred Computing",
+      "4611 Machine Learning"
+    ],
+    "future_suggestions_concepts": [
+      "convolutional neural network",
+      "conversational agents",
+      "model long-range dependencies",
+      "state-of-the-art word embeddings",
+      "optical character recognition",
+      "recurrent neural network",
+      "long short-term memory",
+      "domain generalization",
+      "application of artificial intelligence",
+      "computer vision system",
+      "narrative visualization",
+      "climate change",
+      "level of privacy protection",
+      "on-device",
+      "vision-language models",
+      "brain-computer interface",
+      "medical code prediction",
+      "deformable convolutional neural network",
+      "evaluation metrics",
+      "natural language inference",
+      "user feedback",
+      "software requirements",
+      "app reviews",
+      "mobile app reviews",
+      "visual system",
+      "self-regulated learning",
+      "intelligent visual system",
+      "short informal texts",
+      "spatial features"
+    ],
+    "internal_review": {
+      "critiques": [
+        {
+          "feedback_code": "SOU-MECHANISM",
+          "feedback_content": "The proposed multi-layer adaptive prompt generation framework introduces several complex components such as real-time semantic complexity analysis, dynamic weighting via imbalanced learning, and iterative feedback-guided prompt adjustment. However, the mechanism lacks detailed clarification about how these components are technically integrated and coordinated during inference. For example, how exactly is task difficulty quantified and operationalized to update prompt patterns? What is the computational overhead of these dynamic adjustments, and how is efficiency balanced against reliability concretely? Greater methodological rigor is required to clearly articulate the inner workings, dependencies, and expected trade-offs of the framework to ensure its soundness and reproducibility. I recommend including formal algorithmic descriptions or pseudocode, and clarifying the role and design of the feedback module within the overall system pipeline to enhance clarity and technical credibility in the Proposed_Method section."
+        },
+        {
+          "feedback_code": "SUG-GLOBAL_INTEGRATION",
+          "feedback_content": "Given that the novelty screening rated the idea as 'NOV-COMPETITIVE', there is an opportunity to refine and elevate its impact and uniqueness by integrating concepts from globally-linked domains. For example, incorporating domain generalization techniques could enhance robustness against distribution shifts typical in subjective software engineering data. Furthermore, leveraging user feedback as a real-world dynamic signal to refine prompts could create a self-regulated learning paradigm improving adaptation over time. Additionally, exploring vision-language models or narrative visualization could open novel multimodal analysis angles for subjective emotions in code-related artifacts (e.g., commit messages paired with screenshots). I suggest concretely exploring such cross-disciplinary methods to enrich the adaptive prompting framework, thus pushing beyond purely NLP-centric approaches toward a highly innovative, impactful contribution."
+        }
+      ]
+    }
+  }
+}
