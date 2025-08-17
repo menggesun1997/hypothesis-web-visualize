@@ -9,7 +9,6 @@ import sqlite3
 import json
 from datetime import datetime
 from flask import Flask, render_template, jsonify, request
-from flask_cors import CORS
 import os
 from pathlib import Path
 
