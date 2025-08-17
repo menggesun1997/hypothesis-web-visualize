@@ -5,12 +5,11 @@
 支持高级搜索、动态排序、智能筛选和数据分析
 """
 
-from flask import Flask, render_template, request, jsonify, send_file
 import sqlite3
 import json
-import pandas as pd
 from datetime import datetime
-import io
+from flask import Flask, render_template, jsonify, request
+from flask_cors import CORS
 import os
 from pathlib import Path
 
@@ -526,75 +525,7 @@ def get_score_distribution():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/export/csv')
-def export_csv():
-    """导出CSV文件"""
-    try:
-        # 获取筛选参数
-        topic = request.args.get('topic', type=int)
-        strategy = request.args.get('strategy')
-        min_score = request.args.get('min_score', type=float)
-        max_score = request.args.get('max_score', type=float)
-        
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        
-        # 构建查询
-        query = '''
-            SELECT 
-                h.topic,
-                h.sub_topic,
-                h.strategy,
-                h.hypothesis_id,
-                h.novelty_score,
-                h.significance_score,
-                h.soundness_score,
-                h.feasibility_score,
-                h.overall_winner_score,
-                h.created_at
-            FROM hypothesis h
-            WHERE 1=1
-        '''
-        
-        params = []
-        if topic:
-            query += ' AND h.topic = ?'
-            params.append(topic)
-        if strategy:
-            query += ' AND h.strategy = ?'
-            params.append(strategy)
-        if min_score is not None:
-            query += ' AND h.overall_winner_score >= ?'
-            params.append(min_score)
-        if max_score is not None:
-            query += ' AND h.overall_winner_score <= ?'
-            params.append(max_score)
-        
-        cursor.execute(query, params)
-        
-        # 创建DataFrame
-        df = pd.DataFrame(cursor.fetchall(), columns=[
-            'Topic', 'Sub Topic', 'Strategy', 'Hypothesis ID',
-            'Novelty Score', 'Significance Score', 'Soundness Score',
-            'Feasibility Score', 'Overall Score', 'Created At'
-        ])
-        
-        conn.close()
-        
-        # 生成CSV
-        output = io.StringIO()
-        df.to_csv(output, index=False, encoding='utf-8-sig')
-        output.seek(0)
-        
-        return send_file(
-            io.BytesIO(output.getvalue().encode('utf-8-sig')),
-            mimetype='text/csv',
-            as_attachment=True,
-            download_name=f'hypothesis_export_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
-        )
-        
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+
 
 @app.route('/api/analytics/top_hypotheses')
 def get_top_hypotheses():
